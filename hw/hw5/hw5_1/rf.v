@@ -41,6 +41,18 @@ module rf (
    assign writeReg[6] = (~writeRegSel[0] &  writeRegSel[1] &  writeRegSel[2] & writeEn) | rst;
    assign writeReg[7] = ( writeRegSel[0] &  writeRegSel[1] &  writeRegSel[2] & writeEn)	| rst;
 
+   assign err = ^{ rst,
+		   readReg1Sel,
+		   readReg2Sel,
+		   writeRegSel,
+		   writeData,
+		   writeEn,
+		   regs[7:0],
+		   writeReg,
+		   writeDataReset
+		 } === 1'bX;
+   
+
    assign writeDataReset = ~rst ? writeData : 16'b0;
 
    mux8_1_16b rd1(
