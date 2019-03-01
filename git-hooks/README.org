@@ -1,0 +1,10 @@
+* Git Hooks
+
+=cd= to this directory.
+
+run =make install git-hooks=
+
+Various checks are made such that:
+
+  * All modified files must pass =vcheck= before commits are legal
+  * 
