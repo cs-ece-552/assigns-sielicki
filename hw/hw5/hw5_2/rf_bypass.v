@@ -22,6 +22,31 @@ module rf_bypass (
    output [15:0] readData2;
    output        err;
 
-   /* YOUR CODE HERE */
+   
+   wire [15:0] 	 rfout[1:0];
+
+
+   assign readData1 = rst ? 16'b0 
+		          : writeEn & (readReg1Sel == writeRegSel) ? writeData 
+                                                                   : rfout[0];
+   
+   assign readData2 = rst ? 16'b0 
+		          : writeEn & (readReg2Sel == writeRegSel) ? writeData 
+		                                                   : rfout[1];
+   
+   rf bypassable(
+		 // Outputs
+		 .readData1		(rfout[0]),
+		 .readData2		(rfout[1]),
+		 .err			(err),
+		 // Inputs
+		 .clk			(clk),
+		 .rst			(rst),
+		 .readReg1Sel		(readReg1Sel[2:0]),
+		 .readReg2Sel		(readReg2Sel[2:0]),
+		 .writeRegSel		(writeRegSel[2:0]),
+		 .writeData		(writeData[15:0]),
+		 .writeEn		(writeEn));
+   
 
 endmodule
