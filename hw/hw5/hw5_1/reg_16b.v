@@ -26,8 +26,7 @@ module reg_16b (
 
 
    assign outData[15:0] = qReturn[15:0];
-   assign dEnabled[15:0] = writeEn ? inData[15:0] : qReturn[15:0];
-   
+   assign dEnabled[15:0] = rst ? 16'b0 : writeEn ? inData[15:0] : qReturn[15:0];
 
    dff bit0(
 	    // Outputs
