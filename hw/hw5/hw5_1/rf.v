@@ -47,7 +47,14 @@ module rf (
 		   writeRegSel,
 		   writeData,
 		   writeEn,
-		   regs[7:0],
+		   regs[0],
+		   regs[1],
+		   regs[2],
+		   regs[3],
+		   regs[4],
+		   regs[5],
+		   regs[6],
+		   regs[7],
 		   writeReg,
 		   writeDataReset
 		 } === 1'bX;
@@ -59,19 +66,19 @@ module rf (
 		   // Outputs
 		   .Out			(readData1),
 		   // Inputs
-		   .In			(regs),
+		   .In			({regs[0], regs[1], regs[2], regs[3], regs[4], regs[5], regs[6], regs[7]}),
 		   .S			(readReg1Sel));
 
    mux8_1_16b rd2(
 		  // Outputs
 		  .Out			(readData2),
 		  // Inputs
-		  .In			(regs),
+		  .In			({regs[0], regs[1], regs[2], regs[3], regs[4], regs[5], regs[6], regs[7]}),
 		  .S			(readReg2Sel));
 
    reg_16b reg0(
 		// Outputs
-		.outData		(regs[0]),
+		.outData		(regs[0][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -80,7 +87,7 @@ module rf (
 
    reg_16b reg1(
 		// Outputs
-		.outData		(regs[1]),
+		.outData		(regs[1][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -89,7 +96,7 @@ module rf (
 
    reg_16b reg2(
 		// Outputs
-		.outData		(regs[2]),
+		.outData		(regs[2][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -98,7 +105,7 @@ module rf (
 
    reg_16b reg3(
 		// Outputs
-		.outData		(regs[3]),
+		.outData		(regs[3][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -107,7 +114,7 @@ module rf (
 
    reg_16b reg4(
 		// Outputs
-		.outData		(regs[4]),
+		.outData		(regs[4][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -116,7 +123,7 @@ module rf (
    
    reg_16b reg5(
 		// Outputs
-		.outData		(regs[5]),
+		.outData		(regs[5][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -125,7 +132,7 @@ module rf (
 
    reg_16b reg6(
 		// Outputs
-		.outData		(regs[6]),
+		.outData		(regs[6][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
@@ -134,7 +141,7 @@ module rf (
 
    reg_16b reg7(
 		// Outputs
-		.outData		(regs[7]),
+		.outData		(regs[7][15:0]),
 		// Inputs
 		.clk			(clk),
 		.rst			(rst),
