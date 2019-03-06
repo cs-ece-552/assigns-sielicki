@@ -48,7 +48,8 @@ module control_hier_bench(/*AUTOARG*/);
 
    /* YOUR CODE HERE */
    initial begin
-		opCode = 00000; //HALT
+        Funct = 2'b00;
+		opCode = 5'b00000; //HALT
         if(RegWrite != 1'b0) begin
             $display("ERRORCHECK: Incorrect RegWrite");
             fail = 1;
@@ -90,7 +91,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 00001; //NOP
+		#10
+		opCode = 5'b00001; //NOP
         if(RegWrite != 1'b0) begin
             $display("ERRORCHECK: Incorrect RegWrite");
             fail = 1;
@@ -132,7 +134,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
 
-		opCode = 01000; //SUBI
+		#10
+		opCode = 5'b01000; //SUBI
         if(RegDst != 2'b01) begin //
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -189,7 +192,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01001; //ADDI
+		#10
+		opCode = 5'b01001; //ADDI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -246,7 +250,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
         
-		opCode = 01010; //ANDNI
+		#10
+		opCode = 5'b01010; //ANDNI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -303,7 +308,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01011; //XORI
+		#10
+		opCode = 5'b01011; //XORI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -360,7 +366,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10100; //ROLI
+		#10
+		opCode = 5'b10100; //ROLI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -412,7 +419,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10101; //SLLI
+		#10
+		opCode = 5'b10101; //SLLI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -464,7 +472,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10110; //RORI
+		#10
+		opCode = 5'b10110; //RORI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -516,7 +525,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10111; //SRLI
+		#10
+		opCode = 5'b10111; //SRLI
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -568,7 +578,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10000; //ST
+		#10
+		opCode = 5'b10000; //ST
         if(SESel[2:1] != 2'b01) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -620,7 +631,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10001; //LD
+		#10
+		opCode = 5'b10001; //LD
         if(RegDst != 2'b01) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -677,7 +689,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 10011; //STU
+		#10
+		opCode = 5'b10011; //STU
         if(RegDst != 2'b10) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -734,7 +747,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11001; //BTR
+		#10
+		opCode = 5'b11001; //BTR
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -786,7 +800,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11011; //ADD, SUB, XOR, ANDN
+		#10
+		opCode = 5'b11011; //ADD, SUB, XOR, ANDN
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -838,7 +853,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11010; //ROL, SLL, ROR, SRL
+		#10
+		opCode = 5'b11010; //ROL, SLL, ROR, SRL
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -890,7 +906,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11100; //SEQ
+		#10
+		opCode = 5'b11100; //SEQ
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -942,7 +959,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11101; //SLT
+		#10
+		opCode = 5'b11101; //SLT
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -994,7 +1012,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11110; //SLE
+		#10
+		opCode = 5'b11110; //SLE
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -1046,7 +1065,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 11111; //SCO
+		#10
+		opCode = 5'b11111; //SCO
         if(Regdst != 2'b00) begin
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -1098,7 +1118,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end    
 
-		opCode = 01100; //BNEZ
+		#10
+		opCode = 5'b01100; //BNEZ
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1150,7 +1171,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
 
-		opCode = 01101; //BEQZ
+		#10
+		opCode = 5'b01101; //BEQZ
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1202,7 +1224,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01110; //BLTZ
+		#10
+		opCode = 5'b01110; //BLTZ
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1254,7 +1277,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01111; //BGEZ
+		#10
+		opCode = 5'b01111; //BGEZ
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1306,7 +1330,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //LBI
+		#10
+		opCode = 5'b01000; //LBI
         if(RegDst != 2'b10) begin //
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -1363,7 +1388,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //SLBI
+		#10
+		opCode = 5'b01000; //SLBI
         if(RegDst != 2'b10) begin //
             $display("ERRORCHECK: Incorrect RegDst");
             fail = 1;
@@ -1420,7 +1446,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //J
+		#10
+		opCode = 5'b01000; //J
         if(SESel[2:1] != 2'b11) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1467,7 +1494,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //JR
+		#10
+		opCode = 5'b01000; //JR
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1514,7 +1542,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //JAL
+		#10
+		opCode = 5'b01000; //JAL
         if(SESel[2:1] != 2'b11) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1571,7 +1600,8 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
     
-		opCode = 01000; //JALR
+		#10
+		opCode = 5'b01000; //JALR
         if(SESel[2:1] != 2'b10) begin
             $display("ERRORCHECK: Incorrect SESel");
             fail = 1;
@@ -1618,6 +1648,7 @@ module control_hier_bench(/*AUTOARG*/);
 			$stop;
         end
         
+        #10
         $stop;
     end
 
