@@ -35,5 +35,18 @@ module control (/*AUTOARG*/
    output [2:0] SESel;
 
    /* YOUR CODE HERE */
+
+   regWrite regwrite (.opcode(OpCode), .out(RegWrite));
+   dMemWrite dmemwrite (.opcode(OpCode), .out(DMemWrite));
+   dMemEn dmemen (.opcode(OpCode), .out(DMemEn));
+   aluSrc2 alusrc2 (.opcode(OpCode), .out(ALUSrc2));
+   pcSrc pcsrc (.opcode(OpCode), .out(PCSrc));
+   pcImm pcimm (.opcode(OpCode), .out(PCImm));
+   memToReg memtoreg (.opcode(OpCode), .out(MemToReg));
+   dMemDump dmemdump (.opcode(OpCode), .out(DMemDump));
+   jump jump (.opcode(OpCode), .out(Jump));
+   regDst regdst (.opcode(OpCode), .out(RegDst));
+   seSel sesel (.opcode(OpCode), .out(SESel));
+   
    
 endmodule
