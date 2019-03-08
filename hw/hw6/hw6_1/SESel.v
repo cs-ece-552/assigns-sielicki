@@ -9,7 +9,7 @@ module seSel(opcode, out);
    wire [1:0]  one_one_x_funct;
  
    
-   wire [1:0]  mux000,mux001,mux01x, mux10x;
+   wire [2:0]  mux000,mux001,mux01x, mux10x;
    wire        final000, final001, final01x, final10x, final11x;
    
    
