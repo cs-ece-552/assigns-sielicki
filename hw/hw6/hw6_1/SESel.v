@@ -14,30 +14,30 @@ module seSel(opcode, out);
    
    
 
-   xnor5_1 zero_zero_zero0 (.opcode(opcode), .func(4'b01010), .out(zero_zero_zero_funct[0]));
-   xnor5_1 zero_zero_zero1 (.opcode(opcode), .func(4'b01011), .out(zero_zero_zero_funct[1]));
-   xnor5_1 zero_zero_zero2 (.opcode(opcode), .func(4'b10100), .out(zero_zero_zero_funct[2]));
-   xnor5_1 zero_zero_zero3 (.opcode(opcode), .func(4'b10101), .out(zero_zero_zero_funct[3]));
-   xnor5_1 zero_zero_zero4 (.opcode(opcode), .func(4'b10110), .out(zero_zero_zero_funct[4]));
-   xnor5_1 zero_zero_zero5 (.opcode(opcode), .func(4'b10111), .out(zero_zero_zero_funct[5]));
+   xnor5_1 zero_zero_zero0 (.opcode(opcode), .func(5'b01010), .out(zero_zero_zero_funct[0]));
+   xnor5_1 zero_zero_zero1 (.opcode(opcode), .func(5'b01011), .out(zero_zero_zero_funct[1]));
+   xnor5_1 zero_zero_zero2 (.opcode(opcode), .func(5'b10100), .out(zero_zero_zero_funct[2]));
+   xnor5_1 zero_zero_zero3 (.opcode(opcode), .func(5'b10101), .out(zero_zero_zero_funct[3]));
+   xnor5_1 zero_zero_zero4 (.opcode(opcode), .func(5'b10110), .out(zero_zero_zero_funct[4]));
+   xnor5_1 zero_zero_zero5 (.opcode(opcode), .func(5'b10111), .out(zero_zero_zero_funct[5]));
    
-   xnor5_1 zero_zero_one (.opcode(opcode), .func(4'b10010), .out(zero_zero_one_funct));
+   xnor5_1 zero_zero_one (.opcode(opcode), .func(5'b10010), .out(zero_zero_one_funct));
    
-   xnor5_1 zero_one_x0 (.opcode(opcode), .func(4'b01000), .out(zero_one_x_funct[0]));
-   xnor5_1 zero_one_x1 (.opcode(opcode), .func(4'b01001), .out(zero_one_x_funct[1]));
-   xnor5_1 zero_one_x2 (.opcode(opcode), .func(4'b10000), .out(zero_one_x_funct[2]));
-   xnor5_1 zero_one_x3 (.opcode(opcode), .func(4'b10001), .out(zero_one_x_funct[3]));
+   xnor5_1 zero_one_x0 (.opcode(opcode), .func(5'b01000), .out(zero_one_x_funct[0]));
+   xnor5_1 zero_one_x1 (.opcode(opcode), .func(5'b01001), .out(zero_one_x_funct[1]));
+   xnor5_1 zero_one_x2 (.opcode(opcode), .func(5'b10000), .out(zero_one_x_funct[2]));
+   xnor5_1 zero_one_x3 (.opcode(opcode), .func(5'b10001), .out(zero_one_x_funct[3]));
 
-   xnor5_1 one_zero_x0 (.opcode(opcode), .func(4'b01100), .out(one_zero_x_funct[0]));
-   xnor5_1 one_zero_x1 (.opcode(opcode), .func(4'b01101), .out(one_zero_x_funct[1]));
-   xnor5_1 one_zero_x2 (.opcode(opcode), .func(4'b01110), .out(one_zero_x_funct[2]));
-   xnor5_1 one_zero_x3 (.opcode(opcode), .func(4'b01111), .out(one_zero_x_funct[3]));
-   xnor5_1 one_zero_x4 (.opcode(opcode), .func(4'b11000), .out(one_zero_x_funct[4]));
-   xnor5_1 one_zero_x5 (.opcode(opcode), .func(4'b00101), .out(one_zero_x_funct[5]));
-   xnor5_1 one_zero_x6 (.opcode(opcode), .func(4'b00111), .out(one_zero_x_funct[6]));
+   xnor5_1 one_zero_x0 (.opcode(opcode), .func(5'b01100), .out(one_zero_x_funct[0]));
+   xnor5_1 one_zero_x1 (.opcode(opcode), .func(5'b01101), .out(one_zero_x_funct[1]));
+   xnor5_1 one_zero_x2 (.opcode(opcode), .func(5'b01110), .out(one_zero_x_funct[2]));
+   xnor5_1 one_zero_x3 (.opcode(opcode), .func(5'b01111), .out(one_zero_x_funct[3]));
+   xnor5_1 one_zero_x4 (.opcode(opcode), .func(5'b11000), .out(one_zero_x_funct[4]));
+   xnor5_1 one_zero_x5 (.opcode(opcode), .func(5'b00101), .out(one_zero_x_funct[5]));
+   xnor5_1 one_zero_x6 (.opcode(opcode), .func(5'b00111), .out(one_zero_x_funct[6]));
    
-   xnor5_1 one_one_x0 (.opcode(opcode), .func(4'b00100), .out(one_one_x_funct[0]));
-   xnor5_1 one_one_x1 (.opcode(opcode), .func(4'b00110), .out(one_one_x_funct[1]));
+   xnor5_1 one_one_x0 (.opcode(opcode), .func(5'b00100), .out(one_one_x_funct[0]));
+   xnor5_1 one_one_x1 (.opcode(opcode), .func(5'b00110), .out(one_one_x_funct[1]));
 
    assign final000 = zero_zero_zero_funct[0]|zero_zero_zero_funct[1]|zero_zero_zero_funct[2]|zero_zero_zero_funct[3]|zero_zero_zero_funct[4]|zero_zero_zero_funct[5];
 

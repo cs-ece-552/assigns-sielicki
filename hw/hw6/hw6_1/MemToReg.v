@@ -3,7 +3,7 @@ module memToReg(opcode, out);
    output      out;
    wire        funct;
 
-   xnor5_1 xnor0  (.opcode(opcode), .func(4'b10001), .out(funct));
+   xnor5_1 xnor0  (.opcode(opcode), .func(5'b10001), .out(funct));
    assign out = funct;
 
 endmodule; // dMemWrite

@@ -3,7 +3,7 @@ module dMemDump(opcode, out);
    output      out;
    wire        funct;
 
-   xnor5_1 xnor0  (.opcode(opcode), .func(4'b00000), .out(funct));
+   xnor5_1 xnor0  (.opcode(opcode), .func(5'b00000), .out(funct));
    assign out = funct;
 
 endmodule; // dMemWrite
