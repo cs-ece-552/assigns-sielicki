@@ -16,6 +16,7 @@ module control_hier (/*AUTOARG*/
                      DMemWrite,
                      DMemEn,
                      ALUSrc2,
+                     PCImm,
                      PCSrc,
                      MemToReg,
                      DMemDump,
@@ -32,7 +33,7 @@ module control_hier (/*AUTOARG*/
    // outputs
    output       err;
    output       RegWrite, DMemWrite, DMemEn, ALUSrc2, PCSrc, 
-                MemToReg, DMemDump, Jump;
+                PCImm, MemToReg, DMemDump, Jump;
    output [1:0] RegDst;
    output [2:0] SESel;
 
@@ -49,6 +50,7 @@ module control_hier (/*AUTOARG*/
               .DMemWrite                    (DMemWrite),
               .DMemEn                       (DMemEn),
               .ALUSrc2                      (ALUSrc2),
+              .PCImm                        (PCImm),
               .PCSrc                        (PCSrc),
               .MemToReg                     (MemToReg),
               .DMemDump                     (DMemDump),
