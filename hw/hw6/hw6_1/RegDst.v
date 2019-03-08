@@ -44,10 +44,10 @@ module regDst(opcode, out);
 
    assign finalOneOne = one_one_funct[0]|one_one_funct[1];
    
-   mux2_1_2 mux_zero_zero (.InA(1'b00), .InB(1'b00), .S(finalZeroZero), .Out(mux00));
-   mux2_1_2 mux_zero_one (.InA(mux00), .InB(1'b01), .S(finalZeroOne), .Out(mux01));
-   mux2_1_2 mux_one_zero (.InA(mux01), .InB(1'b10), .S(finalOneZero), .Out(mux10));
-   mux2_1_2 mux_one_one (.InA(mux10), .InB(1'b11), .S(finalOneOne), .Out(out));   
+   mux2_1_2 mux_zero_zero (.InA(2'b00), .InB(2'b00), .S(finalZeroZero), .Out(mux00));
+   mux2_1_2 mux_zero_one (.InA(mux00), .InB(2'b01), .S(finalZeroOne), .Out(mux01));
+   mux2_1_2 mux_one_zero (.InA(mux01), .InB(2'b10), .S(finalOneZero), .Out(mux10));
+   mux2_1_2 mux_one_one (.InA(mux10), .InB(2'b11), .S(finalOneOne), .Out(out));   
 
 endmodule; // dMemWrite
 

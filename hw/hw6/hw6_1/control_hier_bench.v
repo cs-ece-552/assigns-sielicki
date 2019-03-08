@@ -39,6 +39,7 @@ module control_hier_bench(/*AUTOARG*/);
                     .DMemEn                       (DMemEn),
                     .ALUSrc2                      (ALUSrc2),
                     .PCSrc                        (PCSrc),
+                    .PCImm                        (PCImm),
                     .MemToReg                     (MemToReg),
                     .DMemDump                     (DMemDump),
                     .Jump                         (Jump),
@@ -81,11 +82,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -124,11 +125,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -182,11 +183,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -240,11 +241,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -298,11 +299,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -356,11 +357,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -409,11 +410,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -462,11 +463,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -515,11 +516,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -568,11 +569,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -621,11 +622,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -679,11 +680,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -737,11 +738,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -790,11 +791,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -843,11 +844,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -896,11 +897,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -949,11 +950,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1002,11 +1003,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1055,11 +1056,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1108,11 +1109,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1161,11 +1162,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1214,11 +1215,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1267,11 +1268,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1320,11 +1321,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1378,11 +1379,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1436,11 +1437,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b0) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1532,11 +1533,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b1) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;
@@ -1638,11 +1639,11 @@ module control_hier_bench(/*AUTOARG*/);
             fail = 1;
 			$stop;
         end
-//        if(PCImm != 1'b0) begin
-//            $display("ERRORCHECK: Incorrect PCImm");
-//            fail = 1;
-//			$stop;
-//        end
+        if(PCImm != 1'b0) begin
+            $display("ERRORCHECK: Incorrect PCImm");
+            fail = 1;
+			$stop;
+        end
         if(Jump != 1'b1) begin
             $display("ERRORCHECK: Incorrect Jump");
             fail = 1;

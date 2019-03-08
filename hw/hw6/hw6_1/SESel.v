@@ -49,11 +49,11 @@ module seSel(opcode, out);
 
    assign final11x = one_one_x_funct[0]|one_one_x_funct[1];
    
-   mux2_1_3 mux_zero_zero_zero (.InA(1'b000), .InB(1'b000), .S(final000), .Out(mux000));
-   mux2_1_3 mux_zero_zero_one (.InA(mux000), .InB(1'b001), .S(final001), .Out(mux001));
-   mux2_1_3 mux_zero_one_x (.InA(mux001), .InB(1'b010), .S(final01x), .Out(mux01x));
-   mux2_1_3 mux_one_zero_x (.InA(mux01x), .InB(1'b10x), .S(final10x), .Out(mux10x));
-   mux2_1_3 mux_one_one_x (.InA(mux01x), .InB(1'b11x), .S(final11x), .Out(out));
+   mux2_1_3 mux_zero_zero_zero (.InA(3'b000), .InB(3'b000), .S(final000), .Out(mux000));
+   mux2_1_3 mux_zero_zero_one (.InA(mux000), .InB(3'b001), .S(final001), .Out(mux001));
+   mux2_1_3 mux_zero_one_x (.InA(mux001), .InB(3'b010), .S(final01x), .Out(mux01x));
+   mux2_1_3 mux_one_zero_x (.InA(mux01x), .InB(3'b10x), .S(final10x), .Out(mux10x));
+   mux2_1_3 mux_one_one_x (.InA(mux01x), .InB(3'b11x), .S(final11x), .Out(out));
 
 endmodule; // dMemWrite
 
