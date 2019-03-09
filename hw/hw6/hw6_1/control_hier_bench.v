@@ -470,7 +470,7 @@ module control_hier_bench(/*AUTOARG*/);
         if(SESel[2:1] != 2'b01) begin
             $display("OpCode = 10011 , Cmd: STU, ERRORCHECK: Incorrect SESel");
         end
-        if(RegWrite != 1'b0) begin
+        if(RegWrite != 1'b1) begin
             $display("OpCode = 10011 , Cmd: STU, ERRORCHECK: Incorrect RegWrite");
         end
         if(DMemWrite != 1'b1) begin
@@ -513,7 +513,7 @@ module control_hier_bench(/*AUTOARG*/);
         if(DMemEn != 1'b0) begin
             $display("OpCode = 11001 , Cmd: BTR, ERRORCHECK: Incorrect DMemEn");
         end
-        if(ALUSrc2 != 1'b1) begin
+        if(ALUSrc2 != 1'b0) begin
             $display("OpCode = 11001 , Cmd: BTR, ERRORCHECK: Incorrect ALUSrc2");
         end
         if(PCSrc != 1'b0) begin

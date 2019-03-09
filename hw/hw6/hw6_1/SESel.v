@@ -4,7 +4,7 @@ module seSel(opcode, out);
    
    wire [5:0]  zero_zero_zero_funct;
    wire        zero_zero_one_funct;
-   wire [3:0]  zero_one_x_funct;
+   wire [4:0]  zero_one_x_funct;
    wire [6:0]  one_zero_x_funct;
    wire [1:0]  one_one_x_funct;
  
@@ -27,6 +27,7 @@ module seSel(opcode, out);
    xnor5_1 zero_one_x1 (.opcode(opcode), .func(5'b01001), .out(zero_one_x_funct[1]));
    xnor5_1 zero_one_x2 (.opcode(opcode), .func(5'b10000), .out(zero_one_x_funct[2]));
    xnor5_1 zero_one_x3 (.opcode(opcode), .func(5'b10001), .out(zero_one_x_funct[3]));
+   xnor5_1 zero_one_x4 (.opcode(opcode), .func(5'b10011), .out(zero_one_x_funct[4]));
 
    xnor5_1 one_zero_x0 (.opcode(opcode), .func(5'b01100), .out(one_zero_x_funct[0]));
    xnor5_1 one_zero_x1 (.opcode(opcode), .func(5'b01101), .out(one_zero_x_funct[1]));
@@ -43,7 +44,7 @@ module seSel(opcode, out);
 
    assign final001 = zero_zero_one_funct;
 
-   assign final01x =zero_one_x_funct[0]|zero_one_x_funct[1]|zero_one_x_funct[2]|zero_one_x_funct[3];
+   assign final01x =zero_one_x_funct[0]|zero_one_x_funct[1]|zero_one_x_funct[2]|zero_one_x_funct[3]|zero_one_x_funct[4];
 
    assign final10x = one_zero_x_funct[0]|one_zero_x_funct[1]|one_zero_x_funct[2]|one_zero_x_funct[3]|one_zero_x_funct[4]|one_zero_x_funct[5]|one_zero_x_funct[6];
 
@@ -53,7 +54,7 @@ module seSel(opcode, out);
    mux2_1_3 mux_zero_zero_one (.InA(mux000), .InB(3'b001), .S(final001), .Out(mux001));
    mux2_1_3 mux_zero_one_x (.InA(mux001), .InB(3'b010), .S(final01x), .Out(mux01x));
    mux2_1_3 mux_one_zero_x (.InA(mux01x), .InB(3'b100), .S(final10x), .Out(mux10x));
-   mux2_1_3 mux_one_one_x (.InA(mux01x), .InB(3'b110), .S(final11x), .Out(out));
+   mux2_1_3 mux_one_one_x (.InA(mux10x), .InB(3'b110), .S(final11x), .Out(out));
 
 endmodule; // dMemWrite
 

@@ -1,0 +1,139 @@
+/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/Jump.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/Jump.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module jump
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/Jump.v(10): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	jump
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/xnor5_1.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/xnor5_1.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module xnor5_1
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/xnor5_1.v(15): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	xnor5_1
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_2.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_2.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module mux2_1_2
+
+Top level modules:
+	mux2_1_2
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCImm.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCImm.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module pcImm
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCImm.v(10): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	pcImm
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_3.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_3.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module mux2_1_3
+
+Top level modules:
+	mux2_1_3
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemEn.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemEn.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module dMemEn
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemEn.v(12): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	dMemEn
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module control_hier
+
+Top level modules:
+	control_hier
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/RegDst.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/RegDst.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module regDst
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/RegDst.v(55): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	regDst
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemDump.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemDump.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module dMemDump
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemDump.v(9): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	dMemDump
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/clkrst.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/clkrst.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module clkrst
+
+Top level modules:
+	clkrst
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/SESel.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/SESel.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module seSel
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/SESel.v(59): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	seSel
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/aluSrc2.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/aluSrc2.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module aluSrc2
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/aluSrc2.v(15): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	aluSrc2
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemWrite.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemWrite.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module dMemWrite
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemWrite.v(11): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	dMemWrite
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module control_hier_bench
+
+Top level modules:
+	control_hier_bench
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/MemToReg.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/MemToReg.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module memToReg
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/MemToReg.v(9): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	memToReg
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module regWrite
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v(30): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	regWrite
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v
+Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
+-- Compiling module pcSrc
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v(18): (vlog-2283) Extra semicolon in $unit (global) scope.
+
+Top level modules:
+	pcSrc
+
+} {} {}}

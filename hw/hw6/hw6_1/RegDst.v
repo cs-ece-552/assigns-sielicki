@@ -3,8 +3,8 @@ module regDst(opcode, out);
    output [1:0] out;
    
    wire [6:0]  zero_zero_funct;
-   wire [8:0]  zero_one_funct;
-   wire [1:0]  one_zero_funct;
+   wire [9:0]  zero_one_funct;
+   wire [2:0]  one_zero_funct;
    wire [1:0]  one_one_funct;
    
    wire [1:0]  mux00,mux01,mux10;
@@ -28,21 +28,24 @@ module regDst(opcode, out);
    xnor5_1 zero_one5 (.opcode(opcode), .func(5'b10111), .out(zero_one_funct[5]));
    xnor5_1 zero_one6 (.opcode(opcode), .func(5'b10000), .out(zero_one_funct[6]));
    xnor5_1 zero_one7 (.opcode(opcode), .func(5'b10001), .out(zero_one_funct[7]));
-   xnor5_1 zero_one8 (.opcode(opcode), .func(5'b10011), .out(zero_one_funct[8]));
+   xnor5_1 zero_one8 (.opcode(opcode), .func(5'b10100), .out(zero_one_funct[8]));
+   xnor5_1 zero_one9 (.opcode(opcode), .func(5'b01000), .out(zero_one_funct[7]));
    
    xnor5_1 one_zero0 (.opcode(opcode), .func(5'b11000), .out(one_zero_funct[0]));
    xnor5_1 one_zero1 (.opcode(opcode), .func(5'b10010), .out(one_zero_funct[1]));
+   xnor5_1 one_zero2 (.opcode(opcode), .func(5'b10011), .out(one_zero_funct[2]));
+   
   
    xnor5_1 one_one0 (.opcode(opcode), .func(5'b00110), .out(one_one_funct[0]));
-   xnor5_1 one_one1 (.opcode(opcode), .func(5'b00110), .out(one_one_funct[1]));
+   xnor5_1 one_one1 (.opcode(opcode), .func(5'b00111), .out(one_one_funct[1]));
 
    assign finalZeroZero = zero_zero_funct[0]|zero_zero_funct[1]|zero_zero_funct[2]|zero_zero_funct[3]|zero_zero_funct[4]|zero_zero_funct[5]|zero_zero_funct[6];
 
-   assign finalZeroOne = zero_one_funct[0]|zero_one_funct[1]|zero_one_funct[2]|zero_one_funct[3]|zero_one_funct[4]|zero_one_funct[5]|zero_one_funct[6]|zero_one_funct[7]|zero_one_funct[8];
+   assign finalZeroOne = zero_one_funct[0]|zero_one_funct[1]|zero_one_funct[2]|zero_one_funct[3]|zero_one_funct[4]|zero_one_funct[5]|zero_one_funct[6]|zero_one_funct[7]|zero_one_funct[8]|zero_one_funct[9];
 
-   assign finalOneZero =one_zero_funct[0]|one_zero_funct[1];
+   assign finalOneZero =one_zero_funct[0]|one_zero_funct[1]|one_zero_funct[2];
 
-   assign finalOneOne = one_one_funct[0]|one_one_funct[1];
+   assign finalOneOne = one_one_funct[0] | one_one_funct[1];
    
    mux2_1_2 mux_zero_zero (.InA(2'b00), .InB(2'b00), .S(finalZeroZero), .Out(mux00));
    mux2_1_2 mux_zero_one (.InA(mux00), .InB(2'b01), .S(finalZeroOne), .Out(mux01));
