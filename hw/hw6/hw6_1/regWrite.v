@@ -2,7 +2,7 @@ module regWrite(opcode, out);
    input [4:0] opcode;
    output      out;
 
-   wire        funct[18:0];
+   wire        funct[20:0];
    
    xnor5_1 xnor0  (.opcode(opcode), .func(5'b01000), .out(funct[0]));
    xnor5_1 xnor1  (.opcode(opcode), .func(5'b01001), .out(funct[1]));
@@ -23,9 +23,11 @@ module regWrite(opcode, out);
    xnor5_1 xnor16 (.opcode(opcode), .func(5'b11111), .out(funct[16]));
    xnor5_1 xnor17 (.opcode(opcode), .func(5'b11000), .out(funct[17]));
    xnor5_1 xnor18 (.opcode(opcode), .func(5'b10010), .out(funct[18]));
+   xnor5_1 xnor19 (.opcode(opcode), .func(5'b00110), .out(funct[19]));
+   xnor5_1 xnor20 (.opcode(opcode), .func(5'b00111), .out(funct[20]));
    
 
-   assign out = funct[0]|funct[1]|funct[2]|funct[3]|funct[4]|funct[5]|funct[6]|funct[7]|funct[8]|funct[9]|funct[10]|funct[11]|funct[12]|funct[13]|funct[14]|funct[15]|funct[16]|funct[17]|funct[18];
+   assign out = funct[0]|funct[1]|funct[2]|funct[3]|funct[4]|funct[5]|funct[6]|funct[7]|funct[8]|funct[9]|funct[10]|funct[11]|funct[12]|funct[13]|funct[14]|funct[15]|funct[16]|funct[17]|funct[18]|funct[19]|funct[20];
 
 endmodule; // regWrite
 

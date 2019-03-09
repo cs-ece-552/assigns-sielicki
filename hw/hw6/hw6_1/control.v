@@ -48,12 +48,12 @@ module control (/*AUTOARG*/
    regDst regdst (.opcode(OpCode), .out(RegDst));
    seSel sesel (.opcode(OpCode), .out(SESel));
 
-   assign err = ^(OpCode[0],
+   assign err = ^{OpCode[0],
                   OpCode[1],
                   OpCode[2],
                   OpCode[3],
                   OpCode[4],
                   Funct[0],
-                  Funct[1]) === 1'bX;
+                  Funct[1]} === 1'bX;
    
 endmodule

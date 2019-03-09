@@ -116,17 +116,10 @@ Top level modules:
 } {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v
 Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
 -- Compiling module regWrite
-** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v(30): (vlog-2283) Extra semicolon in $unit (global) scope.
+** Warning: /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v(32): (vlog-2283) Extra semicolon in $unit (global) scope.
 
 Top level modules:
 	regWrite
-
-} {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v {1 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v
-Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018
--- Compiling module control
-
-Top level modules:
-	control
 
 } {} {}} /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v {2 {vlog -work work -stats=none /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v
 Model Technology ModelSim DE vlog 10.7c Compiler 2018.08 Aug 17 2018

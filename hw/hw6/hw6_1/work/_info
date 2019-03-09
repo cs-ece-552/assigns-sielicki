@@ -9,7 +9,7 @@ z2
 cModel Technology
 d/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/HW6/hw6_1
 valuSrc2
-Z0 !s110 1552174778
+Z0 !s110 1552175527
 !i10b 1
 !s100 oIR80K183Gn2ja0nUfUZk1
 I_E^JkPh2cEK@L[4P=EIIM2
@@ -23,7 +23,7 @@ Z4 OP;L;10.7c;67
 r1
 !s85 0
 31
-Z5 !s108 1552174778.000000
+Z5 !s108 1552175527.000000
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/aluSrc2.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/aluSrc2.v|
 !i113 1
@@ -54,11 +54,11 @@ R7
 vcontrol
 R0
 !i10b 1
-!s100 ^ni@hbfN7o?0:=8jo=N:c3
-IR>O;^7KE3mk>9O9[fzGG;1
+!s100 8`0^@hKoV5Ulc]AVH_U4P3
+I2ko7h`Ugz@enK7iQ]QHkM0
 R1
 R2
-R3
+w1552175523
 8/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v
 F/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control.v
 L0 7
@@ -94,13 +94,13 @@ R5
 R6
 R7
 vcontrol_hier_bench
-Z8 !s110 1552174779
+Z8 !s110 1552175528
 !i10b 1
-!s100 KXzT4iDfPgc3j6IR1c@QD0
-I8^7gVVS5@fVUjgL:XbQ6I3
+!s100 TV;bfo_LoGZ_2ObURS7c31
+IYU`<okz7[Ti_30<Y8Pe]R0
 R1
 R2
-w1552174334
+w1552175368
 8/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v
 F/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v
 L0 7
@@ -108,7 +108,7 @@ R4
 r1
 !s85 0
 31
-R5
+Z9 !s108 1552175528.000000
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v|
 !i113 1
@@ -129,7 +129,7 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1552174779.000000
+R9
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemDump.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemDump.v|
 !i113 1
@@ -159,7 +159,7 @@ R6
 R7
 nd@mem@en
 vdMemWrite
-R8
+Z10 !s110 1552175529
 !i10b 1
 !s100 1B4ii8=;lfR2cK=Oo_oZ33
 Ie4FoS6YBiPzh=;5]L5TcV0
@@ -173,7 +173,7 @@ R4
 r1
 !s85 0
 31
-R9
+Z11 !s108 1552175529.000000
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemWrite.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/DMemWrite.v|
 !i113 1
@@ -181,7 +181,7 @@ R6
 R7
 nd@mem@write
 vjump
-R8
+R10
 !i10b 1
 !s100 GGg8joU?2f_^3bG9HKeVI2
 ILC5a[HKQ=@TgFAzMWY@^W3
@@ -195,14 +195,14 @@ R4
 r1
 !s85 0
 31
-R9
+R11
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/Jump.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/Jump.v|
 !i113 1
 R6
 R7
 vmemToReg
-Z10 !s110 1552174780
+R10
 !i10b 1
 !s100 1=W?@cJblH[`;cX80bibh2
 Iz@i70DWDdDI8L>FMb;JDV2
@@ -216,7 +216,7 @@ R4
 r1
 !s85 0
 31
-R9
+R11
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/MemToReg.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/MemToReg.v|
 !i113 1
@@ -238,7 +238,7 @@ R4
 r1
 !s85 0
 31
-Z11 !s108 1552174780.000000
+R11
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_2.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/mux2_1_2.v|
 !i113 1
@@ -288,7 +288,7 @@ R6
 R7
 npc@imm
 vpcSrc
-R10
+Z12 !s110 1552175530
 !i10b 1
 !s100 SZ_^bOME?W;WTlWIR1aZV0
 I0`H_L1HldH5iK2Dm8;VY`3
@@ -302,7 +302,7 @@ R4
 r1
 !s85 0
 31
-R11
+Z13 !s108 1552175530.000000
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/PCSrc.v|
 !i113 1
@@ -310,7 +310,7 @@ R6
 R7
 npc@src
 vregDst
-R10
+R12
 !i10b 1
 !s100 =9Ja5PRLSa799F<K@]5a50
 I]i:=U`V1CnFDPHQb_^_nj2
@@ -324,7 +324,7 @@ R4
 r1
 !s85 0
 31
-R11
+R13
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/RegDst.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/RegDst.v|
 !i113 1
@@ -332,13 +332,13 @@ R6
 R7
 nreg@dst
 vregWrite
-Z12 !s110 1552174781
+R12
 !i10b 1
-!s100 a>mEgDa^n5m19[]_TifXN3
-I9lUZbQcR?>mSB=lYgKZ9m1
+!s100 z^kB[]EEGA<<V8iFI2EeM3
+IZLOKd1G196cH[BDzOiH1Q1
 R1
 R2
-w1552174124
+w1552175427
 8/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v
 F/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v
 L0 1
@@ -346,7 +346,7 @@ R4
 r1
 !s85 0
 31
-Z13 !s108 1552174781.000000
+R13
 !s107 /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/regWrite.v|
 !i113 1

@@ -1020,7 +1020,7 @@ module control_hier_bench(/*AUTOARG*/);
         if(SESel != 3'b110 && SESel != 3'b111) begin
             $display("OpCode = 00110, Cmd: JAL, ERRORCHECK: Incorrect SESel");
         end
-        if(RegWrite != 1'b0) begin
+        if(RegWrite != 1'b1) begin
             $display("OpCode = 00110, Cmd: JAL, ERRORCHECK: Incorrect RegWrite");
         end
         if(DMemWrite != 1'b0) begin
@@ -1048,10 +1048,14 @@ module control_hier_bench(/*AUTOARG*/);
 		#10
 		OpCode = 5'b00111; //JALR
 		#10
+                  
+        if(RegDst != 2'b11) begin //
+           $display("OpCode = 00111, Cmd: JALR, ERRORCHECK: Incorrect RegDst");
+        end
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 00111, Cmd: JALR, ERRORCHECK: Incorrect SESel");
         end
-        if(RegWrite != 1'b0) begin
+        if(RegWrite != 1'b1) begin
             $display("OpCode = 00111, Cmd: JALR, ERRORCHECK: Incorrect RegWrite");
         end
         if(DMemWrite != 1'b0) begin
