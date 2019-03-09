@@ -52,6 +52,7 @@ module control_hier_bench(/*AUTOARG*/);
         fail = 0;
         Funct = 2'b00;
 		OpCode = 5'b00000; //HALT
+		#10
         if(RegWrite != 1'b0) begin
             $display("OpCode = 00000 , Cmd: Halt, ERRORCHECK: Incorrect RegWrite");
         end
@@ -79,6 +80,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b00001; //NOP
+		#10
         if(RegWrite != 1'b0) begin
             $display("OpCode = 00001 , Cmd: NOP, ERRORCHECK: Incorrect RegWrite");
         end
@@ -106,6 +108,7 @@ module control_hier_bench(/*AUTOARG*/);
 
 		#10
 		OpCode = 5'b01000; //SUBI
+		#10
         if(RegDst != 2'b01) begin //
             $display("OpCode = 01000 , Cmd: SUBI, ERRORCHECK: Incorrect RegDst");
         end
@@ -142,6 +145,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b01001; //ADDI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 01001 , Cmd: ADDI, ERRORCHECK: Incorrect RegDst");
         end
@@ -178,6 +182,7 @@ module control_hier_bench(/*AUTOARG*/);
         
 		#10
 		OpCode = 5'b01010; //ANDNI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 01010 , Cmd: ANDI, ERRORCHECK: Incorrect RegDst");
         end
@@ -214,6 +219,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b01011; //XORI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 01011 , Cmd: XORI, ERRORCHECK: Incorrect RegDst");
         end
@@ -250,6 +256,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10100; //ROLI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 10100 , Cmd: ROLI, ERRORCHECK: Incorrect RegDst");
         end
@@ -283,6 +290,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10101; //SLLI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 10101 , Cmd: SLLI, ERRORCHECK: Incorrect RegDst");
         end
@@ -316,6 +324,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10110; //RORI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 10110 , Cmd: ROLI, ERRORCHECK: Incorrect RegDst");
         end
@@ -349,6 +358,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10111; //SRLI
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 10111 , Cmd: SRLI, ERRORCHECK: Incorrect RegDst");
         end
@@ -382,6 +392,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10000; //ST
+		#10
         if(SESel[2:1] != 2'b01) begin
             $display("OpCode = 10000 , Cmd: ST, ERRORCHECK: Incorrect SESel");
         end
@@ -415,6 +426,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10001; //LD
+		#10
         if(RegDst != 2'b01) begin
             $display("OpCode = 10001 , Cmd: LD, ERRORCHECK: Incorrect RegDst");
         end
@@ -451,6 +463,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10011; //STU
+		#10
         if(RegDst != 2'b10) begin
             $display("OpCode = 10011 , Cmd: STU, ERRORCHECK: Incorrect RegDst");
         end
@@ -487,6 +500,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11001; //BTR
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11001 , Cmd: BTR, ERRORCHECK: Incorrect RegDst");
         end
@@ -520,6 +534,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11011; //ADD, SUB, XOR, ANDN
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11011 , Cmd: ADD/SUB/XOR/ANDN, ERRORCHECK: Incorrect RegDst");
         end
@@ -553,6 +568,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11010; //ROL, SLL, ROR, SRL
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11010 , Cmd: ROL/SLL/ROR/SRL, ERRORCHECK: Incorrect RegDst");
         end
@@ -586,6 +602,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11100; //SEQ
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11100 , Cmd: SEQ, ERRORCHECK: Incorrect RegDst");
         end
@@ -619,6 +636,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11101; //SLT
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11101 , Cmd: SLT, ERRORCHECK: Incorrect RegDst");
         end
@@ -652,6 +670,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11110; //SLE
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11110 , Cmd: SLE, ERRORCHECK: Incorrect RegDst");
         end
@@ -685,6 +704,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11111; //SCO
+		#10
         if(RegDst != 2'b00) begin
             $display("OpCode = 11111 , Cmd: SCO, ERRORCHECK: Incorrect RegDst");
         end
@@ -718,6 +738,7 @@ module control_hier_bench(/*AUTOARG*/);
 
 		#10
 		OpCode = 5'b01100; //BNEZ
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 01100 , Cmd: BNEZ, ERRORCHECK: Incorrect SESel");
         end
@@ -751,6 +772,7 @@ module control_hier_bench(/*AUTOARG*/);
 
 		#10
 		OpCode = 5'b01101; //BEQZ
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 01101 , Cmd: BQEZ, ERRORCHECK: Incorrect SESel");
         end
@@ -784,6 +806,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b01110; //BLTZ
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 01110 , Cmd: BLTZ, ERRORCHECK: Incorrect SESel");
         end
@@ -817,6 +840,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b01111; //BGEZ
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 01111, Cmd: BGEZ, ERRORCHECK: Incorrect SESel");
         end
@@ -850,6 +874,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b11000; //LBI
+		#10
         if(RegDst != 2'b10) begin //
             $display("OpCode = 11000, Cmd: LBI, ERRORCHECK: Incorrect RegDst");
         end
@@ -886,6 +911,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b10010; //SLBI
+		#10
         if(RegDst != 2'b10) begin //
             $display("OpCode = 10010, Cmd: SLBI, ERRORCHECK: Incorrect RegDst");
         end
@@ -922,6 +948,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b00100; //J
+		#10
         if(SESel[2:1] != 2'b11) begin
             $display("OpCode = 00100, Cmd: J, ERRORCHECK: Incorrect SESel");
         end
@@ -952,6 +979,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b00101; //JR
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 00101, Cmd: JR, ERRORCHECK: Incorrect SESel");
         end
@@ -982,6 +1010,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b00110; //JAL
+		#10
         if(SESel[2:1] != 2'b11) begin
             $display("OpCode = 00110, Cmd: JAL, ERRORCHECK: Incorrect SESel");
         end
@@ -1018,6 +1047,7 @@ module control_hier_bench(/*AUTOARG*/);
     
 		#10
 		OpCode = 5'b00111; //JALR
+		#10
         if(SESel[2:1] != 2'b10) begin
             $display("OpCode = 00111, Cmd: JALR, ERRORCHECK: Incorrect SESel");
         end
