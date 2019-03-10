@@ -19,10 +19,7 @@ module alu_bench;
     
     alu DUT(.OpCode(OpCode), .funct(funct), .Rs(Rs), .Rt(Rt), .Pc(Pc), .Imm(Imm), .res(res));
     
-    initial begin
-        sImm5 = {{11{Imm[4]}},Imm[4:0]};
-        zImm5 = {{11{1'b0}}, Imm[4:0]};
-        Imm8 = {{8{Imm[7]}},Imm};
+    initial begin  
     
         //newVal = 0;
         //#10;
@@ -364,6 +361,9 @@ module alu_bench;
         Rt = $random;
         Pc = $random;
         Imm = $random;
+        sImm5 = {{11{Imm[4]}},Imm[4:0]};
+        zImm5 = {{11{1'b0}}, Imm[4:0]};
+        Imm8 = {{8{Imm[7]}},Imm};
     end
         
     
