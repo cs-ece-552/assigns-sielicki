@@ -10,26 +10,26 @@ module barrelShifter2 (In, Cnt, Op, Out);
    input Op;
    output [N-1:0]  Out;
    
-   wire [15:0]lshift1 ;
-   wire [15:0]lshift2 ;
-   wire [15:0]lshift4 ;
-   wire [15:0]lshift8 ;
+   wire [15:0]rshift1 ;
+   wire [15:0]rshift2 ;
+   wire [15:0]rshift4 ;
+   wire [15:0]rshift8 ;
    
-   wire [15:0]lr1 ;
-   wire [15:0]lr2 ;
-   wire [15:0]lr4 ;
-   wire [15:0]lr8 ;
+   wire [15:0]rr1 ;
+   wire [15:0]rr2 ;
+   wire [15:0]rr4 ;
+   wire [15:0]rr8 ;
    
-   assign lshift1 = Cnt[0] ? {1'b0, In[15:1]} : In;
-   assign lshift2 = Cnt[1] ? {2'b00, lshift1[15:2]} : lshift1;
-   assign lshift4 = Cnt[2] ? {4'b0000, lshift2[15:4]} : lshift2;
-   assign lshift8 = Cnt[3] ? {8'b00000000, lshift4[15:8]} : lshift4;
+   assign rshift1 = Cnt[0] ? {1'b0, In[15:1]} : In;
+   assign rshift2 = Cnt[1] ? {2'b00, rshift1[15:2]} : rshift1;
+   assign rshift4 = Cnt[2] ? {4'b0000, rshift2[15:4]} : rshift2;
+   assign rshift8 = Cnt[3] ? {8'b00000000, rshift4[15:8]} : rshift4;
    
-   assign lr1 = Cnt[0] ? {In[0],In[15:1]} : In;
-   assign lr2 = Cnt[1] ? {lr1[1:0], lr1[15:2]} : lr1;
-   assign lr4 = Cnt[2] ? {lr2[3:0], lr2[15:4]} : lr2;
-   assign lr8 = Cnt[3] ? {lr4[7:0], lr4[15:8]} : lr4;
+   assign rr1 = Cnt[0] ? {In[0],In[15:1]} : In;
+   assign rr2 = Cnt[1] ? {lr1[1:0], rr1[15:2]} : rr1;
+   assign rr4 = Cnt[2] ? {lr2[3:0], rr2[15:4]} : rr2;
+   assign r8 = Cnt[3] ? {lr4[7:0], rr4[15:8]} : rr4;
    
-   assign Out = Op ? lshift8 : lr8;
+   assign Out = Op ? rshift8 : rr8;
    
 endmodule

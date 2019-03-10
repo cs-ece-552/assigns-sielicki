@@ -102,13 +102,13 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     assign BarrelOp = (OpCode[3] == 1'b1) ? funct[0] : OpCode[0];
     assign preFlip = (OpCode[3] == 1'b1) ? 
-                                ((funct[1] == 1'b1) ? flip1_res : Rs) :
-                                ((OpCode[1] == 1'b1) ? flip1_res : Rs);
+                                ((funct[1] == 1'b1) ? Rs : flip1_res) :
+                                ((OpCode[1] == 1'b1) ? Rs : flip1_res);
     
     assign res_shifter = (OpCode == 5'b11001) ? flip1_res :
                             ((OpCode[3] == 1'b1)? 
-                                ((funct[1] == 1'b1) ? flip2_res : res_barrel) :
-                                ((OpCode[1] == 1'b1) ? flip2_res : res_barrel)
+                                ((funct[1] == 1'b1) ? res_barrel : flip2_res) :
+                                ((OpCode[1] == 1'b1) ? res_barrel : flip2_res)
                             );
     
     //flags
