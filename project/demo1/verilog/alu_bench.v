@@ -200,7 +200,7 @@ module alu_bench;
         newVal = 1;
         OpCode = 5'b11010; //rol
         funct = 2'b00;
-        Out = (Rs << (Rt[3:0]) | (Rs >> (16 - Rt[3:0]));
+        Out = (Rs << (Rt[3:0])) | (Rs >> (16 - Rt[3:0]));
         #10;
         if(res != Out) 
             $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
