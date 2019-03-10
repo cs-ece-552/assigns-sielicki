@@ -133,5 +133,5 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     
     
-endmodule;
+endmodule
     

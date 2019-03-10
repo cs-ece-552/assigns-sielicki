@@ -32,4 +32,4 @@ module barrelShifter2 (In, Cnt, Op, Out);
    
    assign Out = Op ? lshift8 : lr8;
    
-endmodule;
+endmodule
