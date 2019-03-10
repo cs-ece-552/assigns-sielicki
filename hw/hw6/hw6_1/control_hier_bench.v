@@ -439,7 +439,7 @@ module control_hier_bench(/*AUTOARG*/);
         if(DMemWrite != 1'b0) begin
             $display("OpCode = 10001 , Cmd: LD, ERRORCHECK: Incorrect DMemWrite");
         end
-        if(DMemEn != 1'b1) begin
+        if(DMemEn != 1'b1) begin0
             $display("OpCode = 10001 , Cmd: LD, ERRORCHECK: Incorrect DMemEn");
         end
         if(ALUSrc2 != 1'b0) begin
