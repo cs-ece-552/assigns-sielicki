@@ -14,7 +14,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire [15:0] res_add;
     wire C_out;
     
-    wire res_barrel;
+    wire [15:0]res_barrel;
     wire barrel_Op;
     wire [15:0] preFlip;
     wire [15:0] flip1_res;
