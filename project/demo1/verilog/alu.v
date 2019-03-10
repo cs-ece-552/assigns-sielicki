@@ -72,12 +72,12 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
                  (flags ? res_flag :
                  (lbi ? res_lbi :
                  (slbi ? res_slbi :
-                 (pc_o ? PC )))))));
+                 (pc_o ? Pc )))))));
                  
     
     assign invS = (OpCode == 5'b01000) | (OpCode == 5'b11011 & funct == 2'b01);
     assign invT = ~(OpCode == 5'b11111) & flags;
-    assign selImm5 = (OpCode[4:2] = 3'b010) | (OpCode[4:2] = 3'b101) | (OpCode[4:2] = 3'b100);
+    assign selImm5 = (OpCode[4:2] == 3'b010) | (OpCode[4:2] == 3'b101) | (OpCode[4:2] == 3'b100);
     assign signImm = (~OpCode [1]) | (OpCode[4:0] == 5'b10011);
     assign selImm8 = (OpCode[4:2] == 3'b011);
     
