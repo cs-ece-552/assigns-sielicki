@@ -51,9 +51,9 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     //               (OpCode ^ 5'b10011) |
     //               ((OpCode ^ 5'b11011) & (funct[1] ^ 0));
                    
-    assign xors = (~|(OpCode ^ 5'b01011)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 10)));
+    assign xors = (~|(OpCode ^ 5'b01011)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 2'b10)));
     
-    assign andn = (~|(OpCode ^ 5'b01010)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 11)));
+    assign andn = (~|(OpCode ^ 5'b01010)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 2'b11)));
     
     assign shifter = (~|(OpCode[4:2] ^ 3'b101)) | (~|(OpCode [4:0] ^ 5'b11001)) | (~|(OpCode[4:0] ^ 5'b11010));
     

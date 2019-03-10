@@ -256,7 +256,7 @@ module alu_bench;
         zImm5 = {{11{1'b0}}, Imm[4:0]};
         OpCode = 5'b11011; //sub
         funct = 2'b01;
-        Out = Rs + Rt;
+        Out = Rt - Rs;
         #10
         if(res != Out) 
             $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
