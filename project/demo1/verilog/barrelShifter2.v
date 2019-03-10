@@ -26,9 +26,9 @@ module barrelShifter2 (In, Cnt, Op, Out);
    assign rshift8 = Cnt[3] ? {8'b00000000, rshift4[15:8]} : rshift4;
    
    assign rr1 = Cnt[0] ? {In[0],In[15:1]} : In;
-   assign rr2 = Cnt[1] ? {lr1[1:0], rr1[15:2]} : rr1;
-   assign rr4 = Cnt[2] ? {lr2[3:0], rr2[15:4]} : rr2;
-   assign r8 = Cnt[3] ? {lr4[7:0], rr4[15:8]} : rr4;
+   assign rr2 = Cnt[1] ? {rr1[1:0], rr1[15:2]} : rr1;
+   assign rr4 = Cnt[2] ? {rr2[3:0], rr2[15:4]} : rr2;
+   assign r8 = Cnt[3] ? {rr4[7:0], rr4[15:8]} : rr4;
    
    assign Out = Op ? rshift8 : rr8;
    

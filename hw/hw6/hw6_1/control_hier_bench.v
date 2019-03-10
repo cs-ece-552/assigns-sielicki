@@ -5,31 +5,31 @@
    testbench for control module
 */
 module control_hier_bench(/*AUTOARG*/);
-    /*AUTOWIRE*/
-    // Beginning of automatic wires (for undeclared instantiated-module outputs)
-    wire       err;
-    wire       RegWrite, DMemWrite,              // From top of control_hier.v
-               DMemEn, ALUSrc2, PCImm, PCSrc,    // From top of control_hier.v
-               MemToReg, DMemDump, Jump;         // From top of control_hier.v
-    wire [1:0] RegDst;                           // From top of control_hier.v
-    wire [2:0] SESel;                            // From top of control_hier.v
-    // End of automatics
-    /*AUTOREGINPUT*/
-    // Beginning of automatic reg inputs (for undeclared instantiated-module inputs)
-    reg [4:0]  OpCode;                           // To top of control_hier.v
-    reg [1:0]  Funct;                            // To top of control_hier.v
-    // End of automatics
+   /*AUTOWIRE*/
+   // Beginning of automatic wires (for undeclared instantiated-module outputs)
+   wire       err;
+   wire       RegWrite, DMemWrite,              // From top of control_hier.v
+              DMemEn, ALUSrc2, PCSrc, PCImm,    // From top of control_hier.v
+              MemToReg, DMemDump, Jump;         // From top of control_hier.v
+   wire [1:0] RegDst;                           // From top of control_hier.v
+   wire [2:0] SESel;                            // From top of control_hier.v
+   // End of automatics
+   /*AUTOREGINPUT*/
+   // Beginning of automatic reg inputs (for undeclared instantiated-module inputs)
+   reg [4:0]  OpCode;                           // To top of control_hier.v
+   reg [1:0]  Funct;                            // To top of control_hier.v
+   // End of automatics
 
-    //integer    cycle_count;
+   integer    cycle_count;
 
-    wire       clk;
-    wire       rst;
+   wire       clk;
+   wire       rst;
 
-    reg        fail;
+   reg        fail;
 
-    // Instantiate the module we want to verify
+   // Instantiate the module we want to verify
 
-    control_hier DUT(/*AUTOINST*/
+   control_hier DUT(/*AUTOINST*/
                     // Outputs
                     .err                          (err),
                     .RegDst                       (RegDst),
