@@ -121,7 +121,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
                             ((OpCode[0] == 1'b1) ? {{15{1'b0}},lt} : {{15{1'b0}},zero})
                         ) :
                         ((OpCode[1] == 1'b1) ?
-                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, ~lt} : {{15{1'b0}}, lt}):
+                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, lt} : {{15{1'b0}}, ~lt}):
                             ((OpCode[0] == 1'b1) ? {{15{1'b0}}, zero} : {{15{1'b0}}, ~zero})
                         );                        
     

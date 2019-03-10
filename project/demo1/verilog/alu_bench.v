@@ -417,7 +417,7 @@ module alu_bench;
         OpCode = 5'b11111; //SCO
         funct = $random;
         extraAdd = Rs + Rt;
-        Out = {{15{1'b0}}, extraAdd[1]};
+        Out = {{15{1'b0}}, extraAdd[16]};
         #10
         if(res != Out) 
             $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
