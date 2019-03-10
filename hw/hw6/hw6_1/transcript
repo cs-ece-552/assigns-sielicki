@@ -1,0 +1,118 @@
+# Loading project hw6
+# Compile of aluSrc2.v was successful with warnings.
+# Compile of clkrst.v was successful.
+# Compile of control.v failed with 1 errors.
+# Compile of control_hier.v was successful.
+# Compile of control_hier_bench.v was successful.
+# Compile of DMemDump.v was successful with warnings.
+# Compile of DMemEn.v was successful with warnings.
+# Compile of DMemWrite.v was successful with warnings.
+# Compile of Jump.v was successful with warnings.
+# Compile of MemToReg.v was successful with warnings.
+# Compile of mux2_1_2.v was successful.
+# Compile of mux2_1_3.v was successful.
+# Compile of PCImm.v was successful with warnings.
+# Compile of PCSrc.v was successful with warnings.
+# Compile of RegDst.v was successful with warnings.
+# Compile of regWrite.v was successful with warnings.
+# Compile of SESel.v was successful with warnings.
+# Compile of xnor5_1.v was successful with warnings.
+# 18 compiles, 1 failed with 1 error.
+# Compile of aluSrc2.v was successful with warnings.
+# Compile of clkrst.v was successful.
+# Compile of control.v failed with 1 errors.
+# Compile of control_hier.v was successful.
+# Compile of control_hier_bench.v was successful.
+# Compile of DMemDump.v was successful with warnings.
+# Compile of DMemEn.v was successful with warnings.
+# Compile of DMemWrite.v was successful with warnings.
+# Compile of Jump.v was successful with warnings.
+# Compile of MemToReg.v was successful with warnings.
+# Compile of mux2_1_2.v was successful.
+# Compile of mux2_1_3.v was successful.
+# Compile of PCImm.v was successful with warnings.
+# Compile of PCSrc.v was successful with warnings.
+# Compile of RegDst.v was successful with warnings.
+# Compile of regWrite.v was successful with warnings.
+# Compile of SESel.v was successful with warnings.
+# Compile of xnor5_1.v was successful with warnings.
+# 18 compiles, 1 failed with 1 error.
+# Compile of aluSrc2.v was successful with warnings.
+# Compile of clkrst.v was successful.
+# Compile of control.v failed with 1 errors.
+# Compile of control_hier.v was successful.
+# Compile of control_hier_bench.v was successful.
+# Compile of DMemDump.v was successful with warnings.
+# Compile of DMemEn.v was successful with warnings.
+# Compile of DMemWrite.v was successful with warnings.
+# Compile of Jump.v was successful with warnings.
+# Compile of MemToReg.v was successful with warnings.
+# Compile of mux2_1_2.v was successful.
+# Compile of mux2_1_3.v was successful.
+# Compile of PCImm.v was successful with warnings.
+# Compile of PCSrc.v was successful with warnings.
+# Compile of RegDst.v was successful with warnings.
+# Compile of regWrite.v was successful with warnings.
+# Compile of SESel.v was successful with warnings.
+# Compile of xnor5_1.v was successful with warnings.
+# 18 compiles, 1 failed with 1 error.
+# Compile of aluSrc2.v was successful with warnings.
+# Compile of clkrst.v was successful.
+# Compile of control.v was successful.
+# Compile of control_hier.v was successful.
+# Compile of control_hier_bench.v was successful.
+# Compile of DMemDump.v was successful with warnings.
+# Compile of DMemEn.v was successful with warnings.
+# Compile of DMemWrite.v was successful with warnings.
+# Compile of Jump.v was successful with warnings.
+# Compile of MemToReg.v was successful with warnings.
+# Compile of mux2_1_2.v was successful.
+# Compile of mux2_1_3.v was successful.
+# Compile of PCImm.v was successful with warnings.
+# Compile of PCSrc.v was successful with warnings.
+# Compile of RegDst.v was successful with warnings.
+# Compile of regWrite.v was successful with warnings.
+# Compile of SESel.v was successful with warnings.
+# Compile of xnor5_1.v was successful with warnings.
+# 18 compiles, 0 failed with no errors.
+vsim work.control_hier_bench
+# vsim work.control_hier_bench 
+# Start time: 17:52:19 on Mar 09,2019
+# //  ModelSim DE 10.7c Aug 17 2018Linux 4.15.0-45-generic
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim DE and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.control_hier_bench
+# Loading work.control_hier
+# Loading work.clkrst
+# Loading work.control
+# Loading work.regWrite
+# Loading work.xnor5_1
+# Loading work.dMemWrite
+# Loading work.dMemEn
+# Loading work.aluSrc2
+# Loading work.pcSrc
+# Loading work.pcImm
+# Loading work.memToReg
+# Loading work.dMemDump
+# Loading work.jump
+# Loading work.regDst
+# Loading work.mux2_1_2
+# Loading work.seSel
+# Loading work.mux2_1_3
+run -all
+# 
+# TEST FINISHED
+# 
+# ** Note: $stop    : /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v(1086)
+#    Time: 600 ns  Iteration: 0  Instance: /control_hier_bench
+# Break in Module control_hier_bench at /afs/cs.wisc.edu/u/c/h/chetankumar/CS/ECE552/assigns-sielicki/hw/hw6/hw6_1/control_hier_bench.v line 1086
