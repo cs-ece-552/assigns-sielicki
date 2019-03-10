@@ -17,24 +17,72 @@ module proc (/*AUTOARG*/
 
    // Fixme: change width on this when we know how many modules with errout
    // exist.
-   wire [10] errout;
+
 
    // OR all the err ouputs for every sub-module and assign it as this
    // err output
-   assign err = ^{clk, rst, errout} === 1'bX;
+   
+   /*AUTOWIRE*/
+   // Beginning of automatic wires (for undeclared instantiated-module outputs)
+   wire                 ALUSrc2;                // From control of control.v
+   wire                 DMemDump;               // From control of control.v
+   wire                 DMemEn;                 // From control of control.v
+   wire                 DMemWrite;              // From control of control.v
+   wire                 Jump;                   // From control of control.v
+   wire                 MemToReg;               // From control of control.v
+   wire                 PCImm;                  // From control of control.v
+   wire                 PCSrc;                  // From control of control.v
+   wire [1:0]           RegDst;                 // From control of control.v
+   wire                 RegWrite;               // From control of control.v
+   wire [2:0]           SESel;                  // From control of control.v
+   wire [15:0]          data_out;               // From instructionmem of memory2c.v, ...
+   wire [15:0]          outData;                // From pc of reg_16b.v
+   wire [15:0]          readData1;              // From rf_bypass of rf.v
+   wire [15:0]          readData2;              // From rf_bypass of rf.v
+   // End of automatics
 
-
-   reg_16b  pc(
-               // Outputs
-               .outData            (outData[15:0]),
-               // Inputs
-               .clk                (clk),
-               .rst                (rst),
-               .inData             (inData),
-               .writeEn            (writeEn));
+   assign OpCode = data_out[15:11];
+   
+   
    
 
-   rf       rf_bypass(
+   reg_16b  pc(/*AUTOINST*/
+               // Outputs
+               .outData                 (outData[15:0]),
+               // Inputs
+               .clk                     (clk),
+               .rst                     (rst),
+               .inData                  (inData),
+               .writeEn                 (writeEn));
+   memory2c instructionmem(/*AUTOINST*/
+                           // Outputs
+                           .data_out            (data_out[15:0]),
+                           // Inputs
+                           .data_in             (data_in[15:0]),
+                           .addr                (PC[15:0]),
+                           .enable              (enable),
+                           .wr                  (wr),
+                           .createdump          (createdump),
+                           .clk                 (clk),
+                           .rst                 (rst));
+   control  control(/*AUTOINST*/
+                    // Outputs
+                    .err                (err),
+                    .RegWrite           (RegWrite),
+                    .DMemWrite          (DMemWrite),
+                    .DMemEn             (DMemEn),
+                    .ALUSrc2            (ALUSrc2),
+                    .PCSrc              (PCSrc),
+                    .PCImm              (PCImm),
+                    .MemToReg           (MemToReg),
+                    .DMemDump           (DMemDump),
+                    .Jump               (Jump),
+                    .RegDst             (RegDst[1:0]),
+                    .SESel              (SESel[2:0]),
+                    // Inputs
+                    .OpCode             (OpCode[4:0]),
+                    .Funct              (Funct[1:0]));
+   rf       rf_bypass(/*AUTOINST*/
                       // Outputs
                       .readData1        (readData1[15:0]),
                       .readData2        (readData2[15:0]),
@@ -47,67 +95,18 @@ module proc (/*AUTOARG*/
                       .writeRegSel      (writeRegSel[2:0]),
                       .writeData        (writeData[15:0]),
                       .writeEn          (writeEn));
-
-
-   memory2c instructionmem(
-                     // Outputs
-                     .data_out          (data_out[15:0]),
-                     // Inputs
-                     .data_in           (data_in[15:0]),
-                     .addr              (addr[15:0]),
-                     .enable            (enable),
-                     .wr                (wr),
-                     .createdump        (createdump),
-                     .clk               (clk),
-                     .rst               (rst));
-
-
-   control control(
-                   // Outputs
-                   .err                 (err),
-                   .RegWrite            (RegWrite),
-                   .DMemWrite           (DMemWrite),
-                   .DMemEn              (DMemEn),
-                   .ALUSrc2             (ALUSrc2),
-                   .PCSrc               (PCSrc),
-                   .PCImm               (PCImm),
-                   .MemToReg            (MemToReg),
-                   .DMemDump            (DMemDump),
-                   .Jump                (Jump),
-                   .RegDst              (RegDst[1:0]),
-                   .SESel               (SESel[2:0]),
-                   // Inputs
-                   .OpCode              (data_out[15:11]),
-                   .Funct               (data_out[1:0]))
-
-
-   alu alu(
-           // Outputs
-           .Out                         (Out[N-1:0]),
-           .Ofl                         (Ofl),
-           .Zero                        (Zero),
-           // Inputs
-           .A                           (A[N-1:0]),
-           .B                           (B[N-1:0]),
-           .Cin                         (Cin),
-           .Op                          (Op[O-1:0]),
-           .invA                        (invA),
-           .invB                        (invB),
-           .sign                        (sign))
-
-
-     memory2c datamem( //VALUES NEED FIXING
-                             // Outputs
-                             .data_out          (data_out[15:0]),
-                             // Inputs
-                             .data_in           (data_in[15:0]),
-                             .addr              (addr[15:0]),
-                             .enable            (enable),
-                             .wr                (wr),
-                             .createdump        (createdump),
-                             .clk               (clk),
-                             .rst               (rst));
-     
+   //alu      alu(/*AUTOINST*/);
+   memory2c datamem(/*AUTOINST*/
+                    // Outputs
+                    .data_out           (data_out[15:0]),
+                    // Inputs
+                    .data_in            (data_in[15:0]),
+                    .addr               (addr[15:0]),
+                    .enable             (enable),
+                    .wr                 (wr),
+                    .createdump         (createdump),
+                    .clk                (clk),
+                    .rst                (rst));
 
 endmodule // proc
 // DUMMY LINE FOR REV CONTROL :0:
