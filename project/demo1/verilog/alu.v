@@ -9,7 +9,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     output [15:0] res;
     
     wire [15:0] A;
-    wire {15:0] B;
+    wire [15:0] B;
     wire C_in;
     wire res_add;
     wire C_out;
@@ -63,11 +63,11 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     assign slbi = (OpCode[4:0] == 5'b10010);
     
-    assign pc_o = (OpCode[4:3] = 2'b00);
+    assign pc_o = (OpCode[4:3] == 2'b00);
     
     assign res = adder ? res_add :
-                 (xors ? res_xor;
-                 (andn ? res_and;
+                 (xors ? res_xor :
+                 (andn ? res_and :
                  (shifter ? res_shifter :
                  (flags ? res_flag :
                  (lbi ? res_lbi :
@@ -75,14 +75,14 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
                  (pc_o ? PC )))))));
                  
     
-    assign invS = (OpCode == 5'b01000) | (OpCode == 5'b11011 & Funct == 01);
+    assign invS = (OpCode == 5'b01000) | (OpCode == 5'b11011 & funct == 2'b01);
     assign invT = ~(OpCode == 5'b11111) & flags;
     assign selImm5 = (OpCode[4:2] = 3'b010) | (OpCode[4:2] = 3'b101) | (OpCode[4:2] = 3'b100);
     assign signImm = (~OpCode [1]) | (OpCode[4:0] == 5'b10011);
     assign selImm8 = (OpCode[4:2] == 3'b011);
     
     assign A = invS ? ~Rs : Rs;
-    assign B = selImm5 ? (signImm ? {{11{Imm[4]}},Imm[4:0]} : {{11{1'b0},Imm[4:0]}) : 
+    assign B = selImm5 ? (signImm ? {{11{Imm[4]}},Imm[4:0]} : {{11{1'b0}},Imm[4:0]}) : 
                     (selImm8 ? {{8{Imm[7]}},Imm[7:0]} : (invT ? ~Rt : Rt));
     assign C_in = invS | invT;
     
@@ -100,14 +100,14 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     barrelShifter2 barrelShift (.In(preFlip), .Cnt(B[3:0]), .Op(BarrelOp), .Out(res_barrel));
     bitflip flip2(.In(res_barrel), .Out(flip2_res));
     
-    assign BarrelOp = OpCode[3] ? Funct[0] : OpCode[0];
+    assign BarrelOp = OpCode[3] ? funct[0] : OpCode[0];
     assign preFlip = OpCode[4:2] == 3'b110 ? 
-                                (OpCode[0] | Funct[1] ? flip1_res : Rs) :
+                                (OpCode[0] | funct[1] ? flip1_res : Rs) :
                                 (OpCode[1] ? flip1_res : Rs);
     
     assign res_shifter = OpCode == 5'b 11001 ? preFlip :
                             (OpCode[3] ? 
-                                (Funct[1] ? flip2_res : res_barrel) :
+                                (funct[1] ? flip2_res : res_barrel) :
                                 (OpCode[1] ? flip2_res : res_barrel)
                             );
     
