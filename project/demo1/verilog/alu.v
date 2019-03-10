@@ -20,12 +20,12 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire [15:0] flip1_res;
     wire [15:0] flip2_res;
     
-    wire res_xor;
-    wire res_and;
-    wire res_shifter;
-    wire res_flag;
-    wire res_lbi;
-    wire res_slbi;
+    wire [15:0]res_xor;
+    wire [15:0]res_and;
+    wire [15:0]res_shifter;
+    wire [15:0]res_flag;
+    wire [15:0]res_lbi;
+    wire [15:0]res_slbi;
     
     wire invS;
     wire invT;
