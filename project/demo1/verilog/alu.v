@@ -6,6 +6,4 @@ module alu (OpCode, funct, Rs, Rt, Imm, res);
     input [7:0] Imm;
     
     output [15:0] res;
-    
-endmodule
-    
+endmodule;

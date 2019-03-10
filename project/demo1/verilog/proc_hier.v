@@ -4,7 +4,7 @@
 //`timescale 1ns/1ns
 
 module proc_hier();
-   
+
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
    wire                 clk;                    // From c0 of clkrst.v
@@ -17,14 +17,14 @@ module proc_hier();
              .rst                       (rst),
              // Inputs
              .err                       (err));
-   
+
    proc p0(/*AUTOINST*/
            // Outputs
            .err                         (err),
            // Inputs
            .clk                         (clk),
-           .rst                         (rst));   
-   
+           .rst                         (rst));
+
 
 endmodule
 
