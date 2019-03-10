@@ -83,7 +83,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     assign A = invS ? ~Rs : Rs;
     assign B = selImm5 ? (signImm ? {{11{Imm[4]}},Imm[4:0]} : {{11{1'b0}},Imm[4:0]}) : 
-                    (selImm8 ? {{8{Imm[7]}},Imm[7:0]} : (invT ? ~Rt : Rt));
+                    (selImm8 ? 16'b0000000000000000 : (invT ? ~Rt : Rt));
     assign C_in = invS | invT;
     
     //adder
