@@ -115,14 +115,15 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     assign zero = ~(|res_add);
     assign lt = res_add[15];
     
-    assign res_flag = (OpCode[4] == 1'b1) ?
+    assign res_flag[15:1] = {15{1'b0}};
+    assign res_flag[0] = (OpCode[4] == 1'b1) ?
                         ((OpCode[1] == 1'b1) ?
-                            ((OpCode[0] == 1'b1) ? {{15{1'b0}},C_out} : {{15{1'b0}}, lt | zero}):
-                            ((OpCode[0] == 1'b1) ? {{15{1'b0}},lt} : {{15{1'b0}},zero})
+                            ((OpCode[0] == 1'b1) ? C_out : (lt | zero)):
+                            ((OpCode[0] == 1'b1) ? lt : zero)
                         ) :
                         ((OpCode[1] == 1'b1) ?
-                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, lt} : {{15{1'b0}}, ~lt}):
-                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, zero} : {{15{1'b0}}, ~zero})
+                            ((OpCode[0] == 1'b1) ? lt : ~lt):
+                            ((OpCode[0] == 1'b1) ? zero : ~zero)
                         );                        
     
     //lbi
