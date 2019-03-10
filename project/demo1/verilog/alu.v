@@ -16,9 +16,9 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     wire res_barrel;
     wire barrel_Op;
-    wire [16:0] preFlip;
-    wire [16:0] flip1_res;
-    wire [16:0] flip2_res;
+    wire [15:0] preFlip;
+    wire [15:0] flip1_res;
+    wire [15:0] flip2_res;
     
     wire res_xor;
     wire res_and;
@@ -101,11 +101,11 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     bitflip flip2(.In(res_barrel), .Out(flip2_res));
     
     assign BarrelOp = OpCode[3] ? funct[0] : OpCode[0];
-    assign preFlip = OpCode[4:2] == 3'b110 ? 
-                                (OpCode[0] | funct[1] ? flip1_res : Rs) :
+    assign preFlip = OpCode[4:2] == OpCode[3] ? 
+                                (funct[1] ? flip1_res : Rs) :
                                 (OpCode[1] ? flip1_res : Rs);
     
-    assign res_shifter = OpCode == 5'b 11001 ? preFlip :
+    assign res_shifter = OpCode == 5'b 11001 ? flip1_res :
                             (OpCode[3] ? 
                                 (funct[1] ? flip2_res : res_barrel) :
                                 (OpCode[1] ? flip2_res : res_barrel)
