@@ -149,8 +149,7 @@ module alu_bench;
         newVal = 1;
         OpCode = 5'b11001; //btr
         funct = $random;
-        for(i=0; i<16; i=i+1)
-            Out[i] = Rs[15 - i];
+        Out = {Rs[0],Rs[1],Rs[2],Rs[3],Rs[4],Rs[5],Rs[6],Rs[7],Rs[8],Rs[9],Rs[10],Rs[11],Rs[12],Rs[13],Rs[14],Rs[15]};
         #10;
         if(res != Out) 
             $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
