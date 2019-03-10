@@ -46,24 +46,24 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire lt;
     
     //control
-    //assign adder = (OpCode[4:1] == 4'b0100) |
-    //               (OpCode[4:1] == 4'b1000) |
-    //               (OpCode == 5'b10011) |
-    //               ((OpCode == 5'b11011) & (funct[1] == 0));
+    //assign adder = (OpCode[4:1] ^ 4'b0100) |
+    //               (OpCode[4:1] ^ 4'b1000) |
+    //               (OpCode ^ 5'b10011) |
+    //               ((OpCode ^ 5'b11011) & (funct[1] ^ 0));
                    
-    assign xors = (OpCode == 5'b01011) | ((OpCode == 5'b11011) & (funct == 10));
+    assign xors = (~|(OpCode ^ 5'b01011)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 10)));
     
-    assign andn = (OpCode == 5'b01010) | ((OpCode == 5'b11011) & (funct == 11));
+    assign andn = (~|(OpCode ^ 5'b01010)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 11)));
     
-    assign shifter = (OpCode[4:2] == 3'b101) | (OpCode [4:0] == 5'b11001) | (OpCode[4:0] == 5'b11010);
+    assign shifter = (~|(OpCode[4:2] ^ 3'b101)) | (~|(OpCode [4:0] ^ 5'b11001)) | (~|(OpCode[4:0] ^ 5'b11010));
     
-    assign flags = (OpCode[3:2] == 2'b11);
+    assign flags = ~|(OpCode[3:2] ^ 2'b11);
     
-    assign lbi = (OpCode[4:0] == 5'b11000);
+    assign lbi = ~|(OpCode[4:0] ^ 5'b11000);
     
-    assign slbi = (OpCode[4:0] == 5'b10010);
+    assign slbi = ~|(OpCode[4:0] ^ 5'b10010);
     
-    assign pc_o = (OpCode[4:3] == 2'b00);
+    assign pc_o = ~|(OpCode[4:3] ^ 2'b00);
     
     assign res = pc_o ? Pc :
                  (xors ? res_xor :
@@ -75,11 +75,11 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
                  res_add))))));
                  
     
-    assign invS = (OpCode == 5'b01000) | (OpCode == 5'b11011 & funct == 2'b01);
-    assign invT = ~(OpCode == 5'b11111) & flags;
-    assign selImm5 = (OpCode[4:2] == 3'b010) | (OpCode[4:2] == 3'b101) | (OpCode[4:2] == 3'b100);
-    assign signImm = (~OpCode [1]) | (OpCode[4:0] == 5'b10011);
-    assign selImm8 = (OpCode[4:2] == 3'b011);
+    assign invS = (~|(OpCode ^ 5'b01000)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 2'b01)));
+    assign invT = (|(OpCode ^ 5'b11111)) & flags;
+    assign selImm5 = (~|(OpCode[4:2] ^ 3'b010)) | (~|(OpCode[4:2] ^ 3'b101)) | (~|(OpCode[4:2] ^ 3'b100));
+    assign signImm = (~OpCode [1]) | (~|(OpCode[4:0] ^ 5'b10011));
+    assign selImm8 = (~|(OpCode[4:2] ^ 3'b011));
     
     assign A = invS ? ~Rs : Rs;
     assign B = selImm5 ? (signImm ? {{11{Imm[4]}},Imm[4:0]} : {{11{1'b0}},Imm[4:0]}) : 
@@ -100,29 +100,29 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     barrelShifter2 barrelShift (.In(preFlip), .Cnt(B[3:0]), .Op(BarrelOp), .Out(res_barrel));
     bitflip flip2(.In(res_barrel), .Out(flip2_res));
     
-    assign BarrelOp = OpCode[3] ? funct[0] : OpCode[0];
-    assign preFlip = OpCode[4:2] == OpCode[3] ? 
-                                (funct[1] ? flip1_res : Rs) :
-                                (OpCode[1] ? flip1_res : Rs);
+    assign BarrelOp = (OpCode[3] == 1'b1) ? funct[0] : OpCode[0];
+    assign preFlip = (OpCode[3] == 1'b1) ? 
+                                ((funct[1] == 1'b1) ? flip1_res : Rs) :
+                                ((OpCode[1] == 1'b1) ? flip1_res : Rs);
     
-    assign res_shifter = OpCode == 5'b 11001 ? flip1_res :
-                            (OpCode[3] ? 
-                                (funct[1] ? flip2_res : res_barrel) :
-                                (OpCode[1] ? flip2_res : res_barrel)
+    assign res_shifter = (OpCode == 5'b11001) ? flip1_res :
+                            ((OpCode[3] == 1'b1)? 
+                                ((funct[1] == 1'b1) ? flip2_res : res_barrel) :
+                                ((OpCode[1] == 1'b1) ? flip2_res : res_barrel)
                             );
     
     //flags
     assign zero = ~(|res_add);
     assign lt = res_add[15];
     
-    assign res_flag = OpCode[4] ?
-                        (OpCode[1] ?
-                            (OpCode[0] ? {{15{1'b0}},C_out} : {{15{1'b0}}, lt | zero}):
-                            (OpCode[0] ? {{15{1'b0}},lt} : {{15{1'b0}},zero})
+    assign res_flag = (OpCode[4] == 1'b1) ?
+                        ((OpCode[1] == 1'b1) ?
+                            ((OpCode[0] == 1'b1) ? {{15{1'b0}},C_out} : {{15{1'b0}}, lt | zero}):
+                            ((OpCode[0] == 1'b1) ? {{15{1'b0}},lt} : {{15{1'b0}},zero})
                         ) :
-                        (OpCode[1] ?
-                            (OpCode[0] ? {{15{1'b0}}, ~lt} : {{15{1'b0}}, lt}):
-                            (OpCode[0] ? {{15{1'b0}}, zero} : {{15{1'b0}}, ~zero})
+                        ((OpCode[1] == 1'b1) ?
+                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, ~lt} : {{15{1'b0}}, lt}):
+                            ((OpCode[0] == 1'b1) ? {{15{1'b0}}, zero} : {{15{1'b0}}, ~zero})
                         );                        
     
     //lbi
