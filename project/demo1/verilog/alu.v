@@ -46,10 +46,10 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire lt;
     
     //control
-    assign adder = (OpCode[4:1] == 4'b0100) |
-                   (OpCode[4:1] == 4'b1000) |
-                   (OpCode == 5'b10011) |
-                   ((OpCode == 5'b11011) & (funct[1] == 0));
+    //assign adder = (OpCode[4:1] == 4'b0100) |
+    //               (OpCode[4:1] == 4'b1000) |
+    //               (OpCode == 5'b10011) |
+    //               ((OpCode == 5'b11011) & (funct[1] == 0));
                    
     assign xors = (OpCode == 5'b01011) | ((OpCode == 5'b11011) & (funct == 10));
     
@@ -65,14 +65,14 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     
     assign pc_o = (OpCode[4:3] == 2'b00);
     
-    assign res = adder ? res_add :
+    assign res = pc_o ? Pc :
                  (xors ? res_xor :
                  (andn ? res_and :
                  (shifter ? res_shifter :
                  (flags ? res_flag :
                  (lbi ? res_lbi :
                  (slbi ? res_slbi :
-                 (pc_o ? Pc )))))));
+                 res_add))))));
                  
     
     assign invS = (OpCode == 5'b01000) | (OpCode == 5'b11011 & funct == 2'b01);

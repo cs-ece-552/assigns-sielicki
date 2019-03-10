@@ -10,15 +10,15 @@ module barrelShifter2 (In, Cnt, Op, Out);
    input Op;
    output [N-1:0]  Out;
    
-   wire lshift1 [15:0];
-   wire lshift2 [15:0];
-   wire lshift4 [15:0];
-   wire lshift8 [15:0];
+   wire [15:0]lshift1 ;
+   wire [15:0]lshift2 ;
+   wire [15:0]lshift4 ;
+   wire [15:0]lshift8 ;
    
-   wire lr1 [15:0];
-   wire lr2 [15:0];
-   wire lr4 [15:0];
-   wire lr8 [15:0];
+   wire [15:0]lr1 ;
+   wire [15:0]lr2 ;
+   wire [15:0]lr4 ;
+   wire [15:0]lr8 ;
    
    assign lshift1 = Cnt[0] ? {1'b0, In[15:1]} : In;
    assign lshift2 = Cnt[1] ? {2'b00, lshift1[15:2]} : lshift1;
