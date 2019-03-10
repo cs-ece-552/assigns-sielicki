@@ -11,7 +11,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire [15:0] A;
     wire [15:0] B;
     wire C_in;
-    wire res_add;
+    wire [15:0] res_add;
     wire C_out;
     
     wire res_barrel;
