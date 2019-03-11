@@ -79,7 +79,7 @@ module PCAdder(/*AUTOARG*/
    //this is just Jump signal from control
    regJump regjump (.opcode(OpCode), .out(registerJump));
    
-   //might need another mux, I think the logic is not fully correct
+   //branchFlag is actually (PCImm | (PCSrc & branchFlagFromAlu))
    mux2_1_16b muxBranch (.InA(pc_plus2), .InB(pc_plusExt), .S(branchFlag), .Out(pcRelative));
    mux2_1_16b pcFinal (.InA(pcRelative), .InB(jumpValue), .S(registerJump), .Out(pc));
 endmodule // PCAdder
