@@ -1,4 +1,4 @@
-module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
+module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
     input [4:0] OpCode;
     input [1:0] funct;
     input [15:0] Rs;
@@ -7,7 +7,8 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     input [7:0] Imm;
     
     output [15:0] res;
-    
+    output [15:0] jumpVal;    
+        
     wire [15:0] A;
     wire [15:0] B;
     wire C_in;
@@ -31,6 +32,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     wire invT;
     wire selImm5;
     wire selImm8;
+    wire selImmJump;
     wire signImm;
     
     wire adder;
@@ -80,10 +82,12 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     assign selImm5 = (~|(OpCode[4:2] ^ 3'b010)) | (~|(OpCode[4:2] ^ 3'b101)) | (~|(OpCode[4:2] ^ 3'b100));
     assign signImm = (~OpCode [1]) | (~|(OpCode[4:0] ^ 5'b10011));
     assign selImm8 = (~|(OpCode[4:2] ^ 3'b011));
+    assign selImmJump = (~|(OpCode[4:3] ^ 2'b00));
     
     assign A = invS ? ~Rs : Rs;
     assign B = selImm5 ? (signImm ? {{11{Imm[4]}},Imm[4:0]} : {{11{1'b0}},Imm[4:0]}) : 
-                    (selImm8 ? 16'b0000000000000000 : (invT ? ~Rt : Rt));
+                    (selImmJump ? res_lbi : 
+                        (selImm8 ? 16'b0000_0000_0000_0000 : (invT ? ~Rt : Rt)));
     assign C_in = invS | invT;
     
     //adder
@@ -132,6 +136,8 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     //slbi
     assign res_slbi = {Rs[7:0], Imm};
     
+    //jumpVal, this is just result from adder, but the value is only valid during Jr and Jalr
+    assign jumpVal = res_add;
     
     
 endmodule

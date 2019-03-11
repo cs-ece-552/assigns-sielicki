@@ -6,18 +6,20 @@ module alu_bench;
     reg [15:0] Pc;
     reg [7:0] Imm;
     reg [15:0] Out;
+    reg [15:0] Out2;
     
     reg [15:0]sImm5;
     reg [15:0]zImm5;
     reg [15:0]Imm8; 
     
     wire [15:0] res;
+    wire [15:0] jumpVal;
     
     reg newVal;
     reg [20:0]i;
     reg [16:0] extraAdd;
     
-    alu DUT(.OpCode(OpCode), .funct(funct), .Rs(Rs), .Rt(Rt), .Pc(Pc), .Imm(Imm), .res(res));
+    alu DUT(.OpCode(OpCode), .funct(funct), .Rs(Rs), .Rt(Rt), .Pc(Pc), .Imm(Imm), .res(res), .jumpVal(jumpVal);
     
     initial begin  
         Out = 0;
@@ -519,6 +521,20 @@ module alu_bench;
             if(res != Out) 
                 $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
             
+            #10
+            Rs = $random;
+            Rt = $random;
+            Pc = $random;
+            Imm = $random;
+            sImm5 = {{11{Imm[4]}},Imm[4:0]};
+            zImm5 = {{11{1'b0}}, Imm[4:0]};
+            Imm8 = {{11{Imm[7]}}, Imm[7:0]};
+            OpCode = 5'b00101; //JR
+            funct = $random;
+            Out2 = Rs + Imm8;
+            #10
+            if(jumpVal != Out2)
+                $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected Jump : %d  Got Jump : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out2, jumpVal);
             
             #10
             Rs = $random;
@@ -528,7 +544,7 @@ module alu_bench;
             sImm5 = {{11{Imm[4]}},Imm[4:0]};
             zImm5 = {{11{1'b0}}, Imm[4:0]};
             zImm5 = {{11{1'b0}}, Imm[4:0]};
-            OpCode = 5'b00110;
+            OpCode = 5'b00110; //JAL
             funct = $random;
             Out = Pc;
             #10
@@ -543,14 +559,16 @@ module alu_bench;
             Imm = $random;
             sImm5 = {{11{Imm[4]}},Imm[4:0]};
             zImm5 = {{11{1'b0}}, Imm[4:0]};
-            zImm5 = {{11{1'b0}}, Imm[4:0]};
-            OpCode = 5'b00111;
+            Imm8 = {{11{Imm[7]}}, Imm[7:0]};
+            OpCode = 5'b00111; //JALR
             funct = $random;
             Out = Pc;
+            Out2 = Rs + Imm8;
             #10
             if(res != Out) 
                 $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
-            
+            if(jumpVal != Out2)
+                $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected Jump : %d  Got Jump : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out2, jumpVal);
             #10;
         end
         $stop;

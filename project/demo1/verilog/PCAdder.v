@@ -21,14 +21,15 @@
 
 module PCAdder(/*AUTOARG*/
    // Outputs
-   pc,
+   pc, pc_plus2
    // Inputs
    basePC, I, D, OpCode, branchFlag, jumpValue
    );
    //Outputs
 
 //   parameter N =16;
-   output [15:0] pc;
+   output [15:0] pc; 
+   output [15:0] pc_plus2; //need this to give to the ALU or register file
 
    // 00 : pc + 2 + I(sign extend)
    // 01   pc + 2 + D(sign extend)
@@ -39,15 +40,15 @@ module PCAdder(/*AUTOARG*/
    input [7:0] I;
    input [10:0] D;
    input [4:0]  OpCode;
-   input        branchFlag;
+   input        branchFlag; //which is (aluFlag and PCSrc)?
    input [15:0] jumpValue;
 
 
    /*AUTOWIRE*/
 
-   wire [15:0]          iSign,dSign, pc_plus2, pc_plusExt, extension, pcRelative;
-   assign iSign = I[7] & 1 ? (16'b1111111110000000 | I) : (16b'0000000011111111 & I);
-   assign dSign = D[10] & 1 ? (16'b111110000000000 | D) : (16b'0000011111111111 & D);
+   wire [15:0]          iSign,dSign, pc_plusExt, extension, pcRelative;
+   assign iSign = I[7] ? (16'b1111111110000000 | I) : (16b'0000000011111111 & I);
+   assign dSign = D[10] ? (16'b111110000000000 | D) : (16b'0000011111111111 & D);
    
    rca_16b pc_plus_2(
                      // Outputs
@@ -55,11 +56,13 @@ module PCAdder(/*AUTOARG*/
                      .C_out             (C_out),
                      // Inputs
                      .A                 (basePc),
-                     .B                 (2'b10),
+                     .B                 (16'b0000_0000_0000_0010),
                      .C_in              (1'b0));
 
    wire                 dSig, bsig, registerJump;
    wire [15:0]          extension;
+   
+   //you could use SESel[1] for this one
    d_iSig dsig(.opcode(OpCode), .out(dsig));
 
    mux2_1_16b muxImm (.InA(iSign), .InB(dSign), .S(dsig), .Out(extension));
@@ -72,7 +75,11 @@ module PCAdder(/*AUTOARG*/
                        .A               (pc_plus2),
                        .B               (extension),
                        .C_in            (1'b0));
+                       
+   //this is just Jump signal from control
    regJump regjump (.opcode(OpCode), .out(registerJump));
+   
+   //might need another mux, I think the logic is not fully correct
    mux2_1_16b muxBranch (.InA(pc_plus2), .InB(pc_plusExt), .S(branchFlag), .Out(pcRelative));
    mux2_1_16b pcFinal (.InA(pcRelative), .InB(jumpValue), .S(registerJump), .Out(pc));
 endmodule // PCAdder
