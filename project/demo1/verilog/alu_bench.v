@@ -551,7 +551,7 @@ module alu_bench;
             if(res != Out) 
                 $display ("ERRORCHECK OpCode : %b  funct : %b  Rs: %d  Rt : %d  Pc : %x  Imm : %d  Expected : %d  Got : %d", OpCode, funct, Rs, Rt, Pc, Imm, Out, res);
             
-            #10
+            #10;
         end
         $stop;
    end
