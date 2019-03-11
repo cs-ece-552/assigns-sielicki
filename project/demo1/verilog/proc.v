@@ -82,6 +82,17 @@ module proc (/*AUTOARG*/
                     // Inputs
                     .OpCode             (OpCode[4:0]),
                     .Funct              (Funct[1:0]));
+   PC_Adder pc_adder(
+                     // Outputs
+                     .pc(pc), 
+                     .pc_plus2(pc_plus2),
+                     // Inputs
+                     .basePC(basePC), 
+                     .I(), 
+                     .D(), 
+                     .OpCode(), 
+                     .branchFlag(), 
+                     .jumpValue());
    rf       rf_bypass(/*AUTOINST*/
                       // Outputs
                       .readData1        (readData1[15:0]),

@@ -21,7 +21,7 @@
 
 module PCAdder(/*AUTOARG*/
    // Outputs
-   pc, pc_plus2
+   pc, pc_plus2,
    // Inputs
    basePC, I, D, OpCode, branchFlag, jumpValue
    );
