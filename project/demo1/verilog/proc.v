@@ -35,36 +35,53 @@ module proc (/*AUTOARG*/
    wire [1:0]           RegDst;                 // From control of control.v
    wire                 RegWrite;               // From control of control.v
    wire [2:0]           SESel;                  // From control of control.v
-   wire [15:0]          data_out;               // From instructionmem of memory2c.v, ...
    wire [15:0]          outData;                // From pc of reg_16b.v
    wire [15:0]          readData1;              // From rf_bypass of rf.v
    wire [15:0]          readData2;              // From rf_bypass of rf.v
    // End of automatics
 
+   wire [15:0]          currPC;
+   wire [15:0]          newPC;
+   wire [15:0]          PCplus2;
+   wire [15:0]          Inst;
+   wire                 branchFlag;
+   wire                 jumpVal;
+   wire [15:0]          AluRes;
+   wire [15:0]          writeData;
+   wire                 WriteRegSel;
+
+   wire [15:0]          MemOut;
+  
    assign OpCode = data_out[15:11];
-   
-   
+   assign branchFlag = PCImm | (PCSrc & AluRes[0]);
+   assign writeData = MemToReg ? MemOut : AluRes;
+   assign writeRegSel = RegDst[1] ? 
+                             (RegDst[0] ? 3'b111 : Inst[10:8]) :
+                             (RegDst[0] ? Inst[7:5] : Inst[4:2]);
+
    
 
    reg_16b  pc(/*AUTOINST*/
                // Outputs
-               .outData                 (outData[15:0]),
+               .outData                 (currPC),
                // Inputs
                .clk                     (clk),
                .rst                     (rst),
-               .inData                  (inData),
+               .inData                  (newPC),
                .writeEn                 (writeEn));
+
    memory2c instructionmem(/*AUTOINST*/
                            // Outputs
-                           .data_out            (data_out[15:0]),
+                           .data_out            (Inst),
                            // Inputs
-                           .data_in             (data_in[15:0]),
-                           .addr                (PC[15:0]),
+                           .data_in             (),
+                           .addr                (currPC),
                            .enable              (enable),
-                           .wr                  (wr),
-                           .createdump          (createdump),
+                           .wr                  (),
+                           .createdump          (),
                            .clk                 (clk),
                            .rst                 (rst));
+
    control  control(/*AUTOINST*/
                     // Outputs
                     .err                (err),
@@ -82,39 +99,55 @@ module proc (/*AUTOARG*/
                     // Inputs
                     .OpCode             (OpCode[4:0]),
                     .Funct              (Funct[1:0]));
+
    PC_Adder pc_adder(
                      // Outputs
-                     .pc(pc), 
-                     .pc_plus2(pc_plus2),
+                     .pc(newPC), 
+                     .pc_plus2(PCplus2),
                      // Inputs
-                     .basePC(basePC), 
-                     .I(), 
-                     .D(), 
-                     .OpCode(), 
-                     .branchFlag(), 
-                     .jumpValue());
+                     .basePC(currPC), 
+                     .I(Inst[7:0]), 
+                     .D(Inst[10:0]), 
+                     .OpCode(Inst[15:11]), 
+                     .branchFlag(branchFlag), 
+                     .jumpValue(jumpVal));
+
+   
+
    rf       rf_bypass(/*AUTOINST*/
                       // Outputs
-                      .readData1        (readData1[15:0]),
-                      .readData2        (readData2[15:0]),
+                      .readData1        (readData1),
+                      .readData2        (readData2),
                       .err              (err),
                       // Inputs
                       .clk              (clk),
                       .rst              (rst),
-                      .readReg1Sel      (readReg1Sel[2:0]),
-                      .readReg2Sel      (readReg2Sel[2:0]),
-                      .writeRegSel      (writeRegSel[2:0]),
-                      .writeData        (writeData[15:0]),
-                      .writeEn          (writeEn));
-   //alu      alu(/*AUTOINST*/);
+                      .readReg1Sel      (Inst[10:8]),
+                      .readReg2Sel      (Inst[7:5]),
+                      .writeRegSel      (writeRegSel),
+                      .writeData        (writeData),
+                      .writeEn          (RegWrite));
+
+   alu      alu(
+	        // Outputs
+                res(AluRes),
+                jumpVal(jumpVal),
+                // Inputs
+                .OpCode(Inst[15:11]),
+                .funct(Inst[1:0]),
+                .Rs(readData1),
+                .Rt(readData2),
+                .Pc(PCplus2),
+                .Imm(Inst[7:0]));
+
    memory2c datamem(/*AUTOINST*/
                     // Outputs
-                    .data_out           (data_out[15:0]),
+                    .data_out           (MemOut),
                     // Inputs
-                    .data_in            (data_in[15:0]),
-                    .addr               (addr[15:0]),
-                    .enable             (enable),
-                    .wr                 (wr),
+                    .data_in            (readData2),
+                    .addr               (AluRes),
+                    .enable             (DMemEn),
+                    .wr                 (DMemWrite),
                     .createdump         (createdump),
                     .clk                (clk),
                     .rst                (rst));
