@@ -6,5 +6,5 @@ module dMemDump(opcode, out);
    xnor5_1 xnor0  (.opcode(opcode), .func(5'b00000), .out(funct));
    assign out = funct;
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 

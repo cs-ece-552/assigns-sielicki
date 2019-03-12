@@ -12,5 +12,4 @@ module xnor5_1(opcode, func, out);
 
    assign out = xor0 & xor1 & xor2 & xor3 & xor4;
 
-endmodule; // xnor5_1
-
+endmodule // xnor5_1

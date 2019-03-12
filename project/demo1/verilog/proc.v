@@ -45,19 +45,21 @@ module proc (/*AUTOARG*/
    wire [15:0]          PCplus2;
    wire [15:0]          Inst;
    wire                 branchFlag;
-   wire                 jumpVal;
+   wire [15:0] 		jumpVal;
    wire [15:0]          AluRes;
    wire [15:0]          writeData;
-   wire                 WriteRegSel;
+   wire [2:0] 		writeRegSel;
 
    wire [15:0]          MemOut;
-  
-   assign OpCode = data_out[15:11];
+   wire [1:0]           errTemp;
+
+   assign OpCode = Inst[15:11];
    assign branchFlag = PCImm | (PCSrc & AluRes[0]);
    assign writeData = MemToReg ? MemOut : AluRes;
    assign writeRegSel = RegDst[1] ? 
                              (RegDst[0] ? 3'b111 : Inst[10:8]) :
                              (RegDst[0] ? Inst[7:5] : Inst[4:2]);
+   assign err = |errTemp;
 
    
 
@@ -76,7 +78,7 @@ module proc (/*AUTOARG*/
                            // Inputs
                            .data_in             (),
                            .addr                (currPC),
-                           .enable              (enable),
+                           .enable              (1'b1),
                            .wr                  (),
                            .createdump          (),
                            .clk                 (clk),
@@ -84,7 +86,7 @@ module proc (/*AUTOARG*/
 
    control  control(/*AUTOINST*/
                     // Outputs
-                    .err                (err),
+                    .err                (errTemp[0]),
                     .RegWrite           (RegWrite),
                     .DMemWrite          (DMemWrite),
                     .DMemEn             (DMemEn),
@@ -97,10 +99,10 @@ module proc (/*AUTOARG*/
                     .RegDst             (RegDst[1:0]),
                     .SESel              (SESel[2:0]),
                     // Inputs
-                    .OpCode             (OpCode[4:0]),
-                    .Funct              (Funct[1:0]));
+                    .OpCode             (Inst[15:11]),
+                    .Funct              (Inst[1:0]));
 
-   PC_Adder pc_adder(
+   PCAdder pc_adder(
                      // Outputs
                      .pc(newPC), 
                      .pc_plus2(PCplus2),
@@ -108,7 +110,8 @@ module proc (/*AUTOARG*/
                      .basePC(currPC), 
                      .I(Inst[7:0]), 
                      .D(Inst[10:0]), 
-                     .OpCode(Inst[15:11]), 
+                     .SESel(SESel[1]),
+                     .Jump(Jump),
                      .branchFlag(branchFlag), 
                      .jumpValue(jumpVal));
 
@@ -118,7 +121,7 @@ module proc (/*AUTOARG*/
                       // Outputs
                       .readData1        (readData1),
                       .readData2        (readData2),
-                      .err              (err),
+                      .err              (errTemp[1]),
                       // Inputs
                       .clk              (clk),
                       .rst              (rst),
@@ -130,8 +133,8 @@ module proc (/*AUTOARG*/
 
    alu      alu(
 	        // Outputs
-                res(AluRes),
-                jumpVal(jumpVal),
+                .res(AluRes),
+                .jumpVal(jumpVal),
                 // Inputs
                 .OpCode(Inst[15:11]),
                 .funct(Inst[1:0]),

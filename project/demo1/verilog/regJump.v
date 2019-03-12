@@ -1,4 +1,4 @@
-module regJump(/*AUTOARGS*/)
+module regJump(opcode, out);
   input[4:0] opcode;
    output    out;
    wire [1:0] funct;
@@ -7,7 +7,7 @@ module regJump(/*AUTOARGS*/)
    xnor5_1 xnor1 (.opcode(opcode), .func(5'b00111), .out(funct[1]));
 
    assign out = funct[0] | funct[1];
-endmodule; // regJump
+endmodule // regJump
 
 
 

@@ -8,5 +8,4 @@ module dMemWrite(opcode, out);
 
    assign out = funct[0] | funct[1];
 
-endmodule; // dMemWrite
-
+endmodule // dMemWrite

@@ -7,5 +7,5 @@ module pcImm(opcode, out);
    xnor5_1 xnor1  (.opcode(opcode), .func(5'b00110), .out(funct[1]));
    assign out = funct[0] | funct[1];
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 

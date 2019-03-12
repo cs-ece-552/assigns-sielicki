@@ -56,5 +56,5 @@ module seSel(opcode, out);
    mux2_1_3 mux_one_zero_x (.InA(mux01x), .InB(3'b100), .S(final10x), .Out(mux10x));
    mux2_1_3 mux_one_one_x (.InA(mux10x), .InB(3'b110), .S(final11x), .Out(out));
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 

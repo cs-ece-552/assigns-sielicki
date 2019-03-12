@@ -12,5 +12,5 @@ module aluSrc2(opcode, out);
 
    assign out = funct[0] | funct[1] | funct[2] | funct[3] | funct[4] | funct[5];
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 

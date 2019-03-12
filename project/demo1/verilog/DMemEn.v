@@ -9,5 +9,5 @@ module dMemEn(opcode, out);
 
    assign out = funct[0] | funct[1] | funct[2];
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 

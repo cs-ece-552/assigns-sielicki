@@ -29,6 +29,6 @@ module regWrite(opcode, out);
 
    assign out = funct[0]|funct[1]|funct[2]|funct[3]|funct[4]|funct[5]|funct[6]|funct[7]|funct[8]|funct[9]|funct[10]|funct[11]|funct[12]|funct[13]|funct[14]|funct[15]|funct[16]|funct[17]|funct[18]|funct[19]|funct[20];
 
-endmodule; // regWrite
+endmodule // regWrite
 
      

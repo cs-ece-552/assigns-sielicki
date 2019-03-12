@@ -15,5 +15,5 @@ module pcSrc(opcode, out);
 
    assign out =  funct[0] | funct[1] | funct[2] |funct[3] |funct[4] |funct[5] |funct[6] |funct[7];
 
-endmodule; // dMemWrite
+endmodule // dMemWrite
 
