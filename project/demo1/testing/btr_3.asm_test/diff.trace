@@ -1,0 +1,12 @@
+INST:    1001 0001 1100 0011 slbi r1, 0xc3 ***DIFF***
+ARCH:    INUM:        0 PC: 0x0000 REG: 1 VALUE: 0x00c3
+VERILOG: 
+INST:    1001 0001 1100 0011 slbi r1, 0xc3 ***DIFF***
+ARCH:    INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xc3c3
+VERILOG: 
+INST:    1100 1001 0000 0100 btr r1, r1 ***DIFF***
+ARCH:    INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xc3c3
+VERILOG: 
+INST:    0000 0000 0000 0000 halt ***DIFF***
+ARCH:    INUM:        3 PC: 0x0006
+VERILOG: 

@@ -1,0 +1,6 @@
+INST:    0010 0000 0000 0010 j 0x2 ***DIFF***
+ARCH:    INUM:        0 PC: 0x0000
+VERILOG: 
+INST:    0000 0000 0000 0000 halt ***DIFF***
+ARCH:    INUM:        1 PC: 0x0004
+VERILOG: 

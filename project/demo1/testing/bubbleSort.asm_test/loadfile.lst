@@ -1,0 +1,116 @@
+          // Buuble Sort for Processor performance, CS552
+          // Author: Hamid Shojaei
+          
+0000 2080 j .main
+          // data to be sorted
+          
+0002      .A:		
+0002 0018 		data	24
+0004 0016 		data	22
+0006 0019 		data	25
+0008 0038 		data	56
+000a 0022 		data	34
+000c 0035 		data	53
+000e 001f 		data	31
+0010 001a 		data	26
+0012 0028 		data	40
+0014 0029 		data	41
+0016 002b 		data	43
+0018 001c 		data	28
+001a 002a 		data	42
+001c 003f 		data	63
+001e 0021 		data	33
+0020 002e 		data	46
+0022 003b 		data	59
+0024 0014 		data	20
+0026 003e 		data	62
+0028 0004 		data	4
+002a 001b 		data	27
+002c 0027 		data	39
+002e 003d 		data	61
+0030 0001 		data	1
+0032 0031 		data	49
+0034 0017 		data	23
+0036 0007 		data	7
+0038 0008 		data	8
+003a 0015 		data	21
+003c 0002 		data	2
+003e 0011 		data	17
+0040 000c 		data	12
+0042 000b 		data	11
+0044 0032 		data	50
+0046 003a 		data	58
+0048 003c 		data	60
+004a 0006 		data	6
+004c 0026 		data	38
+004e 0024 		data	36
+0050 0037 		data	55
+0052 0013 		data	19
+0054 001e 		data	30
+0056 000a 		data	10
+0058 0030 		data	48
+005a 0034 		data	52
+005c 0036 		data	54
+005e 0025 		data	37
+0060 0010 		data	16
+0062 0033 		data	51
+0064 002f 		data	47
+0066 000e 		data	14
+0068 0039 		data	57
+006a 0040 		data	64
+006c 002d 		data	45
+006e 0009 		data	9
+0070 0012 		data	18
+0072 001d 		data	29
+0074 0020 		data	32
+0076 0003 		data	3
+0078 0023 		data	35
+007a 0005 		data	5
+007c 000d 		data	13
+007e 000f 		data	15
+0080 002c 		data	44
+          		
+0082      .main:
+          
+0082 c13f 	lbi r1, 63 	//parameter n
+          	
+0084 a921 	slli r1, r1, 1 //number of bytes in array A
+          
+0086      .outer:
+          
+0086 495e 	addi r2, r1, -2 //r2: j-1
+          	
+0088 c300 	lbi r3, 0 //no swap yet
+          	
+008a      .inner:
+          	
+008a 4ac2 	addi r6,r2,2
+          	
+008c 8e82 	ld r4,r6, .A //r4 <- A[j]
+          	
+          	
+008e 8aa2 	ld r5,r2, .A //r5 <- A[j-1]
+          	
+0090 dcb9 	sub r6,r4,r5
+          	
+0092 7e08 	bgez r6, .no_swap //A[j] <= A[j-1]?
+          	
+0094 8282 	st r4, r2, .A //A[j-1] <- r4 \ move bubble
+          	
+0096 4abe 	addi r5,r2,-2
+          	
+0098 85a2 	st r5, r5, .A //A[j] <- r5 / r4 upwards
+          	
+009a c301 	lbi r3, 1 //swap occurred
+          	
+009c      .no_swap:
+          
+009c 4a5e 	addi r2, r2, -2 //next array element
+          	
+009e 7aea 	bgez r2, .inner //more?
+          	
+00a0 63e4 	bnez r3, .outer //did we swap?
+          	
+00a2 c73f 	lbi r7, 63 //exit
+          	
+00a4 0000 	halt

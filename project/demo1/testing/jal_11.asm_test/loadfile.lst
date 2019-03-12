@@ -1,0 +1,21 @@
+          // Original test: ./hsin/hw4/problem6/jal_0.asm
+          // Author: hsin
+          // Test source code follows
+          
+          
+0000 c701 lbi r7, 1         // r7 = 1
+0002 4f20 addi r1, r7, 0    // r1 = 1
+0004 3004 jal .Label2       // r7 = .ra1: // jump to .Label2
+0006      .ra1:
+          
+0006 0000 halt              // Not executed
+          
+0008      .Label1:
+          
+0008 0000 halt
+          
+000a      .Label2:
+          
+000a 4f40 addi r2, r7, 0    // r2 = .RetAddr
+000c 37fa jal .Label1       // r7 = .ra2: // jump to .Label1
+000e      .ra2: 

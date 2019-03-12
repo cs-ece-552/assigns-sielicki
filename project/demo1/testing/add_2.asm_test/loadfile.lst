@@ -1,0 +1,5 @@
+          //test for addition with zero
+0000 c180 lbi r1,-128
+0002 c200 lbi r2,0
+0004 d94c add r3,r1,r2
+0006 0000 halt

@@ -1,0 +1,25 @@
+          // Author: Matt Sinclair
+          // CS/ECE 552 Spring '08
+          // Homework #4, Problem #7
+          //
+          // Filename: bgez_5.asm
+          // BGEZ assembly test
+          //
+          // This is a test of the bgez instruction.  This test should verify that the
+          // branch branches when the register has the value 65534 (tests to make sure the
+          // max positive integer still branches)
+          
+          	
+0000 c1ff LBI	r1, 255				// move 254 (base 10) into r1 (largest immediate
+0002 493f ADDI	r1, r1, -1			// for an lbi - this makes r1 is the largest
+0004 b121 RORI	r1, r1, 1			// postive integer representable - 65534)
+          
+0006 7906 BGEZ	r1, .shouldGoHere		// 65534 >= 0, so should branch
+          					// none of these should execute
+0008 c200 LBI	r2, 0
+000a 4a41 ADDI	r2, r2, 1
+000c 4a41 ADDI	r2, r2, 1		
+000e      .shouldGoHere:
+000e 492a ADDI	r1, r1, 10
+0010 0000 HALT					// end bgez_5.asm
+          					// r1 = 9 (base 10) now

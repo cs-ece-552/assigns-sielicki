@@ -1,0 +1,25 @@
+          
+          // Author: Matt Sinclair
+          // CS/ECE 552 Spring '08
+          // Homework #4, Problem #7
+          // ID: 2294
+          //
+          // Filename: bgez_10.asm
+          // BGEZ assembly test
+          //
+          // This is a test of the bgez instruction.  This test demonstrates both
+          // branching a trivial amount (a branch of 0), such that it goes to the next
+          // instruction anyways.
+          
+0000 c100 LBI	r1, 0				// loads all 0's into r1 to clear it
+0002 492a ADDI	r1, r1, 10			// move a (base 16) into r1
+0004 7900 BGEZ	r1, 0				// 10 >= 0, so should branch (but doesn't really branch anywhere)
+          					// branches here
+0006 c200 LBI	r2, 0
+0008 4a41 ADDI	r2, r2, 1
+000a 4a41 ADDI	r2, r2, 1
+000c      .shouldGoHere:
+000c 492a ADDI	r1, r1, 10
+000e 0000 HALT					// end bgez_10.asm
+          					// r1 = 20 (base 10) = 0x14 now
+          					// r2 = 2 (base 10) = 0x2

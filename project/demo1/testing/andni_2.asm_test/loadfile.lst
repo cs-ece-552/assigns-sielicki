@@ -1,0 +1,4 @@
+          //basic test for andni
+0000 c12d lbi r1, 45
+0002 5155 andni r2, r1, 21
+0004 0000 halt

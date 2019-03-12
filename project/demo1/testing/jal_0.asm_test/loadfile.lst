@@ -1,0 +1,11 @@
+          // Original test: ./bolanows/hw4/problem6/jal_0.asm
+          // Author: bolanows
+          // Test source code follows
+          
+          
+          
+0000 3002 JAL 2 // Should jump to the target, PC = 4
+0002 0800 Nop
+0004 0800 Nop // PC = 4 Target
+0006 0000 halt
+          

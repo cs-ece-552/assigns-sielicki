@@ -1,0 +1,8 @@
+          // Test provided by Karu 
+          // btr_4.asm
+          
+          // Test symmetry case 3
+0000 91a5 slbi r1, 0xa5 // 1010 0101
+0002 91a5 slbi r1, 0xa5 // 1010 0101
+0004 c904 btr r1, r1
+0006 0000 halt

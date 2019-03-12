@@ -1,0 +1,21 @@
+0000 c702 lbi  r7, 2
+0002 9700 slbi r7, 0
+0004 c000 lbi  r0, 0   // r0 = 0x0000
+0006 c110 lbi  r1, 16  
+0008 9100 slbi r1, 0   // r1 = 0x1000
+000a c220 lbi  r2, 32
+000c 9200 slbi r2, 0   // r2 = 0x2000
+000e c340 lbi  r3, 64
+0010 9300 slbi r3, 0   // r3 = 0x4000
+0012      .loop:
+0012 8880 ld   r4, r0, 0
+0014 89a0 ld   r5, r1, 0
+0016 dcb8 add  r6, r4, r5
+          //nop
+0018 82c0 st   r6, r2, 0
+001a 83c2 st   r6, r3, 2
+001c 4fff addi r7, r7, -1
+001e 67f2 bnez r7, .loop
+0020 0000 halt
+0022 0000 halt
+0024 0000 halt

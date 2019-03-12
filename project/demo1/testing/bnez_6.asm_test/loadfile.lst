@@ -1,0 +1,12 @@
+          // Original test: ./mshi/hw4/problem6/bnez_1.asm
+          // Author: mshi
+          // Test source code follows
+          
+          
+0000 c101 lbi r1, 1
+0002 6102 bnez r1, .Label2
+0004      .Label1:
+0004 c200 lbi r2,0
+0006      .Label2:
+0006 c201 lbi r2,1
+0008 0000 halt
