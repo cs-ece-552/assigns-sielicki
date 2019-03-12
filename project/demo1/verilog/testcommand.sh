@@ -1,0 +1,1 @@
+for i in ../testing/*.asm; do wsrun.pl -prog $i proc_hier_bench *.v ; cp archsim.out archsim.ptrace archsim.trace diff.trace dump.vcd dump.wlf loadfile* summary.log transcript verilogsim.*  "$i""_test" ; done

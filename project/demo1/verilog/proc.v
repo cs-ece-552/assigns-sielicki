@@ -70,7 +70,7 @@ module proc (/*AUTOARG*/
                .clk                     (clk),
                .rst                     (rst),
                .inData                  (newPC),
-               .writeEn                 (writeEn));
+               .writeEn                 (~DMemDump));
 
    memory2c instructionmem(/*AUTOINST*/
                            // Outputs
