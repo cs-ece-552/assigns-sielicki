@@ -1,0 +1,10 @@
+          // Original test: ./tschaefe/hw4/problem6/jal_0.asm
+          // Author: tschaefe
+          // Test source code follows
+          
+          
+          // jal test 0
+          // This test should set r7 to 0x2 and move to the halt
+          
+0000 3000 jal 0x0
+0002 0000 halt

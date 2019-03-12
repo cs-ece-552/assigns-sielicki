@@ -1,1 +1,1 @@
-../testing/jal_16.asm FAILED
+../testing/jal_17.asm SUCCESS CPI:2.0 CYCLES:6 ICOUNT:3 IHITRATE: 0 DHITRATE: 0

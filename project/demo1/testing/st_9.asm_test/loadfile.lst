@@ -1,0 +1,11 @@
+          // Original test: ./ullmer/hw4/problem6/st_5.asm
+          // Author: ullmer
+          // Test source code follows
+          
+          
+          //test where reg offset is negative 
+          //immediate (mem address = 0x0000)
+0000 c0f1 lbi r0, -15
+0002 c1ff lbi r1, -1
+0004 802f st r1, r0, 15
+0006 0000 halt

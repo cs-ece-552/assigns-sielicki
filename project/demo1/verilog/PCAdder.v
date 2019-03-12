@@ -81,6 +81,6 @@ module PCAdder(/*AUTOARG*/
    //regJump regjump (.opcode(OpCode), .out(registerJump));
    
    //branchFlag is actually (PCImm | (PCSrc & branchFlagFromAlu))
-   mux2_1_16b muxBranch (.InA(pc_plus2), .InB(pc_plusExt), .S(Jump), .Out(pcRelative));
-   mux2_1_16b pcFinal (.InA(pcRelative), .InB(jumpValue), .S(registerJump), .Out(pc));
+   mux2_1_16b muxBranch (.InA(pc_plus2), .InB(pc_plusExt), .S(branchFlag), .Out(pcRelative));
+   mux2_1_16b pcFinal (.InA(pcRelative), .InB(jumpValue), .S(Jump), .Out(pc));
 endmodule // PCAdder

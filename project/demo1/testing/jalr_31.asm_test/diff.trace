@@ -1,0 +1,33 @@
+INST:    1100 0000 0000 0000 lbi r0, 0x0  
+ARCH:    INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+VERILOG: INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+INST:    1100 0001 1111 1101 lbi r1, 0xfd  
+ARCH:    INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xfffd
+VERILOG: INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xfffd
+INST:    0100 1001 0010 0001 addi r1, r1, 0x01  
+ARCH:    INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xfffe
+VERILOG: INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xfffe
+INST:    0111 1001 0000 0010 bgez r1, .done  
+ARCH:    INUM:        3 PC: 0x0006
+VERILOG: INUM:        3 PC: 0x0006
+INST:    0011 1000 0000 0100 jalr r0, 0x4 ***DIFF***
+ARCH:    INUM:        4 PC: 0x0008 REG: 7 VALUE: 0x000a
+VERILOG: 
+INST:    0100 1001 0010 0001 addi r1, r1, 0x01 ***DIFF***
+ARCH:    INUM:        5 PC: 0x0004 REG: 1 VALUE: 0xffff
+VERILOG: 
+INST:    0111 1001 0000 0010 bgez r1, .done ***DIFF***
+ARCH:    INUM:        6 PC: 0x0006
+VERILOG: 
+INST:    0011 1000 0000 0100 jalr r0, 0x4 ***DIFF***
+ARCH:    INUM:        7 PC: 0x0008 REG: 7 VALUE: 0x000a
+VERILOG: 
+INST:    0100 1001 0010 0001 addi r1, r1, 0x01 ***DIFF***
+ARCH:    INUM:        8 PC: 0x0004 REG: 1 VALUE: 0x0000
+VERILOG: 
+INST:    0111 1001 0000 0010 bgez r1, .done ***DIFF***
+ARCH:    INUM:        9 PC: 0x0006
+VERILOG: 
+INST:    0000 0000 0000 0000 halt ***DIFF***
+ARCH:    INUM:       10 PC: 0x000a
+VERILOG: 

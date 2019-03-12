@@ -1,0 +1,159 @@
+INST:    1100 0000 0000 0000 lbi r0, 0  
+ARCH:    INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+VERILOG: INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+INST:    1100 0001 0000 0001 lbi r1, 1  
+ARCH:    INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0001
+VERILOG: INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0001
+INST:    1100 0010 1111 1111 lbi r2, -1  
+ARCH:    INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xffff
+VERILOG: INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xffff
+INST:    1100 0100 0000 1010 lbi r4, 10  
+ARCH:    INUM:        3 PC: 0x0006 REG: 4 VALUE: 0x000a
+VERILOG: INUM:        3 PC: 0x0006 REG: 4 VALUE: 0x000a
+INST:    0110 0001 0001 1000 bnez r1, .rlabel_0  
+ARCH:    INUM:        4 PC: 0x0008
+VERILOG: INUM:        4 PC: 0x0008
+INST:    0110 0001 0000 1100 bnez r1, .rlabel_1 ***DIFF***
+ARCH:    INUM:        5 PC: 0x0022
+VERILOG: 
+INST:    0010 0000 1111 1010 j .rlabel_2 ***DIFF***
+ARCH:    INUM:        6 PC: 0x0030
+VERILOG: 
+INST:    0111 1011 0000 0100 bgez r3, .rlabel_3 ***DIFF***
+ARCH:    INUM:        7 PC: 0x012c
+VERILOG: 
+INST:    0011 0000 0111 0000 jal .rlabel_4 ***DIFF***
+ARCH:    INUM:        8 PC: 0x0132 REG: 7 VALUE: 0x0134
+VERILOG: 
+INST:    0111 0010 0001 1100 bltz r2, .rlabel_5 ***DIFF***
+ARCH:    INUM:        9 PC: 0x01a4
+VERILOG: 
+INST:    0010 0000 1100 1110 j .rlabel_6 ***DIFF***
+ARCH:    INUM:       10 PC: 0x01c2
+VERILOG: 
+INST:    0111 1011 0001 0100 bgez r3, .rlabel_7 ***DIFF***
+ARCH:    INUM:       11 PC: 0x0292
+VERILOG: 
+INST:    0110 1000 0000 1000 beqz r0, .rlabel_8 ***DIFF***
+ARCH:    INUM:       12 PC: 0x02a8
+VERILOG: 
+INST:    0110 0001 0001 1000 bnez r1, .rlabel_9 ***DIFF***
+ARCH:    INUM:       13 PC: 0x02b2
+VERILOG: 
+INST:    0111 0010 0001 0100 bltz r2, .rlabel_10 ***DIFF***
+ARCH:    INUM:       14 PC: 0x02cc
+VERILOG: 
+INST:    0111 0010 0001 1000 bltz r2, .rlabel_11 ***DIFF***
+ARCH:    INUM:       15 PC: 0x02e2
+VERILOG: 
+INST:    0110 0001 0001 1000 bnez r1, .rlabel_12 ***DIFF***
+ARCH:    INUM:       16 PC: 0x02fc
+VERILOG: 
+INST:    0110 1000 0001 1110 beqz r0, .rlabel_13 ***DIFF***
+ARCH:    INUM:       17 PC: 0x0316
+VERILOG: 
+INST:    0110 1000 0001 1000 beqz r0, .rlabel_14 ***DIFF***
+ARCH:    INUM:       18 PC: 0x0336
+VERILOG: 
+INST:    0010 0000 1101 1000 j .rlabel_15 ***DIFF***
+ARCH:    INUM:       19 PC: 0x0350
+VERILOG: 
+INST:    0010 0000 0100 0110 j .rlabel_16 ***DIFF***
+ARCH:    INUM:       20 PC: 0x042a
+VERILOG: 
+INST:    0010 0000 1010 0110 j .rlabel_17 ***DIFF***
+ARCH:    INUM:       21 PC: 0x0472
+VERILOG: 
+INST:    0010 0000 1100 1110 j .rlabel_18 ***DIFF***
+ARCH:    INUM:       22 PC: 0x051a
+VERILOG: 
+INST:    0010 0000 1001 0100 j .rlabel_19 ***DIFF***
+ARCH:    INUM:       23 PC: 0x05ea
+VERILOG: 
+INST:    0110 1000 0001 1110 beqz r0, .rlabel_20 ***DIFF***
+ARCH:    INUM:       24 PC: 0x0680
+VERILOG: 
+INST:    0010 0000 1100 1000 j .rlabel_21 ***DIFF***
+ARCH:    INUM:       25 PC: 0x06a0
+VERILOG: 
+INST:    0111 0010 0001 1000 bltz r2, .rlabel_22 ***DIFF***
+ARCH:    INUM:       26 PC: 0x076a
+VERILOG: 
+INST:    0110 1000 0001 0110 beqz r0, .rlabel_23 ***DIFF***
+ARCH:    INUM:       27 PC: 0x0784
+VERILOG: 
+INST:       1010 1011 1110   0010 0011   ***DIFF***
+ARCH:    INUM:       28 PC: 0x079c REG: 6 VALUE: 0xffff
+VERILOG: 
+INST:    1101 0010 0111 1010 ror r6, r2, r3 ***DIFF***
+ARCH:    INUM:       29 PC: 0x079e REG: 1 VALUE: 0xfecb
+VERILOG: 
+INST:    1101 1010 1110 0111 andn r1, r2, r7 ***DIFF***
+ARCH:    INUM:       30 PC: 0x07a0 REG: 0 VALUE: 0x0000
+VERILOG: 
+INST:    1111 1010 0110 0000 sco r0, r2, r3 ***DIFF***
+ARCH:    INUM:       31 PC: 0x07a2 REG: 0 VALUE: 0xffff
+VERILOG: 
+INST:    1101 0110 0100 0010 ror r0, r6, r2 ***DIFF***
+ARCH:    INUM:       32 PC: 0x07a4 REG: 2 VALUE: 0x0000
+VERILOG: 
+INST:    1111 1011 1010 1000 sco r2, r3, r5 ***DIFF***
+ARCH:    INUM:       33 PC: 0x07a6 REG: 1 VALUE: 0x0001
+VERILOG: 
+INST:    1110 1110 0110 0100 slt r1, r6, r3 ***DIFF***
+ARCH:    INUM:       34 PC: 0x07a8 REG: 7 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0010 1111 1110 ror r7, r2, r7 ***DIFF***
+ARCH:    INUM:       35 PC: 0x07aa REG: 2 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0010 1110 1011 srl r2, r2, r7 ***DIFF***
+ARCH:    INUM:       36 PC: 0x07ac REG: 5 VALUE: 0x0001
+VERILOG: 
+INST:    1110 1011 1001 0100 slt r5, r3, r4 ***DIFF***
+ARCH:    INUM:       37 PC: 0x07ae REG: 5 VALUE: 0x0000
+VERILOG: 
+INST:    1111 1111 0011 0100 sco r5, r7, r1 ***DIFF***
+ARCH:    INUM:       38 PC: 0x07b0 REG: 0 VALUE: 0xffff
+VERILOG: 
+INST:    1101 1110 1110 0000 add r0, r6, r7 ***DIFF***
+ARCH:    INUM:       39 PC: 0x07b2 REG: 6 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0001 0001 1011 srl r6, r1, r0 ***DIFF***
+ARCH:    INUM:       40 PC: 0x07b4 REG: 2 VALUE: 0x0000
+VERILOG: 
+INST:    1101 1101 0100 1010 xor r2, r5, r2 ***DIFF***
+ARCH:    INUM:       41 PC: 0x07b6 REG: 4 VALUE: 0x0001
+VERILOG: 
+INST:    1101 1001 1101 0010 xor r4, r1, r6 ***DIFF***
+ARCH:    INUM:       42 PC: 0x07b8 REG: 2 VALUE: 0x0001
+VERILOG: 
+INST:    1111 0000 1100 1000 sle r2, r0, r6 ***DIFF***
+ARCH:    INUM:       43 PC: 0x07ba REG: 1 VALUE: 0x0000
+VERILOG: 
+INST:    1101 1011 1100 0110 xor r1, r3, r6 ***DIFF***
+ARCH:    INUM:       44 PC: 0x07bc REG: 0 VALUE: 0x0000
+VERILOG: 
+INST:    1110 0010 1010 0000 seq r0, r2, r5 ***DIFF***
+ARCH:    INUM:       45 PC: 0x07be REG: 5 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0110 1001 0101 sll r5, r6, r4 ***DIFF***
+ARCH:    INUM:       46 PC: 0x07c0 REG: 7 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0011 0101 1111 srl r7, r3, r2 ***DIFF***
+ARCH:    INUM:       47 PC: 0x07c2 REG: 6 VALUE: 0x0000
+VERILOG: 
+INST:    1101 1011 0111 1011 andn r6, r3, r3 ***DIFF***
+ARCH:    INUM:       48 PC: 0x07c4 REG: 3 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0101 0000 1100 rol r3, r5, r0 ***DIFF***
+ARCH:    INUM:       49 PC: 0x07c6 REG: 6 VALUE: 0x0000
+VERILOG: 
+INST:    1101 0101 1011 1000 rol r6, r5, r5 ***DIFF***
+ARCH:    INUM:       50 PC: 0x07c8 REG: 4 VALUE: 0x0001
+VERILOG: 
+INST:    1101 0100 0011 0010 ror r4, r4, r1 ***DIFF***
+ARCH:    INUM:       51 PC: 0x07ca REG: 4 VALUE: 0x0001
+VERILOG: 
+INST:    1101 0010 0111 0010 ror r4, r2, r3 ***DIFF***
+ARCH:    INUM:       52 PC: 0x07cc
+VERILOG: 

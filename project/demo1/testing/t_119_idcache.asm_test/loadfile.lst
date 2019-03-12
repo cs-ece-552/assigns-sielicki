@@ -1,0 +1,1024 @@
+          // seed 119
+0000 c0cb lbi r0, 203 // icount 0
+0002 9098 slbi r0, 152 // icount 1
+0004 c1f8 lbi r1, 248 // icount 2
+0006 9144 slbi r1, 68 // icount 3
+0008 c22b lbi r2, 43 // icount 4
+000a 927c slbi r2, 124 // icount 5
+000c c3a4 lbi r3, 164 // icount 6
+000e 9358 slbi r3, 88 // icount 7
+0010 c430 lbi r4, 48 // icount 8
+0012 94aa slbi r4, 170 // icount 9
+0014 c529 lbi r5, 41 // icount 10
+0016 957c slbi r5, 124 // icount 11
+0018 c656 lbi r6, 86 // icount 12
+001a 96ed slbi r6, 237 // icount 13
+001c c79f lbi r7, 159 // icount 14
+001e 979c slbi r7, 156 // icount 15
+0020 c000 lbi r0, 0 // icount 16
+0022 c101 lbi r1, 1 // icount 17
+0024 c2ff lbi r2, -1 // icount 18
+0026 c301 lbi r3, 1 // icount 19
+0028 56c1 andni r6, r6, 1 // icount 20
+002a c303 lbi r3, 3 // icount 21
+002c c52c lbi r5, 44 // icount 22
+002e 20d4 j .rlabel_0 // icount 23
+0030 d722 ror r0, r7, r1 // icount 24
+0032 d0e9 sll r2, r0, r7 // icount 25
+0034 d32b srl r2, r3, r1 // icount 26
+0036 d66f srl r3, r6, r3 // icount 27
+0038 d1e6 ror r1, r1, r7 // icount 28
+003a dd46 xor r1, r5, r2 // icount 29
+003c d697 srl r5, r6, r4 // icount 30
+003e d6c2 ror r0, r6, r6 // icount 31
+0040 fba4 sco r1, r3, r5 // icount 32
+0042 d017 srl r5, r0, r0 // icount 33
+0044 e18c seq r3, r1, r4 // icount 34
+0046 d239 sll r6, r2, r1 // icount 35
+0048 db39 sub r6, r3, r1 // icount 36
+004a dfd7 andn r5, r7, r6 // icount 37
+004c dff6 xor r5, r7, r7 // icount 38
+004e d8d6 xor r5, r0, r6 // icount 39
+0050 d8e3 andn r0, r0, r7 // icount 40
+0052 d83d sub r7, r0, r1 // icount 41
+0054 d46c rol r3, r4, r3 // icount 42
+0056 dc0e xor r3, r4, r0 // icount 43
+0058 df4d sub r3, r7, r2 // icount 44
+005a d452 ror r4, r4, r2 // icount 45
+005c e61c seq r7, r6, r0 // icount 46
+005e db30 add r4, r3, r1 // icount 47
+0060 dd3a xor r6, r5, r1 // icount 48
+0062 d47f srl r7, r4, r3 // icount 49
+0064 d0d2 ror r4, r0, r6 // icount 50
+0066 db47 andn r1, r3, r2 // icount 51
+0068 defe xor r7, r6, r7 // icount 52
+006a d742 ror r0, r7, r2 // icount 53
+006c f0c4 sle r1, r0, r6 // icount 54
+006e d6d7 srl r5, r6, r6 // icount 55
+0070 e41c seq r7, r4, r0 // icount 56
+0072 d6f0 rol r4, r6, r7 // icount 57
+0074 d140 rol r0, r1, r2 // icount 58
+0076 f2c4 sle r1, r2, r6 // icount 59
+0078 e324 seq r1, r3, r1 // icount 60
+007a e4d0 seq r4, r4, r6 // icount 61
+007c de0f andn r3, r6, r0 // icount 62
+007e f960 sco r0, r1, r3 // icount 63
+0080 da5f andn r7, r2, r2 // icount 64
+0082 d17b srl r6, r1, r3 // icount 65
+0084 d618 rol r6, r6, r0 // icount 66
+0086 d817 andn r5, r0, r0 // icount 67
+0088 d88b andn r2, r0, r4 // icount 68
+008a d90d sub r3, r1, r0 // icount 69
+008c d1cd sll r3, r1, r6 // icount 70
+008e d3b8 rol r6, r3, r5 // icount 71
+0090 d684 rol r1, r6, r4 // icount 72
+0092 dbf0 add r4, r3, r7 // icount 73
+0094 da8d sub r3, r2, r4 // icount 74
+0096 e72c seq r3, r7, r1 // icount 75
+0098 d337 srl r5, r3, r1 // icount 76
+009a dbff andn r7, r3, r7 // icount 77
+009c d80a xor r2, r0, r0 // icount 78
+009e f220 sle r0, r2, r1 // icount 79
+00a0 e45c seq r7, r4, r2 // icount 80
+00a2 d2ab srl r2, r2, r5 // icount 81
+00a4 d4e7 srl r1, r4, r7 // icount 82
+00a6 f68c sle r3, r6, r4 // icount 83
+00a8 d06b srl r2, r0, r3 // icount 84
+00aa d62c rol r3, r6, r1 // icount 85
+00ac f280 sle r0, r2, r4 // icount 86
+00ae e578 seq r6, r5, r3 // icount 87
+00b0 d028 rol r2, r0, r1 // icount 88
+00b2 fdf8 sco r6, r5, r7 // icount 89
+00b4 edd4 slt r5, r5, r6 // icount 90
+00b6 df9d sub r7, r7, r4 // icount 91
+00b8 d058 rol r6, r0, r2 // icount 92
+00ba f588 sle r2, r5, r4 // icount 93
+00bc dc87 andn r1, r4, r4 // icount 94
+00be da2d sub r3, r2, r1 // icount 95
+00c0 dbe3 andn r0, r3, r7 // icount 96
+00c2 d30f srl r3, r3, r0 // icount 97
+00c4 dcb2 xor r4, r4, r5 // icount 98
+00c6 d544 rol r1, r5, r2 // icount 99
+00c8 ef20 slt r0, r7, r1 // icount 100
+00ca d64e ror r3, r6, r2 // icount 101
+00cc dd03 andn r0, r5, r0 // icount 102
+00ce d4cb srl r2, r4, r6 // icount 103
+00d0 d943 andn r0, r1, r2 // icount 104
+00d2 f6f0 sle r4, r6, r7 // icount 105
+00d4 df7e xor r7, r7, r3 // icount 106
+00d6 d427 srl r1, r4, r1 // icount 107
+00d8 d278 rol r6, r2, r3 // icount 108
+00da f494 sle r5, r4, r4 // icount 109
+00dc e2d0 seq r4, r2, r6 // icount 110
+00de d18e ror r3, r1, r4 // icount 111
+00e0 e708 seq r2, r7, r0 // icount 112
+00e2 ead0 slt r4, r2, r6 // icount 113
+00e4 ff64 sco r1, r7, r3 // icount 114
+00e6 ef58 slt r6, r7, r2 // icount 115
+00e8 fe34 sco r5, r6, r1 // icount 116
+00ea d63d sll r7, r6, r1 // icount 117
+00ec e54c seq r3, r5, r2 // icount 118
+00ee d4e7 srl r1, r4, r7 // icount 119
+00f0 d5e8 rol r2, r5, r7 // icount 120
+00f2 d644 rol r1, r6, r2 // icount 121
+00f4 d09e ror r7, r0, r4 // icount 122
+00f6 df2e xor r3, r7, r1 // icount 123
+00f8 d0bf srl r7, r0, r5 // icount 124
+00fa d636 ror r5, r6, r1 // icount 125
+00fc dcd4 add r5, r4, r6 // icount 126
+00fe d5cb srl r2, r5, r6 // icount 127
+0100 d36d sll r3, r3, r3 // icount 128
+0102 d8a9 sub r2, r0, r5 // icount 129
+0104      .rlabel_0:
+0104 3000 jal .rlabel_1 // icount 130
+0106      .rlabel_1:
+0106 8ee0 ld r7, r6, 0
+0108 4ec0 addi r6, r6, 0
+010a 20ce j .rlabel_2 // icount 131
+010c ecf0 slt r4, r4, r7 // icount 132
+010e d985 sub r1, r1, r4 // icount 133
+0110 d94b andn r2, r1, r2 // icount 134
+0112 d4b9 sll r6, r4, r5 // icount 135
+0114 df3a xor r6, r7, r1 // icount 136
+0116 d92b andn r2, r1, r1 // icount 137
+0118 da43 andn r0, r2, r2 // icount 138
+011a e12c seq r3, r1, r1 // icount 139
+011c d2d5 sll r5, r2, r6 // icount 140
+011e d078 rol r6, r0, r3 // icount 141
+0120 d62b srl r2, r6, r1 // icount 142
+0122 d0fb srl r6, r0, r7 // icount 143
+0124 dbce xor r3, r3, r6 // icount 144
+0126 f80c sco r3, r0, r0 // icount 145
+0128 f56c sle r3, r5, r3 // icount 146
+012a f200 sle r0, r2, r0 // icount 147
+012c d826 xor r1, r0, r1 // icount 148
+012e d4db srl r6, r4, r6 // icount 149
+0130 d5d4 rol r5, r5, r6 // icount 150
+0132 d278 rol r6, r2, r3 // icount 151
+0134 d37f srl r7, r3, r3 // icount 152
+0136 da42 xor r0, r2, r2 // icount 153
+0138 d8c6 xor r1, r0, r6 // icount 154
+013a d1e3 srl r0, r1, r7 // icount 155
+013c d6a2 ror r0, r6, r5 // icount 156
+013e dd53 andn r4, r5, r2 // icount 157
+0140 d5f6 ror r5, r5, r7 // icount 158
+0142 d101 sll r0, r1, r0 // icount 159
+0144 f68c sle r3, r6, r4 // icount 160
+0146 e108 seq r2, r1, r0 // icount 161
+0148 da0e xor r3, r2, r0 // icount 162
+014a d385 sll r1, r3, r4 // icount 163
+014c d13e ror r7, r1, r1 // icount 164
+014e d3e3 srl r0, r3, r7 // icount 165
+0150 ff44 sco r1, r7, r2 // icount 166
+0152 dd86 xor r1, r5, r4 // icount 167
+0154 eccc slt r3, r4, r6 // icount 168
+0156 dac8 add r2, r2, r6 // icount 169
+0158 eee8 slt r2, r6, r7 // icount 170
+015a f344 sle r1, r3, r2 // icount 171
+015c d653 srl r4, r6, r2 // icount 172
+015e fbd0 sco r4, r3, r6 // icount 173
+0160 d13b srl r6, r1, r1 // icount 174
+0162 d233 srl r4, r2, r1 // icount 175
+0164 ddb2 xor r4, r5, r5 // icount 176
+0166 e378 seq r6, r3, r3 // icount 177
+0168 d345 sll r1, r3, r2 // icount 178
+016a d96f andn r3, r1, r3 // icount 179
+016c ddcb andn r2, r5, r6 // icount 180
+016e d14a ror r2, r1, r2 // icount 181
+0170 d598 rol r6, r5, r4 // icount 182
+0172 dc02 xor r0, r4, r0 // icount 183
+0174 df86 xor r1, r7, r4 // icount 184
+0176 dcfa xor r6, r4, r7 // icount 185
+0178 dbd8 add r6, r3, r6 // icount 186
+017a fafc sco r7, r2, r7 // icount 187
+017c d663 srl r0, r6, r3 // icount 188
+017e ec70 slt r4, r4, r3 // icount 189
+0180 f324 sle r1, r3, r1 // icount 190
+0182 d390 rol r4, r3, r4 // icount 191
+0184 d5e1 sll r0, r5, r7 // icount 192
+0186 df70 add r4, r7, r3 // icount 193
+0188 fbf4 sco r5, r3, r7 // icount 194
+018a daa1 sub r0, r2, r5 // icount 195
+018c dc76 xor r5, r4, r3 // icount 196
+018e fccc sco r3, r4, r6 // icount 197
+0190 db21 sub r0, r3, r1 // icount 198
+0192 e4ec seq r3, r4, r7 // icount 199
+0194 dd15 sub r5, r5, r0 // icount 200
+0196 d8f7 andn r5, r0, r7 // icount 201
+0198 d780 rol r0, r7, r4 // icount 202
+019a dfa4 add r1, r7, r5 // icount 203
+019c d695 sll r5, r6, r4 // icount 204
+019e d6cf srl r3, r6, r6 // icount 205
+01a0 db30 add r4, r3, r1 // icount 206
+01a2 e6b8 seq r6, r6, r5 // icount 207
+01a4 dabd sub r7, r2, r5 // icount 208
+01a6 e1c8 seq r2, r1, r6 // icount 209
+01a8 eb70 slt r4, r3, r3 // icount 210
+01aa df9f andn r7, r7, r4 // icount 211
+01ac dc9e xor r7, r4, r4 // icount 212
+01ae dbdb andn r6, r3, r6 // icount 213
+01b0 d5d7 srl r5, r5, r6 // icount 214
+01b2 dc82 xor r0, r4, r4 // icount 215
+01b4 d226 ror r1, r2, r1 // icount 216
+01b6 dcca xor r2, r4, r6 // icount 217
+01b8 de11 sub r4, r6, r0 // icount 218
+01ba f614 sle r5, r6, r0 // icount 219
+01bc d2a1 sll r0, r2, r5 // icount 220
+01be de3d sub r7, r6, r1 // icount 221
+01c0 d7aa ror r2, r7, r5 // icount 222
+01c2 d777 srl r5, r7, r3 // icount 223
+01c4 f508 sle r2, r5, r0 // icount 224
+01c6 efa4 slt r1, r7, r5 // icount 225
+01c8 d8ad sub r3, r0, r5 // icount 226
+01ca d2c9 sll r2, r2, r6 // icount 227
+01cc e3ac seq r3, r3, r5 // icount 228
+01ce dae7 andn r1, r2, r7 // icount 229
+01d0 d94e xor r3, r1, r2 // icount 230
+01d2 dc72 xor r4, r4, r3 // icount 231
+01d4 dfee xor r3, r7, r7 // icount 232
+01d6 db68 add r2, r3, r3 // icount 233
+01d8 fe3c sco r7, r6, r1 // icount 234
+01da      .rlabel_2:
+01da 8eec ld r7, r6, 12
+01dc 4ecc addi r6, r6, 12
+01de 20d0 j .rlabel_3 // icount 235
+01e0 d94d sub r3, r1, r2 // icount 236
+01e2 d848 add r2, r0, r2 // icount 237
+01e4 f5ec sle r3, r5, r7 // icount 238
+01e6 d931 sub r4, r1, r1 // icount 239
+01e8 ffd8 sco r6, r7, r6 // icount 240
+01ea ef5c slt r7, r7, r2 // icount 241
+01ec db80 add r0, r3, r4 // icount 242
+01ee df30 add r4, r7, r1 // icount 243
+01f0 d620 rol r0, r6, r1 // icount 244
+01f2 f3c4 sle r1, r3, r6 // icount 245
+01f4 f3d0 sle r4, r3, r6 // icount 246
+01f6 ddda xor r6, r5, r6 // icount 247
+01f8 d919 sub r6, r1, r0 // icount 248
+01fa d997 andn r5, r1, r4 // icount 249
+01fc f9e0 sco r0, r1, r7 // icount 250
+01fe d90b andn r2, r1, r0 // icount 251
+0200 fca0 sco r0, r4, r5 // icount 252
+0202 e520 seq r0, r5, r1 // icount 253
+0204 d6c3 srl r0, r6, r6 // icount 254
+0206 df6e xor r3, r7, r3 // icount 255
+0208 d5b2 ror r4, r5, r5 // icount 256
+020a dda3 andn r0, r5, r5 // icount 257
+020c d3d1 sll r4, r3, r6 // icount 258
+020e db6c add r3, r3, r3 // icount 259
+0210 dac2 xor r0, r2, r6 // icount 260
+0212 d08a ror r2, r0, r4 // icount 261
+0214 db8e xor r3, r3, r4 // icount 262
+0216 f2a4 sle r1, r2, r5 // icount 263
+0218 df48 add r2, r7, r2 // icount 264
+021a e5bc seq r7, r5, r5 // icount 265
+021c ee14 slt r5, r6, r0 // icount 266
+021e dec0 add r0, r6, r6 // icount 267
+0220 e2e0 seq r0, r2, r7 // icount 268
+0222 f09c sle r7, r0, r4 // icount 269
+0224 e91c slt r7, r1, r0 // icount 270
+0226 d0ae ror r3, r0, r5 // icount 271
+0228 d1c1 sll r0, r1, r6 // icount 272
+022a d38b srl r2, r3, r4 // icount 273
+022c d645 sll r1, r6, r2 // icount 274
+022e f85c sco r7, r0, r2 // icount 275
+0230 f894 sco r5, r0, r4 // icount 276
+0232 f5b8 sle r6, r5, r5 // icount 277
+0234 f1e8 sle r2, r1, r7 // icount 278
+0236 d08b srl r2, r0, r4 // icount 279
+0238 d3a4 rol r1, r3, r5 // icount 280
+023a db75 sub r5, r3, r3 // icount 281
+023c f86c sco r3, r0, r3 // icount 282
+023e d2ed sll r3, r2, r7 // icount 283
+0240 ff28 sco r2, r7, r1 // icount 284
+0242 da24 add r1, r2, r1 // icount 285
+0244 db22 xor r0, r3, r1 // icount 286
+0246 de2b andn r2, r6, r1 // icount 287
+0248 dff2 xor r4, r7, r7 // icount 288
+024a d2a7 srl r1, r2, r5 // icount 289
+024c f028 sle r2, r0, r1 // icount 290
+024e e5d0 seq r4, r5, r6 // icount 291
+0250 d6f3 srl r4, r6, r7 // icount 292
+0252 f9c0 sco r0, r1, r6 // icount 293
+0254 d80f andn r3, r0, r0 // icount 294
+0256 d937 andn r5, r1, r1 // icount 295
+0258 de33 andn r4, r6, r1 // icount 296
+025a d92d sub r3, r1, r1 // icount 297
+025c d50e ror r3, r5, r0 // icount 298
+025e d482 ror r0, r4, r4 // icount 299
+0260 df93 andn r4, r7, r4 // icount 300
+0262 dabb andn r6, r2, r5 // icount 301
+0264 d8bd sub r7, r0, r5 // icount 302
+0266 dbc9 sub r2, r3, r6 // icount 303
+0268 dc66 xor r1, r4, r3 // icount 304
+026a dd0d sub r3, r5, r0 // icount 305
+026c da8c add r3, r2, r4 // icount 306
+026e d81f andn r7, r0, r0 // icount 307
+0270 d976 xor r5, r1, r3 // icount 308
+0272 d2b3 srl r4, r2, r5 // icount 309
+0274 dce5 sub r1, r4, r7 // icount 310
+0276 db34 add r5, r3, r1 // icount 311
+0278 db1b andn r6, r3, r0 // icount 312
+027a f820 sco r0, r0, r1 // icount 313
+027c d9c1 sub r0, r1, r6 // icount 314
+027e dc04 add r1, r4, r0 // icount 315
+0280 f838 sco r6, r0, r1 // icount 316
+0282 dd82 xor r0, r5, r4 // icount 317
+0284 d6ac rol r3, r6, r5 // icount 318
+0286 de4a xor r2, r6, r2 // icount 319
+0288 d70a ror r2, r7, r0 // icount 320
+028a d415 sll r5, r4, r0 // icount 321
+028c eb1c slt r7, r3, r0 // icount 322
+028e d1bc rol r7, r1, r5 // icount 323
+0290 e4fc seq r7, r4, r7 // icount 324
+0292 da6b andn r2, r2, r3 // icount 325
+0294 e800 slt r0, r0, r0 // icount 326
+0296 e290 seq r4, r2, r4 // icount 327
+0298 d2d0 rol r4, r2, r6 // icount 328
+029a dc34 add r5, r4, r1 // icount 329
+029c ed7c slt r7, r5, r3 // icount 330
+029e f574 sle r5, r5, r3 // icount 331
+02a0 d748 rol r2, r7, r2 // icount 332
+02a2 d127 srl r1, r1, r1 // icount 333
+02a4 d83f andn r7, r0, r1 // icount 334
+02a6 d618 rol r6, r6, r0 // icount 335
+02a8 d9e5 sub r1, r1, r7 // icount 336
+02aa d7c3 srl r0, r7, r6 // icount 337
+02ac ec88 slt r2, r4, r4 // icount 338
+02ae d957 andn r5, r1, r2 // icount 339
+02b0      .rlabel_3:
+02b0 86e0 st r7, r6, 0
+02b2 4ec0 addi r6, r6, 0
+02b4 2058 j .rlabel_4 // icount 340
+02b6 e320 seq r0, r3, r1 // icount 341
+02b8 d3d5 sll r5, r3, r6 // icount 342
+02ba dc92 xor r4, r4, r4 // icount 343
+02bc d380 rol r0, r3, r4 // icount 344
+02be defa xor r6, r6, r7 // icount 345
+02c0 ee94 slt r5, r6, r4 // icount 346
+02c2 d673 srl r4, r6, r3 // icount 347
+02c4 db0d sub r3, r3, r0 // icount 348
+02c6 eed4 slt r5, r6, r6 // icount 349
+02c8 d6b3 srl r4, r6, r5 // icount 350
+02ca dd5c add r7, r5, r2 // icount 351
+02cc d9c6 xor r1, r1, r6 // icount 352
+02ce df28 add r2, r7, r1 // icount 353
+02d0 eb2c slt r3, r3, r1 // icount 354
+02d2 fc98 sco r6, r4, r4 // icount 355
+02d4 d43c rol r7, r4, r1 // icount 356
+02d6 e9e0 slt r0, r1, r7 // icount 357
+02d8 e998 slt r6, r1, r4 // icount 358
+02da db43 andn r0, r3, r2 // icount 359
+02dc e748 seq r2, r7, r2 // icount 360
+02de d687 srl r1, r6, r4 // icount 361
+02e0 fad4 sco r5, r2, r6 // icount 362
+02e2 dcce xor r3, r4, r6 // icount 363
+02e4 fc28 sco r2, r4, r1 // icount 364
+02e6 df7b andn r6, r7, r3 // icount 365
+02e8 ee08 slt r2, r6, r0 // icount 366
+02ea ea38 slt r6, r2, r1 // icount 367
+02ec d189 sll r2, r1, r4 // icount 368
+02ee db62 xor r0, r3, r3 // icount 369
+02f0 ffe8 sco r2, r7, r7 // icount 370
+02f2 d6cd sll r3, r6, r6 // icount 371
+02f4 df5b andn r6, r7, r2 // icount 372
+02f6 fcdc sco r7, r4, r6 // icount 373
+02f8 ece0 slt r0, r4, r7 // icount 374
+02fa d6f6 ror r5, r6, r7 // icount 375
+02fc d990 add r4, r1, r4 // icount 376
+02fe d787 srl r1, r7, r4 // icount 377
+0300 e00c seq r3, r0, r0 // icount 378
+0302 fa20 sco r0, r2, r1 // icount 379
+0304 e470 seq r4, r4, r3 // icount 380
+0306 d0e0 rol r0, r0, r7 // icount 381
+0308 d891 sub r4, r0, r4 // icount 382
+030a d29b srl r6, r2, r4 // icount 383
+030c d551 sll r4, r5, r2 // icount 384
+030e      .rlabel_4:
+030e 8ee8 ld r7, r6, 8
+0310 4ec8 addi r6, r6, 8
+0312 681a beqz r0, .rlabel_5 // icount 385
+0314 dbc7 andn r1, r3, r6 // icount 386
+0316 f308 sle r2, r3, r0 // icount 387
+0318 dcc5 sub r1, r4, r6 // icount 388
+031a dea4 add r1, r6, r5 // icount 389
+031c ff54 sco r5, r7, r2 // icount 390
+031e d32e ror r3, r3, r1 // icount 391
+0320 f718 sle r6, r7, r0 // icount 392
+0322 de41 sub r0, r6, r2 // icount 393
+0324 db68 add r2, r3, r3 // icount 394
+0326 de50 add r4, r6, r2 // icount 395
+0328 dac6 xor r1, r2, r6 // icount 396
+032a ed5c slt r7, r5, r2 // icount 397
+032c f88c sco r3, r0, r4 // icount 398
+032e      .rlabel_5:
+032e 86ee st r7, r6, 14
+0330 4ece addi r6, r6, 14
+0332 7200 bltz r2, .rlabel_6 // icount 399
+0334      .rlabel_6:
+0334 6116 bnez r1, .rlabel_7 // icount 400
+0336 e6d8 seq r6, r6, r6 // icount 401
+0338 e21c seq r7, r2, r0 // icount 402
+033a d75c rol r7, r7, r2 // icount 403
+033c e934 slt r5, r1, r1 // icount 404
+033e e9d4 slt r5, r1, r6 // icount 405
+0340 daa9 sub r2, r2, r5 // icount 406
+0342 d258 rol r6, r2, r2 // icount 407
+0344 d055 sll r5, r0, r2 // icount 408
+0346 fa18 sco r6, r2, r0 // icount 409
+0348 dadd sub r7, r2, r6 // icount 410
+034a dfb3 andn r4, r7, r5 // icount 411
+034c      .rlabel_7:
+034c 8eee ld r7, r6, 14
+034e 4ece addi r6, r6, 14
+0350 6814 beqz r0, .rlabel_8 // icount 412
+0352 d6ed sll r3, r6, r7 // icount 413
+0354 f9b0 sco r4, r1, r5 // icount 414
+0356 d1c9 sll r2, r1, r6 // icount 415
+0358 e6e0 seq r0, r6, r7 // icount 416
+035a f248 sle r2, r2, r2 // icount 417
+035c e394 seq r5, r3, r4 // icount 418
+035e f820 sco r0, r0, r1 // icount 419
+0360 e06c seq r3, r0, r3 // icount 420
+0362 dee1 sub r0, r6, r7 // icount 421
+0364 fb00 sco r0, r3, r0 // icount 422
+0366      .rlabel_8:
+0366 8ee8 ld r7, r6, 8
+0368 4ec8 addi r6, r6, 8
+036a 6816 beqz r0, .rlabel_9 // icount 423
+036c fa94 sco r5, r2, r4 // icount 424
+036e dec7 andn r1, r6, r6 // icount 425
+0370 d35c rol r7, r3, r2 // icount 426
+0372 f180 sle r0, r1, r4 // icount 427
+0374 e9a8 slt r2, r1, r5 // icount 428
+0376 d709 sll r2, r7, r0 // icount 429
+0378 d5c0 rol r0, r5, r6 // icount 430
+037a e118 seq r6, r1, r0 // icount 431
+037c f62c sle r3, r6, r1 // icount 432
+037e d8e1 sub r0, r0, r7 // icount 433
+0380 dcd3 andn r4, r4, r6 // icount 434
+0382      .rlabel_9:
+0382 7208 bltz r2, .rlabel_10 // icount 435
+0384 d05a ror r6, r0, r2 // icount 436
+0386 d788 rol r2, r7, r4 // icount 437
+0388 e6e8 seq r2, r6, r7 // icount 438
+038a f6d8 sle r6, r6, r6 // icount 439
+038c      .rlabel_10:
+038c 208e j .rlabel_11 // icount 440
+038e dc4c add r3, r4, r2 // icount 441
+0390 d5c0 rol r0, r5, r6 // icount 442
+0392 fb4c sco r3, r3, r2 // icount 443
+0394 dd71 sub r4, r5, r3 // icount 444
+0396 d9b5 sub r5, r1, r5 // icount 445
+0398 f358 sle r6, r3, r2 // icount 446
+039a ef40 slt r0, r7, r2 // icount 447
+039c ffa8 sco r2, r7, r5 // icount 448
+039e f9bc sco r7, r1, r5 // icount 449
+03a0 e1f0 seq r4, r1, r7 // icount 450
+03a2 e05c seq r7, r0, r2 // icount 451
+03a4 de13 andn r4, r6, r0 // icount 452
+03a6 ddaf andn r3, r5, r5 // icount 453
+03a8 d874 add r5, r0, r3 // icount 454
+03aa d4c3 srl r0, r4, r6 // icount 455
+03ac ff24 sco r1, r7, r1 // icount 456
+03ae d7f9 sll r6, r7, r7 // icount 457
+03b0 df37 andn r5, r7, r1 // icount 458
+03b2 f594 sle r5, r5, r4 // icount 459
+03b4 e938 slt r6, r1, r1 // icount 460
+03b6 df04 add r1, r7, r0 // icount 461
+03b8 e844 slt r1, r0, r2 // icount 462
+03ba db9c add r7, r3, r4 // icount 463
+03bc fe6c sco r3, r6, r3 // icount 464
+03be ded7 andn r5, r6, r6 // icount 465
+03c0 d226 ror r1, r2, r1 // icount 466
+03c2 d6a9 sll r2, r6, r5 // icount 467
+03c4 eeec slt r3, r6, r7 // icount 468
+03c6 d2e4 rol r1, r2, r7 // icount 469
+03c8 db21 sub r0, r3, r1 // icount 470
+03ca db5d sub r7, r3, r2 // icount 471
+03cc dc6d sub r3, r4, r3 // icount 472
+03ce dcab andn r2, r4, r5 // icount 473
+03d0 f2bc sle r7, r2, r5 // icount 474
+03d2 e2bc seq r7, r2, r5 // icount 475
+03d4 dfc0 add r0, r7, r6 // icount 476
+03d6 e27c seq r7, r2, r3 // icount 477
+03d8 d18b srl r2, r1, r4 // icount 478
+03da ded0 add r4, r6, r6 // icount 479
+03dc d793 srl r4, r7, r4 // icount 480
+03de d00f srl r3, r0, r0 // icount 481
+03e0 da16 xor r5, r2, r0 // icount 482
+03e2 d78e ror r3, r7, r4 // icount 483
+03e4 d282 ror r0, r2, r4 // icount 484
+03e6 f444 sle r1, r4, r2 // icount 485
+03e8 dc56 xor r5, r4, r2 // icount 486
+03ea e1d8 seq r6, r1, r6 // icount 487
+03ec dec3 andn r0, r6, r6 // icount 488
+03ee d611 sll r4, r6, r0 // icount 489
+03f0 d269 sll r2, r2, r3 // icount 490
+03f2 e2e0 seq r0, r2, r7 // icount 491
+03f4 fb24 sco r1, r3, r1 // icount 492
+03f6 d600 rol r0, r6, r0 // icount 493
+03f8 d601 sll r0, r6, r0 // icount 494
+03fa f8a8 sco r2, r0, r5 // icount 495
+03fc dfc8 add r2, r7, r6 // icount 496
+03fe d7b0 rol r4, r7, r5 // icount 497
+0400 e4ec seq r3, r4, r7 // icount 498
+0402 d73e ror r7, r7, r1 // icount 499
+0404 d310 rol r4, r3, r0 // icount 500
+0406 d206 ror r1, r2, r0 // icount 501
+0408 d64b srl r2, r6, r2 // icount 502
+040a dfbf andn r7, r7, r5 // icount 503
+040c d319 sll r6, r3, r0 // icount 504
+040e d3f3 srl r4, r3, r7 // icount 505
+0410 d882 xor r0, r0, r4 // icount 506
+0412 d730 rol r4, r7, r1 // icount 507
+0414 d4d0 rol r4, r4, r6 // icount 508
+0416 dafd sub r7, r2, r7 // icount 509
+0418 ff20 sco r0, r7, r1 // icount 510
+041a e120 seq r0, r1, r1 // icount 511
+041c      .rlabel_11:
+041c 202a j .rlabel_12 // icount 512
+041e dec1 sub r0, r6, r6 // icount 513
+0420 debd sub r7, r6, r5 // icount 514
+0422 d1d1 sll r4, r1, r6 // icount 515
+0424 ff54 sco r5, r7, r2 // icount 516
+0426 d23e ror r7, r2, r1 // icount 517
+0428 d6ce ror r3, r6, r6 // icount 518
+042a d2e7 srl r1, r2, r7 // icount 519
+042c d57c rol r7, r5, r3 // icount 520
+042e d694 rol r5, r6, r4 // icount 521
+0430 da08 add r2, r2, r0 // icount 522
+0432 d28c rol r3, r2, r4 // icount 523
+0434 fdf0 sco r4, r5, r7 // icount 524
+0436 d976 xor r5, r1, r3 // icount 525
+0438 de5e xor r7, r6, r2 // icount 526
+043a d5a1 sll r0, r5, r5 // icount 527
+043c de05 sub r1, r6, r0 // icount 528
+043e ddea xor r2, r5, r7 // icount 529
+0440 eff4 slt r5, r7, r7 // icount 530
+0442 fd5c sco r7, r5, r2 // icount 531
+0444 db77 andn r5, r3, r3 // icount 532
+0446 daa1 sub r0, r2, r5 // icount 533
+0448      .rlabel_12:
+0448 86ee st r7, r6, 14
+044a 4ece addi r6, r6, 14
+044c 2042 j .rlabel_13 // icount 534
+044e eb04 slt r1, r3, r0 // icount 535
+0450 d7bc rol r7, r7, r5 // icount 536
+0452 f348 sle r2, r3, r2 // icount 537
+0454 e3a8 seq r2, r3, r5 // icount 538
+0456 e06c seq r3, r0, r3 // icount 539
+0458 d33d sll r7, r3, r1 // icount 540
+045a f1c0 sle r0, r1, r6 // icount 541
+045c d641 sll r0, r6, r2 // icount 542
+045e f524 sle r1, r5, r1 // icount 543
+0460 d844 add r1, r0, r2 // icount 544
+0462 dac9 sub r2, r2, r6 // icount 545
+0464 efc4 slt r1, r7, r6 // icount 546
+0466 d5be ror r7, r5, r5 // icount 547
+0468 e324 seq r1, r3, r1 // icount 548
+046a d53c rol r7, r5, r1 // icount 549
+046c d244 rol r1, r2, r2 // icount 550
+046e fae0 sco r0, r2, r7 // icount 551
+0470 d559 sll r6, r5, r2 // icount 552
+0472 ddd4 add r5, r5, r6 // icount 553
+0474 dcdb andn r6, r4, r6 // icount 554
+0476 d246 ror r1, r2, r2 // icount 555
+0478 f6c8 sle r2, r6, r6 // icount 556
+047a d7b9 sll r6, r7, r5 // icount 557
+047c fad0 sco r4, r2, r6 // icount 558
+047e d71f srl r7, r7, r0 // icount 559
+0480 d0a0 rol r0, r0, r5 // icount 560
+0482 d70d sll r3, r7, r0 // icount 561
+0484 d0f3 srl r4, r0, r7 // icount 562
+0486 d035 sll r5, r0, r1 // icount 563
+0488 e0c4 seq r1, r0, r6 // icount 564
+048a d4d1 sll r4, r4, r6 // icount 565
+048c dd19 sub r6, r5, r0 // icount 566
+048e db06 xor r1, r3, r0 // icount 567
+0490      .rlabel_13:
+0490 86ea st r7, r6, 10
+0492 4eca addi r6, r6, 10
+0494 302e jal .rlabel_14 // icount 568
+0496 ea88 slt r2, r2, r4 // icount 569
+0498 dc16 xor r5, r4, r0 // icount 570
+049a d872 xor r4, r0, r3 // icount 571
+049c dd94 add r5, r5, r4 // icount 572
+049e de09 sub r2, r6, r0 // icount 573
+04a0 ef68 slt r2, r7, r3 // icount 574
+04a2 f90c sco r3, r1, r0 // icount 575
+04a4 e3e0 seq r0, r3, r7 // icount 576
+04a6 fc3c sco r7, r4, r1 // icount 577
+04a8 d0c1 sll r0, r0, r6 // icount 578
+04aa de74 add r5, r6, r3 // icount 579
+04ac ff9c sco r7, r7, r4 // icount 580
+04ae d64d sll r3, r6, r2 // icount 581
+04b0 dc3e xor r7, r4, r1 // icount 582
+04b2 d75a ror r6, r7, r2 // icount 583
+04b4 ef28 slt r2, r7, r1 // icount 584
+04b6 d56d sll r3, r5, r3 // icount 585
+04b8 d86d sub r3, r0, r3 // icount 586
+04ba f490 sle r4, r4, r4 // icount 587
+04bc fa3c sco r7, r2, r1 // icount 588
+04be d765 sll r1, r7, r3 // icount 589
+04c0 d9aa xor r2, r1, r5 // icount 590
+04c2 ddb9 sub r6, r5, r5 // icount 591
+04c4      .rlabel_14:
+04c4 86e4 st r7, r6, 4
+04c6 4ec4 addi r6, r6, 4
+04c8 6104 bnez r1, .rlabel_15 // icount 592
+04ca d09e ror r7, r0, r4 // icount 593
+04cc de8a xor r2, r6, r4 // icount 594
+04ce      .rlabel_15:
+04ce 8ee8 ld r7, r6, 8
+04d0 4ec8 addi r6, r6, 8
+04d2 20d6 j .rlabel_16 // icount 595
+04d4 d4d6 ror r5, r4, r6 // icount 596
+04d6 e9c4 slt r1, r1, r6 // icount 597
+04d8 f1f0 sle r4, r1, r7 // icount 598
+04da dc7e xor r7, r4, r3 // icount 599
+04dc d8fd sub r7, r0, r7 // icount 600
+04de d9ca xor r2, r1, r6 // icount 601
+04e0 d14e ror r3, r1, r2 // icount 602
+04e2 d873 andn r4, r0, r3 // icount 603
+04e4 d07e ror r7, r0, r3 // icount 604
+04e6 d5b3 srl r4, r5, r5 // icount 605
+04e8 de3d sub r7, r6, r1 // icount 606
+04ea d804 add r1, r0, r0 // icount 607
+04ec dc15 sub r5, r4, r0 // icount 608
+04ee d8d9 sub r6, r0, r6 // icount 609
+04f0 dacb andn r2, r2, r6 // icount 610
+04f2 e790 seq r4, r7, r4 // icount 611
+04f4 e170 seq r4, r1, r3 // icount 612
+04f6 d5b2 ror r4, r5, r5 // icount 613
+04f8 e42c seq r3, r4, r1 // icount 614
+04fa dc8b andn r2, r4, r4 // icount 615
+04fc f5d4 sle r5, r5, r6 // icount 616
+04fe d5de ror r7, r5, r6 // icount 617
+0500 dede xor r7, r6, r6 // icount 618
+0502 dab3 andn r4, r2, r5 // icount 619
+0504 fa58 sco r6, r2, r2 // icount 620
+0506 d5f1 sll r4, r5, r7 // icount 621
+0508 d8d4 add r5, r0, r6 // icount 622
+050a ee5c slt r7, r6, r2 // icount 623
+050c d345 sll r1, r3, r2 // icount 624
+050e f9e0 sco r0, r1, r7 // icount 625
+0510 d74b srl r2, r7, r2 // icount 626
+0512 d1ec rol r3, r1, r7 // icount 627
+0514 e130 seq r4, r1, r1 // icount 628
+0516 eccc slt r3, r4, r6 // icount 629
+0518 dd48 add r2, r5, r2 // icount 630
+051a d3b3 srl r4, r3, r5 // icount 631
+051c d1aa ror r2, r1, r5 // icount 632
+051e df53 andn r4, r7, r2 // icount 633
+0520 d866 xor r1, r0, r3 // icount 634
+0522 d072 ror r4, r0, r3 // icount 635
+0524 d202 ror r0, r2, r0 // icount 636
+0526 d970 add r4, r1, r3 // icount 637
+0528 ff40 sco r0, r7, r2 // icount 638
+052a e36c seq r3, r3, r3 // icount 639
+052c d190 rol r4, r1, r4 // icount 640
+052e f8dc sco r7, r0, r6 // icount 641
+0530 d559 sll r6, r5, r2 // icount 642
+0532 df7c add r7, r7, r3 // icount 643
+0534 dfb8 add r6, r7, r5 // icount 644
+0536 f40c sle r3, r4, r0 // icount 645
+0538 e48c seq r3, r4, r4 // icount 646
+053a fba4 sco r1, r3, r5 // icount 647
+053c dc81 sub r0, r4, r4 // icount 648
+053e d49b srl r6, r4, r4 // icount 649
+0540 d111 sll r4, r1, r0 // icount 650
+0542 e1fc seq r7, r1, r7 // icount 651
+0544 ea28 slt r2, r2, r1 // icount 652
+0546 dee8 add r2, r6, r7 // icount 653
+0548 ffd4 sco r5, r7, r6 // icount 654
+054a d51e ror r7, r5, r0 // icount 655
+054c d41c rol r7, r4, r0 // icount 656
+054e eda0 slt r0, r5, r5 // icount 657
+0550 dd2e xor r3, r5, r1 // icount 658
+0552 d1a4 rol r1, r1, r5 // icount 659
+0554 f6b4 sle r5, r6, r5 // icount 660
+0556 d497 srl r5, r4, r4 // icount 661
+0558 fe5c sco r7, r6, r2 // icount 662
+055a f1a0 sle r0, r1, r5 // icount 663
+055c e66c seq r3, r6, r3 // icount 664
+055e d36d sll r3, r3, r3 // icount 665
+0560 d848 add r2, r0, r2 // icount 666
+0562 de67 andn r1, r6, r3 // icount 667
+0564 dcf7 andn r5, r4, r7 // icount 668
+0566 db43 andn r0, r3, r2 // icount 669
+0568 d0f8 rol r6, r0, r7 // icount 670
+056a f9a8 sco r2, r1, r5 // icount 671
+056c ddb4 add r5, r5, r5 // icount 672
+056e d46d sll r3, r4, r3 // icount 673
+0570 d6c2 ror r0, r6, r6 // icount 674
+0572 d5e3 srl r0, r5, r7 // icount 675
+0574 d6a3 srl r0, r6, r5 // icount 676
+0576 ff84 sco r1, r7, r4 // icount 677
+0578 d12f srl r3, r1, r1 // icount 678
+057a f88c sco r3, r0, r4 // icount 679
+057c d1f8 rol r6, r1, r7 // icount 680
+057e dcc1 sub r0, r4, r6 // icount 681
+0580 d82c add r3, r0, r1 // icount 682
+0582 d652 ror r4, r6, r2 // icount 683
+0584 d6c4 rol r1, r6, r6 // icount 684
+0586 dc3d sub r7, r4, r1 // icount 685
+0588 ff3c sco r7, r7, r1 // icount 686
+058a dec2 xor r0, r6, r6 // icount 687
+058c d2ff srl r7, r2, r7 // icount 688
+058e f288 sle r2, r2, r4 // icount 689
+0590 e8b8 slt r6, r0, r5 // icount 690
+0592 db21 sub r0, r3, r1 // icount 691
+0594 fb40 sco r0, r3, r2 // icount 692
+0596 d313 srl r4, r3, r0 // icount 693
+0598 e8c0 slt r0, r0, r6 // icount 694
+059a df0a xor r2, r7, r0 // icount 695
+059c ffc0 sco r0, r7, r6 // icount 696
+059e d958 add r6, r1, r2 // icount 697
+05a0 d571 sll r4, r5, r3 // icount 698
+05a2 dfe9 sub r2, r7, r7 // icount 699
+05a4 d994 add r5, r1, r4 // icount 700
+05a6 d426 ror r1, r4, r1 // icount 701
+05a8 f834 sco r5, r0, r1 // icount 702
+05aa      .rlabel_16:
+05aa 8ee8 ld r7, r6, 8
+05ac 4ec8 addi r6, r6, 8
+05ae 3000 jal .rlabel_17 // icount 703
+05b0      .rlabel_17:
+05b0 721c bltz r2, .rlabel_18 // icount 704
+05b2 d96e xor r3, r1, r3 // icount 705
+05b4 de4e xor r3, r6, r2 // icount 706
+05b6 f73c sle r7, r7, r1 // icount 707
+05b8 ee78 slt r6, r6, r3 // icount 708
+05ba d2eb srl r2, r2, r7 // icount 709
+05bc df04 add r1, r7, r0 // icount 710
+05be f930 sco r4, r1, r1 // icount 711
+05c0 d4c2 ror r0, r4, r6 // icount 712
+05c2 d120 rol r0, r1, r1 // icount 713
+05c4 d317 srl r5, r3, r0 // icount 714
+05c6 f558 sle r6, r5, r2 // icount 715
+05c8 db73 andn r4, r3, r3 // icount 716
+05ca d37d sll r7, r3, r3 // icount 717
+05cc f82c sco r3, r0, r1 // icount 718
+05ce      .rlabel_18:
+05ce 8eee ld r7, r6, 14
+05d0 4ece addi r6, r6, 14
+05d2 303e jal .rlabel_19 // icount 719
+05d4 d8ab andn r2, r0, r5 // icount 720
+05d6 e214 seq r5, r2, r0 // icount 721
+05d8 e918 slt r6, r1, r0 // icount 722
+05da dfa6 xor r1, r7, r5 // icount 723
+05dc d827 andn r1, r0, r1 // icount 724
+05de df40 add r0, r7, r2 // icount 725
+05e0 d4cb srl r2, r4, r6 // icount 726
+05e2 dc81 sub r0, r4, r4 // icount 727
+05e4 d511 sll r4, r5, r0 // icount 728
+05e6 d9c5 sub r1, r1, r6 // icount 729
+05e8 df72 xor r4, r7, r3 // icount 730
+05ea e494 seq r5, r4, r4 // icount 731
+05ec d964 add r1, r1, r3 // icount 732
+05ee fdec sco r3, r5, r7 // icount 733
+05f0 dc56 xor r5, r4, r2 // icount 734
+05f2 d198 rol r6, r1, r4 // icount 735
+05f4 d678 rol r6, r6, r3 // icount 736
+05f6 ed64 slt r1, r5, r3 // icount 737
+05f8 d32e ror r3, r3, r1 // icount 738
+05fa d5a1 sll r0, r5, r5 // icount 739
+05fc d00f srl r3, r0, r0 // icount 740
+05fe d991 sub r4, r1, r4 // icount 741
+0600 dfc3 andn r0, r7, r6 // icount 742
+0602 d53c rol r7, r5, r1 // icount 743
+0604 d803 andn r0, r0, r0 // icount 744
+0606 e890 slt r4, r0, r4 // icount 745
+0608 db65 sub r1, r3, r3 // icount 746
+060a d1fc rol r7, r1, r7 // icount 747
+060c db35 sub r5, r3, r1 // icount 748
+060e db48 add r2, r3, r2 // icount 749
+0610 f44c sle r3, r4, r2 // icount 750
+0612      .rlabel_19:
+0612 8eee ld r7, r6, 14
+0614 4ece addi r6, r6, 14
+0616 20e8 j .rlabel_20 // icount 751
+0618 d028 rol r2, r0, r1 // icount 752
+061a daa3 andn r0, r2, r5 // icount 753
+061c d10e ror r3, r1, r0 // icount 754
+061e d3f1 sll r4, r3, r7 // icount 755
+0620 d27c rol r7, r2, r3 // icount 756
+0622 e3b0 seq r4, r3, r5 // icount 757
+0624 f530 sle r4, r5, r1 // icount 758
+0626 d71b srl r6, r7, r0 // icount 759
+0628 d6d2 ror r4, r6, r6 // icount 760
+062a f524 sle r1, r5, r1 // icount 761
+062c dea8 add r2, r6, r5 // icount 762
+062e d37a ror r6, r3, r3 // icount 763
+0630 d488 rol r2, r4, r4 // icount 764
+0632 d313 srl r4, r3, r0 // icount 765
+0634 d3c6 ror r1, r3, r6 // icount 766
+0636 dbec add r3, r3, r7 // icount 767
+0638 d527 srl r1, r5, r1 // icount 768
+063a fdd8 sco r6, r5, r6 // icount 769
+063c d876 xor r5, r0, r3 // icount 770
+063e e8b8 slt r6, r0, r5 // icount 771
+0640 df7e xor r7, r7, r3 // icount 772
+0642 ed14 slt r5, r5, r0 // icount 773
+0644 fbe8 sco r2, r3, r7 // icount 774
+0646 d3d1 sll r4, r3, r6 // icount 775
+0648 ed40 slt r0, r5, r2 // icount 776
+064a ded8 add r6, r6, r6 // icount 777
+064c fd90 sco r4, r5, r4 // icount 778
+064e d846 xor r1, r0, r2 // icount 779
+0650 d6d1 sll r4, r6, r6 // icount 780
+0652 dbe0 add r0, r3, r7 // icount 781
+0654 e010 seq r4, r0, r0 // icount 782
+0656 d9e8 add r2, r1, r7 // icount 783
+0658 e0b4 seq r5, r0, r5 // icount 784
+065a d88b andn r2, r0, r4 // icount 785
+065c d999 sub r6, r1, r4 // icount 786
+065e dba3 andn r0, r3, r5 // icount 787
+0660 d93a xor r6, r1, r1 // icount 788
+0662 d48a ror r2, r4, r4 // icount 789
+0664 d086 ror r1, r0, r4 // icount 790
+0666 d95c add r7, r1, r2 // icount 791
+0668 e078 seq r6, r0, r3 // icount 792
+066a d377 srl r5, r3, r3 // icount 793
+066c e9cc slt r3, r1, r6 // icount 794
+066e d7f5 sll r5, r7, r7 // icount 795
+0670 d5ea ror r2, r5, r7 // icount 796
+0672 e654 seq r5, r6, r2 // icount 797
+0674 d25c rol r7, r2, r2 // icount 798
+0676 dc00 add r0, r4, r0 // icount 799
+0678 d110 rol r4, r1, r0 // icount 800
+067a d417 srl r5, r4, r0 // icount 801
+067c d4c7 srl r1, r4, r6 // icount 802
+067e d036 ror r5, r0, r1 // icount 803
+0680 ee48 slt r2, r6, r2 // icount 804
+0682 d6b9 sll r6, r6, r5 // icount 805
+0684 d071 sll r4, r0, r3 // icount 806
+0686 ebe0 slt r0, r3, r7 // icount 807
+0688 d922 xor r0, r1, r1 // icount 808
+068a d9de xor r7, r1, r6 // icount 809
+068c d217 srl r5, r2, r0 // icount 810
+068e d82b andn r2, r0, r1 // icount 811
+0690 e694 seq r5, r6, r4 // icount 812
+0692 de5f andn r7, r6, r2 // icount 813
+0694 d03a ror r6, r0, r1 // icount 814
+0696 e124 seq r1, r1, r1 // icount 815
+0698 fd54 sco r5, r5, r2 // icount 816
+069a d886 xor r1, r0, r4 // icount 817
+069c fe40 sco r0, r6, r2 // icount 818
+069e fbc8 sco r2, r3, r6 // icount 819
+06a0 d8e6 xor r1, r0, r7 // icount 820
+06a2 d025 sll r1, r0, r1 // icount 821
+06a4 da92 xor r4, r2, r4 // icount 822
+06a6 de44 add r1, r6, r2 // icount 823
+06a8 ef18 slt r6, r7, r0 // icount 824
+06aa d51f srl r7, r5, r0 // icount 825
+06ac de13 andn r4, r6, r0 // icount 826
+06ae fd8c sco r3, r5, r4 // icount 827
+06b0 d39e ror r7, r3, r4 // icount 828
+06b2 ff14 sco r5, r7, r0 // icount 829
+06b4 de8e xor r3, r6, r4 // icount 830
+06b6 d2a0 rol r0, r2, r5 // icount 831
+06b8 d951 sub r4, r1, r2 // icount 832
+06ba dc0b andn r2, r4, r0 // icount 833
+06bc df8a xor r2, r7, r4 // icount 834
+06be f438 sle r6, r4, r1 // icount 835
+06c0 e610 seq r4, r6, r0 // icount 836
+06c2 daad sub r3, r2, r5 // icount 837
+06c4 f3dc sle r7, r3, r6 // icount 838
+06c6 df1f andn r7, r7, r0 // icount 839
+06c8 e29c seq r7, r2, r4 // icount 840
+06ca df31 sub r4, r7, r1 // icount 841
+06cc d189 sll r2, r1, r4 // icount 842
+06ce d4cb srl r2, r4, r6 // icount 843
+06d0 d69e ror r7, r6, r4 // icount 844
+06d2 d78b srl r2, r7, r4 // icount 845
+06d4 d7a3 srl r0, r7, r5 // icount 846
+06d6 d01d sll r7, r0, r0 // icount 847
+06d8 d085 sll r1, r0, r4 // icount 848
+06da d6dd sll r7, r6, r6 // icount 849
+06dc d033 srl r4, r0, r1 // icount 850
+06de d85a xor r6, r0, r2 // icount 851
+06e0 d9c3 andn r0, r1, r6 // icount 852
+06e2 d3ee ror r3, r3, r7 // icount 853
+06e4 eb0c slt r3, r3, r0 // icount 854
+06e6 ddba xor r6, r5, r5 // icount 855
+06e8 d362 ror r0, r3, r3 // icount 856
+06ea db68 add r2, r3, r3 // icount 857
+06ec d451 sll r4, r4, r2 // icount 858
+06ee efa0 slt r0, r7, r5 // icount 859
+06f0 ddce xor r3, r5, r6 // icount 860
+06f2 fa08 sco r2, r2, r0 // icount 861
+06f4 e730 seq r4, r7, r1 // icount 862
+06f6 e630 seq r4, r6, r1 // icount 863
+06f8 f564 sle r1, r5, r3 // icount 864
+06fa e6b0 seq r4, r6, r5 // icount 865
+06fc d8c8 add r2, r0, r6 // icount 866
+06fe db35 sub r5, r3, r1 // icount 867
+0700      .rlabel_20:
+0700 8eea ld r7, r6, 10
+0702 4eca addi r6, r6, 10
+0704 7916 bgez r1, .rlabel_21 // icount 868
+0706 dcb8 add r6, r4, r5 // icount 869
+0708 e090 seq r4, r0, r4 // icount 870
+070a d550 rol r4, r5, r2 // icount 871
+070c d441 sll r0, r4, r2 // icount 872
+070e f248 sle r2, r2, r2 // icount 873
+0710 fc20 sco r0, r4, r1 // icount 874
+0712 d7f5 sll r5, r7, r7 // icount 875
+0714 d50a ror r2, r5, r0 // icount 876
+0716 dbf3 andn r4, r3, r7 // icount 877
+0718 fcec sco r3, r4, r7 // icount 878
+071a de20 add r0, r6, r1 // icount 879
+071c      .rlabel_21:
+071c 2072 j .rlabel_22 // icount 880
+071e f9ac sco r3, r1, r5 // icount 881
+0720 db11 sub r4, r3, r0 // icount 882
+0722 de14 add r5, r6, r0 // icount 883
+0724 fe24 sco r1, r6, r1 // icount 884
+0726 d961 sub r0, r1, r3 // icount 885
+0728 d8b6 xor r5, r0, r5 // icount 886
+072a def7 andn r5, r6, r7 // icount 887
+072c d82c add r3, r0, r1 // icount 888
+072e d66f srl r3, r6, r3 // icount 889
+0730 d251 sll r4, r2, r2 // icount 890
+0732 ddc2 xor r0, r5, r6 // icount 891
+0734 ef10 slt r4, r7, r0 // icount 892
+0736 dfb3 andn r4, r7, r5 // icount 893
+0738 d7ed sll r3, r7, r7 // icount 894
+073a e944 slt r1, r1, r2 // icount 895
+073c ea08 slt r2, r2, r0 // icount 896
+073e e804 slt r1, r0, r0 // icount 897
+0740 de2a xor r2, r6, r1 // icount 898
+0742 d056 ror r5, r0, r2 // icount 899
+0744 d794 rol r5, r7, r4 // icount 900
+0746 e49c seq r7, r4, r4 // icount 901
+0748 fb74 sco r5, r3, r3 // icount 902
+074a dc89 sub r2, r4, r4 // icount 903
+074c fde0 sco r0, r5, r7 // icount 904
+074e de52 xor r4, r6, r2 // icount 905
+0750 fee0 sco r0, r6, r7 // icount 906
+0752 de09 sub r2, r6, r0 // icount 907
+0754 f150 sle r4, r1, r2 // icount 908
+0756 fc74 sco r5, r4, r3 // icount 909
+0758 df5c add r7, r7, r2 // icount 910
+075a db04 add r1, r3, r0 // icount 911
+075c e2e0 seq r0, r2, r7 // icount 912
+075e da0c add r3, r2, r0 // icount 913
+0760 d673 srl r4, r6, r3 // icount 914
+0762 d3de ror r7, r3, r6 // icount 915
+0764 d22a ror r2, r2, r1 // icount 916
+0766 de2f andn r3, r6, r1 // icount 917
+0768 e6f0 seq r4, r6, r7 // icount 918
+076a f010 sle r4, r0, r0 // icount 919
+076c db21 sub r0, r3, r1 // icount 920
+076e d5e8 rol r2, r5, r7 // icount 921
+0770 f3d0 sle r4, r3, r6 // icount 922
+0772 ed8c slt r3, r5, r4 // icount 923
+0774 d717 srl r5, r7, r0 // icount 924
+0776 dfe4 add r1, r7, r7 // icount 925
+0778 d0c8 rol r2, r0, r6 // icount 926
+077a f57c sle r7, r5, r3 // icount 927
+077c d292 ror r4, r2, r4 // icount 928
+077e d467 srl r1, r4, r3 // icount 929
+0780 d46a ror r2, r4, r3 // icount 930
+0782 fe94 sco r5, r6, r4 // icount 931
+0784 da76 xor r5, r2, r3 // icount 932
+0786 d900 add r0, r1, r0 // icount 933
+0788 d992 xor r4, r1, r4 // icount 934
+078a d53d sll r7, r5, r1 // icount 935
+078c de4e xor r3, r6, r2 // icount 936
+078e e978 slt r6, r1, r3 // icount 937
+0790      .rlabel_22:
+0790 6810 beqz r0, .rlabel_23 // icount 938
+0792 d7ed sll r3, r7, r7 // icount 939
+0794 d0ff srl r7, r0, r7 // icount 940
+0796 d4c7 srl r1, r4, r6 // icount 941
+0798 de34 add r5, r6, r1 // icount 942
+079a d32c rol r3, r3, r1 // icount 943
+079c f92c sco r3, r1, r1 // icount 944
+079e dc6d sub r3, r4, r3 // icount 945
+07a0 eeb0 slt r4, r6, r5 // icount 946
+07a2      .rlabel_23:
+07a2 8ee0 ld r7, r6, 0
+07a4 4ec0 addi r6, r6, 0
+          j .rlabel_24 // icount 947
+07a8 ef40 slt r0, r7, r2 // icount 948
+07aa f1e8 sle r2, r1, r7 // icount 949
+07ac eb04 slt r1, r3, r0 // icount 950
+07ae ded5 sub r5, r6, r6 // icount 951
+07b0 dfcd sub r3, r7, r6 // icount 952
+07b2 e1e4 seq r1, r1, r7 // icount 953
+07b4 edd0 slt r4, r5, r6 // icount 954
+07b6 d928 add r2, r1, r1 // icount 955
+07b8 d5e9 sll r2, r5, r7 // icount 956
+07ba d7f9 sll r6, r7, r7 // icount 957
+07bc eff8 slt r6, r7, r7 // icount 958
+07be f84c sco r3, r0, r2 // icount 959
+07c0 ef3c slt r7, r7, r1 // icount 960
+07c2 df8a xor r2, r7, r4 // icount 961
+07c4 d837 andn r5, r0, r1 // icount 962
+07c6 d984 add r1, r1, r4 // icount 963
+07c8 dd28 add r2, r5, r1 // icount 964
+07ca d05f srl r7, r0, r2 // icount 965
+07cc f7fc sle r7, r7, r7 // icount 966

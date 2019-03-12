@@ -1,0 +1,22 @@
+          // srli_2.asm tests srli by shifting a value greater than 16 (the msb should be ignored)
+          
+0000 c000 	lbi	r0, 0
+0002 c100 	lbi	r1, 0
+0004 c200 	lbi	r2, 0
+0006 c300 	lbi	r3, 0
+0008 c400 	lbi	r4, 0
+000a c500 	lbi	r5, 0
+000c c600 	lbi	r6, 0
+000e c700 	lbi	r7, 0
+          
+          	
+0010 c3ad 	lbi	r3, 0xad
+0012 9301 	slbi	r3, 0x01
+0014 bb92 	srli	r4, r3, 18
+          
+0016 0000 	halt
+          	
+          
+          
+          
+          	

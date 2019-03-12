@@ -1,0 +1,34 @@
+          // seed 4
+0000 c00f lbi r0, 15 // icount 0
+0002 90d7 slbi r0, 215 // icount 1
+0004 c165 lbi r1, 101 // icount 2
+0006 9165 slbi r1, 101 // icount 3
+0008 c258 lbi r2, 88 // icount 4
+000a 9227 slbi r2, 39 // icount 5
+000c c318 lbi r3, 24 // icount 6
+000e 93b6 slbi r3, 182 // icount 7
+0010 c4de lbi r4, 222 // icount 8
+0012 9492 slbi r4, 146 // icount 9
+0014 c540 lbi r5, 64 // icount 10
+0016 95ec slbi r5, 236 // icount 11
+0018 c646 lbi r6, 70 // icount 12
+001a 9614 slbi r6, 20 // icount 13
+001c c74b lbi r7, 75 // icount 14
+001e 97d0 slbi r7, 208 // icount 15
+0020 fad0 sco r4, r2, r6 // icount 16
+0022 fcc8 sco r2, r4, r6 // icount 17
+0024 f874 sco r5, r0, r3 // icount 18
+0026 ffd4 sco r5, r7, r6 // icount 19
+0028 f840 sco r0, r0, r2 // icount 20
+002a fcb0 sco r4, r4, r5 // icount 21
+002c fdcc sco r3, r5, r6 // icount 22
+002e fdc4 sco r1, r5, r6 // icount 23
+0030 fe5c sco r7, r6, r2 // icount 24
+0032 fc40 sco r0, r4, r2 // icount 25
+0034 fb00 sco r0, r3, r0 // icount 26
+0036 ff40 sco r0, r7, r2 // icount 27
+0038 f914 sco r5, r1, r0 // icount 28
+003a fce8 sco r2, r4, r7 // icount 29
+003c fb18 sco r6, r3, r0 // icount 30
+003e fbd0 sco r4, r3, r6 // icount 31
+0040 0000 halt // icount 32

@@ -1,5 +1,5 @@
 # vsim -c proc_hier_bench -lib __work 
-# Start time: 21:57:32 on Mar 11,2019
+# Start time: 03:14:04 on Mar 12,2019
 # //  ModelSim DE 10.7c Aug 17 2018Linux 4.15.0-46-generic
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -54,12 +54,7 @@
 run -all
 # Hello world...simulation starting
 # See verilogsim.log and verilogsim.trace for output
-# Error signal asserted
-# ** Note: $stop    : clkrst.v(34)
-#    Time: 100 ns  Iteration: 0  Instance: /proc_hier_bench/DUT/c0
-# Break in Module clkrst at clkrst.v line 34
-# Stopped at clkrst.v line 34
-# 
-# <EOF>
-# End time: 21:57:32 on Mar 11,2019, Elapsed time: 0:00:00
+# ** Note: $finish    : proc_hier_bench.v(96)
+#    Time: 500 ns  Iteration: 1  Instance: /proc_hier_bench
+# End time: 03:14:04 on Mar 12,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

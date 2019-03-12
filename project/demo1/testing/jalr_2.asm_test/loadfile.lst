@@ -1,0 +1,3 @@
+          //test jalr with high value
+0000 c237 lbi r2, 55
+0002 3aff jalr r2, 255

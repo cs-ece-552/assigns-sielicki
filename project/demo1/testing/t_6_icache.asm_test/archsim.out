@@ -1,0 +1,117 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 0
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+lbi r1, 1
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0001
+lbi r2, -1
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xffff
+lbi r4, 10
+INUM:        3 PC: 0x0006 REG: 4 VALUE: 0x000a
+bltz r2, 30
+INUM:        4 PC: 0x0008
+j 64
+INUM:        5 PC: 0x0028
+bgez r3, 18
+INUM:        6 PC: 0x006a
+jal 250
+INUM:        7 PC: 0x007e REG: 7 VALUE: 0x0080
+j 200
+INUM:        8 PC: 0x017a
+bnez r1, 0
+INUM:        9 PC: 0x0244
+j 184
+INUM:       10 PC: 0x0246
+bnez r1, 30
+INUM:       11 PC: 0x0300
+beqz r0, 24
+INUM:       12 PC: 0x0320
+bnez r1, 28
+INUM:       13 PC: 0x033a
+j 160
+INUM:       14 PC: 0x0358
+j 206
+INUM:       15 PC: 0x03fa
+j 160
+INUM:       16 PC: 0x04ca
+j 188
+INUM:       17 PC: 0x056c
+bnez r1, 6
+INUM:       18 PC: 0x062a
+j 178
+INUM:       19 PC: 0x0632
+bgez r3, 24
+INUM:       20 PC: 0x06e6
+bltz r2, 12
+INUM:       21 PC: 0x0700
+j 100
+INUM:       22 PC: 0x070e
+bgez r3, 8
+INUM:       23 PC: 0x0774
+bltz r2, 26
+INUM:       24 PC: 0x077e
+srl r1, r6, r4
+INUM:       25 PC: 0x079a REG: 1 VALUE: 0x0000
+rol r2, r0, r0
+INUM:       26 PC: 0x079c REG: 2 VALUE: 0x0000
+srl r3, r6, r4
+INUM:       27 PC: 0x079e REG: 3 VALUE: 0x0000
+add r5, r2, r3
+INUM:       28 PC: 0x07a0 REG: 5 VALUE: 0x0000
+rol r6, r0, r6
+INUM:       29 PC: 0x07a2 REG: 6 VALUE: 0x0000
+add r3, r6, r7
+INUM:       30 PC: 0x07a4 REG: 3 VALUE: 0x0080
+add r4, r6, r2
+INUM:       31 PC: 0x07a6 REG: 4 VALUE: 0x0000
+slt r6, r7, r6
+INUM:       32 PC: 0x07a8 REG: 6 VALUE: 0x0000
+sle r0, r0, r4
+INUM:       33 PC: 0x07aa REG: 0 VALUE: 0x0001
+sle r1, r3, r7
+INUM:       34 PC: 0x07ac REG: 1 VALUE: 0x0001
+sco r4, r2, r4
+INUM:       35 PC: 0x07ae REG: 4 VALUE: 0x0000
+ror r3, r5, r4
+INUM:       36 PC: 0x07b0 REG: 3 VALUE: 0x0000
+sco r1, r2, r7
+INUM:       37 PC: 0x07b2 REG: 1 VALUE: 0x0000
+seq r5, r4, r6
+INUM:       38 PC: 0x07b4 REG: 5 VALUE: 0x0001
+slt r3, r2, r1
+INUM:       39 PC: 0x07b6 REG: 3 VALUE: 0x0000
+add r7, r4, r6
+INUM:       40 PC: 0x07b8 REG: 7 VALUE: 0x0000
+seq r7, r6, r5
+INUM:       41 PC: 0x07ba REG: 7 VALUE: 0x0000
+sle r3, r4, r5
+INUM:       42 PC: 0x07bc REG: 3 VALUE: 0x0001
+ror r4, r3, r1
+INUM:       43 PC: 0x07be REG: 4 VALUE: 0x0001
+sll r4, r1, r2
+INUM:       44 PC: 0x07c0 REG: 4 VALUE: 0x0000
+srl r7, r4, r2
+INUM:       45 PC: 0x07c2 REG: 7 VALUE: 0x0000
+srl r4, r7, r2
+INUM:       46 PC: 0x07c4 REG: 4 VALUE: 0x0000
+seq r5, r1, r1
+INUM:       47 PC: 0x07c6 REG: 5 VALUE: 0x0001
+sle r2, r4, r0
+INUM:       48 PC: 0x07c8 REG: 2 VALUE: 0x0001
+sle r7, r5, r5
+INUM:       49 PC: 0x07ca REG: 7 VALUE: 0x0001
+xor r0, r3, r1
+INUM:       50 PC: 0x07cc REG: 0 VALUE: 0x0001
+sub r7, r7, r1
+INUM:       51 PC: 0x07ce REG: 7 VALUE: 0xffff
+seq r0, r3, r0
+INUM:       52 PC: 0x07d0 REG: 0 VALUE: 0x0001
+halt
+program halted
+INUM:       53 PC: 0x07d2
+Program Finished

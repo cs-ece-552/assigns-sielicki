@@ -1,0 +1,29 @@
+          // CS552 2008 student tests
+          // Original Author: Steve Mcjunkin, Ryan Ruhland 
+          //Steve McJunkin & Ryan Ruhland
+          //Used to test the performance of the data cache.  
+          //It will store the same value 100 times to 4 seperate aligned spots in memory.
+          //This should give us a high icache hit rate and a high dcache hit rate.
+          
+0000 c164 			lbi r1, 100			//loop variable - loop 100 times
+0002 c252 			lbi r2, 0x052
+0004 c31a 			lbi r3, 26			//values in r3 through r6 are stored in four consecutive
+0006 c434 			lbi r4, 52			//memory blocks (for hits after compulsory miss) from
+0008 c573 			lbi r5, 115			//offset of address in r2 (0x0052)
+000a c6e1 			lbi r6, 225			
+000c c7ff 			lbi r7, -1			//used to decrement loop variable each time through loop
+000e      .jumpback:	
+000e 8260 			st r3, r2, 0		//since many instructions are already in cache, we will have
+0010 8282 			st r4, r2, 2		//large hit rate during loop
+0012 82a4 			st r5, r2, 4
+0014 82c6 			st r6, r2, 6
+0016 d9e4 			add r1, r1, r7
+0018 61f4 			bnez  r1, .jumpback
+001a c101 			lbi r1, 1			
+001c c202 			lbi r2, 2
+001e c303 			lbi r3, 3
+0020 c404 			lbi r4, 4
+0022 c505 			lbi r5, 5
+0024 c606 			lbi r6, 6
+0026 c707 			lbi r7, 7
+0028 0000 			halt

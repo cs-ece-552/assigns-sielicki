@@ -1,0 +1,9 @@
+          // Original test: ./freiberg/hw4/problem6/jalr_1.asm
+          // Author: freiberg
+          // Test source code follows
+          
+          
+          //high case
+0000 c13f lbi r1, 63
+0002 3940 jalr r1, 64
+0004 4f40 addi r2, r7, 0

@@ -1,0 +1,20 @@
+          // jalrTest#0
+          //
+          // test program for WISC-SP08 architecture
+          // for the jalr instruction.
+          //
+          // CS/ECE 552, Spring 2008
+          // Abhishek Sinkar  15 March 2008
+          //
+          
+          //Test of trying to see what value of r7 is used if r7 is specified in jalr instruction
+          // we examine if r7 gets updated before pc is changed to jump target
+0000 c100 lbi r1, 0x0
+0002 3906 jalr r1, 6
+0004 c701 lbi r7, 0x1   // trying to see if this gets executed ??
+0006 0800 nop
+0008 0800 nop
+000a 0800 nop
+000c 0800 nop
+000e c105 lbi  r1, 0x5
+0010 0000 halt // added by Karu

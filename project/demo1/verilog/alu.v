@@ -16,7 +16,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
     wire C_out;
     
     wire [15:0]res_barrel;
-    wire barrel_Op;
+    wire BarrelOp;
     wire [15:0] preFlip;
     wire [15:0] flip1_res;
     wire [15:0] flip2_res;
@@ -35,7 +35,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
     wire selImmJump;
     wire signImm;
     
-    wire adder;
+    //wire adder;
     wire xors;
     wire andn;
     wire shifter;

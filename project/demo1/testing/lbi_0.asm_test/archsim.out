@@ -1,0 +1,43 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, -1
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0xffff
+lbi r1, -2
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xfffe
+lbi r2, -3
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xfffd
+lbi r3, -4
+INUM:        3 PC: 0x0006 REG: 3 VALUE: 0xfffc
+lbi r4, -5
+INUM:        4 PC: 0x0008 REG: 4 VALUE: 0xfffb
+lbi r5, -6
+INUM:        5 PC: 0x000a REG: 5 VALUE: 0xfffa
+lbi r6, -7
+INUM:        6 PC: 0x000c REG: 6 VALUE: 0xfff9
+lbi r7, -8
+INUM:        7 PC: 0x000e REG: 7 VALUE: 0xfff8
+lbi r0, 1
+INUM:        8 PC: 0x0010 REG: 0 VALUE: 0x0001
+lbi r1, 2
+INUM:        9 PC: 0x0012 REG: 1 VALUE: 0x0002
+lbi r2, 3
+INUM:       10 PC: 0x0014 REG: 2 VALUE: 0x0003
+lbi r3, 4
+INUM:       11 PC: 0x0016 REG: 3 VALUE: 0x0004
+lbi r4, 5
+INUM:       12 PC: 0x0018 REG: 4 VALUE: 0x0005
+lbi r5, 6
+INUM:       13 PC: 0x001a REG: 5 VALUE: 0x0006
+lbi r6, 7
+INUM:       14 PC: 0x001c REG: 6 VALUE: 0x0007
+lbi r7, 8
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0x0008
+halt
+program halted
+INUM:       16 PC: 0x0020
+Program Finished

@@ -1,0 +1,126 @@
+          // CS552 2008 student tests
+          // Original Authors: Matt Sinclair, Amy Zou, Ju shin Lee
+          
+          // Author: Ju Shin Lee
+          // CS/ECE 552 Spring '08
+          // Demo II Test File
+          //
+          // Filename: Ju_test.asm
+          // Exhaustively tests the pipeline version of the processor
+0000 0800 NOP                                    // None
+          
+0002      .start:
+0002 2000 	j .return
+          
+0004      .return:
+          	// ST Rd, Rs, immediate [Mem[Rs + I(sign ext.)] <- Rd]
+          	// LD Rd, Rs, immediate [Rd <- Mem[Rs + I(sign ext.)]]
+          	// LBI    Rs, immediate [Rs <- I(sign ext.)]
+          	// SLBI   Rs, immediate [Rs <- (Rs << 8) | I(zero ext.)]
+0004 c000 	lbi  r0, 0
+0006 c200 	lbi  r2, 0
+0008 c601 	lbi  r6, 1
+000a c700 	lbi  r7, 0
+000c c124 	lbi  r1, 36
+000e 8120 	st   r1, r1, 0
+0010 c100 	lbi  r1, 0
+0012 c336 	lbi  r3, 54
+0014 c40c 	lbi  r4, 12
+0016 c501 	lbi  r5, 1
+0018 2002 	j    .ADD
+001a      .FAILED:
+001a 0000 	halt
+          
+          // ADD   Rd, Rs, Rt [Rd <- Rs + Rt]
+001c      .ADD:
+001c da64 	add  r1, r2, r3
+001e 4a2f 	addi r1, r2, 15
+0020 da64 	add  r1, r2, r3
+0022 4a2e 	addi r1, r2, 14
+0024 6102 	bnez r1, .SUB
+0026 27f2 	j .FAILED
+          // SUB   Rd, Rs, Rt [Rd <- Rt - Rs]
+0028      .SUB:
+0028 da65 	sub  r1, r2, r3
+002a 4225 	subi r1, r2, 05
+002c da65 	sub  r1, r2, r3
+002e 4233 	subi r1, r2, 19
+0030 7102 	bltz r1, .XOR
+0032 27e6 	j .FAILED
+          
+          // XOR   Rd, Rs, Rt [Rd <- Rs XOR Rt]
+0034      .XOR:
+0034 da66 	xor  r1, r2, r3
+0036 5a2c 	xori r1, r2, 12
+0038 da66 	xor  r1, r2, r3
+003a 5a27 	xori r1, r2, 07
+003c 7902 	bgez r1, .ANDN
+003e 27da 	j .FAILED
+          
+          // ANDN  Rd, Rs, Rt [Rd <- Rs AND ~Rt]
+0040      .ANDN:
+0040 da67 	andn  r1, r2, r3
+0042 5235 	andni r1, r2, 21
+0044 da67 	andn  r1, r2, r3
+0046 522a 	andni r1, r2, 10
+0048 6902 	beqz r1, .ROL
+004a 27ce 	j .FAILED
+          
+          // ROL   Rd, Rs, Rt [Rd <- Rs << (rotate) Rt (lowest 4 bits)]
+004c      .ROL:
+004c d264 	rol  r1, r2, r3
+004e a221 	roli r1, r2, 1
+0050 6902 	beqz r1, .SLL
+0052 27c6 	j .FAILED
+          
+          // SLL   Rd, Rs, Rt [Rd <- Rs << Rt (lowest 4 bits)]
+0054      .SLL:
+0054 d265 	sll  r1, r2, r3
+0056 aa20 	slli r1, r2, 0
+0058 6902 	beqz r1, .ROR
+005a 27be 	j .FAILED
+          
+          // ROR   Rd, Rs, Rt [Rd <- Rs >> (rotate) Rt (lowest 4 bits)]
+005c      .ROR:
+005c d266 	ror  r1, r2, r3
+005e b22f 	rori r1, r2, 15
+0060 6902 	beqz r1, .SCO
+0062 27b6 	j .FAILED
+          
+          // SCO   Rd, Rs, Rt [if (Rs + Rt) generates carry out  then Rd <- 1 else Rd <- 0]
+0064      .SCO:
+0064 ea64 	slt  r1, r2, r3
+0066 7902 	bgez  r1, .dependencies_check
+0068 27b0 	j .FAILED
+          
+          // Pipeline Test
+006a      .dependencies_check:
+006a da66 	xor  r1, r2, r3
+006c ddd3 	andn  r4, r5, r6
+006e dcbd 	sub  r7, r4, r5
+0070 d9b4 	add  r5, r1, r5
+0072 4da1         addi r5, r5, 1
+0074 9d8a 	stu  r4, r5, 10
+0076 df92 	xor   r4, r7, r4
+0078 4b7f 	addi r3, r3, -1
+007a 8bc1 	ld   r6, r3, 1
+007c 8ee0 	ld   r7, r6, 0
+007e 9ee2 	stu  r7, r6, 2
+0080 4ec2 	addi r6, r6, 2
+0082 9ee2 	stu  r7, r6, 2
+0084 6802 	beqz r0, .test_NOP
+0086 2792 	j .FAILED
+          
+0088      .test_NOP:
+0088 0800 	nop                            // None
+008a 0800 	nop                            // None
+008c 0800 	nop                            // None
+008e 0800 	nop                            // None
+0090 0800 	nop                            // None
+0092 0800 	nop                            // None
+0094 0800 	nop                            // None
+0096 6802 	beqz r0, .end_program
+0098 2780 	j .FAILED
+          
+009a      .end_program:
+009a 0000 	halt

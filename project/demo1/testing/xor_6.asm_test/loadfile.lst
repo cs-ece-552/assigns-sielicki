@@ -1,0 +1,13 @@
+          // Original test: ./eharris/hw4/problem6/xor_6.asm
+          // Author: eharris
+          // Test source code follows
+          
+          
+          //Test XOR with operand as dest reg
+0000 c652 lbi r6, 0x52
+0002 c731 lbi r7, 0x31
+0004 defa xor r6, r6, r7
+0006 defe xor r7, r6, r7
+0008 0000 halt
+          //r6 = 0x63
+          //r7 = 0x52

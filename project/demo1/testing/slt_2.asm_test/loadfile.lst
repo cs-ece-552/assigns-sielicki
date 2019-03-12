@@ -1,0 +1,12 @@
+          // SLT
+          // if(Rs < Rt) then Rd <- 1 else Rd <-0
+          
+          // Load Rs with all zeros
+0000 c100 lbi  r1, 0x00
+0002 9100 slbi r1, 0x00
+          // Load Rt with all ones
+0004 c2ff lbi  r2, 0xff
+0006 92ff slbi r2, 0xff
+          // SLT with (Rs < Rt): should return 1
+0008 e94c SLT r3, r1, r2
+000a 0000 halt

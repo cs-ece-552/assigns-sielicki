@@ -1,0 +1,34 @@
+          // seed 4
+0000 c0a5 lbi r0, 165 // icount 0
+0002 90b6 slbi r0, 182 // icount 1
+0004 c1ee lbi r1, 238 // icount 2
+0006 91be slbi r1, 190 // icount 3
+0008 c283 lbi r2, 131 // icount 4
+000a 9241 slbi r2, 65 // icount 5
+000c c365 lbi r3, 101 // icount 6
+000e 939e slbi r3, 158 // icount 7
+0010 c4b8 lbi r4, 184 // icount 8
+0012 943f slbi r4, 63 // icount 9
+0014 c57a lbi r5, 122 // icount 10
+0016 953c slbi r5, 60 // icount 11
+0018 c61b lbi r6, 27 // icount 12
+001a 9656 slbi r6, 86 // icount 13
+001c c785 lbi r7, 133 // icount 14
+001e 9765 slbi r7, 101 // icount 15
+0020 d047 srl r1, r0, r2 // icount 16
+0022 d2d3 srl r4, r2, r6 // icount 17
+0024 d5ef srl r3, r5, r7 // icount 18
+0026 d797 srl r5, r7, r4 // icount 19
+0028 d0fb srl r6, r0, r7 // icount 20
+002a d14b srl r2, r1, r2 // icount 21
+002c d12f srl r3, r1, r1 // icount 22
+002e d0cf srl r3, r0, r6 // icount 23
+0030 d7ab srl r2, r7, r5 // icount 24
+0032 d3af srl r3, r3, r5 // icount 25
+0034 d1c7 srl r1, r1, r6 // icount 26
+0036 d01f srl r7, r0, r0 // icount 27
+0038 d7bb srl r6, r7, r5 // icount 28
+003a d77b srl r6, r7, r3 // icount 29
+003c d1db srl r6, r1, r6 // icount 30
+003e d68f srl r3, r6, r4 // icount 31
+0040 0000 halt // icount 32

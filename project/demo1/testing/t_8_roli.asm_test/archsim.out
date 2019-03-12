@@ -1,0 +1,75 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, -125
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0xff83
+slbi r0, 62
+INUM:        1 PC: 0x0002 REG: 0 VALUE: 0x833e
+lbi r1, 127
+INUM:        2 PC: 0x0004 REG: 1 VALUE: 0x007f
+slbi r1, -65
+INUM:        3 PC: 0x0006 REG: 1 VALUE: 0x7fbf
+lbi r2, 99
+INUM:        4 PC: 0x0008 REG: 2 VALUE: 0x0063
+slbi r2, 84
+INUM:        5 PC: 0x000a REG: 2 VALUE: 0x6354
+lbi r3, -35
+INUM:        6 PC: 0x000c REG: 3 VALUE: 0xffdd
+slbi r3, -48
+INUM:        7 PC: 0x000e REG: 3 VALUE: 0xddd0
+lbi r4, -80
+INUM:        8 PC: 0x0010 REG: 4 VALUE: 0xffb0
+slbi r4, -47
+INUM:        9 PC: 0x0012 REG: 4 VALUE: 0xb0d1
+lbi r5, -92
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0xffa4
+slbi r5, 58
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0xa43a
+lbi r6, -42
+INUM:       12 PC: 0x0018 REG: 6 VALUE: 0xffd6
+slbi r6, 28
+INUM:       13 PC: 0x001a REG: 6 VALUE: 0xd61c
+lbi r7, 98
+INUM:       14 PC: 0x001c REG: 7 VALUE: 0x0062
+slbi r7, -17
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0x62ef
+roli r2, r7, 7
+INUM:       16 PC: 0x0020 REG: 2 VALUE: 0x77b1
+roli r2, r3, 13
+INUM:       17 PC: 0x0022 REG: 2 VALUE: 0x1bba
+roli r5, r6, 5
+INUM:       18 PC: 0x0024 REG: 5 VALUE: 0xc39a
+roli r3, r0, 4
+INUM:       19 PC: 0x0026 REG: 3 VALUE: 0x33e8
+roli r2, r3, 6
+INUM:       20 PC: 0x0028 REG: 2 VALUE: 0xfa0c
+roli r0, r6, 14
+INUM:       21 PC: 0x002a REG: 0 VALUE: 0x3587
+roli r2, r6, 11
+INUM:       22 PC: 0x002c REG: 2 VALUE: 0xe6b0
+roli r3, r6, 2
+INUM:       23 PC: 0x002e REG: 3 VALUE: 0x5873
+roli r4, r6, 3
+INUM:       24 PC: 0x0030 REG: 4 VALUE: 0xb0e6
+roli r2, r0, 2
+INUM:       25 PC: 0x0032 REG: 2 VALUE: 0xd61c
+roli r0, r4, 14
+INUM:       26 PC: 0x0034 REG: 0 VALUE: 0xac39
+roli r2, r2, 13
+INUM:       27 PC: 0x0036 REG: 2 VALUE: 0x9ac3
+roli r2, r0, 3
+INUM:       28 PC: 0x0038 REG: 2 VALUE: 0x61cd
+roli r6, r0, 10
+INUM:       29 PC: 0x003a REG: 6 VALUE: 0xe6b0
+roli r6, r4, 15
+INUM:       30 PC: 0x003c REG: 6 VALUE: 0x5873
+roli r4, r6, 6
+INUM:       31 PC: 0x003e REG: 4 VALUE: 0x1cd6
+halt
+program halted
+INUM:       32 PC: 0x0040
+Program Finished

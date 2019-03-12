@@ -1,0 +1,50 @@
+          // seed 4
+0000 c080 lbi r0, 128 // icount 0
+0002 9013 slbi r0, 19 // icount 1
+0004 c1ac lbi r1, 172 // icount 2
+0006 9176 slbi r1, 118 // icount 3
+0008 c26b lbi r2, 107 // icount 4
+000a 923d slbi r2, 61 // icount 5
+000c c3a3 lbi r3, 163 // icount 6
+000e 9314 slbi r3, 20 // icount 7
+0010 c445 lbi r4, 69 // icount 8
+0012 9498 slbi r4, 152 // icount 9
+0014 c514 lbi r5, 20 // icount 10
+0016 95fc slbi r5, 252 // icount 11
+0018 c6e3 lbi r6, 227 // icount 12
+001a 968e slbi r6, 142 // icount 13
+001c c7ca lbi r7, 202 // icount 14
+001e 979b slbi r7, 155 // icount 15
+0020 0800 nop // to align branch icount 16
+0022 cd10 btr r4, r5 // icount 17
+0024 0800 nop // to align branch icount 18
+0026 cd08 btr r2, r5 // icount 19
+0028 0800 nop // to align branch icount 20
+002a c914 btr r5, r1 // icount 21
+002c 0800 nop // to align branch icount 22
+002e c808 btr r2, r0 // icount 23
+0030 0800 nop // to align branch icount 24
+0032 c808 btr r2, r0 // icount 25
+0034 0800 nop // to align branch icount 26
+0036 cb04 btr r1, r3 // icount 27
+0038 0800 nop // to align branch icount 28
+003a ce1c btr r7, r6 // icount 29
+003c 0800 nop // to align branch icount 30
+003e ca08 btr r2, r2 // icount 31
+0040 0800 nop // to align branch icount 32
+0042 ca08 btr r2, r2 // icount 33
+0044 0800 nop // to align branch icount 34
+0046 cb0c btr r3, r3 // icount 35
+0048 0800 nop // to align branch icount 36
+004a c908 btr r2, r1 // icount 37
+004c 0800 nop // to align branch icount 38
+004e ca00 btr r0, r2 // icount 39
+0050 0800 nop // to align branch icount 40
+0052 c81c btr r7, r0 // icount 41
+0054 0800 nop // to align branch icount 42
+0056 ca08 btr r2, r2 // icount 43
+0058 0800 nop // to align branch icount 44
+005a cc14 btr r5, r4 // icount 45
+005c 0800 nop // to align branch icount 46
+005e ca04 btr r1, r2 // icount 47
+0060 0000 halt // icount 48

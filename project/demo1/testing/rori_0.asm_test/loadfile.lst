@@ -1,0 +1,42 @@
+          // Clear all registers
+0000 c000 lbi r0, 0
+0002 c100 lbi r1, 0
+0004 c200 lbi r2, 0
+0006 c300 lbi r3, 0
+0008 c400 lbi r4, 0
+000a c500 lbi r5, 0
+000c c600 lbi r6, 0
+000e c700 lbi r7, 0
+          
+0010 c077 lbi r0, 0x77
+0012 b024 rori r1, r0, 4 // read after write
+0014 b008 rori r0, r0, 8 // read & write to the same register
+0016 b04f rori r2, r0, 15 // read after write
+          
+0018 c37f lbi r3, 0x7f
+001a c45a lbi r4, 0x5a
+001c b3a3 rori r5, r3, 3
+001e b466 rori r3, r4, 6 // write after read
+0020 b360 rori r3, r3, 0 // shamt = 0
+          
+0022 c67f lbi r6, 0x7f
+0024 b6c9 rori r6, r6, 9
+0026 b6c7 rori r6, r6, 7 // waw, war, raw
+          
+0028 b6eb rori r7, r6, 11
+002a b7e1 rori r7, r7, 1
+002c b7e2 rori r7, r7, 2
+002e b7e3 rori r7, r7, 3
+0030 b7ea rori r7, r7, 10 // waw, war, raw
+          
+0032 0000 halt
+          
+          //-- Expected values:
+          //-- r0 = 0x7700
+          //-- r1 = 0x7007
+          //-- r2 = 0xee00
+          //-- r3 = 0x6801
+          //-- r4 = 0x005a
+          //-- r5 = 0xe00f
+          //-- r6 = 0x007f
+          //-- r7 = 0x0fe0

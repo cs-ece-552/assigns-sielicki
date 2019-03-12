@@ -1,0 +1,18 @@
+          // CS552 2008 student tests
+          // Original Authors: Vaishali Karanth, Janaki Jillela
+          
+          //Program to Test illegal opcode instruction. Exception handler loads 0xBADD into R7 when illegal opcode is encountered
+          
+0000 2006 j .realstart  //jump to the beginning of program
+          
+0002 c710 lbi r7, 16   //exception handler
+0004 8fe0 ld r7, r7, 0
+0006 1800 rti
+          
+0008      .realstart:
+0008 c000 lbi r0, 0
+000a 1000 siic r0
+000c 480a addi r0, r0, 10 //this should get executed after the exception handler is returned
+000e 0000 halt
+          
+0010 badd data 0xbadd //This data will be loaded into R7 if exception handler is called

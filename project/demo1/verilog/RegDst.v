@@ -29,7 +29,7 @@ module regDst(opcode, out);
    xnor5_1 zero_one6 (.opcode(opcode), .func(5'b10000), .out(zero_one_funct[6]));
    xnor5_1 zero_one7 (.opcode(opcode), .func(5'b10001), .out(zero_one_funct[7]));
    xnor5_1 zero_one8 (.opcode(opcode), .func(5'b10100), .out(zero_one_funct[8]));
-   xnor5_1 zero_one9 (.opcode(opcode), .func(5'b01000), .out(zero_one_funct[7]));
+   xnor5_1 zero_one9 (.opcode(opcode), .func(5'b01000), .out(zero_one_funct[9]));
    
    xnor5_1 one_zero0 (.opcode(opcode), .func(5'b11000), .out(one_zero_funct[0]));
    xnor5_1 one_zero1 (.opcode(opcode), .func(5'b10010), .out(one_zero_funct[1]));

@@ -1,0 +1,15 @@
+          // Original test: ./chen-han/hw4/problem6/jal_0.asm
+          // Author: chen-han
+          // Test source code follows
+          
+          
+          //test if the jump and link instruction will have correct value in r7 and pc
+          
+0000 3002 jal .Label1
+0002 c6ff lbi r6, -1	//never go here
+          
+0004      .Label1:
+0004 c601 lbi r6, 1
+0006 0000 halt
+          // you should have r6 =1
+          //		   r7 = where the instruction lbi r6, -1

@@ -1,0 +1,11 @@
+          // Original test: ./eharris/hw4/problem6/xor_2.asm
+          // Author: eharris
+          // Test source code follows
+          
+          
+          //Tests XOR where there is no 1 XOR 1 's in any bit
+0000 c1f0 lbi r1, 0xF0 //r1 = 0xFFF0
+0002 c20f lbi r2, 0x0F //r2 = 0x000F
+0004 da2e xor r3, r2, r1
+0006 0000 halt
+          //r3=0xFFFF

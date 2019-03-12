@@ -1,0 +1,9 @@
+          // Original test: ./rbatterm/hw4/problem6/xori_4.asm
+          // Author: rbatterm
+          // Test source code follows
+          
+          
+          // test alternating ones/zeros
+0000 c215 lbi r2, 21      //10101
+0002 5a2a xori r1, r2, 10 //01010
+0004 0000 halt          //= 11111

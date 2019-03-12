@@ -1,0 +1,13 @@
+          // Original test: ./ziliang/hw4/problem6/jal_0.asm
+          // Author: ziliang
+          // Test source code follows
+          
+          
+          //test jal
+0000 c101 lbi r1, 1
+0002 c201 lbi r2, 1
+0004 3002 jal .label1
+0006 d944 add r1, r1, r2
+0008      .label1:
+0008 d945 sub r1, r1, r2
+000a 0000 halt

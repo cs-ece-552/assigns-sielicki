@@ -1,0 +1,1024 @@
+          // seed 10
+0000 c0e0 lbi r0, 224 // icount 0
+0002 90cb slbi r0, 203 // icount 1
+0004 c17b lbi r1, 123 // icount 2
+0006 9186 slbi r1, 134 // icount 3
+0008 c275 lbi r2, 117 // icount 4
+000a 92f2 slbi r2, 242 // icount 5
+000c c3a5 lbi r3, 165 // icount 6
+000e 9395 slbi r3, 149 // icount 7
+0010 c4a3 lbi r4, 163 // icount 8
+0012 94f4 slbi r4, 244 // icount 9
+0014 c57f lbi r5, 127 // icount 10
+0016 958c slbi r5, 140 // icount 11
+0018 c6bb lbi r6, 187 // icount 12
+001a 964c slbi r6, 76 // icount 13
+001c c7f5 lbi r7, 245 // icount 14
+001e 978b slbi r7, 139 // icount 15
+0020 c500 lbi r5, 0 // icount 16
+0022 c500 lbi r5, 0 // icount 17
+0024 0800 nop // to align branch icount 18
+0026 7804 bgez r0, 4 // icount 19
+0028 d9c2 xor r0, r1, r6 // icount 20
+002a d5a9 sll r2, r5, r5 // icount 21
+002c 0800 nop // to align branch icount 22
+002e ca0c btr r3, r2 // icount 23
+0030 d082 ror r0, r0, r4 // icount 24
+0032 c600 lbi r6, 0 // icount 25
+0034 c000 lbi r0, 0 // icount 26
+0036 7e08 bgez r6, 8 // icount 27
+0038 c60e lbi r6, 14 // icount 28
+003a 53c4 andni r6, r3, 4 // icount 29
+003c f1cc sle r3, r1, r6 // icount 30
+003e e6ec seq r3, r6, r7 // icount 31
+0040 d929 sub r2, r1, r1 // icount 32
+0042 e8c0 slt r0, r0, r6 // icount 33
+0044 df61 sub r0, r7, r3 // icount 34
+0046 c108 lbi r1, 8 // icount 35
+0048 200c j 12 // icount 36
+004a 0800 nop // icount 37
+004c 0800 nop // icount 38
+004e 0800 nop // icount 39
+0050 0800 nop // icount 40
+0052 0800 nop // icount 41
+0054 0800 nop // icount 42
+0056 c500 lbi r5, 0 // icount 43
+0058 c700 lbi r7, 0 // icount 44
+005a 7b0c bgez r3, 12 // icount 45
+005c a3ea roli r7, r3, 10 // icount 46
+005e f670 sle r4, r6, r3 // icount 47
+0060 50a1 andni r5, r0, 1 // icount 48
+0062 ca04 btr r1, r2 // icount 49
+0064 db2f andn r3, r3, r1 // icount 50
+0066 d6fc rol r7, r6, r7 // icount 51
+0068 d12c rol r3, r1, r1 // icount 52
+006a ddaf andn r3, r5, r5 // icount 53
+006c aaa0 slli r5, r2, 0 // icount 54
+006e db1c add r7, r3, r0 // icount 55
+0070 9006 slbi r0, 6 // icount 56
+0072 586c xori r3, r0, 12 // icount 57
+0074 c400 lbi r4, 0 // icount 58
+0076 c700 lbi r7, 0 // icount 59
+0078 0800 nop // to align branch icount 60
+007a 6814 beqz r0, 20 // icount 61
+007c d7ae ror r3, r7, r5 // icount 62
+007e e570 seq r4, r5, r3 // icount 63
+0080 db9a xor r6, r3, r4 // icount 64
+0082 ee98 slt r6, r6, r4 // icount 65
+0084 40c2 subi r6, r0, 2 // icount 66
+0086 d7a1 sll r0, r7, r5 // icount 67
+0088 0800 nop // to align branch icount 68
+008a cd0c btr r3, r5 // icount 69
+008c ece8 slt r2, r4, r7 // icount 70
+008e ca04 btr r1, r2 // icount 71
+0090 0800 nop // to align branch icount 72
+0092 c914 btr r5, r1 // icount 73
+0094 f8c0 sco r0, r0, r6 // icount 74
+0096 d4cf srl r3, r4, r6 // icount 75
+0098 bf0c srli r0, r7, 12 // icount 76
+009a 4961 addi r3, r1, 1 // icount 77
+009c 54e6 andni r7, r4, 6 // icount 78
+009e c703 lbi r7, 3 // icount 79
+00a0 a0c0 roli r6, r0, 0 // icount 80
+00a2 d7c7 srl r1, r7, r6 // icount 81
+00a4 dc73 andn r4, r4, r3 // icount 82
+00a6 dafb andn r6, r2, r7 // icount 83
+00a8 2004 j 4 // icount 84
+00aa 0800 nop // icount 85
+00ac 0800 nop // icount 86
+00ae 2020 j 32 // icount 87
+00b0 0800 nop // icount 88
+00b2 0800 nop // icount 89
+00b4 0800 nop // icount 90
+00b6 0800 nop // icount 91
+00b8 0800 nop // icount 92
+00ba 0800 nop // icount 93
+00bc 0800 nop // icount 94
+00be 0800 nop // icount 95
+00c0 0800 nop // icount 96
+00c2 0800 nop // icount 97
+00c4 0800 nop // icount 98
+00c6 0800 nop // icount 99
+00c8 0800 nop // icount 100
+00ca 0800 nop // icount 101
+00cc 0800 nop // icount 102
+00ce 0800 nop // icount 103
+00d0 c500 lbi r5, 0 // icount 104
+00d2 c400 lbi r4, 0 // icount 105
+00d4 0800 nop // to align branch icount 106
+00d6 7110 bltz r1, 16 // icount 107
+00d8 d032 ror r4, r0, r1 // icount 108
+00da e7b8 seq r6, r7, r5 // icount 109
+00dc 0800 nop // to align branch icount 110
+00de c910 btr r4, r1 // icount 111
+00e0 e908 slt r2, r1, r0 // icount 112
+00e2 d5ac rol r3, r5, r5 // icount 113
+00e4 c70c lbi r7, 12 // icount 114
+00e6 a24b roli r2, r2, 11 // icount 115
+00e8 d9ed sub r3, r1, r7 // icount 116
+00ea c303 lbi r3, 3 // icount 117
+00ec 5241 andni r2, r2, 1 // icount 118
+00ee 8ae0 ld r7, r2, 0 // icount 119
+00f0 f27c sle r7, r2, r3 // icount 120
+00f2 e80c slt r3, r0, r0 // icount 121
+00f4 a1a6 roli r5, r1, 6 // icount 122
+00f6 e150 seq r4, r1, r2 // icount 123
+00f8 b921 srli r1, r1, 1 // icount 124
+00fa e684 seq r1, r6, r4 // icount 125
+00fc c300 lbi r3, 0 // icount 126
+00fe c000 lbi r0, 0 // icount 127
+0100 0800 nop // to align branch icount 128
+0102 711c bltz r1, 28 // icount 129
+0104 4206 subi r0, r2, 6 // icount 130
+0106 4765 subi r3, r7, 5 // icount 131
+0108 f93c sco r7, r1, r1 // icount 132
+010a eb98 slt r6, r3, r4 // icount 133
+010c 5481 andni r4, r4, 1 // icount 134
+010e 9c2e stu r1, r4, 14 // icount 135
+0110 ff74 sco r5, r7, r3 // icount 136
+0112 fc8c sco r3, r4, r4 // icount 137
+0114 dba5 sub r1, r3, r5 // icount 138
+0116 d87f andn r7, r0, r3 // icount 139
+0118 bdad srli r5, r5, 13 // icount 140
+011a 0800 nop // to align meminst icount 141
+011c 55a1 andni r5, r5, 1 // icount 142
+011e 8d60 ld r3, r5, 0 // icount 143
+0120 f500 sle r0, r5, r0 // icount 144
+0122 d0e0 rol r0, r0, r7 // icount 145
+0124 bc85 srli r4, r4, 5 // icount 146
+0126 d4e5 sll r1, r4, r7 // icount 147
+0128 45ee subi r7, r5, 14 // icount 148
+012a 0800 nop // to align meminst icount 149
+012c 5001 andni r0, r0, 1 // icount 150
+012e 98a8 stu r5, r0, 8 // icount 151
+0130 d142 ror r0, r1, r2 // icount 152
+0132 dde6 xor r1, r5, r7 // icount 153
+0134 dcb9 sub r6, r4, r5 // icount 154
+0136 f6ec sle r3, r6, r7 // icount 155
+0138 f778 sle r6, r7, r3 // icount 156
+013a 9302 slbi r3, 2 // icount 157
+013c 5b69 xori r3, r3, 9 // icount 158
+013e d8dc add r7, r0, r6 // icount 159
+0140 d17d sll r7, r1, r3 // icount 160
+0142 554a andni r2, r5, 10 // icount 161
+0144 424f subi r2, r2, 15 // icount 162
+0146 c700 lbi r7, 0 // icount 163
+0148 c200 lbi r2, 0 // icount 164
+014a 7e10 bgez r6, 16 // icount 165
+014c 5361 andni r3, r3, 1 // icount 166
+014e 830e st r0, r3, 14 // icount 167
+0150 d1bb srl r6, r1, r5 // icount 168
+0152 4962 addi r3, r1, 2 // icount 169
+0154 fa7c sco r7, r2, r3 // icount 170
+0156 d19a ror r6, r1, r4 // icount 171
+0158 9001 slbi r0, 1 // icount 172
+015a c501 lbi r5, 1 // icount 173
+015c e248 seq r2, r2, r2 // icount 174
+015e 0800 nop // to align meminst icount 175
+0160 5481 andni r4, r4, 1 // icount 176
+0162 8ce2 ld r7, r4, 2 // icount 177
+0164 f764 sle r1, r7, r3 // icount 178
+0166 d11b srl r6, r1, r0 // icount 179
+0168 4c82 addi r4, r4, 2 // icount 180
+016a e0b0 seq r4, r0, r5 // icount 181
+016c b24a rori r2, r2, 10 // icount 182
+016e dc3a xor r6, r4, r1 // icount 183
+0170 da43 andn r0, r2, r2 // icount 184
+0172 201e j 30 // icount 185
+0174 0800 nop // icount 186
+0176 0800 nop // icount 187
+0178 0800 nop // icount 188
+017a 0800 nop // icount 189
+017c 0800 nop // icount 190
+017e 0800 nop // icount 191
+0180 0800 nop // icount 192
+0182 0800 nop // icount 193
+0184 0800 nop // icount 194
+0186 0800 nop // icount 195
+0188 0800 nop // icount 196
+018a 0800 nop // icount 197
+018c 0800 nop // icount 198
+018e 0800 nop // icount 199
+0190 0800 nop // icount 200
+0192 2018 j 24 // icount 201
+0194 0800 nop // icount 202
+0196 0800 nop // icount 203
+0198 0800 nop // icount 204
+019a 0800 nop // icount 205
+019c 0800 nop // icount 206
+019e 0800 nop // icount 207
+01a0 0800 nop // icount 208
+01a2 0800 nop // icount 209
+01a4 0800 nop // icount 210
+01a6 0800 nop // icount 211
+01a8 0800 nop // icount 212
+01aa 0800 nop // icount 213
+01ac 2006 j 6 // icount 214
+01ae 0800 nop // icount 215
+01b0 0800 nop // icount 216
+01b2 0800 nop // icount 217
+01b4 201a j 26 // icount 218
+01b6 0800 nop // icount 219
+01b8 0800 nop // icount 220
+01ba 0800 nop // icount 221
+01bc 0800 nop // icount 222
+01be 0800 nop // icount 223
+01c0 0800 nop // icount 224
+01c2 0800 nop // icount 225
+01c4 0800 nop // icount 226
+01c6 0800 nop // icount 227
+01c8 0800 nop // icount 228
+01ca 0800 nop // icount 229
+01cc 0800 nop // icount 230
+01ce 0800 nop // icount 231
+01d0 2010 j 16 // icount 232
+01d2 0800 nop // icount 233
+01d4 0800 nop // icount 234
+01d6 0800 nop // icount 235
+01d8 0800 nop // icount 236
+01da 0800 nop // icount 237
+01dc 0800 nop // icount 238
+01de 0800 nop // icount 239
+01e0 0800 nop // icount 240
+01e2 c200 lbi r2, 0 // icount 241
+01e4 c100 lbi r1, 0 // icount 242
+01e6 7318 bltz r3, 24 // icount 243
+01e8 d5d1 sll r4, r5, r6 // icount 244
+01ea d27d sll r7, r2, r3 // icount 245
+01ec b48a rori r4, r4, 10 // icount 246
+01ee daf0 add r4, r2, r7 // icount 247
+01f0 5001 andni r0, r0, 1 // icount 248
+01f2 8008 st r0, r0, 8 // icount 249
+01f4 eac8 slt r2, r2, r6 // icount 250
+01f6 e83c slt r7, r0, r1 // icount 251
+01f8 0800 nop // to align branch icount 252
+01fa ca1c btr r7, r2 // icount 253
+01fc e110 seq r4, r1, r0 // icount 254
+01fe c814 btr r5, r0 // icount 255
+0200 58c4 xori r6, r0, 4 // icount 256
+0202 0800 nop // to align meminst icount 257
+0204 56c1 andni r6, r6, 1 // icount 258
+0206 86e8 st r7, r6, 8 // icount 259
+0208 d669 sll r2, r6, r3 // icount 260
+020a c918 btr r6, r1 // icount 261
+020c c005 lbi r0, 5 // icount 262
+020e e684 seq r1, r6, r4 // icount 263
+0210 d3c1 sll r0, r3, r6 // icount 264
+0212 da6a xor r2, r2, r3 // icount 265
+0214 daa3 andn r0, r2, r5 // icount 266
+0216 d480 rol r0, r4, r4 // icount 267
+0218 5241 andni r2, r2, 1 // icount 268
+021a 8262 st r3, r2, 2 // icount 269
+021c d46c rol r3, r4, r3 // icount 270
+021e 0800 nop // to align meminst icount 271
+0220 55a1 andni r5, r5, 1 // icount 272
+0222 9dc8 stu r6, r5, 8 // icount 273
+0224 42c2 subi r6, r2, 2 // icount 274
+0226 201c j 28 // icount 275
+0228 0800 nop // icount 276
+022a 0800 nop // icount 277
+022c 0800 nop // icount 278
+022e 0800 nop // icount 279
+0230 0800 nop // icount 280
+0232 0800 nop // icount 281
+0234 0800 nop // icount 282
+0236 0800 nop // icount 283
+0238 0800 nop // icount 284
+023a 0800 nop // icount 285
+023c 0800 nop // icount 286
+023e 0800 nop // icount 287
+0240 0800 nop // icount 288
+0242 0800 nop // icount 289
+0244 2012 j 18 // icount 290
+0246 0800 nop // icount 291
+0248 0800 nop // icount 292
+024a 0800 nop // icount 293
+024c 0800 nop // icount 294
+024e 0800 nop // icount 295
+0250 0800 nop // icount 296
+0252 0800 nop // icount 297
+0254 0800 nop // icount 298
+0256 0800 nop // icount 299
+0258 c500 lbi r5, 0 // icount 300
+025a c300 lbi r3, 0 // icount 301
+025c 0800 nop // to align branch icount 302
+025e 6610 bnez r6, 16 // icount 303
+0260 b2a9 rori r5, r2, 9 // icount 304
+0262 42e5 subi r7, r2, 5 // icount 305
+0264 ad2b slli r1, r5, 11 // icount 306
+0266 d7cd sll r3, r7, r6 // icount 307
+0268 a2a1 roli r5, r2, 1 // icount 308
+026a d25a ror r6, r2, r2 // icount 309
+026c e144 seq r1, r1, r2 // icount 310
+026e b686 rori r4, r6, 6 // icount 311
+0270 5b09 xori r0, r3, 9 // icount 312
+0272 bc08 srli r0, r4, 8 // icount 313
+0274 d7f2 ror r4, r7, r7 // icount 314
+0276 dc9f andn r7, r4, r4 // icount 315
+0278 55a1 andni r5, r5, 1 // icount 316
+027a 858e st r4, r5, 14 // icount 317
+027c d948 add r2, r1, r2 // icount 318
+027e 0800 nop // to align meminst icount 319
+0280 5481 andni r4, r4, 1 // icount 320
+0282 8c82 ld r4, r4, 2 // icount 321
+0284 4bec addi r7, r3, 12 // icount 322
+0286 200c j 12 // icount 323
+0288 0800 nop // icount 324
+028a 0800 nop // icount 325
+028c 0800 nop // icount 326
+028e 0800 nop // icount 327
+0290 0800 nop // icount 328
+0292 0800 nop // icount 329
+0294 c700 lbi r7, 0 // icount 330
+0296 c000 lbi r0, 0 // icount 331
+0298 0800 nop // to align branch icount 332
+029a 7614 bltz r6, 20 // icount 333
+029c de84 add r1, r6, r4 // icount 334
+029e b104 rori r0, r1, 4 // icount 335
+02a0 55a1 andni r5, r5, 1 // icount 336
+02a2 9dcc stu r6, r5, 12 // icount 337
+02a4 9603 slbi r6, 3 // icount 338
+02a6 5a64 xori r3, r2, 4 // icount 339
+02a8 ac29 slli r1, r4, 9 // icount 340
+02aa bf4d srli r2, r7, 13 // icount 341
+02ac b828 srli r1, r0, 8 // icount 342
+02ae e74c seq r3, r7, r2 // icount 343
+02b0 d645 sll r1, r6, r2 // icount 344
+02b2 dc53 andn r4, r4, r2 // icount 345
+02b4 dc88 add r2, r4, r4 // icount 346
+02b6 aa6c slli r3, r2, 12 // icount 347
+02b8 d28b srl r2, r2, r4 // icount 348
+02ba e7b0 seq r4, r7, r5 // icount 349
+02bc d23f srl r7, r2, r1 // icount 350
+02be a223 roli r1, r2, 3 // icount 351
+02c0 b6c7 rori r6, r6, 7 // icount 352
+02c2 b4e1 rori r7, r4, 1 // icount 353
+02c4 de13 andn r4, r6, r0 // icount 354
+02c6 201a j 26 // icount 355
+02c8 0800 nop // icount 356
+02ca 0800 nop // icount 357
+02cc 0800 nop // icount 358
+02ce 0800 nop // icount 359
+02d0 0800 nop // icount 360
+02d2 0800 nop // icount 361
+02d4 0800 nop // icount 362
+02d6 0800 nop // icount 363
+02d8 0800 nop // icount 364
+02da 0800 nop // icount 365
+02dc 0800 nop // icount 366
+02de 0800 nop // icount 367
+02e0 0800 nop // icount 368
+02e2 2014 j 20 // icount 369
+02e4 0800 nop // icount 370
+02e6 0800 nop // icount 371
+02e8 0800 nop // icount 372
+02ea 0800 nop // icount 373
+02ec 0800 nop // icount 374
+02ee 0800 nop // icount 375
+02f0 0800 nop // icount 376
+02f2 0800 nop // icount 377
+02f4 0800 nop // icount 378
+02f6 0800 nop // icount 379
+02f8 c200 lbi r2, 0 // icount 380
+02fa c000 lbi r0, 0 // icount 381
+02fc 0800 nop // to align branch icount 382
+02fe 6704 bnez r7, 4 // icount 383
+0300 eaa4 slt r1, r2, r5 // icount 384
+0302 0800 nop // to align meminst icount 385
+0304 57e1 andni r7, r7, 1 // icount 386
+0306 8f4a ld r2, r7, 10 // icount 387
+0308 f93c sco r7, r1, r1 // icount 388
+030a 44a5 subi r5, r4, 5 // icount 389
+030c 2010 j 16 // icount 390
+030e 0800 nop // icount 391
+0310 0800 nop // icount 392
+0312 0800 nop // icount 393
+0314 0800 nop // icount 394
+0316 0800 nop // icount 395
+0318 0800 nop // icount 396
+031a 0800 nop // icount 397
+031c 0800 nop // icount 398
+031e 2000 j 0 // icount 399
+0320 201a j 26 // icount 400
+0322 0800 nop // icount 401
+0324 0800 nop // icount 402
+0326 0800 nop // icount 403
+0328 0800 nop // icount 404
+032a 0800 nop // icount 405
+032c 0800 nop // icount 406
+032e 0800 nop // icount 407
+0330 0800 nop // icount 408
+0332 0800 nop // icount 409
+0334 0800 nop // icount 410
+0336 0800 nop // icount 411
+0338 0800 nop // icount 412
+033a 0800 nop // icount 413
+033c c100 lbi r1, 0 // icount 414
+033e c000 lbi r0, 0 // icount 415
+0340 0800 nop // to align branch icount 416
+0342 7f18 bgez r7, 24 // icount 417
+0344 e598 seq r6, r5, r4 // icount 418
+0346 a467 roli r3, r4, 7 // icount 419
+0348 da6f andn r3, r2, r3 // icount 420
+034a c814 btr r5, r0 // icount 421
+034c 5481 andni r4, r4, 1 // icount 422
+034e 9c4c stu r2, r4, 12 // icount 423
+0350 da7b andn r6, r2, r3 // icount 424
+0352 a3c3 roli r6, r3, 3 // icount 425
+0354 d958 add r6, r1, r2 // icount 426
+0356 d51c rol r7, r5, r0 // icount 427
+0358 f33c sle r7, r3, r1 // icount 428
+035a bde4 srli r7, r5, 4 // icount 429
+035c d1f7 srl r5, r1, r7 // icount 430
+035e df3c add r7, r7, r1 // icount 431
+0360 57e1 andni r7, r7, 1 // icount 432
+0362 8f80 ld r4, r7, 0 // icount 433
+0364 56c1 andni r6, r6, 1 // icount 434
+0366 8e86 ld r4, r6, 6 // icount 435
+0368 a2c2 roli r6, r2, 2 // icount 436
+036a 4cc7 addi r6, r4, 7 // icount 437
+036c d916 xor r5, r1, r0 // icount 438
+036e d24e ror r3, r2, r2 // icount 439
+0370 f7bc sle r7, r7, r5 // icount 440
+0372 940f slbi r4, 15 // icount 441
+0374 dee7 andn r1, r6, r7 // icount 442
+0376 de5f andn r7, r6, r2 // icount 443
+0378 56c1 andni r6, r6, 1 // icount 444
+037a 868c st r4, r6, 12 // icount 445
+037c 2006 j 6 // icount 446
+037e 0800 nop // icount 447
+0380 0800 nop // icount 448
+0382 0800 nop // icount 449
+0384 201a j 26 // icount 450
+0386 0800 nop // icount 451
+0388 0800 nop // icount 452
+038a 0800 nop // icount 453
+038c 0800 nop // icount 454
+038e 0800 nop // icount 455
+0390 0800 nop // icount 456
+0392 0800 nop // icount 457
+0394 0800 nop // icount 458
+0396 0800 nop // icount 459
+0398 0800 nop // icount 460
+039a 0800 nop // icount 461
+039c 0800 nop // icount 462
+039e 0800 nop // icount 463
+03a0 c200 lbi r2, 0 // icount 464
+03a2 c300 lbi r3, 0 // icount 465
+03a4 0800 nop // to align branch icount 466
+03a6 6a10 beqz r2, 16 // icount 467
+03a8 56c1 andni r6, r6, 1 // icount 468
+03aa 86e8 st r7, r6, 8 // icount 469
+03ac 5c84 xori r4, r4, 4 // icount 470
+03ae afc3 slli r6, r7, 3 // icount 471
+03b0 5904 xori r0, r1, 4 // icount 472
+03b2 db80 add r0, r3, r4 // icount 473
+03b4 d5f1 sll r4, r5, r7 // icount 474
+03b6 df1f andn r7, r7, r0 // icount 475
+03b8 fd98 sco r6, r5, r4 // icount 476
+03ba d802 xor r0, r0, r0 // icount 477
+03bc 0800 nop // to align branch icount 478
+03be ca18 btr r6, r2 // icount 479
+03c0 af0c slli r0, r7, 12 // icount 480
+03c2 0800 nop // to align meminst icount 481
+03c4 55a1 andni r5, r5, 1 // icount 482
+03c6 9d8e stu r4, r5, 14 // icount 483
+03c8 ba66 srli r3, r2, 6 // icount 484
+03ca b704 rori r0, r7, 4 // icount 485
+03cc 5241 andni r2, r2, 1 // icount 486
+03ce 9aae stu r5, r2, 14 // icount 487
+03d0 b7a0 rori r5, r7, 0 // icount 488
+03d2 c400 lbi r4, 0 // icount 489
+03d4 c100 lbi r1, 0 // icount 490
+03d6 7804 bgez r0, 4 // icount 491
+03d8 d019 sll r6, r0, r0 // icount 492
+03da c306 lbi r3, 6 // icount 493
+03dc 55a0 andni r5, r5, 0 // icount 494
+03de d31a ror r6, r3, r0 // icount 495
+03e0 c600 lbi r6, 0 // icount 496
+03e2 c400 lbi r4, 0 // icount 497
+03e4 0800 nop // to align branch icount 498
+03e6 7e04 bgez r6, 4 // icount 499
+03e8 ee58 slt r6, r6, r2 // icount 500
+03ea 41ef subi r7, r1, 15 // icount 501
+03ec de2c add r3, r6, r1 // icount 502
+03ee c908 btr r2, r1 // icount 503
+03f0 c500 lbi r5, 0 // icount 504
+03f2 c500 lbi r5, 0 // icount 505
+03f4 0800 nop // to align branch icount 506
+03f6 6b18 beqz r3, 24 // icount 507
+03f8 0800 nop // to align branch icount 508
+03fa ca0c btr r3, r2 // icount 509
+03fc c004 lbi r0, 4 // icount 510
+03fe d2db srl r6, r2, r6 // icount 511
+0400 b20f rori r0, r2, 15 // icount 512
+0402 5800 xori r0, r0, 0 // icount 513
+0404 d05f srl r7, r0, r2 // icount 514
+0406 d1d9 sll r6, r1, r6 // icount 515
+0408 0800 nop // to align branch icount 516
+040a c80c btr r3, r0 // icount 517
+040c 0800 nop // to align branch icount 518
+040e c908 btr r2, r1 // icount 519
+0410 5001 andni r0, r0, 1 // icount 520
+0412 9826 stu r1, r0, 6 // icount 521
+0414 fd70 sco r4, r5, r3 // icount 522
+0416 4d0d addi r0, r5, 13 // icount 523
+0418 f97c sco r7, r1, r3 // icount 524
+041a df8b andn r2, r7, r4 // icount 525
+041c db09 sub r2, r3, r0 // icount 526
+041e 57ad andni r5, r7, 13 // icount 527
+0420 d7c6 ror r1, r7, r6 // icount 528
+0422 55c2 andni r6, r5, 2 // icount 529
+0424 e7e0 seq r0, r7, r7 // icount 530
+0426 ce04 btr r1, r6 // icount 531
+0428 b3aa rori r5, r3, 10 // icount 532
+042a d440 rol r0, r4, r2 // icount 533
+042c a5cc roli r6, r5, 12 // icount 534
+042e ebbc slt r7, r3, r5 // icount 535
+0430 c700 lbi r7, 0 // icount 536
+0432 c300 lbi r3, 0 // icount 537
+0434 0800 nop // to align branch icount 538
+0436 6d10 beqz r5, 16 // icount 539
+0438 d44f srl r3, r4, r2 // icount 540
+043a 4986 addi r4, r1, 6 // icount 541
+043c e8b0 slt r4, r0, r5 // icount 542
+043e 0800 nop // to align meminst icount 543
+0440 57e1 andni r7, r7, 1 // icount 544
+0442 8f0c ld r0, r7, 12 // icount 545
+0444 c006 lbi r0, 6 // icount 546
+0446 d02a ror r2, r0, r1 // icount 547
+0448 e6e0 seq r0, r6, r7 // icount 548
+044a 5603 andni r0, r6, 3 // icount 549
+044c d7c7 srl r1, r7, r6 // icount 550
+044e d402 ror r0, r4, r0 // icount 551
+0450 5525 andni r1, r5, 5 // icount 552
+0452 b1a0 rori r5, r1, 0 // icount 553
+0454 e8b0 slt r4, r0, r5 // icount 554
+0456 4524 subi r1, r5, 4 // icount 555
+0458 fee0 sco r0, r6, r7 // icount 556
+045a a1e3 roli r7, r1, 3 // icount 557
+045c 2014 j 20 // icount 558
+045e 0800 nop // icount 559
+0460 0800 nop // icount 560
+0462 0800 nop // icount 561
+0464 0800 nop // icount 562
+0466 0800 nop // icount 563
+0468 0800 nop // icount 564
+046a 0800 nop // icount 565
+046c 0800 nop // icount 566
+046e 0800 nop // icount 567
+0470 0800 nop // icount 568
+0472 201a j 26 // icount 569
+0474 0800 nop // icount 570
+0476 0800 nop // icount 571
+0478 0800 nop // icount 572
+047a 0800 nop // icount 573
+047c 0800 nop // icount 574
+047e 0800 nop // icount 575
+0480 0800 nop // icount 576
+0482 0800 nop // icount 577
+0484 0800 nop // icount 578
+0486 0800 nop // icount 579
+0488 0800 nop // icount 580
+048a 0800 nop // icount 581
+048c 0800 nop // icount 582
+048e c300 lbi r3, 0 // icount 583
+0490 c500 lbi r5, 0 // icount 584
+0492 6f04 beqz r7, 4 // icount 585
+0494 930f slbi r3, 15 // icount 586
+0496 ef90 slt r4, r7, r4 // icount 587
+0498 d6f5 sll r5, r6, r7 // icount 588
+049a 53c1 andni r6, r3, 1 // icount 589
+049c c000 lbi r0, 0 // icount 590
+049e c300 lbi r3, 0 // icount 591
+04a0 0800 nop // to align branch icount 592
+04a2 7a04 bgez r2, 4 // icount 593
+04a4 9706 slbi r7, 6 // icount 594
+04a6 d15d sll r7, r1, r2 // icount 595
+04a8 db4b andn r2, r3, r2 // icount 596
+04aa dadb andn r6, r2, r6 // icount 597
+04ac 201c j 28 // icount 598
+04ae 0800 nop // icount 599
+04b0 0800 nop // icount 600
+04b2 0800 nop // icount 601
+04b4 0800 nop // icount 602
+04b6 0800 nop // icount 603
+04b8 0800 nop // icount 604
+04ba 0800 nop // icount 605
+04bc 0800 nop // icount 606
+04be 0800 nop // icount 607
+04c0 0800 nop // icount 608
+04c2 0800 nop // icount 609
+04c4 0800 nop // icount 610
+04c6 0800 nop // icount 611
+04c8 0800 nop // icount 612
+04ca 200a j 10 // icount 613
+04cc 0800 nop // icount 614
+04ce 0800 nop // icount 615
+04d0 0800 nop // icount 616
+04d2 0800 nop // icount 617
+04d4 0800 nop // icount 618
+04d6 2004 j 4 // icount 619
+04d8 0800 nop // icount 620
+04da 0800 nop // icount 621
+04dc c200 lbi r2, 0 // icount 622
+04de c600 lbi r6, 0 // icount 623
+04e0 0800 nop // to align branch icount 624
+04e2 6d00 beqz r5, 0 // icount 625
+04e4 201c j 28 // icount 626
+04e6 0800 nop // icount 627
+04e8 0800 nop // icount 628
+04ea 0800 nop // icount 629
+04ec 0800 nop // icount 630
+04ee 0800 nop // icount 631
+04f0 0800 nop // icount 632
+04f2 0800 nop // icount 633
+04f4 0800 nop // icount 634
+04f6 0800 nop // icount 635
+04f8 0800 nop // icount 636
+04fa 0800 nop // icount 637
+04fc 0800 nop // icount 638
+04fe 0800 nop // icount 639
+0500 0800 nop // icount 640
+0502 201a j 26 // icount 641
+0504 0800 nop // icount 642
+0506 0800 nop // icount 643
+0508 0800 nop // icount 644
+050a 0800 nop // icount 645
+050c 0800 nop // icount 646
+050e 0800 nop // icount 647
+0510 0800 nop // icount 648
+0512 0800 nop // icount 649
+0514 0800 nop // icount 650
+0516 0800 nop // icount 651
+0518 0800 nop // icount 652
+051a 0800 nop // icount 653
+051c 0800 nop // icount 654
+051e c400 lbi r4, 0 // icount 655
+0520 c200 lbi r2, 0 // icount 656
+0522 6d04 beqz r5, 4 // icount 657
+0524 dbe9 sub r2, r3, r7 // icount 658
+0526 d706 ror r1, r7, r0 // icount 659
+0528 ad20 slli r1, r5, 0 // icount 660
+052a 5023 andni r1, r0, 3 // icount 661
+052c 200a j 10 // icount 662
+052e 0800 nop // icount 663
+0530 0800 nop // icount 664
+0532 0800 nop // icount 665
+0534 0800 nop // icount 666
+0536 0800 nop // icount 667
+0538 200c j 12 // icount 668
+053a 0800 nop // icount 669
+053c 0800 nop // icount 670
+053e 0800 nop // icount 671
+0540 0800 nop // icount 672
+0542 0800 nop // icount 673
+0544 0800 nop // icount 674
+0546 2012 j 18 // icount 675
+0548 0800 nop // icount 676
+054a 0800 nop // icount 677
+054c 0800 nop // icount 678
+054e 0800 nop // icount 679
+0550 0800 nop // icount 680
+0552 0800 nop // icount 681
+0554 0800 nop // icount 682
+0556 0800 nop // icount 683
+0558 0800 nop // icount 684
+055a 2010 j 16 // icount 685
+055c 0800 nop // icount 686
+055e 0800 nop // icount 687
+0560 0800 nop // icount 688
+0562 0800 nop // icount 689
+0564 0800 nop // icount 690
+0566 0800 nop // icount 691
+0568 0800 nop // icount 692
+056a 0800 nop // icount 693
+056c 201e j 30 // icount 694
+056e 0800 nop // icount 695
+0570 0800 nop // icount 696
+0572 0800 nop // icount 697
+0574 0800 nop // icount 698
+0576 0800 nop // icount 699
+0578 0800 nop // icount 700
+057a 0800 nop // icount 701
+057c 0800 nop // icount 702
+057e 0800 nop // icount 703
+0580 0800 nop // icount 704
+0582 0800 nop // icount 705
+0584 0800 nop // icount 706
+0586 0800 nop // icount 707
+0588 0800 nop // icount 708
+058a 0800 nop // icount 709
+058c 2006 j 6 // icount 710
+058e 0800 nop // icount 711
+0590 0800 nop // icount 712
+0592 0800 nop // icount 713
+0594 c400 lbi r4, 0 // icount 714
+0596 c700 lbi r7, 0 // icount 715
+0598 0800 nop // to align branch icount 716
+059a 7d08 bgez r5, 8 // icount 717
+059c de57 andn r5, r6, r2 // icount 718
+059e d70d sll r3, r7, r0 // icount 719
+05a0 d64f srl r3, r6, r2 // icount 720
+05a2 e6ac seq r3, r6, r5 // icount 721
+05a4 def5 sub r5, r6, r7 // icount 722
+05a6 0800 nop // to align meminst icount 723
+05a8 5481 andni r4, r4, 1 // icount 724
+05aa 9cc2 stu r6, r4, 2 // icount 725
+05ac b763 rori r3, r7, 3 // icount 726
+05ae a148 roli r2, r1, 8 // icount 727
+05b0 2002 j 2 // icount 728
+05b2 0800 nop // icount 729
+05b4 2002 j 2 // icount 730
+05b6 0800 nop // icount 731
+05b8 2012 j 18 // icount 732
+05ba 0800 nop // icount 733
+05bc 0800 nop // icount 734
+05be 0800 nop // icount 735
+05c0 0800 nop // icount 736
+05c2 0800 nop // icount 737
+05c4 0800 nop // icount 738
+05c6 0800 nop // icount 739
+05c8 0800 nop // icount 740
+05ca 0800 nop // icount 741
+05cc c100 lbi r1, 0 // icount 742
+05ce c000 lbi r0, 0 // icount 743
+05d0 0800 nop // to align branch icount 744
+05d2 7b04 bgez r3, 4 // icount 745
+05d4 b9c3 srli r6, r1, 3 // icount 746
+05d6 d6f8 rol r6, r6, r7 // icount 747
+05d8 dbd8 add r6, r3, r6 // icount 748
+05da 4243 subi r2, r2, 3 // icount 749
+05dc c500 lbi r5, 0 // icount 750
+05de c500 lbi r5, 0 // icount 751
+05e0 0800 nop // to align branch icount 752
+05e2 6408 bnez r4, 8 // icount 753
+05e4 57e1 andni r7, r7, 1 // icount 754
+05e6 8fa6 ld r5, r7, 6 // icount 755
+05e8 b100 rori r0, r1, 0 // icount 756
+05ea f1a0 sle r0, r1, r5 // icount 757
+05ec 4f62 addi r3, r7, 2 // icount 758
+05ee dc24 add r1, r4, r1 // icount 759
+05f0 e390 seq r4, r3, r4 // icount 760
+05f2 d4d7 srl r5, r4, r6 // icount 761
+05f4 df2d sub r3, r7, r1 // icount 762
+05f6 c000 lbi r0, 0 // icount 763
+05f8 c500 lbi r5, 0 // icount 764
+05fa 7110 bltz r1, 16 // icount 765
+05fc a58d roli r4, r5, 13 // icount 766
+05fe b888 srli r4, r0, 8 // icount 767
+0600 d696 ror r5, r6, r4 // icount 768
+0602 d47f srl r7, r4, r3 // icount 769
+0604 9607 slbi r6, 7 // icount 770
+0606 a582 roli r4, r5, 2 // icount 771
+0608 a76a roli r3, r7, 10 // icount 772
+060a f9b8 sco r6, r1, r5 // icount 773
+060c ff18 sco r6, r7, r0 // icount 774
+060e 0800 nop // to align meminst icount 775
+0610 57e1 andni r7, r7, 1 // icount 776
+0612 8762 st r3, r7, 2 // icount 777
+0614 5001 andni r0, r0, 1 // icount 778
+0616 80ee st r7, r0, 14 // icount 779
+0618 5121 andni r1, r1, 1 // icount 780
+061a 810a st r0, r1, 10 // icount 781
+061c fa18 sco r6, r2, r0 // icount 782
+061e e85c slt r7, r0, r2 // icount 783
+0620 d8f8 add r6, r0, r7 // icount 784
+0622 a2a3 roli r5, r2, 3 // icount 785
+0624 c400 lbi r4, 0 // icount 786
+0626 c700 lbi r7, 0 // icount 787
+0628 0800 nop // to align branch icount 788
+062a 6f14 beqz r7, 20 // icount 789
+062c d954 add r5, r1, r2 // icount 790
+062e 0800 nop // to align meminst icount 791
+0630 5001 andni r0, r0, 1 // icount 792
+0632 80c0 st r6, r0, 0 // icount 793
+0634 d063 srl r0, r0, r3 // icount 794
+0636 f450 sle r4, r4, r2 // icount 795
+0638 e0b8 seq r6, r0, r5 // icount 796
+063a e8fc slt r7, r0, r7 // icount 797
+063c 5001 andni r0, r0, 1 // icount 798
+063e 80ee st r7, r0, 14 // icount 799
+0640 fcb8 sco r6, r4, r5 // icount 800
+0642 44e3 subi r7, r4, 3 // icount 801
+0644 d297 srl r5, r2, r4 // icount 802
+0646 f1b8 sle r6, r1, r5 // icount 803
+0648 dfeb andn r2, r7, r7 // icount 804
+064a dd96 xor r5, r5, r4 // icount 805
+064c f130 sle r4, r1, r1 // icount 806
+064e d83a xor r6, r0, r1 // icount 807
+0650 e0e0 seq r0, r0, r7 // icount 808
+0652 ed10 slt r4, r5, r0 // icount 809
+0654 5001 andni r0, r0, 1 // icount 810
+0656 98cc stu r6, r0, 12 // icount 811
+0658 5481 andni r4, r4, 1 // icount 812
+065a 8444 st r2, r4, 4 // icount 813
+065c a56d roli r3, r5, 13 // icount 814
+065e 201e j 30 // icount 815
+0660 0800 nop // icount 816
+0662 0800 nop // icount 817
+0664 0800 nop // icount 818
+0666 0800 nop // icount 819
+0668 0800 nop // icount 820
+066a 0800 nop // icount 821
+066c 0800 nop // icount 822
+066e 0800 nop // icount 823
+0670 0800 nop // icount 824
+0672 0800 nop // icount 825
+0674 0800 nop // icount 826
+0676 0800 nop // icount 827
+0678 0800 nop // icount 828
+067a 0800 nop // icount 829
+067c 0800 nop // icount 830
+067e 200c j 12 // icount 831
+0680 0800 nop // icount 832
+0682 0800 nop // icount 833
+0684 0800 nop // icount 834
+0686 0800 nop // icount 835
+0688 0800 nop // icount 836
+068a 0800 nop // icount 837
+068c c700 lbi r7, 0 // icount 838
+068e c200 lbi r2, 0 // icount 839
+0690 0800 nop // to align branch icount 840
+0692 7200 bltz r2, 0 // icount 841
+0694 200e j 14 // icount 842
+0696 0800 nop // icount 843
+0698 0800 nop // icount 844
+069a 0800 nop // icount 845
+069c 0800 nop // icount 846
+069e 0800 nop // icount 847
+06a0 0800 nop // icount 848
+06a2 0800 nop // icount 849
+06a4 c000 lbi r0, 0 // icount 850
+06a6 c000 lbi r0, 0 // icount 851
+06a8 0800 nop // to align branch icount 852
+06aa 7004 bltz r0, 4 // icount 853
+06ac a0e6 roli r7, r0, 6 // icount 854
+06ae d5bf srl r7, r5, r5 // icount 855
+06b0 f4f4 sle r5, r4, r7 // icount 856
+06b2 0800 nop // to align meminst icount 857
+06b4 5481 andni r4, r4, 1 // icount 858
+06b6 8ce8 ld r7, r4, 8 // icount 859
+06b8 c400 lbi r4, 0 // icount 860
+06ba c600 lbi r6, 0 // icount 861
+06bc 0800 nop // to align branch icount 862
+06be 6d14 beqz r5, 20 // icount 863
+06c0 b8ea srli r7, r0, 10 // icount 864
+06c2 0800 nop // to align meminst icount 865
+06c4 5121 andni r1, r1, 1 // icount 866
+06c6 8964 ld r3, r1, 4 // icount 867
+06c8 5241 andni r2, r2, 1 // icount 868
+06ca 8a2c ld r1, r2, 12 // icount 869
+06cc d24a ror r2, r2, r2 // icount 870
+06ce e038 seq r6, r0, r1 // icount 871
+06d0 5121 andni r1, r1, 1 // icount 872
+06d2 81c0 st r6, r1, 0 // icount 873
+06d4 f014 sle r5, r0, r0 // icount 874
+06d6 4005 subi r0, r0, 5 // icount 875
+06d8 5087 andni r4, r0, 7 // icount 876
+06da 4fa9 addi r5, r7, 9 // icount 877
+06dc b9e4 srli r7, r1, 4 // icount 878
+06de d34d sll r3, r3, r2 // icount 879
+06e0 b029 rori r1, r0, 9 // icount 880
+06e2 d6f2 ror r4, r6, r7 // icount 881
+06e4 0800 nop // to align branch icount 882
+06e6 cb04 btr r1, r3 // icount 883
+06e8 5361 andni r3, r3, 1 // icount 884
+06ea 8306 st r0, r3, 6 // icount 885
+06ec 0800 nop // to align branch icount 886
+06ee ce1c btr r7, r6 // icount 887
+06f0 d3ee ror r3, r3, r7 // icount 888
+06f2 57ee andni r7, r7, 14 // icount 889
+06f4 dc48 add r2, r4, r2 // icount 890
+06f6 c300 lbi r3, 0 // icount 891
+06f8 c700 lbi r7, 0 // icount 892
+06fa 7a0c bgez r2, 12 // icount 893
+06fc 5481 andni r4, r4, 1 // icount 894
+06fe 8c2e ld r1, r4, 14 // icount 895
+0700 aeab slli r5, r6, 11 // icount 896
+0702 0800 nop // to align meminst icount 897
+0704 5361 andni r3, r3, 1 // icount 898
+0706 9b44 stu r2, r3, 4 // icount 899
+0708 a805 slli r0, r0, 5 // icount 900
+070a aa6a slli r3, r2, 10 // icount 901
+070c 5001 andni r0, r0, 1 // icount 902
+070e 98ca stu r6, r0, 10 // icount 903
+0710 b480 rori r4, r4, 0 // icount 904
+0712 406f subi r3, r0, 15 // icount 905
+0714 0800 nop // to align branch icount 906
+0716 cf0c btr r3, r7 // icount 907
+0718 c103 lbi r1, 3 // icount 908
+071a d560 rol r0, r5, r3 // icount 909
+071c a206 roli r0, r2, 6 // icount 910
+071e 201c j 28 // icount 911
+0720 0800 nop // icount 912
+0722 0800 nop // icount 913
+0724 0800 nop // icount 914
+0726 0800 nop // icount 915
+0728 0800 nop // icount 916
+072a 0800 nop // icount 917
+072c 0800 nop // icount 918
+072e 0800 nop // icount 919
+0730 0800 nop // icount 920
+0732 0800 nop // icount 921
+0734 0800 nop // icount 922
+0736 0800 nop // icount 923
+0738 0800 nop // icount 924
+073a 0800 nop // icount 925
+073c c300 lbi r3, 0 // icount 926
+073e c400 lbi r4, 0 // icount 927
+0740 0800 nop // to align branch icount 928
+0742 7818 bgez r0, 24 // icount 929
+0744 d0dd sll r7, r0, r6 // icount 930
+0746 d329 sll r2, r3, r1 // icount 931
+0748 b00a rori r0, r0, 10 // icount 932
+074a d17b srl r6, r1, r3 // icount 933
+074c dfbd sub r7, r7, r5 // icount 934
+074e e938 slt r6, r1, r1 // icount 935
+0750 ac03 slli r0, r4, 3 // icount 936
+0752 fbb0 sco r4, r3, r5 // icount 937
+0754 9207 slbi r2, 7 // icount 938
+0756 a4e1 roli r7, r4, 1 // icount 939
+0758 d280 rol r0, r2, r4 // icount 940
+075a c100 lbi r1, 0 // icount 941
+075c c30c lbi r3, 12 // icount 942
+075e e000 seq r0, r0, r0 // icount 943
+0760 e208 seq r2, r2, r0 // icount 944
+0762 db03 andn r0, r3, r0 // icount 945
+0764 de10 add r4, r6, r0 // icount 946
+0766 4d0c addi r0, r5, 12 // icount 947
+0768 d80f andn r3, r0, r0 // icount 948
+076a 0800 nop // to align meminst icount 949
+076c 55a1 andni r5, r5, 1 // icount 950
+076e 8d2e ld r1, r5, 14 // icount 951
+0770 42cb subi r6, r2, 11 // icount 952
+0772 db4b andn r2, r3, r2 // icount 953
+0774 5b22 xori r1, r3, 2 // icount 954
+0776 b500 rori r0, r5, 0 // icount 955
+0778 c500 lbi r5, 0 // icount 956
+077a c300 lbi r3, 0 // icount 957
+077c 0800 nop // to align branch icount 958
+077e 7c0c bgez r4, 12 // icount 959
+0780 56c1 andni r6, r6, 1 // icount 960
+0782 86a6 st r5, r6, 6 // icount 961
+0784 fd30 sco r4, r5, r1 // icount 962
+0786 fdd8 sco r6, r5, r6 // icount 963
+0788 5001 andni r0, r0, 1 // icount 964
+078a 8822 ld r1, r0, 2 // icount 965
+078c a065 roli r3, r0, 5 // icount 966
+078e d470 rol r4, r4, r3 // icount 967
+0790 5980 xori r4, r1, 0 // icount 968
+0792 df2b andn r2, r7, r1 // icount 969
+0794 d195 sll r5, r1, r4 // icount 970
+0796 a048 roli r2, r0, 8 // icount 971
+0798 da1c add r7, r2, r0 // icount 972
+079a f9d4 sco r5, r1, r6 // icount 973
+079c c700 lbi r7, 0 // icount 974
+079e c600 lbi r6, 0 // icount 975
+07a0 0800 nop // to align branch icount 976
+07a2 6210 bnez r2, 16 // icount 977
+07a4 edc4 slt r1, r5, r6 // icount 978
+07a6 f528 sle r2, r5, r1 // icount 979
+07a8 fe38 sco r6, r6, r1 // icount 980
+07aa d7d1 sll r4, r7, r6 // icount 981
+07ac dfe0 add r0, r7, r7 // icount 982
+07ae d073 srl r4, r0, r3 // icount 983
+07b0 584d xori r2, r0, 13 // icount 984
+07b2 c910 btr r4, r1 // icount 985
+07b4 4dea addi r7, r5, 10 // icount 986
+07b6 0800 nop // to align meminst icount 987
+07b8 55a1 andni r5, r5, 1 // icount 988
+07ba 8dc4 ld r6, r5, 4 // icount 989
+07bc 4c8d addi r4, r4, 13 // icount 990
+07be 9209 slbi r2, 9 // icount 991
+07c0 eb28 slt r2, r3, r1 // icount 992
+07c2 d7e5 sll r1, r7, r7 // icount 993
+07c4 56c1 andni r6, r6, 1 // icount 994
+07c6 86ac st r5, r6, 12 // icount 995
+07c8 d390 rol r4, r3, r4 // icount 996
+07ca c100 lbi r1, 0 // icount 997
+07cc c000 lbi r0, 0 // icount 998
+07ce 7918 bgez r1, 24 // icount 999
+07d0 d71c rol r7, r7, r0 // icount 1000
+07d2 dd3a xor r6, r5, r1 // icount 1001
+07d4 d5a9 sll r2, r5, r5 // icount 1002
+07d6 febc sco r7, r6, r5 // icount 1003
+07d8 d628 rol r2, r6, r1 // icount 1004
+07da 0800 nop // to align meminst icount 1005
+07dc 57e1 andni r7, r7, 1 // icount 1006
+07de 9fa0 stu r5, r7, 0 // icount 1007
+07e0 d677 srl r5, r6, r3 // icount 1008
+07e2 dfb0 add r4, r7, r5 // icount 1009
+07e4 d912 xor r4, r1, r0 // icount 1010
+07e6 0800 nop // to align meminst icount 1011
+07e8 5241 andni r2, r2, 1 // icount 1012
+07ea 9a2a stu r1, r2, 10 // icount 1013
+07ec 56c1 andni r6, r6, 1 // icount 1014
+07ee 8e02 ld r0, r6, 2 // icount 1015
+07f0 c607 lbi r6, 7 // icount 1016
+07f2 fae0 sco r0, r2, r7 // icount 1017
+07f4 5241 andni r2, r2, 1 // icount 1018
+07f6 8a8e ld r4, r2, 14 // icount 1019
+07f8 0800 nop // to align branch icount 1020
+07fa cd10 btr r4, r5 // icount 1021
+07fc c607 lbi r6, 7 // icount 1022

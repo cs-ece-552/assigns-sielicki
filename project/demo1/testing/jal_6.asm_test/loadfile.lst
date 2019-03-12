@@ -1,0 +1,13 @@
+          // Original test: ./eharris/hw4/problem6/jal_2.asm
+          // Author: eharris
+          // Test source code follows
+          
+          
+          //Test irregular use of jal and repeated use
+0000 c101 lbi r1, 0x01
+0002 3000 jal 0
+0004 3000 jal 0
+0006 3002 jal 2
+0008 c102 lbi r1, 0x02
+000a 0000 halt
+          // r1 = 1 and r7 = the address of the lbi instruction

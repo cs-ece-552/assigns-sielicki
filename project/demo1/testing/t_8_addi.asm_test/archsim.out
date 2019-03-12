@@ -1,0 +1,75 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 125
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x007d
+slbi r0, -113
+INUM:        1 PC: 0x0002 REG: 0 VALUE: 0x7d8f
+lbi r1, -11
+INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xfff5
+slbi r1, 51
+INUM:        3 PC: 0x0006 REG: 1 VALUE: 0xf533
+lbi r2, 62
+INUM:        4 PC: 0x0008 REG: 2 VALUE: 0x003e
+slbi r2, -28
+INUM:        5 PC: 0x000a REG: 2 VALUE: 0x3ee4
+lbi r3, 24
+INUM:        6 PC: 0x000c REG: 3 VALUE: 0x0018
+slbi r3, 101
+INUM:        7 PC: 0x000e REG: 3 VALUE: 0x1865
+lbi r4, 85
+INUM:        8 PC: 0x0010 REG: 4 VALUE: 0x0055
+slbi r4, 54
+INUM:        9 PC: 0x0012 REG: 4 VALUE: 0x5536
+lbi r5, 89
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0x0059
+slbi r5, 43
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0x592b
+lbi r6, -60
+INUM:       12 PC: 0x0018 REG: 6 VALUE: 0xffc4
+slbi r6, -111
+INUM:       13 PC: 0x001a REG: 6 VALUE: 0xc491
+lbi r7, 82
+INUM:       14 PC: 0x001c REG: 7 VALUE: 0x0052
+slbi r7, 34
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0x5222
+addi r3, r0, 7
+INUM:       16 PC: 0x0020 REG: 3 VALUE: 0x7d96
+addi r4, r7, 14
+INUM:       17 PC: 0x0022 REG: 4 VALUE: 0x5230
+addi r6, r1, 13
+INUM:       18 PC: 0x0024 REG: 6 VALUE: 0xf540
+addi r2, r5, 8
+INUM:       19 PC: 0x0026 REG: 2 VALUE: 0x5933
+addi r3, r6, 15
+INUM:       20 PC: 0x0028 REG: 3 VALUE: 0xf54f
+addi r3, r2, 8
+INUM:       21 PC: 0x002a REG: 3 VALUE: 0x593b
+addi r4, r0, 9
+INUM:       22 PC: 0x002c REG: 4 VALUE: 0x7d98
+addi r5, r2, 8
+INUM:       23 PC: 0x002e REG: 5 VALUE: 0x593b
+addi r6, r6, 9
+INUM:       24 PC: 0x0030 REG: 6 VALUE: 0xf549
+addi r6, r4, 1
+INUM:       25 PC: 0x0032 REG: 6 VALUE: 0x7d99
+addi r6, r5, 11
+INUM:       26 PC: 0x0034 REG: 6 VALUE: 0x5946
+addi r2, r6, 10
+INUM:       27 PC: 0x0036 REG: 2 VALUE: 0x5950
+addi r3, r2, 2
+INUM:       28 PC: 0x0038 REG: 3 VALUE: 0x5952
+addi r1, r0, 12
+INUM:       29 PC: 0x003a REG: 1 VALUE: 0x7d9b
+addi r2, r0, 14
+INUM:       30 PC: 0x003c REG: 2 VALUE: 0x7d9d
+addi r0, r2, 14
+INUM:       31 PC: 0x003e REG: 0 VALUE: 0x7dab
+halt
+program halted
+INUM:       32 PC: 0x0040
+Program Finished

@@ -1,0 +1,9 @@
+          // Test provided by Karu 
+          //SEQ test 2.  Test when neither is 0.
+          //
+          // Michael McKinley (mckinley)
+          
+0000 c1ff lbi r1, 0xff
+0002 c235 lbi r2, 0x35
+0004 e14c seq r3, r1, r2
+0006 0000 halt

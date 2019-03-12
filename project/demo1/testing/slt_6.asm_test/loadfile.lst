@@ -1,0 +1,12 @@
+          // SLT
+          // if(Rs < Rt) then Rd <- 1 else Rd <-0
+          
+          // Load Rs with smaller # than Rt
+0000 c60a lbi  r6, 0x0a
+0002 960a slbi r6, 0x0a
+          // Load Rt with a larger # (not all ones though)
+0004 c31a lbi  r3, 0x1a
+0006 931a slbi r3, 0x1a
+          // SLT with (Rs < Rt): should return 1
+0008 ee64 SLT r1, r6, r3
+000a 0000 halt

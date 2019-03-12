@@ -1,0 +1,34 @@
+          // seed 2
+0000 c082 lbi r0, 130 // icount 0
+0002 9050 slbi r0, 80 // icount 1
+0004 c142 lbi r1, 66 // icount 2
+0006 915a slbi r1, 90 // icount 3
+0008 c280 lbi r2, 128 // icount 4
+000a 9279 slbi r2, 121 // icount 5
+000c c301 lbi r3, 1 // icount 6
+000e 93f2 slbi r3, 242 // icount 7
+0010 c431 lbi r4, 49 // icount 8
+0012 9427 slbi r4, 39 // icount 9
+0014 c530 lbi r5, 48 // icount 10
+0016 9569 slbi r5, 105 // icount 11
+0018 c63f lbi r6, 63 // icount 12
+001a 96a3 slbi r6, 163 // icount 13
+001c c7a2 lbi r7, 162 // icount 14
+001e 979c slbi r7, 156 // icount 15
+0020 aa04 slli r0, r2, 4 // icount 16
+0022 a847 slli r2, r0, 7 // icount 17
+0024 aba9 slli r5, r3, 9 // icount 18
+0026 acc3 slli r6, r4, 3 // icount 19
+0028 aa63 slli r3, r2, 3 // icount 20
+002a aa0e slli r0, r2, 14 // icount 21
+002c af8c slli r4, r7, 12 // icount 22
+002e adc2 slli r6, r5, 2 // icount 23
+0030 aeab slli r5, r6, 11 // icount 24
+0032 a88e slli r4, r0, 14 // icount 25
+0034 ac4e slli r2, r4, 14 // icount 26
+0036 a96d slli r3, r1, 13 // icount 27
+0038 adc3 slli r6, r5, 3 // icount 28
+003a a9e2 slli r7, r1, 2 // icount 29
+003c a885 slli r4, r0, 5 // icount 30
+003e ac43 slli r2, r4, 3 // icount 31
+0040 0000 halt // icount 32

@@ -1,0 +1,11 @@
+          // Original test: ./kohlmann/hw4/problem6/sle_3.asm
+          // Author: kohlmann
+          // Test source code follows
+          
+          
+          // SLE Test 3 - Verify that SLE correctly compares negative numbers.
+0000 c180 lbi r1, 0x80 // r1 = -16'd128
+0002 c2f0 lbi r2, 0xF0 // r2 = -16'd16
+0004 f14c sle r3, r1, r2 // r3 should equal 1
+0006 f22c sle r3, r2, r1 // r3 should equal 0
+0008 0000 halt

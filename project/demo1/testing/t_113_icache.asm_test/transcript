@@ -1,0 +1,60 @@
+# vsim -c proc_hier_bench -lib __work 
+# Start time: 03:25:21 on Mar 12,2019
+# //  ModelSim DE 10.7c Aug 17 2018Linux 4.15.0-46-generic
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim DE and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading __work.proc_hier_bench
+# Loading __work.proc_hier
+# Loading __work.clkrst
+# Loading __work.proc
+# Loading __work.reg_16b
+# Loading __work.dff
+# Loading __work.memory2c
+# Loading __work.control
+# Loading __work.regWrite
+# Loading __work.xnor5_1
+# Loading __work.dMemWrite
+# Loading __work.dMemEn
+# Loading __work.aluSrc2
+# Loading __work.pcSrc
+# Loading __work.pcImm
+# Loading __work.memToReg
+# Loading __work.dMemDump
+# Loading __work.jump
+# Loading __work.regDst
+# Loading __work.mux2_1_2
+# Loading __work.seSel
+# Loading __work.mux2_1_3
+# Loading __work.PCAdder
+# Loading __work.rca_16b
+# Loading __work.rca_4b
+# Loading __work.fullAdder_1b
+# Loading __work.nor2
+# Loading __work.mux2_1_16b
+# Loading __work.mux2_1
+# Loading __work.not1
+# Loading __work.nand2
+# Loading __work.rf
+# Loading __work.mux8_1_16b
+# Loading __work.mux4_1_16b
+# Loading __work.mux4_1
+# Loading __work.alu
+# Loading __work.bitflip
+# Loading __work.barrelShifter2
+run -all
+# Hello world...simulation starting
+# See verilogsim.log and verilogsim.trace for output
+# ** Note: $finish    : proc_hier_bench.v(96)
+#    Time: 700 ns  Iteration: 1  Instance: /proc_hier_bench
+# End time: 03:25:22 on Mar 12,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

@@ -1,0 +1,8 @@
+INST:    1100 0010 0011 0000 lbi r2, 48  
+ARCH:    INUM:        0 PC: 0x0000 REG: 2 VALUE: 0x0030
+VERILOG: INUM:        0 PC: 0x0000 REG: 2 VALUE: 0x0030
+INST:    0011 1010 0011 0000 jalr r2, 48  
+ARCH:    INUM:        1 PC: 0x0002 REG: 7 VALUE: 0x0004
+VERILOG: INUM:        1 PC: 0x0002 REG: 7 VALUE: 0x0004
+Arch trace has a PC not defined in binary image. Panic.
+0060 INUM:        2 PC: 0x0060

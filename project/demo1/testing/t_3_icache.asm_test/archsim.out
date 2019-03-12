@@ -1,0 +1,87 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 0
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+lbi r1, 1
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0001
+lbi r2, -1
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xffff
+lbi r4, 10
+INUM:        3 PC: 0x0006 REG: 4 VALUE: 0x000a
+j 220
+INUM:        4 PC: 0x0008
+beqz r0, 20
+INUM:        5 PC: 0x00e6
+bltz r2, 10
+INUM:        6 PC: 0x00fc
+bltz r2, 30
+INUM:        7 PC: 0x0108
+bltz r2, 22
+INUM:        8 PC: 0x0128
+bltz r2, 0
+INUM:        9 PC: 0x0140
+jal 126
+INUM:       10 PC: 0x0142 REG: 7 VALUE: 0x0144
+bnez r1, 0
+INUM:       11 PC: 0x01c2
+bltz r2, 2
+INUM:       12 PC: 0x01c4
+beqz r0, 12
+INUM:       13 PC: 0x01c8
+beqz r0, 18
+INUM:       14 PC: 0x01d6
+beqz r0, 8
+INUM:       15 PC: 0x01ea
+bnez r1, 28
+INUM:       16 PC: 0x01f4
+j 184
+INUM:       17 PC: 0x0212
+j 26
+INUM:       18 PC: 0x02cc
+bltz r2, 10
+INUM:       19 PC: 0x02e8
+j 218
+INUM:       20 PC: 0x02f4
+j 218
+INUM:       21 PC: 0x03d0
+jal 238
+INUM:       22 PC: 0x04ac REG: 7 VALUE: 0x04ae
+jal 238
+INUM:       23 PC: 0x059c REG: 7 VALUE: 0x059e
+jal 236
+INUM:       24 PC: 0x068c REG: 7 VALUE: 0x068e
+j 60
+INUM:       25 PC: 0x077a
+sub r2, r3, r1
+INUM:       26 PC: 0x07b8 REG: 2 VALUE: 0x0001
+seq r7, r3, r1
+INUM:       27 PC: 0x07ba REG: 7 VALUE: 0x0000
+sll r3, r2, r7
+INUM:       28 PC: 0x07bc REG: 3 VALUE: 0x0001
+add r2, r2, r0
+INUM:       29 PC: 0x07be REG: 2 VALUE: 0x0001
+sle r7, r0, r7
+INUM:       30 PC: 0x07c0 REG: 7 VALUE: 0x0001
+sub r3, r5, r0
+INUM:       31 PC: 0x07c2 REG: 3 VALUE: 0x0000
+rol r2, r5, r6
+INUM:       32 PC: 0x07c4 REG: 2 VALUE: 0x0000
+sub r2, r2, r2
+INUM:       33 PC: 0x07c6 REG: 2 VALUE: 0x0000
+ror r4, r2, r6
+INUM:       34 PC: 0x07c8 REG: 4 VALUE: 0x0000
+sub r0, r7, r1
+INUM:       35 PC: 0x07ca REG: 0 VALUE: 0x0000
+sll r4, r6, r5
+INUM:       36 PC: 0x07cc REG: 4 VALUE: 0x0000
+slt r4, r4, r2
+INUM:       37 PC: 0x07ce REG: 4 VALUE: 0x0000
+halt
+program halted
+INUM:       38 PC: 0x07d0
+Program Finished

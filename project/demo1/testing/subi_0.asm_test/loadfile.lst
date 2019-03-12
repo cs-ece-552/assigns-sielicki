@@ -1,0 +1,16 @@
+          // Original test: ./michail/hw4/problem6/subi_0.asm
+          // Author: michail
+          // Test source code follows
+          
+          
+          
+0000 c105 	 lbi r1,5 		// load 5 to r1
+          
+0002 414a 	 subi r2,r1,10		// Subtract 10-5
+0004 0000 	 halt	
+          
+          		
+          	
+          
+          	
+          		 

@@ -1,0 +1,61 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 0
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+lbi r1, 0
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0000
+lbi r2, 0
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0x0000
+lbi r3, 0
+INUM:        3 PC: 0x0006 REG: 3 VALUE: 0x0000
+lbi r4, 0
+INUM:        4 PC: 0x0008 REG: 4 VALUE: 0x0000
+lbi r5, 0
+INUM:        5 PC: 0x000a REG: 5 VALUE: 0x0000
+lbi r6, 0
+INUM:        6 PC: 0x000c REG: 6 VALUE: 0x0000
+lbi r7, 0
+INUM:        7 PC: 0x000e REG: 7 VALUE: 0x0000
+lbi r0, 119
+INUM:        8 PC: 0x0010 REG: 0 VALUE: 0x0077
+rori r1, r0, 4
+INUM:        9 PC: 0x0012 REG: 1 VALUE: 0x7007
+rori r0, r0, 8
+INUM:       10 PC: 0x0014 REG: 0 VALUE: 0x7700
+rori r2, r0, 15
+INUM:       11 PC: 0x0016 REG: 2 VALUE: 0xee00
+lbi r3, 127
+INUM:       12 PC: 0x0018 REG: 3 VALUE: 0x007f
+lbi r4, 90
+INUM:       13 PC: 0x001a REG: 4 VALUE: 0x005a
+rori r5, r3, 3
+INUM:       14 PC: 0x001c REG: 5 VALUE: 0xe00f
+rori r3, r4, 6
+INUM:       15 PC: 0x001e REG: 3 VALUE: 0x6801
+rori r3, r3, 0
+INUM:       16 PC: 0x0020 REG: 3 VALUE: 0x6801
+lbi r6, 127
+INUM:       17 PC: 0x0022 REG: 6 VALUE: 0x007f
+rori r6, r6, 9
+INUM:       18 PC: 0x0024 REG: 6 VALUE: 0x3f80
+rori r6, r6, 7
+INUM:       19 PC: 0x0026 REG: 6 VALUE: 0x007f
+rori r7, r6, 11
+INUM:       20 PC: 0x0028 REG: 7 VALUE: 0x0fe0
+rori r7, r7, 1
+INUM:       21 PC: 0x002a REG: 7 VALUE: 0x07f0
+rori r7, r7, 2
+INUM:       22 PC: 0x002c REG: 7 VALUE: 0x01fc
+rori r7, r7, 3
+INUM:       23 PC: 0x002e REG: 7 VALUE: 0x803f
+rori r7, r7, 10
+INUM:       24 PC: 0x0030 REG: 7 VALUE: 0x0fe0
+halt
+program halted
+INUM:       25 PC: 0x0032
+Program Finished

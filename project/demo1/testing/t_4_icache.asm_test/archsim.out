@@ -1,0 +1,69 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 0
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+lbi r1, 1
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0001
+lbi r2, -1
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0xffff
+lbi r4, 10
+INUM:        3 PC: 0x0006 REG: 4 VALUE: 0x000a
+j 144
+INUM:        4 PC: 0x0008
+jal 142
+INUM:        5 PC: 0x009a REG: 7 VALUE: 0x009c
+bltz r2, 28
+INUM:        6 PC: 0x012a
+j 222
+INUM:        7 PC: 0x0148
+j 140
+INUM:        8 PC: 0x0228
+bgez r3, 6
+INUM:        9 PC: 0x02b6
+jal 40
+INUM:       10 PC: 0x02be REG: 7 VALUE: 0x02c0
+bgez r3, 30
+INUM:       11 PC: 0x02e8
+j 162
+INUM:       12 PC: 0x0308
+jal 24
+INUM:       13 PC: 0x03ac REG: 7 VALUE: 0x03ae
+bltz r2, 2
+INUM:       14 PC: 0x03c6
+j 100
+INUM:       15 PC: 0x03ca
+j 206
+INUM:       16 PC: 0x0430
+bgez r3, 26
+INUM:       17 PC: 0x0500
+bltz r2, 14
+INUM:       18 PC: 0x051c
+bgez r3, 8
+INUM:       19 PC: 0x052c
+bltz r2, 0
+INUM:       20 PC: 0x0536
+jal 194
+INUM:       21 PC: 0x0538 REG: 7 VALUE: 0x053a
+j 50
+INUM:       22 PC: 0x05fc
+bltz r2, 26
+INUM:       23 PC: 0x0630
+beqz r0, 6
+INUM:       24 PC: 0x064c
+j 124
+INUM:       25 PC: 0x0654
+j 230
+INUM:       26 PC: 0x06d2
+beqz r0, 14
+INUM:       27 PC: 0x07ba
+slt r1, r3, r3
+INUM:       28 PC: 0x07ca REG: 1 VALUE: 0x0000
+halt
+program halted
+INUM:       29 PC: 0x07cc
+Program Finished

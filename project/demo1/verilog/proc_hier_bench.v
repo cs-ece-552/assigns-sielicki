@@ -167,7 +167,7 @@ module proc_hier_bench();
    //assign MemData = DUT.p0.memory0.writeData;
    // Data to be written to memory for memory writes (16 bits)
 
-   assign Halt = DUT.p0.pc.writeEn;
+   assign Halt = DUT.p0.DMemDump;
    
    
    //assign Halt = DUT.p0.memory0.halt;

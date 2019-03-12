@@ -1,0 +1,5 @@
+          // special cases - 4
+0000 c101 lbi r1, 1      // load 1 in r1
+0002 c204 lbi r2, 4      // load 4 in r3
+0004 d148 rol r2, r1, r2 // collision - should handle
+0006 0000 halt // added by Karu

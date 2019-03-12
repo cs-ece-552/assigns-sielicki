@@ -1,0 +1,5 @@
+          // common cases - 5
+0000 c10a lbi r1, 10     // load 1 in r1 - every other bit is asserted
+0002 c307 lbi r3, 7      // load 7 in r3
+0004 d168 rol r2, r1, r3 // rotate left 7 bits
+0006 0000 halt // added by Karu

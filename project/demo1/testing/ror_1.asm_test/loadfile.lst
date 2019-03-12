@@ -1,0 +1,6 @@
+          // Test provided by Karu 
+          //ror with one operand 0
+0000 c100 lbi r1, 0
+0002 c203 lbi r2, 3
+0004 d14e ror r3, r1, r2
+0006 0000 halt // added by Karu

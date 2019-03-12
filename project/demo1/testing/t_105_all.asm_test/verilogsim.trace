@@ -1,0 +1,19 @@
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0xff9a
+INUM:        1 PC: 0x0002 REG: 0 VALUE: 0x9abb
+INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xffa2
+INUM:        3 PC: 0x0006 REG: 1 VALUE: 0xa2c0
+INUM:        4 PC: 0x0008 REG: 2 VALUE: 0x0056
+INUM:        5 PC: 0x000a REG: 2 VALUE: 0x5676
+INUM:        6 PC: 0x000c REG: 3 VALUE: 0xffb5
+INUM:        7 PC: 0x000e REG: 3 VALUE: 0xb5a4
+INUM:        8 PC: 0x0010 REG: 4 VALUE: 0xffea
+INUM:        9 PC: 0x0012 REG: 4 VALUE: 0xeaf8
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0x007c
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0x7c69
+INUM:       12 PC: 0x0018 REG: 6 VALUE: 0xffbc
+INUM:       13 PC: 0x001a REG: 6 VALUE: 0xbcac
+INUM:       14 PC: 0x001c REG: 7 VALUE: 0xffd5
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0xd556
+INUM:       16 PC: 0x0020 REG: 2 VALUE: 0x0000
+INUM:       17 PC: 0x0022 REG: 0 VALUE: 0x0000
+INUM:       18 PC: 0x0024

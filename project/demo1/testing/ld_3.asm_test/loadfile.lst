@@ -1,0 +1,11 @@
+          //ld instruction test 3
+          //this assumes that the andni, lbi, st, and subi instructions work
+          
+          //write ones to all bits, then read using a positive offset. check r3 for the result.
+          
+0000 501f andni r0,r0,0x1F //fill with ones
+0002 c050 lbi r0, 0x50 //address
+0004 8020 st r1, r0, 0x0
+0006 4002 subi r0, r0, 0x2 //new address
+0008 8862 ld r3,r0,0x2
+000a 0000 halt

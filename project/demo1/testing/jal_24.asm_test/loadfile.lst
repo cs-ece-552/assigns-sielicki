@@ -1,0 +1,8 @@
+          // Original test: ./rbatterm/hw4/problem6/jal_2.asm
+          // Author: rbatterm
+          // Test source code follows
+          
+          
+          // Test random (from random.org)
+0000 325a jal 602 //001001011010
+0002 0000 halt

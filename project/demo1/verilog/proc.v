@@ -35,7 +35,7 @@ module proc (/*AUTOARG*/
    wire [1:0]           RegDst;                 // From control of control.v
    wire                 RegWrite;               // From control of control.v
    wire [2:0]           SESel;                  // From control of control.v
-   wire [15:0]          outData;                // From pc of reg_16b.v
+   //wire [15:0]          outData;                // From pc of reg_16b.v
    wire [15:0]          readData1;              // From rf_bypass of rf.v
    wire [15:0]          readData2;              // From rf_bypass of rf.v
    // End of automatics
@@ -70,17 +70,17 @@ module proc (/*AUTOARG*/
                .clk                     (clk),
                .rst                     (rst),
                .inData                  (newPC),
-               .writeEn                 (~DMemDump));
+               .writeEn                 (1'b1));//(~DMemDump));
 
    memory2c instructionmem(/*AUTOINST*/
                            // Outputs
                            .data_out            (Inst),
                            // Inputs
-                           .data_in             (),
+                           .data_in             (16'b0000_0000_0000_0000),
                            .addr                (currPC),
                            .enable              (1'b1),
-                           .wr                  (),
-                           .createdump          (),
+                           .wr                  (1'b0),
+                           .createdump          (1'b0),
                            .clk                 (clk),
                            .rst                 (rst));
 
@@ -151,7 +151,7 @@ module proc (/*AUTOARG*/
                     .addr               (AluRes),
                     .enable             (DMemEn),
                     .wr                 (DMemWrite),
-                    .createdump         (createdump),
+                    .createdump         (DMemDump),
                     .clk                (clk),
                     .rst                (rst));
 

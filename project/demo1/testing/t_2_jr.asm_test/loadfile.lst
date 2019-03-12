@@ -1,0 +1,229 @@
+          // seed 2
+0000 3000 jal 0 // icount 0
+0002 4f00 addi r0, r7, 0 // icount 1
+0004 d414 rol r5, r4, r0 // icount 2
+0006 381e jalr r0, 30 // icount 3
+0008 0800 nop // icount 4
+000a 0800 nop // icount 5
+000c 0800 nop // icount 6
+000e 0800 nop // icount 7
+0010 0800 nop // icount 8
+0012 0800 nop // icount 9
+0014 0800 nop // icount 10
+0016 0800 nop // icount 11
+0018 0800 nop // icount 12
+001a 0800 nop // icount 13
+001c 0800 nop // icount 14
+001e 0800 nop // icount 15
+0020 0800 nop // icount 16
+0022 0800 nop // icount 17
+0024 0800 nop // icount 18
+0026 3000 jal 0 // icount 19
+0028 4f00 addi r0, r7, 0 // icount 20
+002a d958 add r6, r1, r2 // icount 21
+002c 3814 jalr r0, 20 // icount 22
+002e 0800 nop // icount 23
+0030 0800 nop // icount 24
+0032 0800 nop // icount 25
+0034 0800 nop // icount 26
+0036 0800 nop // icount 27
+0038 0800 nop // icount 28
+003a 0800 nop // icount 29
+003c 0800 nop // icount 30
+003e 0800 nop // icount 31
+0040 0800 nop // icount 32
+0042 3000 jal 0 // icount 33
+0044 4f00 addi r0, r7, 0 // icount 34
+0046 ef50 slt r4, r7, r2 // icount 35
+0048 381a jalr r0, 26 // icount 36
+004a 0800 nop // icount 37
+004c 0800 nop // icount 38
+004e 0800 nop // icount 39
+0050 0800 nop // icount 40
+0052 0800 nop // icount 41
+0054 0800 nop // icount 42
+0056 0800 nop // icount 43
+0058 0800 nop // icount 44
+005a 0800 nop // icount 45
+005c 0800 nop // icount 46
+005e 0800 nop // icount 47
+0060 0800 nop // icount 48
+0062 0800 nop // icount 49
+0064 3000 jal 0 // icount 50
+0066 4f00 addi r0, r7, 0 // icount 51
+0068 d34c rol r3, r3, r2 // icount 52
+006a 3816 jalr r0, 22 // icount 53
+006c 0800 nop // icount 54
+006e 0800 nop // icount 55
+0070 0800 nop // icount 56
+0072 0800 nop // icount 57
+0074 0800 nop // icount 58
+0076 0800 nop // icount 59
+0078 0800 nop // icount 60
+007a 0800 nop // icount 61
+007c 0800 nop // icount 62
+007e 0800 nop // icount 63
+0080 0800 nop // icount 64
+0082 3000 jal 0 // icount 65
+0084 4f00 addi r0, r7, 0 // icount 66
+0086 ec1c slt r7, r4, r0 // icount 67
+0088 380a jalr r0, 10 // icount 68
+008a 0800 nop // icount 69
+008c 0800 nop // icount 70
+008e 0800 nop // icount 71
+0090 0800 nop // icount 72
+0092 0800 nop // icount 73
+0094 3000 jal 0 // icount 74
+0096 4f00 addi r0, r7, 0 // icount 75
+0098 fa3c sco r7, r2, r1 // icount 76
+009a 3818 jalr r0, 24 // icount 77
+009c 0800 nop // icount 78
+009e 0800 nop // icount 79
+00a0 0800 nop // icount 80
+00a2 0800 nop // icount 81
+00a4 0800 nop // icount 82
+00a6 0800 nop // icount 83
+00a8 0800 nop // icount 84
+00aa 0800 nop // icount 85
+00ac 0800 nop // icount 86
+00ae 0800 nop // icount 87
+00b0 0800 nop // icount 88
+00b2 0800 nop // icount 89
+00b4 3000 jal 0 // icount 90
+00b6 4f00 addi r0, r7, 0 // icount 91
+00b8 da0e xor r3, r2, r0 // icount 92
+00ba 380e jalr r0, 14 // icount 93
+00bc 0800 nop // icount 94
+00be 0800 nop // icount 95
+00c0 0800 nop // icount 96
+00c2 0800 nop // icount 97
+00c4 0800 nop // icount 98
+00c6 0800 nop // icount 99
+00c8 0800 nop // icount 100
+00ca 3000 jal 0 // icount 101
+00cc 4f00 addi r0, r7, 0 // icount 102
+00ce f818 sco r6, r0, r0 // icount 103
+00d0 3810 jalr r0, 16 // icount 104
+00d2 0800 nop // icount 105
+00d4 0800 nop // icount 106
+00d6 0800 nop // icount 107
+00d8 0800 nop // icount 108
+00da 0800 nop // icount 109
+00dc 0800 nop // icount 110
+00de 0800 nop // icount 111
+00e0 0800 nop // icount 112
+00e2 3000 jal 0 // icount 113
+00e4 4f00 addi r0, r7, 0 // icount 114
+00e6 eb7c slt r7, r3, r3 // icount 115
+00e8 380e jalr r0, 14 // icount 116
+00ea 0800 nop // icount 117
+00ec 0800 nop // icount 118
+00ee 0800 nop // icount 119
+00f0 0800 nop // icount 120
+00f2 0800 nop // icount 121
+00f4 0800 nop // icount 122
+00f6 0800 nop // icount 123
+00f8 3000 jal 0 // icount 124
+00fa 4f00 addi r0, r7, 0 // icount 125
+00fc d6b9 sll r6, r6, r5 // icount 126
+00fe 381e jalr r0, 30 // icount 127
+0100 0800 nop // icount 128
+0102 0800 nop // icount 129
+0104 0800 nop // icount 130
+0106 0800 nop // icount 131
+0108 0800 nop // icount 132
+010a 0800 nop // icount 133
+010c 0800 nop // icount 134
+010e 0800 nop // icount 135
+0110 0800 nop // icount 136
+0112 0800 nop // icount 137
+0114 0800 nop // icount 138
+0116 0800 nop // icount 139
+0118 0800 nop // icount 140
+011a 0800 nop // icount 141
+011c 0800 nop // icount 142
+011e 3000 jal 0 // icount 143
+0120 4f00 addi r0, r7, 0 // icount 144
+0122 d608 rol r2, r6, r0 // icount 145
+0124 3806 jalr r0, 6 // icount 146
+0126 0800 nop // icount 147
+0128 0800 nop // icount 148
+012a 0800 nop // icount 149
+012c 3000 jal 0 // icount 150
+012e 4f00 addi r0, r7, 0 // icount 151
+0130 dbea xor r2, r3, r7 // icount 152
+0132 380e jalr r0, 14 // icount 153
+0134 0800 nop // icount 154
+0136 0800 nop // icount 155
+0138 0800 nop // icount 156
+013a 0800 nop // icount 157
+013c 0800 nop // icount 158
+013e 0800 nop // icount 159
+0140 0800 nop // icount 160
+0142 3000 jal 0 // icount 161
+0144 4f00 addi r0, r7, 0 // icount 162
+0146 d8ff andn r7, r0, r7 // icount 163
+0148 381e jalr r0, 30 // icount 164
+014a 0800 nop // icount 165
+014c 0800 nop // icount 166
+014e 0800 nop // icount 167
+0150 0800 nop // icount 168
+0152 0800 nop // icount 169
+0154 0800 nop // icount 170
+0156 0800 nop // icount 171
+0158 0800 nop // icount 172
+015a 0800 nop // icount 173
+015c 0800 nop // icount 174
+015e 0800 nop // icount 175
+0160 0800 nop // icount 176
+0162 0800 nop // icount 177
+0164 0800 nop // icount 178
+0166 0800 nop // icount 179
+0168 3000 jal 0 // icount 180
+016a 4f00 addi r0, r7, 0 // icount 181
+016c dbff andn r7, r3, r7 // icount 182
+016e 381c jalr r0, 28 // icount 183
+0170 0800 nop // icount 184
+0172 0800 nop // icount 185
+0174 0800 nop // icount 186
+0176 0800 nop // icount 187
+0178 0800 nop // icount 188
+017a 0800 nop // icount 189
+017c 0800 nop // icount 190
+017e 0800 nop // icount 191
+0180 0800 nop // icount 192
+0182 0800 nop // icount 193
+0184 0800 nop // icount 194
+0186 0800 nop // icount 195
+0188 0800 nop // icount 196
+018a 0800 nop // icount 197
+018c 3000 jal 0 // icount 198
+018e 4f00 addi r0, r7, 0 // icount 199
+0190 d625 sll r1, r6, r1 // icount 200
+0192 380e jalr r0, 14 // icount 201
+0194 0800 nop // icount 202
+0196 0800 nop // icount 203
+0198 0800 nop // icount 204
+019a 0800 nop // icount 205
+019c 0800 nop // icount 206
+019e 0800 nop // icount 207
+01a0 0800 nop // icount 208
+01a2 3000 jal 0 // icount 209
+01a4 4f00 addi r0, r7, 0 // icount 210
+01a6 d8a7 andn r1, r0, r5 // icount 211
+01a8 381c jalr r0, 28 // icount 212
+01aa 0800 nop // icount 213
+01ac 0800 nop // icount 214
+01ae 0800 nop // icount 215
+01b0 0800 nop // icount 216
+01b2 0800 nop // icount 217
+01b4 0800 nop // icount 218
+01b6 0800 nop // icount 219
+01b8 0800 nop // icount 220
+01ba 0800 nop // icount 221
+01bc 0800 nop // icount 222
+01be 0800 nop // icount 223
+01c0 0800 nop // icount 224
+01c2 0800 nop // icount 225
+01c4 0800 nop // icount 226
+01c6 0000 halt // icount 227

@@ -1,0 +1,63 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, 0
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0x0000
+lbi r1, 0
+INUM:        1 PC: 0x0002 REG: 1 VALUE: 0x0000
+lbi r2, 0
+INUM:        2 PC: 0x0004 REG: 2 VALUE: 0x0000
+lbi r3, 0
+INUM:        3 PC: 0x0006 REG: 3 VALUE: 0x0000
+lbi r4, 0
+INUM:        4 PC: 0x0008 REG: 4 VALUE: 0x0000
+lbi r5, 0
+INUM:        5 PC: 0x000a REG: 5 VALUE: 0x0000
+lbi r6, 0
+INUM:        6 PC: 0x000c REG: 6 VALUE: 0x0000
+lbi r7, 0
+INUM:        7 PC: 0x000e REG: 7 VALUE: 0x0000
+lbi r6, 64
+INUM:        8 PC: 0x0010 REG: 6 VALUE: 0x0040
+slbi r6, 0
+INUM:        9 PC: 0x0012 REG: 6 VALUE: 0x4000
+lbi r5, 13
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0x000d
+slbi r5, 0
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0x0d00
+lbi r4, 15
+INUM:       12 PC: 0x0018 REG: 4 VALUE: 0x000f
+slbi r4, 0
+INUM:       13 PC: 0x001a REG: 4 VALUE: 0x0f00
+lbi r3, 16
+INUM:       14 PC: 0x001c REG: 3 VALUE: 0x0010
+slbi r3, 0
+INUM:       15 PC: 0x001e REG: 3 VALUE: 0x1000
+lbi r2, 80
+INUM:       16 PC: 0x0020 REG: 2 VALUE: 0x0050
+slbi r2, 0
+INUM:       17 PC: 0x0022 REG: 2 VALUE: 0x5000
+srli r6, r6, 10
+INUM:       18 PC: 0x0024 REG: 6 VALUE: 0x0010
+srli r5, r5, 4
+INUM:       19 PC: 0x0026 REG: 5 VALUE: 0x00d0
+srli r6, r6, 2
+INUM:       20 PC: 0x0028 REG: 6 VALUE: 0x0004
+srli r4, r4, 7
+INUM:       21 PC: 0x002a REG: 4 VALUE: 0x001e
+srli r3, r3, 10
+INUM:       22 PC: 0x002c REG: 3 VALUE: 0x0004
+srli r2, r2, 11
+INUM:       23 PC: 0x002e REG: 2 VALUE: 0x000a
+srli r7, r2, 1
+INUM:       24 PC: 0x0030 REG: 7 VALUE: 0x0005
+srli r1, r6, 2
+INUM:       25 PC: 0x0032 REG: 1 VALUE: 0x0001
+halt
+program halted
+INUM:       26 PC: 0x0034
+Program Finished

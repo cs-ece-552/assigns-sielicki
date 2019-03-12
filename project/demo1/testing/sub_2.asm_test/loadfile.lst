@@ -1,0 +1,6 @@
+          // Test provided by Karu 
+          // Generic Test (+)-(-)=(+)
+0000 c139 lbi r1, 0x39
+0002 c2f4 lbi r2, 0xf4
+0004 da2d sub r3, r2, r1
+0006 0000 halt

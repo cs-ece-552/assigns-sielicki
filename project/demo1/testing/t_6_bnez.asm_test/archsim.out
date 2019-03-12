@@ -1,0 +1,447 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, -84
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0xffac
+slbi r0, 115
+INUM:        1 PC: 0x0002 REG: 0 VALUE: 0xac73
+lbi r1, -92
+INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xffa4
+slbi r1, 16
+INUM:        3 PC: 0x0006 REG: 1 VALUE: 0xa410
+lbi r2, 55
+INUM:        4 PC: 0x0008 REG: 2 VALUE: 0x0037
+slbi r2, -39
+INUM:        5 PC: 0x000a REG: 2 VALUE: 0x37d9
+lbi r3, -69
+INUM:        6 PC: 0x000c REG: 3 VALUE: 0xffbb
+slbi r3, 68
+INUM:        7 PC: 0x000e REG: 3 VALUE: 0xbb44
+lbi r4, -24
+INUM:        8 PC: 0x0010 REG: 4 VALUE: 0xffe8
+slbi r4, -101
+INUM:        9 PC: 0x0012 REG: 4 VALUE: 0xe89b
+lbi r5, -55
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0xffc9
+slbi r5, -81
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0xc9af
+lbi r6, 31
+INUM:       12 PC: 0x0018 REG: 6 VALUE: 0x001f
+slbi r6, -27
+INUM:       13 PC: 0x001a REG: 6 VALUE: 0x1fe5
+lbi r7, 127
+INUM:       14 PC: 0x001c REG: 7 VALUE: 0x007f
+slbi r7, -60
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0x7fc4
+lbi r3, 0
+INUM:       16 PC: 0x0020 REG: 3 VALUE: 0x0000
+lbi r0, 0
+INUM:       17 PC: 0x0022 REG: 0 VALUE: 0x0000
+nop
+INUM:       18 PC: 0x0024
+bnez r4, 4
+INUM:       19 PC: 0x0026
+nop
+INUM:       20 PC: 0x002c
+nop
+INUM:       21 PC: 0x002e
+nop
+INUM:       22 PC: 0x0030
+bnez r1, 16
+INUM:       23 PC: 0x0032
+nop
+INUM:       24 PC: 0x0044
+nop
+INUM:       25 PC: 0x0046
+nop
+INUM:       26 PC: 0x0048
+nop
+INUM:       27 PC: 0x004a
+nop
+INUM:       28 PC: 0x004c
+nop
+INUM:       29 PC: 0x004e
+nop
+INUM:       30 PC: 0x0050
+nop
+INUM:       31 PC: 0x0052
+nop
+INUM:       32 PC: 0x0054
+bnez r3, 24
+INUM:       33 PC: 0x0056
+nop
+INUM:       34 PC: 0x0058
+nop
+INUM:       35 PC: 0x005a
+nop
+INUM:       36 PC: 0x005c
+nop
+INUM:       37 PC: 0x005e
+nop
+INUM:       38 PC: 0x0060
+nop
+INUM:       39 PC: 0x0062
+nop
+INUM:       40 PC: 0x0064
+nop
+INUM:       41 PC: 0x0066
+nop
+INUM:       42 PC: 0x0068
+nop
+INUM:       43 PC: 0x006a
+nop
+INUM:       44 PC: 0x006c
+nop
+INUM:       45 PC: 0x006e
+nop
+INUM:       46 PC: 0x0070
+nop
+INUM:       47 PC: 0x0072
+nop
+INUM:       48 PC: 0x0074
+nop
+INUM:       49 PC: 0x0076
+nop
+INUM:       50 PC: 0x0078
+nop
+INUM:       51 PC: 0x007a
+nop
+INUM:       52 PC: 0x007c
+nop
+INUM:       53 PC: 0x007e
+nop
+INUM:       54 PC: 0x0080
+nop
+INUM:       55 PC: 0x0082
+nop
+INUM:       56 PC: 0x0084
+nop
+INUM:       57 PC: 0x0086
+nop
+INUM:       58 PC: 0x0088
+bnez r1, 12
+INUM:       59 PC: 0x008a
+nop
+INUM:       60 PC: 0x0098
+nop
+INUM:       61 PC: 0x009a
+nop
+INUM:       62 PC: 0x009c
+nop
+INUM:       63 PC: 0x009e
+nop
+INUM:       64 PC: 0x00a0
+nop
+INUM:       65 PC: 0x00a2
+nop
+INUM:       66 PC: 0x00a4
+bnez r4, 28
+INUM:       67 PC: 0x00a6
+nop
+INUM:       68 PC: 0x00c4
+nop
+INUM:       69 PC: 0x00c6
+nop
+INUM:       70 PC: 0x00c8
+nop
+INUM:       71 PC: 0x00ca
+nop
+INUM:       72 PC: 0x00cc
+nop
+INUM:       73 PC: 0x00ce
+nop
+INUM:       74 PC: 0x00d0
+nop
+INUM:       75 PC: 0x00d2
+nop
+INUM:       76 PC: 0x00d4
+nop
+INUM:       77 PC: 0x00d6
+nop
+INUM:       78 PC: 0x00d8
+nop
+INUM:       79 PC: 0x00da
+nop
+INUM:       80 PC: 0x00dc
+nop
+INUM:       81 PC: 0x00de
+nop
+INUM:       82 PC: 0x00e0
+bnez r1, 4
+INUM:       83 PC: 0x00e2
+nop
+INUM:       84 PC: 0x00e8
+nop
+INUM:       85 PC: 0x00ea
+nop
+INUM:       86 PC: 0x00ec
+bnez r2, 8
+INUM:       87 PC: 0x00ee
+nop
+INUM:       88 PC: 0x00f8
+nop
+INUM:       89 PC: 0x00fa
+nop
+INUM:       90 PC: 0x00fc
+nop
+INUM:       91 PC: 0x00fe
+nop
+INUM:       92 PC: 0x0100
+bnez r2, 12
+INUM:       93 PC: 0x0102
+nop
+INUM:       94 PC: 0x0110
+nop
+INUM:       95 PC: 0x0112
+nop
+INUM:       96 PC: 0x0114
+nop
+INUM:       97 PC: 0x0116
+nop
+INUM:       98 PC: 0x0118
+nop
+INUM:       99 PC: 0x011a
+nop
+INUM:      100 PC: 0x011c
+bnez r7, 24
+INUM:      101 PC: 0x011e
+nop
+INUM:      102 PC: 0x0138
+nop
+INUM:      103 PC: 0x013a
+nop
+INUM:      104 PC: 0x013c
+nop
+INUM:      105 PC: 0x013e
+nop
+INUM:      106 PC: 0x0140
+nop
+INUM:      107 PC: 0x0142
+nop
+INUM:      108 PC: 0x0144
+nop
+INUM:      109 PC: 0x0146
+nop
+INUM:      110 PC: 0x0148
+nop
+INUM:      111 PC: 0x014a
+nop
+INUM:      112 PC: 0x014c
+nop
+INUM:      113 PC: 0x014e
+nop
+INUM:      114 PC: 0x0150
+bnez r7, 20
+INUM:      115 PC: 0x0152
+nop
+INUM:      116 PC: 0x0168
+nop
+INUM:      117 PC: 0x016a
+nop
+INUM:      118 PC: 0x016c
+nop
+INUM:      119 PC: 0x016e
+nop
+INUM:      120 PC: 0x0170
+nop
+INUM:      121 PC: 0x0172
+nop
+INUM:      122 PC: 0x0174
+nop
+INUM:      123 PC: 0x0176
+nop
+INUM:      124 PC: 0x0178
+nop
+INUM:      125 PC: 0x017a
+nop
+INUM:      126 PC: 0x017c
+bnez r3, 32
+INUM:      127 PC: 0x017e
+nop
+INUM:      128 PC: 0x0180
+nop
+INUM:      129 PC: 0x0182
+nop
+INUM:      130 PC: 0x0184
+nop
+INUM:      131 PC: 0x0186
+nop
+INUM:      132 PC: 0x0188
+nop
+INUM:      133 PC: 0x018a
+nop
+INUM:      134 PC: 0x018c
+nop
+INUM:      135 PC: 0x018e
+nop
+INUM:      136 PC: 0x0190
+nop
+INUM:      137 PC: 0x0192
+nop
+INUM:      138 PC: 0x0194
+nop
+INUM:      139 PC: 0x0196
+nop
+INUM:      140 PC: 0x0198
+nop
+INUM:      141 PC: 0x019a
+nop
+INUM:      142 PC: 0x019c
+nop
+INUM:      143 PC: 0x019e
+nop
+INUM:      144 PC: 0x01a0
+nop
+INUM:      145 PC: 0x01a2
+nop
+INUM:      146 PC: 0x01a4
+nop
+INUM:      147 PC: 0x01a6
+nop
+INUM:      148 PC: 0x01a8
+nop
+INUM:      149 PC: 0x01aa
+nop
+INUM:      150 PC: 0x01ac
+nop
+INUM:      151 PC: 0x01ae
+nop
+INUM:      152 PC: 0x01b0
+nop
+INUM:      153 PC: 0x01b2
+nop
+INUM:      154 PC: 0x01b4
+nop
+INUM:      155 PC: 0x01b6
+nop
+INUM:      156 PC: 0x01b8
+nop
+INUM:      157 PC: 0x01ba
+nop
+INUM:      158 PC: 0x01bc
+nop
+INUM:      159 PC: 0x01be
+nop
+INUM:      160 PC: 0x01c0
+bnez r2, 12
+INUM:      161 PC: 0x01c2
+nop
+INUM:      162 PC: 0x01d0
+nop
+INUM:      163 PC: 0x01d2
+nop
+INUM:      164 PC: 0x01d4
+nop
+INUM:      165 PC: 0x01d6
+nop
+INUM:      166 PC: 0x01d8
+nop
+INUM:      167 PC: 0x01da
+nop
+INUM:      168 PC: 0x01dc
+bnez r3, 4
+INUM:      169 PC: 0x01de
+nop
+INUM:      170 PC: 0x01e0
+nop
+INUM:      171 PC: 0x01e2
+nop
+INUM:      172 PC: 0x01e4
+nop
+INUM:      173 PC: 0x01e6
+nop
+INUM:      174 PC: 0x01e8
+bnez r3, 12
+INUM:      175 PC: 0x01ea
+nop
+INUM:      176 PC: 0x01ec
+nop
+INUM:      177 PC: 0x01ee
+nop
+INUM:      178 PC: 0x01f0
+nop
+INUM:      179 PC: 0x01f2
+nop
+INUM:      180 PC: 0x01f4
+nop
+INUM:      181 PC: 0x01f6
+nop
+INUM:      182 PC: 0x01f8
+nop
+INUM:      183 PC: 0x01fa
+nop
+INUM:      184 PC: 0x01fc
+nop
+INUM:      185 PC: 0x01fe
+nop
+INUM:      186 PC: 0x0200
+nop
+INUM:      187 PC: 0x0202
+nop
+INUM:      188 PC: 0x0204
+bnez r7, 20
+INUM:      189 PC: 0x0206
+nop
+INUM:      190 PC: 0x021c
+nop
+INUM:      191 PC: 0x021e
+nop
+INUM:      192 PC: 0x0220
+nop
+INUM:      193 PC: 0x0222
+nop
+INUM:      194 PC: 0x0224
+nop
+INUM:      195 PC: 0x0226
+nop
+INUM:      196 PC: 0x0228
+nop
+INUM:      197 PC: 0x022a
+nop
+INUM:      198 PC: 0x022c
+nop
+INUM:      199 PC: 0x022e
+nop
+INUM:      200 PC: 0x0230
+bnez r3, 16
+INUM:      201 PC: 0x0232
+nop
+INUM:      202 PC: 0x0234
+nop
+INUM:      203 PC: 0x0236
+nop
+INUM:      204 PC: 0x0238
+nop
+INUM:      205 PC: 0x023a
+nop
+INUM:      206 PC: 0x023c
+nop
+INUM:      207 PC: 0x023e
+nop
+INUM:      208 PC: 0x0240
+nop
+INUM:      209 PC: 0x0242
+nop
+INUM:      210 PC: 0x0244
+nop
+INUM:      211 PC: 0x0246
+nop
+INUM:      212 PC: 0x0248
+nop
+INUM:      213 PC: 0x024a
+nop
+INUM:      214 PC: 0x024c
+nop
+INUM:      215 PC: 0x024e
+nop
+INUM:      216 PC: 0x0250
+nop
+INUM:      217 PC: 0x0252
+halt
+program halted
+INUM:      218 PC: 0x0254
+Program Finished

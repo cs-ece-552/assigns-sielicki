@@ -1,0 +1,5 @@
+          // special cases - 3
+0000 c1f5 lbi r1, -11    // load -11 in r1
+0002 c3fc lbi r3, -4     // load  -4 in r3
+0004 d168 rol r2, r1, r3 // rotate left -4 bits with a negative value
+0006 0000 halt // added by Karu

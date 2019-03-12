@@ -1,0 +1,80 @@
+          // CS552 2008 student tests
+          // Original Authors: Matt Sinclair, Amy Zou, Ju shin Lee
+          
+          // Author: Matt Sinclair
+          // CS/ECE 552 Spring '08
+          // Demo II Test File
+          //
+          // Filename: mattTest.asm
+          // Overall assembly test
+          //
+          // This is a test of the instructions in our ISA.  This test should show that our
+          // processor works correctly for any cases it runs across.
+          
+0000 201a j	.realStart	// also a flush
+0002 c0ff LBI	r0, -1
+0004 c1ff LBI	r1, -1
+0006 c2ff LBI	r2, -1
+0008 c3ff LBI	r3, -1
+000a c4ff LBI	r4, -1
+000c c5ff LBI	r5, -1
+000e c6ff LBI	r6, -1
+0010 c7ff LBI	r7, -1	
+0012 0000 halt
+0014 0000 halt
+0016 0000 halt
+0018 0000 halt
+001a 0000 halt
+          	
+          // initialize all registers to 0
+001c      .realStart:
+001c c000 LBI	r0, 0
+001e c100 LBI	r1, 0
+0020 c200 LBI	r2, 0
+0022 c300 LBI	r3, 0
+0024 c400 LBI	r4, 0
+0026 c500 LBI	r5, 0
+0028 c600 LBI	r6, 0
+002a c700 LBI	r7, 0
+          
+          // some basic instructions to get us going	
+002c 4926 addi	r1, r1, 6	
+002e 0800 nop
+0030 4a44 addi	r2, r2, 4	
+0032 481f addi	r0, r0, -1	
+          		
+          // forward from ex_mem
+0034 d02d sll	r3, r0, r1	
+          
+          // forward from mem_wb
+0036 f610 sle	r4, r6, r0	
+          
+          // bypass register file
+0038 d816 xor	r5, r0, r0	
+          
+          // stall
+003a 809f st	r4, r0, -1	// these were unaligned and should cause an error (fixed 5/3)
+003c 883f ld	r1, r0, -1	
+          			// should stall
+003e d9d6 xor	r5, r1, r6	
+          	
+          // flush (branch)
+0040 7d08 bgez	r5, .goHere
+0042 0000 halt			// shouldn't execute
+0044 0000 halt
+0046 0000 halt
+0048 c7fe lbi	r7, -2
+          
+004a      .goHere:
+004a 95ff slbi	r5, 0xFF	// r5 = 0x0100 | 0x00FF = 0x01FF
+004c 0800 nop
+004e 0000 halt			// end mattTest.asm
+          			// Expected values:
+          			// r0 = 0xFFFF
+          			// r1 = 0x0020
+          			// r2 = 0x0004
+          			// r3 = 0xFFC0
+          			// r4 = 0x0000
+          			// r5 = 0x20FF
+          			// r6 = 0x0000
+          			// r7 = 0x0000

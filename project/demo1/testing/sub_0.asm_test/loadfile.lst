@@ -1,0 +1,8 @@
+          // Test provided by Karu 
+          
+          //Test of producing a zero
+0000 c1ff lbi r1, 0xff
+0002 c201 lbi r2, 0x1
+0004 d929 sub r2, r1, r1
+0006 d925 sub r1, r1, r1 
+0008 0000 halt

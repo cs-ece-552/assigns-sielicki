@@ -1,0 +1,9 @@
+          // Original test: ./rbatterm/hw4/problem6/xori_5.asm
+          // Author: rbatterm
+          // Test source code follows
+          
+          
+          // Test random sequence (from Random.org)
+0000 c208 lbi r2, 8       //01000 
+0002 5a2b xori r1, r2, 11 //01011
+0004 0000 halt          //= 00011

@@ -1,0 +1,9 @@
+INST:    1100 0001 1110 0000 lbi r1, 224  
+ARCH:    INUM:        0 PC: 0x0000 REG: 1 VALUE: 0xffe0
+VERILOG: INUM:        0 PC: 0x0000 REG: 1 VALUE: 0xffe0
+INST:    0101 1001 0011 1111 xori r1, r1, 31  
+ARCH:    INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xffff
+VERILOG: INUM:        1 PC: 0x0002 REG: 1 VALUE: 0xffff
+INST:    0000 0000 0000 0000 halt  
+ARCH:    INUM:        2 PC: 0x0004
+VERILOG: INUM:        2 PC: 0x0004

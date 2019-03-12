@@ -1,0 +1,9 @@
+          // Original test: ./rbatterm/hw4/problem6/xori_1.asm
+          // Author: rbatterm
+          // Test source code follows
+          
+          
+          // test all 1's
+0000 c21f lbi r2, 31      //11111 
+0002 5a3f xori r1, r2, 31 //11111
+0004 0000 halt          //= 00000

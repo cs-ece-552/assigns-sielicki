@@ -1,0 +1,5 @@
+          // Test provided by Karu 
+0000 c10f lbi r1, 15
+0002 c20f lbi r2, 15
+0004 d14e ror r3, r1, r2
+0006 0000 halt // added by Karu

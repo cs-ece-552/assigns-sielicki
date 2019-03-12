@@ -1,0 +1,59 @@
+          // CS552 2008 student tests
+          // Original Authors: Vaishali Karanth, Janaki Jillela
+          
+          //This test fills all the 512 lines in the cache and reads all the
+          //entries. Stores should see 25% misses (compulsary misses).
+          //All loads should see hits during the 2nd half of the program.
+          //Overall data hit rate should be very high, close to 85%
+          
+0000 2004 j .start
+0002 0400 data 0x0400 //place holder for 1k word entries in cache
+0004 1000 data 0x1000 //starting address for cache way 1
+          
+          //execution starts from here
+0006      .start:
+0006 c000 lbi r0, 0  //loop counter register
+0008 c106 lbi r1, 6  //memory address register
+000a c201 lbi r2, 1
+          
+000c 8802 ld r0, r0, 2 //load the loop counter value
+000e      .storeway0:
+000e 8120 st r1, r1, 0   //start storing from address location 6
+                         //data value will be the address of location
+0010 4922 addi r1, r1, 2 //increment address register
+          
+0012 da01 sub r0, r2, r0 //decrement loop counter
+0014 78f8 bgez r0, .storeway0 //loop until all 256 cache entries are written
+          
+0016 c000 lbi r0, 0    //reset loop counter register
+0018 8824 ld r1, r0, 4 //load starting address of 2nd cache way into r1 
+001a 8802 ld r0, r0, 2 //load loop counter register
+001c      .storeway1:
+001c 8120 st r1, r1, 0  //start storing from address 0x1000
+001e 4922 addi r1, r1, 2 //increment address register
+            
+0020 da01 sub r0, r2, r0 //decrement loop counter
+0022 78f8 bgez r0, .storeway1 //loop until way 1 entries are written
+          
+0024 c100 lbi r1, 0    //address register - points to 0th location
+0026 c000 lbi r0, 0    //reset loop counter register
+0028 8802 ld r0, r0, 2 //load loop counter register
+002a      .loadway0:
+002a 8920 ld r1, r1, 0 //read address location from 0
+002c 4922 addi r1, r1, 2 //increment address register
+          
+002e da01 sub r0, r2, r0 //decrement loop counter
+0030 78f8 bgez r0, .loadway0 //read all 256 entries in way0
+          
+0032 c000 lbi r0, 0    //reset address register
+0034 8824 ld r1, r0, 4 //load address 0x1000 to address register
+0036 8802 ld r0, r0, 2 //load loop counter register
+0038      .loadway1:
+0038 8920 ld r1, r1, 0 //read address location from 0x1000
+003a 4922 addi r1, r1, 2 //increment address register
+          
+003c da01 sub r0, r2, r0 //decrement loop counter
+003e 78f8 bgez r0, .loadway1 //read all 256 entries in way1
+          
+0040 0000 halt
+          

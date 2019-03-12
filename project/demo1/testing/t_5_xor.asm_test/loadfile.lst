@@ -1,0 +1,34 @@
+          // seed 5
+0000 c000 lbi r0, 0 // icount 0
+0002 90ff slbi r0, 255 // icount 1
+0004 c102 lbi r1, 2 // icount 2
+0006 91ae slbi r1, 174 // icount 3
+0008 c292 lbi r2, 146 // icount 4
+000a 92b4 slbi r2, 180 // icount 5
+000c c344 lbi r3, 68 // icount 6
+000e 9374 slbi r3, 116 // icount 7
+0010 c445 lbi r4, 69 // icount 8
+0012 942c slbi r4, 44 // icount 9
+0014 c5f0 lbi r5, 240 // icount 10
+0016 9594 slbi r5, 148 // icount 11
+0018 c6b9 lbi r6, 185 // icount 12
+001a 96e6 slbi r6, 230 // icount 13
+001c c7fa lbi r7, 250 // icount 14
+001e 97fc slbi r7, 252 // icount 15
+0020 d96e xor r3, r1, r3 // icount 16
+0022 da72 xor r4, r2, r3 // icount 17
+0024 d8c2 xor r0, r0, r6 // icount 18
+0026 dba2 xor r0, r3, r5 // icount 19
+0028 df06 xor r1, r7, r0 // icount 20
+002a daca xor r2, r2, r6 // icount 21
+002c d8e2 xor r0, r0, r7 // icount 22
+002e dab2 xor r4, r2, r5 // icount 23
+0030 db12 xor r4, r3, r0 // icount 24
+0032 d81a xor r6, r0, r0 // icount 25
+0034 da66 xor r1, r2, r3 // icount 26
+0036 db7a xor r6, r3, r3 // icount 27
+0038 dc0a xor r2, r4, r0 // icount 28
+003a dc7e xor r7, r4, r3 // icount 29
+003c de76 xor r5, r6, r3 // icount 30
+003e de62 xor r0, r6, r3 // icount 31
+0040 0000 halt // icount 32

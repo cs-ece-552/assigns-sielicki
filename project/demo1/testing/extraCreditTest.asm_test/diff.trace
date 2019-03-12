@@ -1,6 +1,6 @@
-INST:    0010 0000 0001 0100 j .realstart ***DIFF***
+INST:    0010 0000 0001 0100 j .realstart  
 ARCH:    INUM:        0 PC: 0x0000
-VERILOG: 
+VERILOG: INUM:        0 PC: 0x0000
 INST:    1100 0000 0001 1111 lbi r0, 31 ***DIFF***
 ARCH:    INUM:        1 PC: 0x0016 REG: 0 VALUE: 0x001f
 VERILOG: 

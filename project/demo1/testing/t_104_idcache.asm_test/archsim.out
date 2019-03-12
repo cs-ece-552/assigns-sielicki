@@ -1,0 +1,225 @@
+
+WISCalculator v1.0
+Author Derek Hower (drh5@cs.wisc.edu)
+Type "help" for more information
+
+Loading program...
+Executing...
+lbi r0, -69
+INUM:        0 PC: 0x0000 REG: 0 VALUE: 0xffbb
+slbi r0, 6
+INUM:        1 PC: 0x0002 REG: 0 VALUE: 0xbb06
+lbi r1, -27
+INUM:        2 PC: 0x0004 REG: 1 VALUE: 0xffe5
+slbi r1, 72
+INUM:        3 PC: 0x0006 REG: 1 VALUE: 0xe548
+lbi r2, 89
+INUM:        4 PC: 0x0008 REG: 2 VALUE: 0x0059
+slbi r2, 63
+INUM:        5 PC: 0x000a REG: 2 VALUE: 0x593f
+lbi r3, 54
+INUM:        6 PC: 0x000c REG: 3 VALUE: 0x0036
+slbi r3, 5
+INUM:        7 PC: 0x000e REG: 3 VALUE: 0x3605
+lbi r4, 10
+INUM:        8 PC: 0x0010 REG: 4 VALUE: 0x000a
+slbi r4, 89
+INUM:        9 PC: 0x0012 REG: 4 VALUE: 0x0a59
+lbi r5, -107
+INUM:       10 PC: 0x0014 REG: 5 VALUE: 0xff95
+slbi r5, 49
+INUM:       11 PC: 0x0016 REG: 5 VALUE: 0x9531
+lbi r6, 86
+INUM:       12 PC: 0x0018 REG: 6 VALUE: 0x0056
+slbi r6, -34
+INUM:       13 PC: 0x001a REG: 6 VALUE: 0x56de
+lbi r7, 70
+INUM:       14 PC: 0x001c REG: 7 VALUE: 0x0046
+slbi r7, -11
+INUM:       15 PC: 0x001e REG: 7 VALUE: 0x46f5
+lbi r0, 0
+INUM:       16 PC: 0x0020 REG: 0 VALUE: 0x0000
+lbi r1, 1
+INUM:       17 PC: 0x0022 REG: 1 VALUE: 0x0001
+lbi r2, -1
+INUM:       18 PC: 0x0024 REG: 2 VALUE: 0xffff
+lbi r3, 1
+INUM:       19 PC: 0x0026 REG: 3 VALUE: 0x0001
+andni r6, r6, 1
+INUM:       20 PC: 0x0028 REG: 6 VALUE: 0x56de
+lbi r3, 3
+INUM:       21 PC: 0x002a REG: 3 VALUE: 0x0003
+lbi r5, 44
+INUM:       22 PC: 0x002c REG: 5 VALUE: 0x002c
+j 56
+INUM:       23 PC: 0x002e
+ld r7, r6, 10
+INUM:       24 PC: 0x0068 REG: 7 VALUE: 0x0000 ADDR: 0x56e8
+addi r6, r6, 10
+INUM:       25 PC: 0x006a REG: 6 VALUE: 0x56e8
+j 26
+INUM:       26 PC: 0x006c
+bltz r2, 28
+INUM:       27 PC: 0x0088
+j 12
+INUM:       28 PC: 0x00a6
+j 106
+INUM:       29 PC: 0x00b4
+jal 40
+INUM:       30 PC: 0x0120 REG: 7 VALUE: 0x0122
+st r7, r6, 6
+INUM:       31 PC: 0x014a ADDR: 0x56ee VALUE: 0x0122
+addi r6, r6, 6
+INUM:       32 PC: 0x014c REG: 6 VALUE: 0x56ee
+bnez r1, 20
+INUM:       33 PC: 0x014e
+j 138
+INUM:       34 PC: 0x0164
+bgez r1, 0
+INUM:       35 PC: 0x01f0
+j 22
+INUM:       36 PC: 0x01f2
+j 242
+INUM:       37 PC: 0x020a
+st r7, r6, 2
+INUM:       38 PC: 0x02fe ADDR: 0x56f0 VALUE: 0x0122
+addi r6, r6, 2
+INUM:       39 PC: 0x0300 REG: 6 VALUE: 0x56f0
+beqz r0, 2
+INUM:       40 PC: 0x0302
+st r7, r6, 10
+INUM:       41 PC: 0x0306 ADDR: 0x56fa VALUE: 0x0122
+addi r6, r6, 10
+INUM:       42 PC: 0x0308 REG: 6 VALUE: 0x56fa
+j 158
+INUM:       43 PC: 0x030a
+ld r7, r6, 12
+INUM:       44 PC: 0x03aa REG: 7 VALUE: 0x0000 ADDR: 0x5706
+addi r6, r6, 12
+INUM:       45 PC: 0x03ac REG: 6 VALUE: 0x5706
+bnez r1, 28
+INUM:       46 PC: 0x03ae
+jal 6
+INUM:       47 PC: 0x03cc REG: 7 VALUE: 0x03ce
+bnez r1, 14
+INUM:       48 PC: 0x03d4
+st r7, r6, 12
+INUM:       49 PC: 0x03e4 ADDR: 0x5712 VALUE: 0x03ce
+addi r6, r6, 12
+INUM:       50 PC: 0x03e6 REG: 6 VALUE: 0x5712
+beqz r0, 10
+INUM:       51 PC: 0x03e8
+ld r7, r6, 12
+INUM:       52 PC: 0x03f4 REG: 7 VALUE: 0x0000 ADDR: 0x571e
+addi r6, r6, 12
+INUM:       53 PC: 0x03f6 REG: 6 VALUE: 0x571e
+beqz r0, 12
+INUM:       54 PC: 0x03f8
+beqz r0, 14
+INUM:       55 PC: 0x0406
+ld r7, r6, 14
+INUM:       56 PC: 0x0416 REG: 7 VALUE: 0x0000 ADDR: 0x572c
+addi r6, r6, 14
+INUM:       57 PC: 0x0418 REG: 6 VALUE: 0x572c
+j 26
+INUM:       58 PC: 0x041a
+j 136
+INUM:       59 PC: 0x0436
+st r7, r6, 14
+INUM:       60 PC: 0x04c0 ADDR: 0x573a VALUE: 0x0000
+addi r6, r6, 14
+INUM:       61 PC: 0x04c2 REG: 6 VALUE: 0x573a
+j 142
+INUM:       62 PC: 0x04c4
+j 248
+INUM:       63 PC: 0x0554
+j 206
+INUM:       64 PC: 0x064e
+bnez r1, 10
+INUM:       65 PC: 0x071e
+st r7, r6, 0
+INUM:       66 PC: 0x072a ADDR: 0x573a VALUE: 0x0000
+addi r6, r6, 0
+INUM:       67 PC: 0x072c REG: 6 VALUE: 0x573a
+bltz r2, 2
+INUM:       68 PC: 0x072e
+beqz r0, 24
+INUM:       69 PC: 0x0732
+j 46
+INUM:       70 PC: 0x074c
+sco r0, r2, r3
+INUM:       71 PC: 0x077c REG: 0 VALUE: 0x0001
+rol r1, r5, r2
+INUM:       72 PC: 0x077e REG: 1 VALUE: 0x0016
+add r2, r7, r0
+INUM:       73 PC: 0x0780 REG: 2 VALUE: 0x0001
+srl r0, r4, r4
+INUM:       74 PC: 0x0782 REG: 0 VALUE: 0x0005
+xor r5, r1, r3
+INUM:       75 PC: 0x0784 REG: 5 VALUE: 0x0015
+sub r6, r5, r2
+INUM:       76 PC: 0x0786 REG: 6 VALUE: 0xffec
+sub r6, r2, r0
+INUM:       77 PC: 0x0788 REG: 6 VALUE: 0x0004
+add r5, r1, r5
+INUM:       78 PC: 0x078a REG: 5 VALUE: 0x002b
+rol r0, r2, r4
+INUM:       79 PC: 0x078c REG: 0 VALUE: 0x0200
+rol r0, r6, r1
+INUM:       80 PC: 0x078e REG: 0 VALUE: 0x0100
+sle r7, r2, r3
+INUM:       81 PC: 0x0790 REG: 7 VALUE: 0x0001
+ror r5, r0, r2
+INUM:       82 PC: 0x0792 REG: 5 VALUE: 0x0080
+xor r5, r5, r5
+INUM:       83 PC: 0x0794 REG: 5 VALUE: 0x0000
+xor r1, r1, r4
+INUM:       84 PC: 0x0796 REG: 1 VALUE: 0x0a4f
+seq r4, r4, r7
+INUM:       85 PC: 0x0798 REG: 4 VALUE: 0x0000
+sll r3, r2, r1
+INUM:       86 PC: 0x079a REG: 3 VALUE: 0x8000
+sle r3, r3, r1
+INUM:       87 PC: 0x079c REG: 3 VALUE: 0x0001
+sle r4, r6, r0
+INUM:       88 PC: 0x079e REG: 4 VALUE: 0x0001
+srl r1, r7, r3
+INUM:       89 PC: 0x07a0 REG: 1 VALUE: 0x0000
+seq r5, r3, r3
+INUM:       90 PC: 0x07a2 REG: 5 VALUE: 0x0001
+add r7, r6, r6
+INUM:       91 PC: 0x07a4 REG: 7 VALUE: 0x0008
+sub r6, r5, r3
+INUM:       92 PC: 0x07a6 REG: 6 VALUE: 0x0000
+add r3, r7, r3
+INUM:       93 PC: 0x07a8 REG: 3 VALUE: 0x0009
+slt r6, r0, r5
+INUM:       94 PC: 0x07aa REG: 6 VALUE: 0x0000
+xor r1, r1, r6
+INUM:       95 PC: 0x07ac REG: 1 VALUE: 0x0000
+xor r3, r4, r0
+INUM:       96 PC: 0x07ae REG: 3 VALUE: 0x0101
+slt r6, r3, r6
+INUM:       97 PC: 0x07b0 REG: 6 VALUE: 0x0000
+sub r1, r1, r2
+INUM:       98 PC: 0x07b2 REG: 1 VALUE: 0x0001
+sco r1, r7, r7
+INUM:       99 PC: 0x07b4 REG: 1 VALUE: 0x0000
+add r4, r3, r0
+INUM:      100 PC: 0x07b6 REG: 4 VALUE: 0x0201
+andn r6, r5, r2
+INUM:      101 PC: 0x07b8 REG: 6 VALUE: 0x0000
+sle r1, r0, r1
+INUM:      102 PC: 0x07ba REG: 1 VALUE: 0x0000
+xor r3, r7, r4
+INUM:      103 PC: 0x07bc REG: 3 VALUE: 0x0209
+srl r2, r7, r4
+INUM:      104 PC: 0x07be REG: 2 VALUE: 0x0004
+ror r0, r3, r3
+INUM:      105 PC: 0x07c0 REG: 0 VALUE: 0x0481
+xor r2, r0, r6
+INUM:      106 PC: 0x07c2 REG: 2 VALUE: 0x0481
+halt
+program halted
+INUM:      107 PC: 0x07c4
+Program Finished

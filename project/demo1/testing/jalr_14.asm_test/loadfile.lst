@@ -1,0 +1,10 @@
+          // Original test: ./jmeyer/hw4/problem6/jalr_2.asm
+          // Author: jmeyer
+          // Test source code follows
+          
+          
+0000 c00a lbi 	r0, 10
+0002 38fe jalr    r0, -2	//Tests jalr with -2 offset
+0004 0800 nop
+0006 0000 halt
+0008 3f00 jalr    r7, 0   //Tests r7 link functionality

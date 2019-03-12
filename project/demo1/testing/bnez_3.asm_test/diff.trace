@@ -1,8 +1,8 @@
-INST:    1100 0011 1111 1100 lbi r3, -4 ***DIFF***
+INST:    1100 0011 1111 1100 lbi r3, -4  
 ARCH:    INUM:        0 PC: 0x0000 REG: 3 VALUE: 0xfffc
-VERILOG: 
-INST:    0110 0011 1000 0000 bnez r3, -128 ***DIFF***
+VERILOG: INUM:        0 PC: 0x0000 REG: 3 VALUE: 0xfffc
+INST:    0110 0011 1000 0000 bnez r3, -128  
 ARCH:    INUM:        1 PC: 0x0002
-VERILOG: 
+VERILOG: INUM:        1 PC: 0x0002
 Arch trace has a PC not defined in binary image. Panic.
 ff84 INUM:        2 PC: 0xff84

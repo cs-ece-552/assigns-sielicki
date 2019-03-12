@@ -1,0 +1,7 @@
+0000 c107 lbi r1, 7
+0002 c209 lbi r2, 9
+0004 da2c add r3, r2, r1
+          //data dependent on r3
+0006 ab82 slli r4,r3,2
+          
+0008 0000 halt

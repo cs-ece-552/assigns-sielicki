@@ -1,0 +1,14 @@
+          // Original test: ./shi-ting/hw4/problem6/jal_0.asm
+          // Author: shi-ting
+          // Test source code follows
+          
+          
+          //Author: Shi-Ting Zhou, shi-ting
+0000 3006 jal 6
+0002 0000 halt
+0004 a145 roli r2, r1, 5
+0006 0000 halt
+0008 c101 lbi r1, 1
+000a 37f8 jal -8
+000c 0000 halt
+          

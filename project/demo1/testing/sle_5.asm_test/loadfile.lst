@@ -1,0 +1,11 @@
+          // Original test: ./kohlmann/hw4/problem6/sle_4.asm
+          // Author: kohlmann
+          // Test source code follows
+          
+          
+          // SLE Test 4 - Verify that order doesn't matter when contents are equal negative numbers.
+0000 c180 lbi r1, 0x80 // r1 = -16'd128
+0002 c280 lbi r2, 0x80 // r2 = -16'd128
+0004 f14c sle r3, r1, r2 // r3 should equal 1
+0006 f22c sle r3, r2, r1 // r3 should equal 1
+0008 0000 halt

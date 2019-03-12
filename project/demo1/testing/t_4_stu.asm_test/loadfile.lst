@@ -1,0 +1,50 @@
+          // seed 4
+0000 c0b1 lbi r0, 177 // icount 0
+0002 9015 slbi r0, 21 // icount 1
+0004 c1be lbi r1, 190 // icount 2
+0006 91a1 slbi r1, 161 // icount 3
+0008 c2f4 lbi r2, 244 // icount 4
+000a 92f2 slbi r2, 242 // icount 5
+000c c362 lbi r3, 98 // icount 6
+000e 9383 slbi r3, 131 // icount 7
+0010 c4f6 lbi r4, 246 // icount 8
+0012 9421 slbi r4, 33 // icount 9
+0014 c512 lbi r5, 18 // icount 10
+0016 95dc slbi r5, 220 // icount 11
+0018 c617 lbi r6, 23 // icount 12
+001a 9680 slbi r6, 128 // icount 13
+001c c79c lbi r7, 156 // icount 14
+001e 9769 slbi r7, 105 // icount 15
+0020 5001 andni r0, r0, 1 // icount 16
+0022 9844 stu r2, r0, 4 // icount 17
+0024 5241 andni r2, r2, 1 // icount 18
+0026 9a8e stu r4, r2, 14 // icount 19
+0028 5361 andni r3, r3, 1 // icount 20
+002a 9be2 stu r7, r3, 2 // icount 21
+002c 5001 andni r0, r0, 1 // icount 22
+002e 98a4 stu r5, r0, 4 // icount 23
+0030 57e1 andni r7, r7, 1 // icount 24
+0032 9f00 stu r0, r7, 0 // icount 25
+0034 5001 andni r0, r0, 1 // icount 26
+0036 98a2 stu r5, r0, 2 // icount 27
+0038 56c1 andni r6, r6, 1 // icount 28
+003a 9e44 stu r2, r6, 4 // icount 29
+003c 5361 andni r3, r3, 1 // icount 30
+003e 9bce stu r6, r3, 14 // icount 31
+0040 55a1 andni r5, r5, 1 // icount 32
+0042 9d02 stu r0, r5, 2 // icount 33
+0044 55a1 andni r5, r5, 1 // icount 34
+0046 9d4a stu r2, r5, 10 // icount 35
+0048 55a1 andni r5, r5, 1 // icount 36
+004a 9dc0 stu r6, r5, 0 // icount 37
+004c 55a1 andni r5, r5, 1 // icount 38
+004e 9d8e stu r4, r5, 14 // icount 39
+0050 5361 andni r3, r3, 1 // icount 40
+0052 9b2c stu r1, r3, 12 // icount 41
+0054 5001 andni r0, r0, 1 // icount 42
+0056 9848 stu r2, r0, 8 // icount 43
+0058 5241 andni r2, r2, 1 // icount 44
+005a 9aa8 stu r5, r2, 8 // icount 45
+005c 5001 andni r0, r0, 1 // icount 46
+005e 980c stu r0, r0, 12 // icount 47
+0060 0000 halt // icount 48

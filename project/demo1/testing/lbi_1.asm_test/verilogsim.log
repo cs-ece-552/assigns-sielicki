@@ -1,0 +1,7 @@
+SIMLOG:: Cycle           4 PC: 00000000 I: 000080e0 R: 0   7 00000000 M: 0 1 00000000 00000000
+SIMLOG:: Processor halted
+
+SIMLOG:: sim_cycles           4
+
+SIMLOG:: inst_count           1
+

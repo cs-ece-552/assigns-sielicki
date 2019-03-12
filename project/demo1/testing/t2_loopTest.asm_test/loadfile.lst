@@ -1,0 +1,54 @@
+          // CS552 2008 student tests
+          // Original Authors: Matt Sinclair, Amy Zou, Ju shin Lee
+          
+          // Author: Matt Sinclair
+          // CS/ECE 552 Spring '08
+          // Demo III Test File
+          //
+          // Filename: loopTest.asm
+          // Tests that a loop functions correctly and has the correct number of hits
+          //
+          // This test tests the functionality of a loop, that it decrements and loops correctly,
+          // and that it has the proper number of hits for the i cache and d cache.
+          // This test also tends to serve as a good pipe_mem.asm, since it has dependencies
+          // between the load and other instructions around it
+          
+0000 201a j	.realStart	// also a flush (i cache miss)
+0002 c0ff LBI	r0, -1		// i cache hit (even though it is flushed)
+0004 c1ff LBI	r1, -1		// i cache hit (even though it is flushed)
+0006 c2ff LBI	r2, -1		
+0008 c3ff LBI	r3, -1
+000a c4ff LBI	r4, -1
+000c c5ff LBI	r5, -1
+000e c6ff LBI	r6, -1
+0010 c7ff LBI	r7, -1	
+0012 0000 halt
+0014 0000 halt
+0016 0000 halt
+0018 0000 halt
+001a 0000 halt
+          	
+          // initialize all registers to 0
+001c      .realStart:
+001c c000 LBI	r0, 0		// i cache miss
+001e c100 LBI	r1, 0		// i cache hit
+0020 c200 LBI	r2, 0		// i cache hit
+0022 c300 LBI	r3, 0		// i cache hit
+0024 c400 LBI	r4, 0		// i cache miss (eviction?)
+0026 c500 LBI	r5, 0		// i cache hit
+0028 c600 LBI	r6, 0		// i cache hit
+002a c700 LBI	r7, 0		// i cache hit
+          
+          // loop counter initialization
+002c 4805 addi	r0, r0, 5	// i cache miss (eviction?)
+002e      .loop:	
+002e 8100 st	r0, r1, 0	// i cache hit (first time), d cache miss (first time)
+0030 8900 ld	r0, r1, 0	// i cache hit (first time), d cache hit (all 5 times)
+          			// (stalls every time)
+0032 481f addi	r0, r0, -1	// i cache hit (first time)
+0034 60f8 bnez	r0, .loop	// i cache miss (first time) (eviction?)
+          // i cache loop: hit, hit, hit, miss; (then what?)
+          // d cache loop: (st's, ld's only) miss,hit;  hit,hit;  hit,hit;  hit,hit; hit,hit
+          
+0036 0000 halt			// 5 hits
+0038 4801 addi	r0, r0, 1	// 5 hits // shouldn't execute

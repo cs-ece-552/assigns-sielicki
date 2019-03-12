@@ -1,0 +1,4 @@
+          // comprenshive test for all zeros xor with all zeros.
+0000 c200 lbi r2,0  //load the value  0000 to r2
+0002 5a60 xori r3,r2,00  
+0004 0000 halt
