@@ -1,8 +1,0 @@
-0000 c124 lbi r1,36
-0002 c200 lbi r2,0
-0004 c40e lbi r4, 14
-0006 8222 st r1,r2,2
-0008 8a62 ld r3,r2,2
-          //shifted out value from memory in r3
-000a d38d sll r3,r3, r4
-000c 0000 halt

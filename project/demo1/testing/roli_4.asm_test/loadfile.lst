@@ -1,3 +1,0 @@
-0000 c101 lbi r1, 1 //Load register r1 with value 1
-0002 a14f roli r2, r1, 15 //Rotate left 15
-0004 0000 halt // added by Karu

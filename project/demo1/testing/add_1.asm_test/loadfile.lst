@@ -1,5 +1,0 @@
-          //addition of -ve numbers
-0000 c380 lbi r3,128
-0002 c480 lbi r4,128
-0004 db94 add r5,r3,r4
-0006 0000 halt

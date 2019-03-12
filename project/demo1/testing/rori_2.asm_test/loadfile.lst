@@ -1,8 +1,0 @@
-0000 c37f lbi r3, 0x7f
-0002 c45a lbi r4, 0x5a
-0004 b3a3 rori r5, r3, 3
-0006 b466 rori r3, r4, 6 // write after read
-0008 b360 rori r3, r3, 0 // shamt = 0
-          
-          
-000a 0000 halt // added by Karu

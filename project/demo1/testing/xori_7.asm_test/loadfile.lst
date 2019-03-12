@@ -1,8 +1,0 @@
-          // Original test: ./shojaei/hw4/problem6/xori_0.asm
-          // Author: shojaei
-          // Test source code follows
-          
-          
-0000 c11f lbi r1, 31
-0002 595f xori r2, r1, 31
-0004 0000 halt

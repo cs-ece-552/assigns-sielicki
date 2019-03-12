@@ -1,8 +1,0 @@
-          // Test provided by Karu 
-          // btr_1.asm
-          
-          // Test extereme case high
-0000 91ff slbi r1, 0xff
-0002 91ff slbi r1, 0xff
-0004 c904 btr r1, r1
-0006 0000 halt

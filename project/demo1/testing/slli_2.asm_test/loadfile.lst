@@ -1,6 +1,0 @@
-0000 c1ee lbi r1, -18
-0002 c20c lbi r2, 12
-0004 d949 sub r2,r1,r2
-          //same as shift by 12
-0006 aa3c slli r1,r2,-4
-0008 0000 halt

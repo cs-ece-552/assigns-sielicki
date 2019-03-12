@@ -1,3 +1,0 @@
-0000 c103 lbi r1, 3  
-0002 d128 rol r2, r1, r1 //Rotate left 3
-0004 0000 halt // added by Karu

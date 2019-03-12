@@ -43,9 +43,11 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
     wire lbi;
     wire slbi;
     wire pc_o;
-    
+
+    //adder flags    
     wire zero;
     wire lt;
+    wire ofLt;
     
     //control
     //assign adder = (OpCode[4:1] ^ 4'b0100) |
@@ -118,12 +120,13 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
     //flags
     assign zero = ~(|res_add);
     assign lt = res_add[15];
+    assign ofLt = (Rs[15] & ~Rt[15]) | (~(~Rs[15] & Rt[15]) & lt); //only valid during slt and sle
     
     assign res_flag[15:1] = {15{1'b0}};
     assign res_flag[0] = (OpCode[4] == 1'b1) ?
                         ((OpCode[1] == 1'b1) ?
-                            ((OpCode[0] == 1'b1) ? C_out : (lt | zero)):
-                            ((OpCode[0] == 1'b1) ? lt : zero)
+                            ((OpCode[0] == 1'b1) ? C_out : (ofLt | zero)):
+                            ((OpCode[0] == 1'b1) ? ofLt : zero)
                         ) :
                         ((OpCode[1] == 1'b1) ?
                             ((OpCode[0] == 1'b1) ? ~lt : lt):

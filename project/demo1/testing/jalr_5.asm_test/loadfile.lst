@@ -1,7 +1,0 @@
-0000 c104 lbi r1, 4 //Set retister R1 to 4
-0002 3904 jalr r1 4 //jalr immediate value 4
-0004 3904 jalr r1 4 //jalr immediate value 4
-0006 0800 nop
-0008 0800 nop
-000a 0800 nop
-000c 0000 halt // added by Karu

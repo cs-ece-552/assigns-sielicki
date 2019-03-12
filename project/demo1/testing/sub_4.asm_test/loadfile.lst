@@ -1,6 +1,0 @@
-          // Test provided by Karu 
-          // Generic Test (-)-(-)=(+)
-0000 c1fc lbi r1, 0xfc
-0002 c280 lbi r2, 0x80
-0004 da2d sub r3, r2, r1
-0006 0000 halt

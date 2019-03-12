@@ -1,9 +1,0 @@
-          // Original test: ./lavallee/hw4/problem6/bnez_1.asm
-          // Author: lavallee
-          // Test source code follows
-          
-          
-          	// This program tests the upper limit of the branch
-0000 c208 	lbi r2, 8		// sets r2 to non zero value
-0002 627f 	bnez r2, 127		// branches to largest positive twos comp number
-0004 0000 	halt

@@ -1,8 +1,0 @@
-          // Test provided by Karu 
-          // btr_8.asm
-          
-          // Test all bits can reverse 2
-0000 91f0 slbi r1, 0xf0 // 1111 0000
-0002 91f0 slbi r1, 0xf0 // 1111 0000
-0004 c904 btr r1, r1
-0006 0000 halt

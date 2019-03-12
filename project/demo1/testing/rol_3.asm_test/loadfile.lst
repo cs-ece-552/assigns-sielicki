@@ -1,4 +1,0 @@
-0000 c101 lbi r1, 1 //Load register r1 with value 1
-0002 c307 lbi r3, 7
-0004 d168 rol r2, r1, r3 //Rotate left 7
-0006 0000 halt

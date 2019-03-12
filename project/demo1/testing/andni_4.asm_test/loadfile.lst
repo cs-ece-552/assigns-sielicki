@@ -1,4 +1,0 @@
-          //tests special case: 2_11111
-0000 c1ff lbi r1, 255
-0002 515f andni r2, r1, 31
-0004 0000 halt

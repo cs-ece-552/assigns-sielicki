@@ -1,6 +1,0 @@
-          //sco 0xffff and 0x8000, generate r3 = 1
-0000 c1ff lbi r1, -1
-0002 c201 lbi r2, 1
-0004 aa4f slli r2, r2, 15
-0006 f94c sco r3, r1, r2
-0008 0000 halt

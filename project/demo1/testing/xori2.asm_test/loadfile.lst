@@ -1,4 +1,0 @@
-          //test for alternative  zeros and ones like 0x55 XOR 0xaa. this cover the corner cases 
-0000 c255 lbi r2,0x55
-0002 5a6a xori r3,r2,0xa
-0004 0000 halt

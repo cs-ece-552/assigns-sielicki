@@ -1,9 +1,0 @@
-          // Original test: ./ullmer/hw4/problem6/jalr_3.asm
-          // Author: ullmer
-          // Test source code follows
-          
-          
-          //test jump and link 
-          //with unaligned target
-0000 c018 lbi r0, 24
-0002 380d jalr r0, 13

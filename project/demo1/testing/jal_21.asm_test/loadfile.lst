@@ -1,8 +1,0 @@
-          // Original test: ./nfischer/hw4/problem6/jal_0.asm
-          // Author: nfischer
-          // Test source code follows
-          
-          
-          //jal
-0000 30ff jal 255 //jump by imm
-0002 0000 halt

@@ -1,5 +1,0 @@
-          // xori test without use of any other instruction.
-          // the lower 5bit of both the r3 and r2 should be ones complement of each other.
-0000 5a60 xori r3,r2,0x00
-0002 5a9f xori r4,r2,0xff
-0004 0000 halt // added by Karu

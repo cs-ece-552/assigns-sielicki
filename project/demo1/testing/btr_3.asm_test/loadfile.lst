@@ -1,8 +1,0 @@
-          // Test provided by Karu 
-          // btr_3.asm
-          
-          // Test symmetry case 2
-0000 91c3 slbi r1, 0xc3 // 1100 0011
-0002 91c3 slbi r1, 0xc3 // 1100 0011
-0004 c904 btr r1, r1
-0006 0000 halt

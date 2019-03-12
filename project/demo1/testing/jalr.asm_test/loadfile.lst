@@ -1,3 +1,0 @@
-          //test jalr 
-0000 c230 lbi r2, 48
-0002 3a30 jalr r2, 48

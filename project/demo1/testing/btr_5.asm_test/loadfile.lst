@@ -1,8 +1,0 @@
-          // Test provided by Karu 
-          // btr_5.asm
-          
-          // Test varied pattern 1
-0000 91b4 slbi r1, 0xb4 // 1011 0100
-0002 911d slbi r1, 0x1d // 0001 1101
-0004 c904 btr r1, r1
-0006 0000 halt

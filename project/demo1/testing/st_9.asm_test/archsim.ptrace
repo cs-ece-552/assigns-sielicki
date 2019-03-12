@@ -1,3 +1,0 @@
-REG: 0 VALUE: 0xfff1
-REG: 1 VALUE: 0xffff
-STORE: ADDR: 0x0000 VALUE: 0xffff

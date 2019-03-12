@@ -1,8 +1,0 @@
-          //comprehensivly tests every bit by combining tests 1-4 over each group
-0000 c0f0 lbi r0, 0xF0
-0002 c100 lbi r1, 0x00
-0004 5840 xori r2, r0, 0x00
-0006 c10f lbi r1, 0x0F
-0008 585f xori r2, r0, 0xFF
-000a 594f xori r2, r1, 0x0F
-000c 0000 halt

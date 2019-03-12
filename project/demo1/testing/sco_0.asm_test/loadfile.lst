@@ -1,5 +1,0 @@
-          //sco 0xffff and 0xffff, generate r3 = 1
-0000 c1ff lbi r1, -1
-0002 c2ff lbi r2, -1
-0004 f94c sco r3, r1, r2
-0006 0000 halt

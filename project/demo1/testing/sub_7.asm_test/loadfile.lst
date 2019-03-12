@@ -1,5 +1,0 @@
-          // Test provided by Karu 
-          // Both sources same reg, read and write same reg, result zero
-0000 c1fc lbi r1, 0xfc
-0002 d925 sub r1, r1, r1
-0004 0000 halt

@@ -1,4 +1,0 @@
-          // special cases - 5
-0000 c204 lbi r2, 4      // load 4 in r3
-0002 d248 rol r2, r2, r2 // collisions
-0004 0000 halt // added by Karu

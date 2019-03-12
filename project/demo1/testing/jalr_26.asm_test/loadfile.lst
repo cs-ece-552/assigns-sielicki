@@ -1,9 +1,0 @@
-          // Original test: ./rbatterm/hw4/problem6/jalr_5.asm
-          // Author: rbatterm
-          // Test source code follows
-          
-          
-          // Test random cases (from random.org)
-0000 c103 lbi r1, 3    //00000011
-0002 396a jalr r1, 106 //01101010
-0004 0000 halt

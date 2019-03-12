@@ -1,9 +1,0 @@
-SIMLOG:: Cycle           4 PC: 00000000 I: 0000c1fc R: 1   1 0000fffc M: 0 0 0000fffc 00000000
-SIMLOG:: Cycle           5 PC: 00000002 I: 0000d929 R: 1   2 00000000 M: 0 0 00000000 0000fffc
-SIMLOG:: Cycle           6 PC: 00000004 I: 00000000 R: 0   0 00000006 M: 0 0 00000006 00000000
-SIMLOG:: Processor halted
-
-SIMLOG:: sim_cycles           6
-
-SIMLOG:: inst_count           3
-

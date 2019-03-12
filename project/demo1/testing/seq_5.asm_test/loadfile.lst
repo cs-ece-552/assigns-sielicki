@@ -1,9 +1,0 @@
-          // Test provided by Karu 
-          //SEQ test 5.  Test saving 1 to rs
-          //
-          // Michael McKinley (mckinley)
-          
-0000 c135 lbi r1, 0x35
-0002 c235 lbi r2, 0x35
-0004 e144 seq r1, r1, r2
-0006 0000 halt

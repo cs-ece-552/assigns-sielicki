@@ -1,9 +1,0 @@
-          // Test provided by Karu 
-          // btr_0.asm
-          
-          // Test extreme case low
-0000 9100 slbi r1, 0
-0002 9100 slbi r1, 0
-0004 c904 btr r1, r1
-0006 0000 halt
-          		

@@ -1,6 +1,0 @@
-          // Test provided by Karu 
-          //Simple ror 
-0000 c1d2 lbi r1, 210
-0002 c203 lbi r2, 3
-0004 d14e ror r3, r1, r2
-0006 0000 halt // added by Karu

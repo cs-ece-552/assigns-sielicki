@@ -1,5 +1,0 @@
-0000 c1ff lbi r1, 255
-0002 c20f lbi r2, 15
-          //shift to most significant bit
-0004 d14d sll r3, r1, r2
-0006 0000 halt

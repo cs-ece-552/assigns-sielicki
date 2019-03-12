@@ -1,7 +1,0 @@
-          // Test provided by Karu 
-0000 c1ff lbi r1, 0xff
-0002 c212 lbi r2, 0x12
-0004 c301 lbi r3, 0x01
-0006 d969 sub r2, r1, r3
-0008 da25 sub r1, r2, r1 
-000a 0000 halt

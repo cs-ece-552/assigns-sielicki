@@ -1,5 +1,0 @@
-          // add test for zero output
-0000 c101 lbi r1 1
-0002 c2ff lbi r2 255
-0004 d950 add r4 r1 r2
-0006 0000 halt
