@@ -52,6 +52,7 @@ module proc (/*AUTOARG*/
 
    wire [15:0]          MemOut;
    wire [1:0]           errTemp;
+   wire                 halt;
 
    assign OpCode = Inst[15:11];
    assign branchFlag = PCImm | (PCSrc & AluRes[0]);
@@ -60,7 +61,8 @@ module proc (/*AUTOARG*/
                              (RegDst[0] ? 3'b111 : Inst[10:8]) :
                              (RegDst[0] ? Inst[7:5] : Inst[4:2]);
    assign err = |errTemp;
-
+   //assign halt = 1'b0; //for debugging
+   assign halt = DMemDump;
    
 
    reg_16b  pc(/*AUTOINST*/

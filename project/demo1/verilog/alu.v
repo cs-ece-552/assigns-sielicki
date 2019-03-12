@@ -78,7 +78,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
                  
     
     assign invS = (~|(OpCode ^ 5'b01000)) | ((~|(OpCode ^ 5'b11011)) & (~|(funct ^ 2'b01)));
-    assign invT = (|(OpCode ^ 5'b11111)) & flags;
+    assign invT = (~|(OpCode ^ 5'b11110)) | (~|(OpCode[4:1] ^ 4'b1110));
     assign selImm5 = (~|(OpCode[4:2] ^ 3'b010)) | (~|(OpCode[4:2] ^ 3'b101)) | (~|(OpCode[4:2] ^ 3'b100));
     assign signImm = (~OpCode [1]) | (~|(OpCode[4:0] ^ 5'b10011));
     assign selImm8 = (~|(OpCode[4:2] ^ 3'b011));
@@ -126,7 +126,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res, jumpVal);
                             ((OpCode[0] == 1'b1) ? lt : zero)
                         ) :
                         ((OpCode[1] == 1'b1) ?
-                            ((OpCode[0] == 1'b1) ? lt : ~lt):
+                            ((OpCode[0] == 1'b1) ? ~lt : lt):
                             ((OpCode[0] == 1'b1) ? zero : ~zero)
                         );                        
     
