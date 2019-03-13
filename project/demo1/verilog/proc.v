@@ -45,6 +45,7 @@ module proc (/*AUTOARG*/
    wire [15:0]          epc;
    wire [15:0]          PCplus2;
    wire [15:0]          Inst;
+   wire [4:0]           OpCode;
    wire                 branchFlag;
    wire [15:0] 		jumpVal;
    wire [15:0]          AluRes;
