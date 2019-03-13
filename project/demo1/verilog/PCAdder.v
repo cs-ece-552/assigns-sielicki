@@ -57,7 +57,7 @@ module PCAdder(/*AUTOARG*/
    rca_16b pc_plus_2(
                      // Outputs
                      .S                 (pc_plus2),
-                     .C_out             (C_out),
+                     .C_out             (),
                      // Inputs
                      .A                 (basePC[15:0]),
                      .B                 (16'b0000_0000_0000_0010),
@@ -74,7 +74,7 @@ module PCAdder(/*AUTOARG*/
    rca_16b pc_plus_ext(
                        // Outputs
                        .S               (pc_plusExt),
-                       .C_out           (C_out),
+                       .C_out           (),
                        // Inputs
                        .A               (pc_plus2[15:0]),
                        .B               (extension),
