@@ -18,6 +18,8 @@ module control (/*AUTOARG*/
                 MemToReg,
                 DMemDump,
                 Jump,
+		illegalOp,
+		rti,
                 // Inputs
                 OpCode,
                 Funct
@@ -30,7 +32,7 @@ module control (/*AUTOARG*/
    // outputs
    output       err;
    output       RegWrite, DMemWrite, DMemEn, ALUSrc2, PCSrc, 
-                PCImm, MemToReg, DMemDump, Jump;
+                PCImm, MemToReg, DMemDump, Jump, illegalOp, rti;
    output [1:0] RegDst;
    output [2:0] SESel;
 
@@ -47,6 +49,8 @@ module control (/*AUTOARG*/
    jump jump (.opcode(OpCode), .out(Jump));
    regDst regdst (.opcode(OpCode), .out(RegDst));
    seSel sesel (.opcode(OpCode), .out(SESel));
+   IllegalOp Illegaop (.opcode(OpCode), .out(illegalOp));
+   Rti ri (.opcode(OpCode), .out(rti));
 
    assign err = ^{OpCode[0],
                   OpCode[1],

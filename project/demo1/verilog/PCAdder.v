@@ -23,7 +23,7 @@ module PCAdder(/*AUTOARG*/
    // Outputs
    pc, pc_plus2,
    // Inputs
-   basePC, I, D, SESel, Jump, branchFlag, jumpValue
+   basePC, I, D, SESel, Jump, branchFlag, get02, getEpc, jumpValue, epcValue
    );
    //Outputs
 
@@ -42,12 +42,15 @@ module PCAdder(/*AUTOARG*/
    input        SESel;
    input        Jump;
    input        branchFlag; //which is (aluFlag and PCSrc)?
+   input        get02;
+   input        getEpc;
    input [15:0] jumpValue;
+   input [15:0] epcValue;
 
 
    /*AUTOWIRE*/
 
-   wire [15:0]          iSign,dSign, pc_plusExt, extension, pcRelative;
+   wire [15:0]          iSign,dSign, pc_plusExt, extension, pcRelative, pcNoException, pcWithSiic;
    assign iSign = {{8{I[7]}},I};
    assign dSign = {{5{D[10]}},D};
    
@@ -82,5 +85,7 @@ module PCAdder(/*AUTOARG*/
    
    //branchFlag is actually (PCImm | (PCSrc & branchFlagFromAlu))
    mux2_1_16b muxBranch (.InA(pc_plus2), .InB(pc_plusExt), .S(branchFlag), .Out(pcRelative));
-   mux2_1_16b pcFinal (.InA(pcRelative), .InB(jumpValue), .S(Jump), .Out(pc));
+   mux2_1_16b pcFinalNoException (.InA(pcRelative), .InB(jumpValue), .S(Jump), .Out(pcNoException));
+   mux2_1_16b muxEpc (.InA(pcNoException), .InB(16'h0002), .S(get02), .Out(pcWithSiic));
+   mux2_1_16b pcFinalWithException (.InA(pcWithSiic), .InB(epcValue), .S(getEpc), .Out(pc));
 endmodule // PCAdder

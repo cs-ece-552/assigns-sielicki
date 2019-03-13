@@ -1,5 +1,5 @@
 # vsim -c proc_hier_bench -lib __work 
-# Start time: 16:35:49 on Mar 12,2019
+# Start time: 19:48:09 on Mar 12,2019
 # //  ModelSim DE 10.7c Aug 17 2018Linux 4.15.0-46-generic
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -35,6 +35,8 @@
 # Loading __work.mux2_1_2
 # Loading __work.seSel
 # Loading __work.mux2_1_3
+# Loading __work.IllegalOp
+# Loading __work.Rti
 # Loading __work.PCAdder
 # Loading __work.rca_16b
 # Loading __work.rca_4b
@@ -56,5 +58,5 @@ run -all
 # See verilogsim.log and verilogsim.trace for output
 # ** Note: $finish    : proc_hier_bench.v(96)
 #    Time: 500 ns  Iteration: 1  Instance: /proc_hier_bench
-# End time: 16:35:49 on Mar 12,2019, Elapsed time: 0:00:00
+# End time: 19:48:09 on Mar 12,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

@@ -42,6 +42,7 @@ module proc (/*AUTOARG*/
 
    wire [15:0]          currPC;
    wire [15:0]          newPC;
+   wire [15:0]          epc;
    wire [15:0]          PCplus2;
    wire [15:0]          Inst;
    wire                 branchFlag;
@@ -53,6 +54,8 @@ module proc (/*AUTOARG*/
    wire [15:0]          MemOut;
    wire [1:0]           errTemp;
    wire                 halt;
+   wire                 illegalOp;
+   wire                 rti;
 
    assign OpCode = Inst[15:11];
    assign branchFlag = PCImm | (PCSrc & AluRes[0]);
@@ -73,6 +76,15 @@ module proc (/*AUTOARG*/
                .rst                     (rst),
                .inData                  (newPC),
                .writeEn                 (1'b1));//(~DMemDump));
+
+   reg_16b  ePC(
+	        // Outputs
+	        .outData                (epc),
+		// Inputs
+		.clk                    (clk),
+	        .rst                    (rst),
+		.inData                 (PCplus2),
+		.writeEn                (illegalOp));
 
    memory2c instructionmem(/*AUTOINST*/
                            // Outputs
@@ -100,6 +112,8 @@ module proc (/*AUTOARG*/
                     .Jump               (Jump),
                     .RegDst             (RegDst[1:0]),
                     .SESel              (SESel[2:0]),
+		    .illegalOp          (illegalOp),
+		    .rti                (rti),
                     // Inputs
                     .OpCode             (Inst[15:11]),
                     .Funct              (Inst[1:0]));
@@ -114,9 +128,11 @@ module proc (/*AUTOARG*/
                      .D(Inst[10:0]), 
                      .SESel(SESel[1]),
                      .Jump(Jump),
-                     .branchFlag(branchFlag), 
-                     .jumpValue(jumpVal));
-
+                     .branchFlag(branchFlag),
+		     .get02(illegalOp),
+		     .getEpc(rti), 
+                     .jumpValue(jumpVal),
+	             .epcValue(epc));
    
 
    rf       rf_bypass(/*AUTOINST*/
