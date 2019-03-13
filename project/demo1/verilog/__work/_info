@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/u/i/n/intan/private/cs552/assigns-sielicki/project/demo1/verilog
 valu
-Z1 !s110 1552438088
+Z1 !s110 1552455942
 !i10b 1
 !s100 WHEgIS_OADRmkgReUHFAk1
 In3PbClHH=UgGheOYeZ1<>0
@@ -23,9 +23,9 @@ Z3 OP;L;10.7c;67
 r1
 !s85 0
 31
-Z4 !s108 1552438088.000000
-!s107 xnor5_1.v|rf_bypass.v|rf.v|reg_16b.v|regWrite.v|regJump.v|rca_4b.v|rca_16b.v|proc_hier_bench.v|proc_hier.v|proc.v|not1.v|nor3.v|nor2.v|nand3.v|nand2.v|mux8_1_16b.v|mux4_1_4b.v|mux4_1_16b.v|mux4_1.v|mux2_1_3.v|mux2_1_2.v|mux2_1_16b.v|mux2_1.v|mux16_1_16b.v|memory2c.v|fullAdder_1b.v|dff.v|d-iSig.v|control.v|clkrst.v|bitflip.v|barrelShifter2.v|barrelShifter.v|aluSrc2.v|alu.v|SESel.v|Rti.v|RegDst.v|PCSrc.v|PCImm.v|PCAdder.v|MemToReg.v|Jump.v|IllegalOp.v|DMemWrite.v|DMemEn.v|DMemDump.v|
-Z5 !s90 +define+RANDSEED=3|-work|__work|DMemDump.v|DMemEn.v|DMemWrite.v|IllegalOp.v|Jump.v|MemToReg.v|PCAdder.v|PCImm.v|PCSrc.v|RegDst.v|Rti.v|SESel.v|alu.v|aluSrc2.v|barrelShifter.v|barrelShifter2.v|bitflip.v|clkrst.v|control.v|d-iSig.v|dff.v|fullAdder_1b.v|memory2c.v|mux16_1_16b.v|mux2_1.v|mux2_1_16b.v|mux2_1_2.v|mux2_1_3.v|mux4_1.v|mux4_1_16b.v|mux4_1_4b.v|mux8_1_16b.v|nand2.v|nand3.v|nor2.v|nor3.v|not1.v|proc.v|proc_hier.v|proc_hier_bench.v|rca_16b.v|rca_4b.v|regJump.v|regWrite.v|reg_16b.v|rf.v|rf_bypass.v|xnor5_1.v|
+Z4 !s108 1552455942.000000
+!s107 xnor5_1.v|SESel.v|Rti.v|rf.v|rf_bypass.v|regWrite.v|regJump.v|RegDst.v|reg_16b.v|rca_4b.v|rca_16b.v|proc.v|proc_hier.v|proc_hier_bench.v|PCSrc.v|PCImm.v|PCAdder.v|not1.v|nor3.v|nor2.v|nand3.v|nand2.v|mux8_1_16b.v|mux4_1.v|mux4_1_4b.v|mux4_1_16b.v|mux2_1.v|mux2_1_3.v|mux2_1_2.v|mux2_1_16b.v|mux16_1_16b.v|MemToReg.v|memory2c.v|Jump.v|IllegalOp.v|fullAdder_1b.v|DMemWrite.v|DMemEn.v|DMemDump.v|dff.v|control.v|clkrst.v|bitflip.v|barrelShifter2.v|alu.v|aluSrc2.v|
+Z5 !s90 +define+RANDSEED=3|-work|__work|aluSrc2.v|alu.v|barrelShifter2.v|bitflip.v|clkrst.v|control.v|dff.v|DMemDump.v|DMemEn.v|DMemWrite.v|fullAdder_1b.v|IllegalOp.v|Jump.v|memory2c.v|MemToReg.v|mux16_1_16b.v|mux2_1_16b.v|mux2_1_2.v|mux2_1_3.v|mux2_1.v|mux4_1_16b.v|mux4_1_4b.v|mux4_1.v|mux8_1_16b.v|nand2.v|nand3.v|nor2.v|nor3.v|not1.v|PCAdder.v|PCImm.v|PCSrc.v|proc_hier_bench.v|proc_hier.v|proc.v|rca_16b.v|rca_4b.v|reg_16b.v|RegDst.v|regJump.v|regWrite.v|rf_bypass.v|rf.v|Rti.v|SESel.v|xnor5_1.v|
 !i113 1
 Z6 o-work __work
 Z7 !s92 +define+RANDSEED=3 -work __work
@@ -46,36 +46,13 @@ r1
 !s85 0
 31
 R4
-Z9 !s107 xnor5_1.v|rf_bypass.v|rf.v|reg_16b.v|regWrite.v|regJump.v|rca_4b.v|rca_16b.v|proc_hier_bench.v|proc_hier.v|proc.v|not1.v|nor3.v|nor2.v|nand3.v|nand2.v|mux8_1_16b.v|mux4_1_4b.v|mux4_1_16b.v|mux4_1.v|mux2_1_3.v|mux2_1_2.v|mux2_1_16b.v|mux2_1.v|mux16_1_16b.v|memory2c.v|fullAdder_1b.v|dff.v|d-iSig.v|control.v|clkrst.v|bitflip.v|barrelShifter2.v|barrelShifter.v|aluSrc2.v|alu.v|SESel.v|Rti.v|RegDst.v|PCSrc.v|PCImm.v|PCAdder.v|MemToReg.v|Jump.v|IllegalOp.v|DMemWrite.v|DMemEn.v|DMemDump.v|
+Z9 !s107 xnor5_1.v|SESel.v|Rti.v|rf.v|rf_bypass.v|regWrite.v|regJump.v|RegDst.v|reg_16b.v|rca_4b.v|rca_16b.v|proc.v|proc_hier.v|proc_hier_bench.v|PCSrc.v|PCImm.v|PCAdder.v|not1.v|nor3.v|nor2.v|nand3.v|nand2.v|mux8_1_16b.v|mux4_1.v|mux4_1_4b.v|mux4_1_16b.v|mux2_1.v|mux2_1_3.v|mux2_1_2.v|mux2_1_16b.v|mux16_1_16b.v|MemToReg.v|memory2c.v|Jump.v|IllegalOp.v|fullAdder_1b.v|DMemWrite.v|DMemEn.v|DMemDump.v|dff.v|control.v|clkrst.v|bitflip.v|barrelShifter2.v|alu.v|aluSrc2.v|
 R5
 !i113 1
 R6
 R7
 R8
 nalu@src2
-vbarrelShifter
-R1
-!i10b 1
-!s100 fz[o4JZ2c[2IFWJjj60AP2
-IV:=14o_<NXJh0VPk=>NF20
-R2
-R0
-Z10 w1552194809
-8barrelShifter.v
-FbarrelShifter.v
-Z11 L0 10
-R3
-r1
-!s85 0
-31
-R4
-R9
-R5
-!i113 1
-R6
-R7
-R8
-nbarrel@shifter
 vbarrelShifter2
 R1
 !i10b 1
@@ -128,7 +105,7 @@ R1
 I;[OK`WFoPnFNCPz<4KiRE2
 R2
 R0
-Z12 w1551850093
+Z10 w1551850093
 8clkrst.v
 Fclkrst.v
 L0 12
@@ -165,29 +142,6 @@ R5
 R6
 R7
 R8
-vd_iSig
-R1
-!i10b 1
-!s100 5=zgk<W[Z=N<maBiUR`J]0
-I4bSZ7S^G1W1@J]DGHSD6J3
-R2
-R0
-w1552355190
-8d-iSig.v
-Fd-iSig.v
-L0 1
-R3
-r1
-!s85 0
-31
-R4
-R9
-R5
-!i113 1
-R6
-R7
-R8
-nd_i@sig
 vdff
 R1
 !i10b 1
@@ -195,7 +149,7 @@ R1
 I;70X>B0GK34Kg1zJ_UN8E3
 R2
 R0
-R12
+R10
 8dff.v
 Fdff.v
 L0 6
@@ -286,7 +240,7 @@ R1
 I4<PZLAeL]zY05P?3O<n:V2
 R2
 R0
-R10
+Z11 w1552194809
 8fullAdder_1b.v
 FfullAdder_1b.v
 L0 7
@@ -354,7 +308,7 @@ R1
 IaG7LTYY5zN7cRhPNEbK851
 R2
 R0
-R12
+R10
 8memory2c.v
 Fmemory2c.v
 L0 35
@@ -399,7 +353,7 @@ R1
 IbnlU@BZ=g=_06`hbclAI12
 R2
 R0
-R10
+R11
 8mux16_1_16b.v
 Fmux16_1_16b.v
 L0 7
@@ -421,7 +375,7 @@ R1
 I276BZING0QU4<gkN9Ql]63
 R2
 R0
-R10
+R11
 8mux2_1.v
 Fmux2_1.v
 L0 7
@@ -443,7 +397,7 @@ R1
 I3jg<ZOEYGYDIljG6P@n@13
 R2
 R0
-R10
+R11
 8mux2_1_16b.v
 Fmux2_1_16b.v
 L0 6
@@ -465,7 +419,7 @@ R1
 I0QgW_g;m[a8abTTEXz@S53
 R2
 R0
-R10
+R11
 8mux2_1_2.v
 Fmux2_1_2.v
 L0 1
@@ -487,7 +441,7 @@ R1
 IiRaDoS>NFhR<HB9ACaaGY2
 R2
 R0
-R10
+R11
 8mux2_1_3.v
 Fmux2_1_3.v
 L0 1
@@ -509,7 +463,7 @@ R1
 IRBRaL:56oaG3:D3JZ4iQk2
 R2
 R0
-R10
+R11
 8mux4_1.v
 Fmux4_1.v
 L0 8
@@ -531,7 +485,7 @@ R1
 INfPJL[WW^AEzag<VYA:`73
 R2
 R0
-R10
+R11
 8mux4_1_16b.v
 Fmux4_1_16b.v
 L0 7
@@ -553,7 +507,7 @@ R1
 IML[H8X=`3Q134V6>;BD^]3
 R2
 R0
-R10
+R11
 8mux4_1_4b.v
 Fmux4_1_4b.v
 L0 7
@@ -575,7 +529,7 @@ R1
 IAMn8mfzR>V23NaefO;h=S2
 R2
 R0
-R10
+R11
 8mux8_1_16b.v
 Fmux8_1_16b.v
 L0 7
@@ -597,7 +551,7 @@ R1
 Ik>LGgcYKk2KZ5HCfmiXVz3
 R2
 R0
-R10
+R11
 8nand2.v
 Fnand2.v
 L0 7
@@ -619,7 +573,7 @@ R1
 I_XeEiC79=hi3`8XNjJJeP0
 R2
 R0
-R10
+R11
 8nand3.v
 Fnand3.v
 L0 7
@@ -641,7 +595,7 @@ R1
 I77UM8iJE6J<8bPF0;6g8D2
 R2
 R0
-R10
+R11
 8nor2.v
 Fnor2.v
 L0 7
@@ -663,7 +617,7 @@ R1
 IR60hheD^e]8YQ5fPzXMMY3
 R2
 R0
-R10
+R11
 8nor3.v
 Fnor3.v
 L0 7
@@ -685,7 +639,7 @@ R1
 IoKjTL64ff<3LQ:?1BS1]H2
 R2
 R0
-R10
+R11
 8not1.v
 Fnot1.v
 L0 7
@@ -798,7 +752,7 @@ R1
 I6c<nfVD=cmFEn<9gck=GS0
 R2
 R0
-R10
+R11
 8proc_hier.v
 Fproc_hier.v
 L0 6
@@ -842,7 +796,7 @@ R1
 IaC`<CCLN3^:iSIA[O0g0g0
 R2
 R0
-R10
+R11
 8rca_16b.v
 Frca_16b.v
 L0 7
@@ -864,7 +818,7 @@ R1
 IK60@:KL[G`AO4X=FbheIZ3
 R2
 R0
-R10
+R11
 8rca_4b.v
 Frca_4b.v
 L0 7
@@ -886,10 +840,10 @@ R1
 I97YZPHCcXnQnVzCE:05]73
 R2
 R0
-R10
+R11
 8reg_16b.v
 Freg_16b.v
-R11
+Z12 L0 10
 R3
 r1
 !s85 0
@@ -977,10 +931,10 @@ R1
 IBjHM5`AdRNo50F8GfUHFN2
 R2
 R0
-R10
+R11
 8rf.v
 Frf.v
-R11
+R12
 R3
 r1
 !s85 0
@@ -999,7 +953,7 @@ R1
 IAR3VgP4`EhF`eG[9o2`9z3
 R2
 R0
-R10
+R11
 8rf_bypass.v
 Frf_bypass.v
 L0 8
