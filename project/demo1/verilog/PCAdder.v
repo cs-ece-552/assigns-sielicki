@@ -63,7 +63,7 @@ module PCAdder(/*AUTOARG*/
                      .B                 (16'b0000_0000_0000_0010),
                      .C_in              (1'b0));
 
-   wire                 dSig, bsig, registerJump;
+   //wire                 dSig, bsig, registerJump;
    //wire [15:0]          extension;
    
    //you could use SESel[1] for this one
