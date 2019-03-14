@@ -20,7 +20,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[0]),
 	       .S			(S));
 
-      mux2_1 bit1(
+   mux2_1 bit1(
 	       // Outputs
 	       .Out			(Out[1]),
 	       // Inputs
@@ -28,7 +28,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[1]),
 	       .S			(S));
 
-      mux2_1 bit2(
+   mux2_1 bit2(
 	       // Outputs
 	       .Out			(Out[2]),
 	       // Inputs
@@ -36,7 +36,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[2]),
 	       .S			(S));
 
-      mux2_1 bit3(
+   mux2_1 bit3(
 	       // Outputs
 	       .Out			(Out[3]),
 	       // Inputs
@@ -44,7 +44,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[3]),
 	       .S			(S));
 
-      mux2_1 bit4(
+   mux2_1 bit4(
 	       // Outputs
 	       .Out			(Out[4]),
 	       // Inputs
@@ -52,7 +52,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[4]),
 	       .S			(S));   
 
-      mux2_1 bit5(
+   mux2_1 bit5(
 	       // Outputs
 	       .Out			(Out[5]),
 	       // Inputs
@@ -61,7 +61,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .S			(S));    
 
 
-      mux2_1 bit6(
+   mux2_1 bit6(
 	       // Outputs
 	       .Out			(Out[6]),
 	       // Inputs
@@ -69,7 +69,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[6]),
 	       .S			(S));    
 
-      mux2_1 bit7(
+   mux2_1 bit7(
 	       // Outputs
 	       .Out			(Out[7]),
 	       // Inputs
@@ -77,7 +77,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[7]),
 	       .S			(S));
 
-      mux2_1 bit8(
+   mux2_1 bit8(
 	       // Outputs
 	       .Out			(Out[8]),
 	       // Inputs
@@ -85,7 +85,7 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .InB			(InB[8]),
 	       .S			(S));
 
-      mux2_1 bit9(
+   mux2_1 bit9(
 	       // Outputs
 	       .Out			(Out[9]),
 	       // Inputs
@@ -94,55 +94,55 @@ module mux2_1_16b(InA, InB, S, Out);
 	       .S			(S)); 
 
 
-      mux2_1 bit10(
-	       // Outputs
-	       .Out			(Out[10]),
-	       // Inputs
-	       .InA			(InA[10]),
-	       .InB			(InB[10]),
-	       .S			(S));    
+   mux2_1 bit10(
+		// Outputs
+		.Out			(Out[10]),
+		// Inputs
+		.InA			(InA[10]),
+		.InB			(InB[10]),
+		.S			(S));    
 
 
-      mux2_1 bit11(
-	       // Outputs
-	       .Out			(Out[11]),
-	       // Inputs
-	       .InA			(InA[11]),
-	       .InB			(InB[11]),
-	       .S			(S));     
+   mux2_1 bit11(
+		// Outputs
+		.Out			(Out[11]),
+		// Inputs
+		.InA			(InA[11]),
+		.InB			(InB[11]),
+		.S			(S));     
 
 
-      mux2_1 bit12(
-	       // Outputs
-	       .Out			(Out[12]),
-	       // Inputs
-	       .InA			(InA[12]),
-	       .InB			(InB[12]),
-	       .S			(S));
+   mux2_1 bit12(
+		// Outputs
+		.Out			(Out[12]),
+		// Inputs
+		.InA			(InA[12]),
+		.InB			(InB[12]),
+		.S			(S));
 
-      mux2_1 bit13(
-	       // Outputs
-	       .Out			(Out[13]),
-	       // Inputs
-	       .InA			(InA[13]),
-	       .InB			(InB[13]),
-	       .S			(S));
+   mux2_1 bit13(
+		// Outputs
+		.Out			(Out[13]),
+		// Inputs
+		.InA			(InA[13]),
+		.InB			(InB[13]),
+		.S			(S));
 
 
-      mux2_1 bit14(
-	       // Outputs
-	       .Out			(Out[14]),
-	       // Inputs
-	       .InA			(InA[14]),
-	       .InB			(InB[14]),
-	       .S			(S));
+   mux2_1 bit14(
+		// Outputs
+		.Out			(Out[14]),
+		// Inputs
+		.InA			(InA[14]),
+		.InB			(InB[14]),
+		.S			(S));
 
-      mux2_1 bit15(
-	       // Outputs
-	       .Out			(Out[15]),
-	       // Inputs
-	       .InA			(InA[15]),
-	       .InB			(InB[15]),
-	       .S			(S));     
+   mux2_1 bit15(
+		// Outputs
+		.Out			(Out[15]),
+		// Inputs
+		.InA			(InA[15]),
+		.InB			(InB[15]),
+		.S			(S));     
    
 endmodule

@@ -1,27 +1,6 @@
-/*
-// INPUT:
-// 15:0 PC
-// rst
-// clk
-// 7:0 I   SIGN EXTEND
-// 10:0 D  SIGN EXTEND
-// 4:0 OPCODE
-//branchFlag
-//   :0 (RS+IMM)
- 
-// sign extension for 8 bits is
- 
- //I[7] & 1 ? (16'b1111111110000000 | I) : (16b'0000000011111111 & I)
- //D[10] & 1 ? (16'b111110000000000 | D) : (16b'0000011111111111 & D)
- 
- 
-// OUTPUT: 15:0 PC
-// */
-
-
 module PCAdder(/*AUTOARG*/
    // Outputs
-   pc, pc_plus2,
+   pc, pc_plus2, //err,
    // Inputs
    basePC, I, D, SESel, Jump, branchFlag, get02, getEpc, jumpValue, epcValue
    );
@@ -30,6 +9,7 @@ module PCAdder(/*AUTOARG*/
 //   parameter N =16;
    output [15:0] pc; 
    output [15:0] pc_plus2; //need this to give to the ALU or register file
+   //output        err;
 
    // 00 : pc + 2 + I(sign extend)
    // 01   pc + 2 + D(sign extend)
@@ -48,8 +28,12 @@ module PCAdder(/*AUTOARG*/
    input [15:0] epcValue;
 
 
-   /*AUTOWIRE*/
-
+   //wire [1:0] 	ofl;
+   // assign err = (ofl[1] | (ofl[0] & branchFlag)) | 
+   // 		(^{basePC, I, D, SESel, Jump,
+   // 		   branchFlag, get02, getEpc,
+   // 		   jumpValue, epcValue} === 1'bX);
+   
    wire [15:0]          iSign,dSign, pc_plusExt, extension, pcRelative, pcNoException, pcWithSiic;
    assign iSign = {{8{I[7]}},I};
    assign dSign = {{5{D[10]}},D};
@@ -57,6 +41,7 @@ module PCAdder(/*AUTOARG*/
    rca_16b pc_plus_2(
                      // Outputs
                      .S                 (pc_plus2),
+                     //.C_out             (ofl[1]),
                      .C_out             (),
                      // Inputs
                      .A                 (basePC[15:0]),
@@ -74,7 +59,8 @@ module PCAdder(/*AUTOARG*/
    rca_16b pc_plus_ext(
                        // Outputs
                        .S               (pc_plusExt),
-                       .C_out           (),
+                       //.C_out           (ofl[0]),
+                       .C_out             (),
                        // Inputs
                        .A               (pc_plus2[15:0]),
                        .B               (extension),

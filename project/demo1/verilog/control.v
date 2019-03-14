@@ -48,7 +48,7 @@ module control (/*AUTOARG*/
    dMemDump dmemdump (.opcode(OpCode), .out(DMemDump));
    jump jump (.opcode(OpCode), .out(Jump));
    regDst regdst (.opcode(OpCode), .out(RegDst));
-   seSel sesel (.opcode(OpCode), .out(SESel));
+   seSel sesel (.opcode(OpCode), .out(SESel[2:0]));
    IllegalOp Illegaop (.opcode(OpCode), .out(illegalOp));
    Rti ri (.opcode(OpCode), .out(rti));
 

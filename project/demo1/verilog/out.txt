@@ -1,0 +1,26 @@
+%Warning-PINCONNECTEMPTY: PCAdder.v:45: Cell pin connected by name with empty reference: C_out
+%Warning-PINCONNECTEMPTY: Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: PCAdder.v:63: Cell pin connected by name with empty reference: C_out
+%Warning-WIDTH: memory2c.v:58: Operator ADD expects 16 bits on the RHS, but RHS's CONST '8'h1' generates 8 bits.
+%Warning-WIDTH: memory2c.v:79: Operator ASSIGN expects 17 bits on the Assign RHS, but Assign RHS's VARREF 'addr' generates 16 bits.
+%Warning-WIDTH: memory2c.v:83: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'largest' generates 17 bits.
+%Warning-UNUSED: proc.v:27: Signal is not used: ALUSrc2
+%Warning-UNUSED: proc.v:37: Bits of signal are not used: SESel[2,0]
+%Warning-UNUSED: proc.v:48: Signal is not used: OpCode
+%Warning-UNUSED: proc.v:57: Signal is not used: halt
+%Warning-WIDTH: memory2c.syn.v:60: Bit extraction of array[63:0] requires 6 bit index, not 16 bits.
+%Warning-WIDTH: Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+%Warning-WIDTH: memory2c.syn.v:60: Operator ADD expects 16 bits on the RHS, but RHS's CONST '8'h1' generates 8 bits.
+%Warning-WIDTH: memory2c.syn.v:83: Bit extraction of array[63:0] requires 6 bit index, not 16 bits.
+%Warning-UNUSED: memory2c.syn.v:44: Signal is not used: createdump
+%Warning-UNUSED: memory2c.syn.v:51: Signal is not used: loaded
+%Warning-UNUSED: memory2c.syn.v:52: Signal is not used: largest
+%Warning-UNUSED: memory2c.syn.v:54: Signal is not driven, nor used: mcd
+%Warning-UNUSED: memory2c.syn.v:55: Signal is not driven, nor used: i
+%Warning-WIDTH: memory2c.v:58: Operator ADD expects 16 bits on the RHS, but RHS's CONST '8'h1' generates 8 bits.
+%Warning-WIDTH: Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+%Warning-WIDTH: memory2c.v:79: Operator ASSIGN expects 17 bits on the Assign RHS, but Assign RHS's VARREF 'addr' generates 16 bits.
+%Warning-WIDTH: memory2c.v:83: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'largest' generates 17 bits.
+%Warning-PINCONNECTEMPTY: PCAdder.v:45: Cell pin connected by name with empty reference: C_out
+%Warning-PINCONNECTEMPTY: Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: PCAdder.v:63: Cell pin connected by name with empty reference: C_out
