@@ -1,0 +1,67 @@
+Branches and JRs done in execute
+No Stalling/Forwarding
+
+Instruction Fetch:
+Contains PC register
+Do PC + 2
+Fetch instruction at PC
+
+IF/ID:
+[15:0] Inst
+[15:0] PC + 2
+
+Instruction Decode:
+Contains EPC register
+Contains Register file
+Decode instruction using control module
+Does PC + Imm or PC + Displacement or PC <- EPC or PC <- 2, PC + 2-> EPC depending on instruction
+
+ID/EX:
+[15:0] Inst
+[15:0] PC + 2
+[15:0] PC + 2 + Imm/Disp
+[15:0] Rs (Register 1)
+[15:0] Rt (Register 2)
+[1:0] RegDst
+RegWrite
+DMemWrite
+DMemEn
+PCSrc
+PCImm
+Jump
+MemToReg
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+execute:
+do alu execution
+decide next pc on branch, JR
+
+EX/MEM:
+[15:0] Alu Result
+[15:0] Rt (Register 2)
+[1:0] RegDst
+RegWrite
+DMemWRite
+DMemEn
+MemToReg
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+Memory:
+write or read to memory
+
+MEM/WB:
+[15:0] AluResult
+[15:0] MemRes
+[1:0] RegDst
+RegWrite
+MemToReg
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+Write back:
+write result back to register file
