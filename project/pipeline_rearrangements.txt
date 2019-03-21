@@ -1,5 +1,5 @@
 Branches and JRs done in execute
-No Stalling/Forwarding
+No Stalling/Forwarding/Flush
 
 Instruction Fetch:
 Contains PC register
@@ -52,13 +52,12 @@ DMemDump
 
 Memory:
 write or read to memory
+Decides which data to write to register
 
 MEM/WB:
-[15:0] AluResult
-[15:0] MemRes
+[15:0] writeData
 [1:0] RegDst
 RegWrite
-MemToReg
 DMemDump
 [2:0] Register 1 Addr
 [2:0] Register 2 Addr

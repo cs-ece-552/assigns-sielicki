@@ -1,0 +1,92 @@
+All PC stuff decided in instruction decode stage
+
+Rs is Register 1
+Rt is Register 2
+
+All previous stage stall if current stage stall
+Stalling set registers RegWRite, DMemEn, DMemWRite to 0 for the next stage (will propagate through the stages)
+
+Instruction Fetch:
+Contains PC register (PC + 2 if not forwarded from ID)
+Do PC + 2
+Fetch instruction at PC
+
+IF/ID:
+[15:0] Inst
+[15:0] PC + 2
+
+Instruction Decode:
+Contains EPC register
+Contains Register file
+Decode instruction using control module
+Decide next PC if branch, RTI, STI, jump
+-> Need to mux Rs to adder in PCAdder
+-> Need to get zero (nor all the bits) and lt (sign bit, or the MSB) from Rs. This serves at the branch flag
+
+    From which stage / Forwarding Condition / Forwarding from / Forwarding to (from highest priority) :
+    Start of Memory / (RsAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (~EX/MEM.MemToReg) / EX/MEM.AluResult / Rs for branch flag
+    
+    Stalling Condition:
+    (RsAddr == ID/EX.RdAddr) & (ID/EX.RegWrite)
+    (RsAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (EX/MEM.MemToReg)
+    (PCImm | Jump | PCSrc & BranchFlag)
+    
+    If a different PC is taken besides PC + 2, stall Instruction decode and forward to PC Register
+
+ID/EX:
+[15:0] Inst
+[15:0] PC + 2
+[15:0] Rs (Register 1)
+[15:0] Rt (Register 2)
+[1:0] RegDst
+RegWrite
+DMemWrite
+DMemEn
+ALUSrc2
+MemToReg
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+execute:
+do alu execution
+
+    Forwarding Condition / Forwarding from / Forwarding to (from highest priority) :
+    Start of Memory / (RsAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (~EX/MEM.MemToReg) / EX/MEM.AluResult / Rs for Alu
+    Start of Memory / (RtAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (~EX/MEM.MemToReg) / EX/MEM.AluResult / Rt for Alu
+    Start of Write Back / (RsAddr == MEM/WB.RdAddr) & (MEM/WB.RegWrite) / MEM/WB.writeData / Rs for Alu
+    Start of Write Back / (RtAddr == MEM/WB.RdAddr) & (MEM/WB.RegWrite) / MEM/WB.writeData / Rt for Alu
+    
+    Stalling Condition:
+    (RsAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (EX/MEM.MemToReg)
+    (RtAddr == EX/MEM.RdAddr) & (EX/MEM.RegWrite) & (EX/MEM.MemToReg) & ALUSrc2
+    
+EX/MEM:
+[15:0] Alu Result
+[15:0] Rt (Register 2)
+[1:0] RegDst
+RegWrite
+DMemWRite
+DMemEn
+MemToReg
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+Memory:
+write or read to memory
+Choose what to write to register file 
+
+    Forwarding Condition / Forwarding from / Forwarding to (from highest priority) :
+    Start of Write Back / (RtAddr == MEM/WB.RdAddr) & (MEM/WB.RegWrite) / MEM/WB.writeData / Read data to Mem
+
+MEM/WB:
+[15:0] writeData
+[1:0] RegDst
+RegWrite
+DMemDump
+[2:0] Register 1 Addr
+[2:0] Register 2 Addr
+
+Write back:
+write result back to register file
