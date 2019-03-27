@@ -20,6 +20,7 @@ Contains EPC register
 Contains Register file
 Decode instruction using control module
 Decide next PC if branch, RTI, STI, jump
+Decide which rd address to write into 
 -> Need to mux Rs to adder in PCAdder
 -> Need to get zero (nor all the bits) and lt (sign bit, or the MSB) from Rs. This serves at the branch flag
 
@@ -35,18 +36,15 @@ Decide next PC if branch, RTI, STI, jump
 
 ID/EX:
 [15:0] Inst
-[15:0] PC + 2
 [15:0] Rs (Register 1)
 [15:0] Rt (Register 2)
-[1:0] RegDst
 RegWrite
 DMemWrite
 DMemEn
 ALUSrc2
 MemToReg
 DMemDump
-[2:0] Register 1 Addr
-[2:0] Register 2 Addr
+[2:0] RdAddr
 
 execute:
 do alu execution
@@ -64,14 +62,14 @@ do alu execution
 EX/MEM:
 [15:0] Alu Result
 [15:0] Rt (Register 2)
-[1:0] RegDst
 RegWrite
 DMemWRite
 DMemEn
 MemToReg
 DMemDump
-[2:0] Register 1 Addr
-[2:0] Register 2 Addr
+[2:0] RsAddr
+[2:0] RtAddr
+[2:0] RdAddr
 
 Memory:
 write or read to memory
@@ -82,11 +80,9 @@ Choose what to write to register file
 
 MEM/WB:
 [15:0] writeData
-[1:0] RegDst
 RegWrite
 DMemDump
-[2:0] Register 1 Addr
-[2:0] Register 2 Addr
+RdAddr
 
 Write back:
 write result back to register file
