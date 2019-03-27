@@ -23,7 +23,7 @@ module proc (/*AUTOARG*/
    
    /* your code here */
    
-    module fetch(
+    fetch fetch(
         //Outputs
         .Inst(IFIDinst),
         .pcplus2(IFIDpcplus2),
@@ -41,7 +41,7 @@ module proc (/*AUTOARG*/
     wire [15:0] IDIFpcbranch;
     wire IDIFbranch;
     
-    module decode(
+    decode decode(
         //Output
         .InstOut(IDEXinst), .pcplus2Out(IDEXpcplus2), .Rs(IDEXrs), .Rt(IDEXrt),
         .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), ,DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(),
@@ -68,7 +68,7 @@ module proc (/*AUTOARG*/
     wire IDEXdmemdump;
     wire [2:0] IDEXrdaddr;
     
-    module execute (
+    execute execute (
         //Output
         .AluRes(EXMEMalures), .RtOut(EXMEMrtin),
         .RegWriteOut(EXMEMregwrite), .DMemWriteOut(EXMEMdmemwrite), .DMemEnOut(EXMEMdmemen), .MemToRegOut(EXMEMmemtoreg), .DMemDumpOut(EXMEMdmemdump),
@@ -92,7 +92,7 @@ module proc (/*AUTOARG*/
     wire [2:0] EXMEMrtaddr;
     wire [2:0] EXMEMrdaddr;
     
-    module memory (
+    memory memory (
         //Output
         .writeData(MEMWBwritedata),
         .RegWriteOut(MEMWBregwrite), .DMemDumpOut(MEMWBdmemdump),
