@@ -60,7 +60,7 @@ module proc (/*AUTOARG*/
    wire [15:0] MEMWBwritedata;
    wire        MEMWBregwrite;
    wire        MEMWBdmemdump;
-   wire        MEMWBrdaddr;
+   wire [2:0]  MEMWBrdaddr;
    
     fetch fetch(
         //Outputs
@@ -74,7 +74,7 @@ module proc (/*AUTOARG*/
     decode decode(
         //Output
         .InstOut(IDEXinst), .pcplus2Out(IDEXpcplus2), .Rs(IDEXrs), .Rt(IDEXrt),
-        .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), .DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(),
+        .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), .DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(IDEXdmemdump),
         .RdAddr(IDEXrdaddr),
         .pcbranch(IDIFpcbranch), .branch(IDIFbranch), 
         .err(err),

@@ -61,6 +61,6 @@ module PCAdder(/*AUTOARG*/
    //regJump regjump (.opcode(OpCode), .out(registerJump));
 
    mux2_1_16b muxEpc (.InA(pc_plusExt), .InB(16'h0002), .S(get02), .Out(pcWithSiic));
-   mux2_1_16b pcFinalWithException (.InA(pcWithSiic), .InB(epcValue), .S(getEpc), .Out(pc));
+   mux2_1_16b pcFinalWithException (.InA(pcWithSiic), .InB(epcValue), .S(getEpc), .Out(nextpc));
 
 endmodule // PCAdder

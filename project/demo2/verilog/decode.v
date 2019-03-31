@@ -49,7 +49,7 @@ module decode(
     wire [2:0] SESel;
 
     wire nz;
-    wire gez;
+    wire lt ;
     wire branchflag;
 
     wire illegalOp;
@@ -116,9 +116,9 @@ module decode(
                     .epcValue(epc));
 
     assign nz = |Rs;
-    assign gez = Rs[15];
+    assign lt  = Rs[15];
     assign branchflag = (InstIn[12] == 1'b1) ?
-                            ((InstIn[11] == 1'b1) ? gez : ~gez):
+                            ((InstIn[11] == 1'b1) ? ~lt : lt  ):
                             ((InstIn[11] == 1'b1) ? ~nz : nz);                
     
     assign branch = Jump | PCImm | illegalOp | rti | (PCSrc & branchflag);

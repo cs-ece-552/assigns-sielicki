@@ -14,7 +14,7 @@ module memory (
     output [15:0] writeData;
     output RegWriteOut;
     output DMemDumpOut;
-    output RdAddrOut;
+    output [2:0] RdAddrOut;
     
     input [15:0] AluRes;
     input [15:0] RtIn;
