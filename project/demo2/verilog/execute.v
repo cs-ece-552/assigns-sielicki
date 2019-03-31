@@ -5,7 +5,7 @@ module execute (
     RsAddr, RtAddr, RdAddrOut,
     //input
     InstIn, pcplus2In, RsIn, RtIn,
-    RegWriteIn, DMemWriteIn, DMemEnIn, MemToRegOut, DMemDumpIn,
+    RegWriteIn, DMemWriteIn, DMemEnIn, MemToRegIn, DMemDumpIn,
     RdAddrIn, 
     clk, rst
     );
@@ -26,6 +26,7 @@ module execute (
     input [15:0] InstIn;
     input [15:0] RsIn;
     input [15:0] RtIn;
+    input [15:0]  pcplus2In;
     
     input RegWriteIn;
     input DMemWriteIn;

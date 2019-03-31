@@ -3,63 +3,63 @@ module decode(
     InstOut, pcplus2Out, Rs, Rt,
     RegWrite, DMemWrite, DMemEn, MemToReg, DMemDump,
     RdAddr,
-    pcbranch, branch, 
+    pcbranch, branch,
     err,
     //Input
     InstIn, pcplus2In,
     wbwriteData,
     wbRegWrite,
     wbRdAddr,
-    clk, rst,
+    clk, rst
     );
-    
+
     output [15:0] InstOut;
     output [15:0] pcplus2Out;
     output [15:0] Rs;
     output [15:0] Rt;
-    
+
     output RegWrite;
     output DMemWrite;
     output DMemEn;
     output MemToReg;
     output DMemDump;
-    
+
     output [2:0] RdAddr;
-    
+
     output [15:0] pcbranch;
     output branch;
-    
+
     output err;
-    
+
     input [15:0] InstIn;
     input [15:0] pcplus2In;
-    
+
     input [15:0] wbwriteData;
     input wbRegWrite;
     input [2:0] wbRdAddr;
-    
+
     input clk;
     input rst;
-    
+
     wire ALUSrc2;
     wire PCSrc;
     wire PCImm;
     wire Jump;
     wire [1:0] RegDst;
     wire [2:0] SESel;
-    
+
     wire nz;
     wire gez;
     wire branchflag;
-    
+
     wire illegalOp;
     wire rti;
     wire [15:0] epc;
-    
+
     wire [1:0]           errTemp;
-    
+
     assign err = |errTemp;
-    
+
     assign InstOut = InstIn;
     assign pcplus2Out = pcplus2In;
     
@@ -82,7 +82,7 @@ module decode(
                     // Inputs
                     .OpCode             (InstIn[15:11]),
                     .Funct              (InstIn[1:0]));
-                    
+
     rf      rf_bypass(/*AUTOINST*/
                       // Outputs
                     .readData1        (Rs),
@@ -96,7 +96,7 @@ module decode(
                     .writeRegSel      (wbRdAddr),
                     .writeData        (wbwriteData),
                     .writeEn          (wbRegWrite));
-                    
+
     assign RdAddr = RegDst[1] ? 
                              (RegDst[0] ? 3'b111 : InstIn[10:8]) :
                              (RegDst[0] ? InstIn[7:5] : InstIn[4:2]);
@@ -114,14 +114,14 @@ module decode(
                     .getEpc(rti), 
                     .Rs(Rs),
                     .epcValue(epc));
-                    
+
     assign nz = |Rs;
     assign gez = Rs[15];
     assign branchflag = (InstIn[12] == 1'b1) ?
                             ((InstIn[11] == 1'b1) ? gez : ~gez):
                             ((InstIn[11] == 1'b1) ? ~nz : nz);                
     
-    assign branch = Jump | PCImm | illegaOp | rti | (PCSrc & branchflag);
+    assign branch = Jump | PCImm | illegalOp | rti | (PCSrc & branchflag);
     
     reg_16b ePC(
 	        // Outputs

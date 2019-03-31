@@ -22,6 +22,45 @@ module proc (/*AUTOARG*/
    // cases that you think are illegal in your statemachines
    
    /* your code here */
+
+   //IF/ID
+   wire [15:0] IFIDinst;
+   wire [15:0] IFIDpcplus2;
+
+   //forwarding new pc
+   wire [15:0] IDIFpcbranch;
+   wire        IDIFbranch;
+
+
+   //ID/EX
+   wire [15:0] IDEXinst;
+   wire [15:0] IDEXpcplus2;
+   wire [15:0] IDEXrs;
+   wire [15:0] IDEXrt;
+   wire        IDEXregwrite;
+   wire        IDEXdmemwrite;
+   wire        IDEXdmemen;
+   wire        IDEXmemtoreg;
+   wire        IDEXdmemdump;
+   wire [2:0]  IDEXrdaddr;
+
+   //EX/MEM
+   wire [15:0] EXMEMalures;
+   wire [15:0] EXMEMrtin;
+   wire        EXMEMregwrite;
+   wire        EXMEMdmemwrite;
+   wire        EXMEMdmemen;
+   wire        EXMEMmemtoreg;
+   wire        EXMEMdmemdump;
+   wire [2:0]  EXMEMrsaddr;
+   wire [2:0]  EXMEMrtaddr;
+   wire [2:0]  EXMEMrdaddr;
+
+   //MEM/WB
+   wire [15:0] MEMWBwritedata;
+   wire        MEMWBregwrite;
+   wire        MEMWBdmemdump;
+   wire        MEMWBrdaddr;
    
     fetch fetch(
         //Outputs
@@ -31,20 +70,11 @@ module proc (/*AUTOARG*/
         .pcbranch(IDIFpcbranch), .branch(IDIFbranch),
         .clk(clk), .rst(rst)
     );
-    
-    //IF/ID
-    
-    wire [15:0] IFIDinst;
-    wire [15:0] IFIDpcplus2;
-    
-    //forwarding new pc
-    wire [15:0] IDIFpcbranch;
-    wire IDIFbranch;
-    
+   
     decode decode(
         //Output
         .InstOut(IDEXinst), .pcplus2Out(IDEXpcplus2), .Rs(IDEXrs), .Rt(IDEXrt),
-        .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), ,DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(),
+        .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), .DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(),
         .RdAddr(IDEXrdaddr),
         .pcbranch(IDIFpcbranch), .branch(IDIFbranch), 
         .err(err),
@@ -53,20 +83,10 @@ module proc (/*AUTOARG*/
         .wbwriteData(MEMWBwritedata),
         .wbRegWrite(MEMWBregwrite),
         .wbRdAddr(MEMWBrdaddr),
-        .clk(clk), .rst(rst),
+        .clk(clk), .rst(rst)
     );
     
-    //ID/EX
-    wire [15:0] IDEXinst;
-    wire [15:0] IDEXpcplus2;
-    wire [15:0] IDEXrs;
-    wire [15:0] IDEXrt;
-    wire IDEXregwrite;
-    wire IDEXdmemwrite;
-    wire IDEXdmemen;
-    wire IDEXmemtoreg;
-    wire IDEXdmemdump;
-    wire [2:0] IDEXrdaddr;
+    
     
     execute execute (
         //Output
@@ -75,23 +95,12 @@ module proc (/*AUTOARG*/
         .RsAddr(EXMEMrsaddr), .RtAddr(EXMEMrtaddr), .RdAddrOut(EXMEMrdaddr),
         //input
         .InstIn(IDEXinst), .pcplus2In(IDEXpcplus2), .RsIn(IDEXrs), .RtIn(IDEXrt),
-        .RegWriteIn(IDEXregwrite), .DMemWriteIn(IDEXdmemwrite), .DMemEnIn(IDEXdmemen), .MemToRegOut(IDEXmemtoreg), .DMemDumpIn(IDEXdmemdump),
+        .RegWriteIn(IDEXregwrite), .DMemWriteIn(IDEXdmemwrite), .DMemEnIn(IDEXdmemen), .MemToRegIn(IDEXmemtoreg), .DMemDumpIn(IDEXdmemdump),
         .RdAddrIn(IDEXrdaddr), 
         .clk(clk), .rst(rst)
     );
     
-    //EX/MEM
-    wire [15:0] EXMEMalures;
-    wire [15:0] EXMEMrtin;
-    wire EXMEMregwrite;
-    wire EXMEMdmemwrite;
-    wire EXMEMdmemen;
-    wire EXMEMmemtoreg;
-    wire EXMEMdmemdump;
-    wire [2:0] EXMEMrsaddr;
-    wire [2:0] EXMEMrtaddr;
-    wire [2:0] EXMEMrdaddr;
-    
+        
     memory memory (
         //Output
         .writeData(MEMWBwritedata),
@@ -102,14 +111,8 @@ module proc (/*AUTOARG*/
         .RegWriteIn(EXMEMregwrite), .DMemWriteIn(EXMEMdmemwrite), .DMemEnIn(EXMEMdmemen), .MemToRegIn(EXMEMmemtoreg), .DMemDumpIn(EXMEMdmemdump),
         .RsAddrIn(EXMEMrsaddr), .RtAddrIn(EXMEMrtaddr), .RdAddrIn(EXMEMrdaddr),
         .clk(clk), .rst(rst)
-    )
-    
-    //MEM/WB
-    wire [15:0] MEMWBwritedata;
-    wire MEMWBregwrite;
-    wire MEMWBdmemdump;
-    wire MEMWBrdaddr;
-    
+                   );
+ 
     //go back to decode module which contains the register file
    
 endmodule // proc

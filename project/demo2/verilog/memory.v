@@ -8,7 +8,8 @@ module memory (
     RegWriteIn, DMemWriteIn, DMemEnIn, MemToRegIn, DMemDumpIn,
     RsAddrIn, RtAddrIn, RdAddrIn,
     clk, rst
-    )
+               );
+   
     
     output [15:0] writeData;
     output RegWriteOut;
