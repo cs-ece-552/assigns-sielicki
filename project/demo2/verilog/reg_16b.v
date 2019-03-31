@@ -16,8 +16,7 @@ module reg_16b (
    
    input         clk;
    input         rst;
-   input         inData;
-   input 	 writeEn;
+   input         writeEn;
    
    input [15:0]  inData;
    output [15:0] outData;
