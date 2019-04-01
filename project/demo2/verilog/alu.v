@@ -5,15 +5,15 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     input [15:0] Rt;
     input [15:0] Pc;
     input [7:0] Imm;
-    
+
     output [15:0] res;
-        
+
     wire [15:0] A;
     wire [15:0] B;
     wire C_in;
     wire [15:0] res_add;
     wire C_out;
-    
+
     wire [15:0]res_barrel;
     wire BarrelOp;
     wire [15:0] preFlip;

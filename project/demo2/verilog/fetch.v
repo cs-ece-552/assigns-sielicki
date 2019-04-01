@@ -3,7 +3,7 @@ module fetch(
     Inst,
     pcplus2,
     //Inputs
-    pcbranch, branch,
+    pcbranch, branch, stallPc,
     clk, rst
     );
     
@@ -12,6 +12,7 @@ module fetch(
     
     input [15:0] pcbranch;
     input branch;
+    input stallPc;
     input clk;
     input rst;
     
@@ -27,7 +28,7 @@ module fetch(
                .clk                     (clk),
                .rst                     (rst),
                .inData                  (newPC),
-               .writeEn                 (1'b1));//(~DMemDump));
+               .writeEn                 (~stallPc));//(~DMemDump));
     
     rca_16b pc_plus_2(
                      // Outputs

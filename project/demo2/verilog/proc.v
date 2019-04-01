@@ -28,11 +28,13 @@ module proc (/*AUTOARG*/
    wire [15:0] IFIDpcplus2;
    wire [15:0] IFIDinstOut;
    wire [15:0] IFIDpcplus2Out;
+   wire [15:0] IFIDinstIn;
+   wire [15:0] IFIDinstOut2; 
+   wire rstReg;
 
    //forwarding new pc
    wire [15:0] IDIFpcbranch;
    wire        IDIFbranch;
-
 
    //ID/EX
    wire [15:0] IDEXinst;
@@ -56,6 +58,11 @@ module proc (/*AUTOARG*/
    wire        IDEXdmemenOut;
    wire        IDEXmemtoregOut;
    wire        IDEXdmemdumpOut;
+  
+   wire        IDEXregwriteIn;
+   wire        IDEXdmemwriteIn;
+   wire        IDEXdmemenIn;
+   wire        IDEXdmemdumpIn;
    
    wire [2:0]  IDEXrdaddr;
    wire [2:0]  IDEXrdaddrOut;
@@ -78,7 +85,12 @@ module proc (/*AUTOARG*/
    wire        EXMEMdmemenOut;
    wire        EXMEMmemtoregOut;
    wire        EXMEMdmemdumpOut;
-   
+
+   wire        EXMEMregwriteIn;
+   wire        EXMEMdmemwriteIn;
+   wire        EXMEMdmemenIn;
+   wire        EXMEMdmemdumpIn;
+ 
    wire [2:0]  EXMEMrsaddr;
    wire [2:0]  EXMEMrtaddr;
    wire [2:0]  EXMEMrdaddr;
@@ -98,25 +110,52 @@ module proc (/*AUTOARG*/
    wire        MEMWBregwriteOut;
    wire        MEMWBdmemdumpOut;
 
+   wire        MEMWBregwriteIn;
+   wire        MEMWBdmemdumpIn;
    
    wire [2:0]  MEMWBrdaddr;
    
    wire [2:0]  MEMWBrdaddrOut;
    
-   
+   //stalls
+   wire fetchstall_logic;
+   wire decodestall_logic;
+   wire executestall_logic;
+   wire memorystall_logic;
+   wire fetchstall;
+   wire fetchstall_nobranch;
+   wire decodestall;
+   wire executestall;
+   wire memorystall;
+
+   assign resstall_logic = ~rstReg;
+   assign branchstall_logic = IDIFbranch;
+   assign decodestall_logic = 1'b0;
+   assign executestall_logic = 1'b0;
+   assign memorystall_logic = 1'b0;
+
+   assign fetchstall = branchstall_logic | fetchstall_nobranch;
+   assign fetchstall_nobranch = decodestall_logic | executestall_logic | memorystall_logic;
+   assign decodestall = decodestall_logic | executestall_logic | memorystall_logic;
+   assign executestall = executestall_logic | memorystall_logic;
+   assign memorystall = memorystall_logic;
+  
+   reg_1b rstreg(.clk(clk), .rst(rst), .inData(1'b1),.writeEn(1'b1), .outData(rstReg)); 
+
     fetch fetch(
         //Outputs
         .Inst(IFIDinst),
         .pcplus2(IFIDpcplus2),
         //Inputs
-        .pcbranch(IDIFpcbranch), .branch(IDIFbranch),
+        .pcbranch(IDIFpcbranch), .branch(IDIFbranch), .stallPc(fetchstall_nobranch),
         .clk(clk), .rst(rst)
     );
 
    //IF-ID Pipeline
-   reg_16b ifidinst(.clk(clk), .rst(rst),.inData(IFIDinst),.writeEn(1'b1),.outData(IFIDinstOut));
-   reg_16b ifidpcplus2(.clk(clk), .rst(rst),.inData(IFIDpcplus2),.writeEn(1'b1),.outData(IFIDpcplus2Out));
-   
+   assign IFIDinstIn = branchstall_logic ? 16'b0000_1000_0000_0000 : IFIDinst;
+   reg_16b ifidinst(.clk(clk), .rst(rst),.inData(IFIDinstIn),.writeEn(~decodestall),.outData(IFIDinstOut));
+   reg_16b ifidpcplus2(.clk(clk), .rst(rst),.inData(IFIDpcplus2),.writeEn(~decodestall),.outData(IFIDpcplus2Out));
+   assign IFIDinstOut2 = resstall_logic ? 16'b0000_1000_0000_0000 : IFIDinstOut;
 
    decode decode(
                  //Output
@@ -126,25 +165,31 @@ module proc (/*AUTOARG*/
                  .pcbranch(IDIFpcbranch), .branch(IDIFbranch), 
                  .err(err),
                  //Input
-                 .InstIn(IFIDinstOut), .pcplus2In(IFIDpcplus2Out),
+                 .InstIn(IFIDinstOut2), .pcplus2In(IFIDpcplus2Out),
                  .wbwriteData(MEMWBwritedataOut),
                  .wbRegWrite(MEMWBregwriteOut),
                  .wbRdAddr(MEMWBrdaddrOut),
                  .clk(clk), .rst(rst)
                  );
    
-   reg_16b idexinst(.clk(clk), .rst(rst),.inData(IDEXinst),.writeEn(1'b1),.outData(IDEXinstOut));
-   reg_16b idexpcplus2(.clk(clk), .rst(rst),.inData(IDEXpcplus2),.writeEn(1'b1),.outData(IDEXpcplus2Out));
-   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrs),.writeEn(1'b1),.outData(IDEXrsOut));
-   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrt),.writeEn(1'b1),.outData(IDEXrtOut));
-   
-   reg_1b idexregwrite(.clk(clk), .rst(rst),.inData(IDEXregwrite),.writeEn(1'b1),.outData(IDEXregwriteOut));
-   reg_1b idexdmemwrite(.clk(clk), .rst(rst),.inData(IDEXdmemwrite),.writeEn(1'b1),.outData(IDEXdmemwriteOut));
-   reg_1b idexdmemen(.clk(clk), .rst(rst),.inData(IDEXdmemen),.writeEn(1'b1),.outData(IDEXdmemenOut));
-   reg_1b idexmemtoreg(.clk(clk), .rst(rst),.inData(IDEXmemtoreg),.writeEn(1'b1),.outData(IDEXmemtoregOut));
-   reg_1b idexdmemdump(.clk(clk), .rst(rst),.inData(IDEXdmemdump),.writeEn(1'b1),.outData(IDEXdmemdumpOut));
+   //ID-EX Pipeline
+   assign IDEXregwriteIn = decodestall_logic ? 1'b0 : IDEXregwrite;
+   assign IDEXdmemwriteIn = decodestall_logic ? 1'b0 : IDEXdmemwrite;
+   assign IDEXdmemenIn = decodestall_logic ? 1'b0 : IDEXdmemen;
+   assign IDEXdmemdumpIn = decodestall_logic ? 1'b0 : IDEXdmemdump;
 
-   reg_3b idexrdaddr(.clk(clk), .rst(rst),.inData(IDEXrdaddr),.writeEn(1'b1),.outData(IDEXrdaddrOut));
+   reg_16b idexinst(.clk(clk), .rst(rst),.inData(IDEXinst),.writeEn(~executestall),.outData(IDEXinstOut));
+   reg_16b idexpcplus2(.clk(clk), .rst(rst),.inData(IDEXpcplus2),.writeEn(~executestall),.outData(IDEXpcplus2Out));
+   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrs),.writeEn(~executestall),.outData(IDEXrsOut));
+   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrt),.writeEn(~executestall),.outData(IDEXrtOut));
+   
+   reg_1b idexregwrite(.clk(clk), .rst(rst),.inData(IDEXregwriteIn),.writeEn(~executestall),.outData(IDEXregwriteOut));
+   reg_1b idexdmemwrite(.clk(clk), .rst(rst),.inData(IDEXdmemwriteIn),.writeEn(~executestall),.outData(IDEXdmemwriteOut));
+   reg_1b idexdmemen(.clk(clk), .rst(rst),.inData(IDEXdmemenIn),.writeEn(~executestall),.outData(IDEXdmemenOut));
+   reg_1b idexmemtoreg(.clk(clk), .rst(rst),.inData(IDEXmemtoreg),.writeEn(~executestall),.outData(IDEXmemtoregOut));
+   reg_1b idexdmemdump(.clk(clk), .rst(rst),.inData(IDEXdmemdumpIn),.writeEn(~executestall),.outData(IDEXdmemdumpOut));
+
+   reg_3b idexrdaddr(.clk(clk), .rst(rst),.inData(IDEXrdaddr),.writeEn(~executestall),.outData(IDEXrdaddrOut));
 
    execute execute (
                     //Output
@@ -158,20 +203,25 @@ module proc (/*AUTOARG*/
                     .clk(clk), .rst(rst)
                     );
 
+   //EX-MEM Pipeline  
+   assign EXMEMregwriteIn = executestall_logic ? 1'b0 : EXMEMregwrite;
+   assign EXMEMdmemwriteIn = executestall_logic ? 1'b0 : EXMEMdmemwrite;
+   assign EXMEMdmemenIn = executestall_logic ? 1'b0 : EXMEMdmemen;
+   assign EXMEMdmemdumpIn = executestall_logic ? 1'b0 : EXMEMdmemdump;
 
-   reg_16b exmemalures(.clk(clk), .rst(rst),.inData(EXMEMalures),.writeEn(1'b1),.outData(EXMEMaluresOut));
-   reg_16b exmemrtin(.clk(clk), .rst(rst),.inData(EXMEMrtin),.writeEn(1'b1),.outData(EXMEMrtin));
+   reg_16b exmemalures(.clk(clk), .rst(rst),.inData(EXMEMalures),.writeEn(~memorystall),.outData(EXMEMaluresOut));
+   reg_16b exmemrtin(.clk(clk), .rst(rst),.inData(EXMEMrtin),.writeEn(~memorystall),.outData(EXMEMrtinOut));
 
-   reg_1b exmemregwrite(.clk(clk), .rst(rst),.inData(EXMEMregwrite),.writeEn(1'b1),.outData(EXMEMregwriteOut));
-   reg_1b exmemdmemwrite(.clk(clk), .rst(rst),.inData(EXMEMdmemwrite),.writeEn(1'b1),.outData(EXMEMdmemwriteOut));
-   reg_1b exmemdmemen(.clk(clk), .rst(rst),.inData(EXMEMdmemen),.writeEn(1'b1),.outData(EXMEdmemenOut));
-   reg_1b exmemmemtoreg(.clk(clk), .rst(rst),.inData(EXMEMmemtoreg),.writeEn(1'b1),.outData(EXMEMmemtoregOut));
-   reg_1b exmemdmemdump(.clk(clk), .rst(rst),.inData(EXMEMdmemdump),.writeEn(1'b1),.outData(EXMEMdmemdumpOut));
+   reg_1b exmemregwrite(.clk(clk), .rst(rst),.inData(EXMEMregwriteIn),.writeEn(~memorystall),.outData(EXMEMregwriteOut));
+   reg_1b exmemdmemwrite(.clk(clk), .rst(rst),.inData(EXMEMdmemwriteIn),.writeEn(~memorystall),.outData(EXMEMdmemwriteOut));
+   reg_1b exmemdmemen(.clk(clk), .rst(rst),.inData(EXMEMdmemenIn),.writeEn(~memorystall),.outData(EXMEMdmemenOut));
+   reg_1b exmemmemtoreg(.clk(clk), .rst(rst),.inData(EXMEMmemtoreg),.writeEn(~memorystall),.outData(EXMEMmemtoregOut));
+   reg_1b exmemdmemdump(.clk(clk), .rst(rst),.inData(EXMEMdmemdumpIn),.writeEn(~memorystall),.outData(EXMEMdmemdumpOut));
 
-   reg_3b exmemrsaddr(.clk(clk), .rst(rst),.inData(EXMEMrsaddr),.writeEn(1'b1),.outData(EXMEMrsaddrOut));
-   reg_3b exmemrtaddr(.clk(clk), .rst(rst),.inData(EXMEMrtaddr),.writeEn(1'b1),.outData(EXMEMrtaddrOut));
-   reg_3b exmemrdaddr(.clk(clk), .rst(rst),.inData(EXMEMrdaddr),.writeEn(1'b1),.outData(EXMEMrdaddrOut));
-   
+   reg_3b exmemrsaddr(.clk(clk), .rst(rst),.inData(EXMEMrsaddr),.writeEn(~memorystall),.outData(EXMEMrsaddrOut));
+   reg_3b exmemrtaddr(.clk(clk), .rst(rst),.inData(EXMEMrtaddr),.writeEn(~memorystall),.outData(EXMEMrtaddrOut));
+   reg_3b exmemrdaddr(.clk(clk), .rst(rst),.inData(EXMEMrdaddr),.writeEn(~memorystall),.outData(EXMEMrdaddrOut));
+
    memory memory (
                   //Output
                   .writeData(MEMWBwritedata),
@@ -184,14 +234,17 @@ module proc (/*AUTOARG*/
                   .clk(clk), .rst(rst)
                   );
    
+   //MEM-WB Pipeline
+   assign MEMWBregwriteIn = memorystall_logic ? 1'b0 : MEMWBregwrite;
+   assign MEMWBdmemdumpIn = memorystall_logic ? 1'b0 : MEMWBdmemdump;
 
    reg_16b memwbwritedata(.clk(clk), .rst(rst),.inData(MEMWBwritedata),.writeEn(1'b1),.outData(MEMWBwritedataOut));
 
-   reg_1b memwbregwrite(.clk(clk), .rst(rst),.inData(MEMWBregwrite),.writeEn(1'b1),.outData(MEMWBregwriteOut));
-   reg_1b memwbdmemdump(.clk(clk), .rst(rst),.inData(MEMWBdmemdump),.writeEn(1'b1),.outData(MEMWBdmemdumpOut));
+   reg_1b memwbregwrite(.clk(clk), .rst(rst),.inData(MEMWBregwriteIn),.writeEn(1'b1),.outData(MEMWBregwriteOut));
+   reg_1b memwbdmemdump(.clk(clk), .rst(rst),.inData(MEMWBdmemdumpIn),.writeEn(1'b1),.outData(MEMWBdmemdumpOut));
 
    reg_3b memwbrdaddr(.clk(clk), .rst(rst),.inData(MEMWBrdaddr),.writeEn(1'b1),.outData(MEMWBrdaddrOut));
-   
+
     //go back to decode module which contains the register file
    
 endmodule // proc
