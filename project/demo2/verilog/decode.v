@@ -10,6 +10,7 @@ module decode(
     wbwriteData,
     wbRegWrite,
     wbRdAddr,
+    forwardlogic, forwardRs,
     clk, rst
     );
 
@@ -38,6 +39,9 @@ module decode(
     input wbRegWrite;
     input [2:0] wbRdAddr;
 
+    input forwardlogic;
+    input [15:0] forwardRs;
+
     input clk;
     input rst;
 
@@ -48,6 +52,7 @@ module decode(
     wire [1:0] RegDst;
     wire [2:0] SESel;
 
+    wire [15:0] Rs2;
     wire nz;
     wire lt ;
     wire branchflag;
@@ -62,7 +67,7 @@ module decode(
 
     assign InstOut = InstIn;
     assign pcplus2Out = pcplus2In;
-    
+
     control control(/*AUTOINST*/
                     // Outputs
                     .err                (errTemp[0]),
@@ -100,7 +105,9 @@ module decode(
     assign RdAddr = RegDst[1] ? 
                              (RegDst[0] ? 3'b111 : InstIn[10:8]) :
                              (RegDst[0] ? InstIn[7:5] : InstIn[4:2]);
-                      
+                    
+    assign Rs2 = forwardlogic ? forwardRs : Rs;
+
     PCAdder pc_adder(
                     // Outputs
                     .nextpc(pcbranch), 
@@ -112,11 +119,11 @@ module decode(
                     .Jump(Jump),
                     .get02(illegalOp),
                     .getEpc(rti), 
-                    .Rs(Rs),
+                    .Rs(Rs2),
                     .epcValue(epc));
 
-    assign nz = |Rs;
-    assign lt  = Rs[15];
+    assign nz = |Rs2;
+    assign lt  = Rs2[15];
     assign branchflag = (InstIn[12] == 1'b1) ?
                             ((InstIn[11] == 1'b1) ? ~lt : lt  ):
                             ((InstIn[11] == 1'b1) ? ~nz : nz);                
@@ -124,8 +131,8 @@ module decode(
     assign branch = Jump | PCImm | illegalOp | rti | (PCSrc & branchflag);
     
     reg_16b ePC(
-	        // Outputs
-	        .outData                (epc),
+            // Outputs
+            .outData                (epc),
             // Inputs
             .clk                    (clk),
             .rst                    (rst),

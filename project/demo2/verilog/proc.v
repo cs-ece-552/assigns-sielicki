@@ -41,12 +41,14 @@ module proc (/*AUTOARG*/
    wire [15:0] IDEXpcplus2;
    wire [15:0] IDEXrs;
    wire [15:0] IDEXrt;
-   
+
    wire [15:0] IDEXinstOut;
    wire [15:0] IDEXpcplus2Out;
    wire [15:0] IDEXrsOut;
    wire [15:0] IDEXrtOut;
-   
+   wire [15:0] IDEXrsOut2;
+   wire [15:0] IDEXrtOut2;  
+  
    wire        IDEXregwrite;
    wire        IDEXdmemwrite;
    wire        IDEXdmemen;
@@ -73,6 +75,7 @@ module proc (/*AUTOARG*/
 
    wire [15:0] EXMEMaluresOut;
    wire [15:0] EXMEMrtinOut;
+   wire [15:0] EXMEMrtinOut2;
 
    wire        EXMEMregwrite;
    wire        EXMEMdmemwrite;
@@ -139,6 +142,24 @@ module proc (/*AUTOARG*/
    assign decodestall = decodestall_logic | executestall_logic | memorystall_logic;
    assign executestall = executestall_logic | memorystall_logic;
    assign memorystall = memorystall_logic;
+
+   //forwarding
+   //ex to id forwarding is weird since the logic is inside of decode, so we
+   //let decode handle the pathway. proc still handle the logic for it
+   wire EXtoID_forwardRs_logic;
+
+   wire EXtoEX_forwardRs_logic;
+   wire EXtoEX_forwardRt_logic;
+   wire MEMtoEX_forwardRs_logic;
+   wire MEMtoEX_forwardRt_logic;
+   wire MEMtoMEM_forwardRt_logic;
+
+   assign EXtoID_forwardRs_logic = 1'b0;
+   assign EXtoEX_forwardRs_logic = 1'b0;
+   assign EXtoEX_forwardRt_logic = 1'b0;
+   assign MEMtoEX_forwardRs_logic = 1'b0;
+   assign MEMtoEX_forwardRt_logic = 1'b0;
+   assign MEMtoMEM_forwardRt_logic = 1'b0;
   
    reg_1b rstreg(.clk(clk), .rst(rst), .inData(1'b1),.writeEn(1'b1), .outData(rstReg)); 
 
@@ -169,6 +190,7 @@ module proc (/*AUTOARG*/
                  .wbwriteData(MEMWBwritedataOut),
                  .wbRegWrite(MEMWBregwriteOut),
                  .wbRdAddr(MEMWBrdaddrOut),
+		 .forwardlogic(EXtoID_forwardRs_logic), .forwardRs(EXMEMaluresOut),
                  .clk(clk), .rst(rst)
                  );
    
@@ -191,13 +213,16 @@ module proc (/*AUTOARG*/
 
    reg_3b idexrdaddr(.clk(clk), .rst(rst),.inData(IDEXrdaddr),.writeEn(~executestall),.outData(IDEXrdaddrOut));
 
+   assign IDEXrsOut2 = EXtoEX_forwardRs_logic ? EXMEMaluresOut : (MEMtoEX_forwardRs_logic ? MEMWBwritedataOut : IDEXrsOut);
+   assign IDEXrtOut2 = EXtoEX_forwardRt_logic ? EXMEMaluresOut : (MEMtoEX_forwardRt_logic ? MEMWBwritedataOut : IDEXrtOut);
+
    execute execute (
                     //Output
                     .AluRes(EXMEMalures), .RtOut(EXMEMrtin),
                     .RegWriteOut(EXMEMregwrite), .DMemWriteOut(EXMEMdmemwrite), .DMemEnOut(EXMEMdmemen), .MemToRegOut(EXMEMmemtoreg), .DMemDumpOut(EXMEMdmemdump),
                     .RsAddr(EXMEMrsaddr), .RtAddr(EXMEMrtaddr), .RdAddrOut(EXMEMrdaddr),
                     //input
-                    .InstIn(IDEXinstOut), .pcplus2In(IDEXpcplus2Out), .RsIn(IDEXrsOut), .RtIn(IDEXrtOut),
+                    .InstIn(IDEXinstOut), .pcplus2In(IDEXpcplus2Out), .RsIn(IDEXrsOut2), .RtIn(IDEXrtOut2),
                     .RegWriteIn(IDEXregwriteOut), .DMemWriteIn(IDEXdmemwriteOut), .DMemEnIn(IDEXdmemenOut), .MemToRegIn(IDEXmemtoregOut), .DMemDumpIn(IDEXdmemdumpOut),
                     .RdAddrIn(IDEXrdaddrOut), 
                     .clk(clk), .rst(rst)
@@ -222,13 +247,15 @@ module proc (/*AUTOARG*/
    reg_3b exmemrtaddr(.clk(clk), .rst(rst),.inData(EXMEMrtaddr),.writeEn(~memorystall),.outData(EXMEMrtaddrOut));
    reg_3b exmemrdaddr(.clk(clk), .rst(rst),.inData(EXMEMrdaddr),.writeEn(~memorystall),.outData(EXMEMrdaddrOut));
 
+   assign EXMEMrtinOut2 = MEMtoMEM_forwardRt_logic ? MEMWBwritedataOut : EXMEMrtinOut;
+
    memory memory (
                   //Output
                   .writeData(MEMWBwritedata),
                   .RegWriteOut(MEMWBregwrite), .DMemDumpOut(MEMWBdmemdump),
                   .RdAddrOut(MEMWBrdaddr),
                   //Input
-                  .AluRes(EXMEMaluresOut), .RtIn(EXMEMrtinOut),
+                  .AluRes(EXMEMaluresOut), .RtIn(EXMEMrtinOut2),
                   .RegWriteIn(EXMEMregwriteOut), .DMemWriteIn(EXMEMdmemwriteOut), .DMemEnIn(EXMEMdmemenOut), .MemToRegIn(EXMEMmemtoregOut), .DMemDumpIn(EXMEMdmemdumpOut),
                   .RsAddrIn(EXMEMrsaddrOut), .RtAddrIn(EXMEMrtaddrOut), .RdAddrIn(EXMEMrdaddrOut),
                   .clk(clk), .rst(rst)
