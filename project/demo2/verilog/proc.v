@@ -175,7 +175,7 @@ module proc (/*AUTOARG*/
    wire IDEXrtwriteen;
 
    assign EXtoID_forwardRs_logic = ((IFIDinstOut2[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
-   assign EXtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (EXMEMrsaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
+   assign EXtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
    assign EXtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
    assign MEMtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
    assign MEMtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
