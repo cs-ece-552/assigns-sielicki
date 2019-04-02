@@ -148,7 +148,7 @@ module proc (/*AUTOARG*/
                	              (((IFIDinstOut[10:8] == EXMEMrdaddrOut)) & (EXMEMmemtoregOut) & (EXMEMregwriteOut) & IDpcsrc & ~IDpcimm);
    assign executestall_logic = ((IDEXinstOut[10:8] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut)) |
 	                        ((IDEXinstOut[7:5] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut) & IDEXalusrc2Out);
-   assign memorystall_logic = 1'b0;
+   assign memorystall_logic = 1'b0; //:q((EXMEMrtaddrOut == MEMWBrdaddrOut) & MEMWBregwriteOut));
 
    assign fetchstall = branchstall_logic | fetchstall_nobranch;
    assign fetchstall_nobranch = decodestall_logic | executestall_logic | memorystall_logic;
@@ -177,7 +177,7 @@ module proc (/*AUTOARG*/
    assign EXtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
    assign MEMtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
    assign MEMtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
-   assign MEMtoMEM_forwardRt_logic = ((EXMEMrtaddrOut == MEMWBrdaddrOut)) & (EXMEMregwriteOut);
+   assign MEMtoMEM_forwardRt_logic = ((EXMEMrtaddrOut == MEMWBrdaddrOut)) & (MEMWBregwriteOut);
   
    assign WBtoEX_forwardRs_logic = (executestall & MEMtoEX_forwardRs_logic);
    assign WBtoEX_forwardRt_logic = (executestall & MEMtoEX_forwardRt_logic);
