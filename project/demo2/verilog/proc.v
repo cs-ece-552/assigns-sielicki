@@ -136,6 +136,8 @@ module proc (/*AUTOARG*/
    wire decodestall_logic;
    wire executestall_logic;
    wire memorystall_logic;
+   wire resstall_logic;
+   wire branchstall_logic;
    wire fetchstall;
    wire fetchstall_nobranch;
    wire decodestall;
