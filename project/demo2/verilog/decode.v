@@ -2,7 +2,8 @@ module decode(
     //Output
     InstOut, pcplus2Out, Rs, Rt,
     RegWrite, DMemWrite, DMemEn, MemToReg, DMemDump,
-    RdAddr,
+    ALUSrc2, PCSrc, PCImm,
+    RdAddr, 
     pcbranch, branch,
     err,
     //Input
@@ -45,9 +46,9 @@ module decode(
     input clk;
     input rst;
 
-    wire ALUSrc2;
-    wire PCSrc;
-    wire PCImm;
+    output ALUSrc2;
+    output PCSrc;
+    output PCImm;
     wire Jump;
     wire [1:0] RegDst;
     wire [2:0] SESel;
@@ -88,7 +89,7 @@ module decode(
                     .OpCode             (InstIn[15:11]),
                     .Funct              (InstIn[1:0]));
 
-    rf      rf_bypass(/*AUTOINST*/
+    rf_bypass rf_bypass(/*AUTOINST*/
                       // Outputs
                     .readData1        (Rs),
                     .readData2        (Rt),

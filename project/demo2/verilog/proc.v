@@ -23,6 +23,8 @@ module proc (/*AUTOARG*/
    
    /* your code here */
 
+   wire halt;
+
    //IF/ID
    wire [15:0] IFIDinst;
    wire [15:0] IFIDpcplus2;
@@ -35,6 +37,8 @@ module proc (/*AUTOARG*/
    //forwarding new pc
    wire [15:0] IDIFpcbranch;
    wire        IDIFbranch;
+   wire        IDpcsrc;
+   wire        IDpcimm;
 
    //ID/EX
    wire [15:0] IDEXinst;
@@ -54,13 +58,15 @@ module proc (/*AUTOARG*/
    wire        IDEXdmemen;
    wire        IDEXmemtoreg;
    wire        IDEXdmemdump;
+   wire        IDEXalusrc2;
 
    wire        IDEXregwriteOut;
    wire        IDEXdmemwriteOut;
    wire        IDEXdmemenOut;
    wire        IDEXmemtoregOut;
    wire        IDEXdmemdumpOut;
-  
+   wire        IDEXalusrc2Out;
+
    wire        IDEXregwriteIn;
    wire        IDEXdmemwriteIn;
    wire        IDEXdmemenIn;
@@ -88,6 +94,8 @@ module proc (/*AUTOARG*/
    wire        EXMEMdmemenOut;
    wire        EXMEMmemtoregOut;
    wire        EXMEMdmemdumpOut;
+   wire        EXMEMdmemenOut2;
+   wire        EXMEMdmemwriteOut2;
 
    wire        EXMEMregwriteIn;
    wire        EXMEMdmemwriteIn;
@@ -121,7 +129,7 @@ module proc (/*AUTOARG*/
    wire [2:0]  MEMWBrdaddrOut;
    
    //stalls
-   wire fetchstall_logic;
+   //wire fetchstall_logic;
    wire decodestall_logic;
    wire executestall_logic;
    wire memorystall_logic;
@@ -133,8 +141,10 @@ module proc (/*AUTOARG*/
 
    assign resstall_logic = ~rstReg;
    assign branchstall_logic = IDIFbranch;
-   assign decodestall_logic = 1'b0;
-   assign executestall_logic = 1'b0;
+   assign decodestall_logic = (((IFIDinstOut[10:8] == IDEXrdaddrOut)) & (IDEXregwriteOut) & IDpcsrc & ~IDpcimm) |
+               	              (((IFIDinstOut[10:8] == EXMEMrdaddrOut)) & (EXMEMmemtoregOut) & (EXMEMregwriteOut) & IDpcsrc & ~IDpcimm);
+   assign executestall_logic = ((IDEXinstOut[10:8] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut)) |
+	                        ((IDEXinstOut[7:5] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut) & IDEXalusrc2Out);
    assign memorystall_logic = 1'b0;
 
    assign fetchstall = branchstall_logic | fetchstall_nobranch;
@@ -154,14 +164,16 @@ module proc (/*AUTOARG*/
    wire MEMtoEX_forwardRt_logic;
    wire MEMtoMEM_forwardRt_logic;
 
-   assign EXtoID_forwardRs_logic = 1'b0;
-   assign EXtoEX_forwardRs_logic = 1'b0;
-   assign EXtoEX_forwardRt_logic = 1'b0;
-   assign MEMtoEX_forwardRs_logic = 1'b0;
-   assign MEMtoEX_forwardRt_logic = 1'b0;
-   assign MEMtoMEM_forwardRt_logic = 1'b0;
+   assign EXtoID_forwardRs_logic = ((IFIDinstOut2[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
+   assign EXtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
+   assign EXtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
+   assign MEMtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
+   assign MEMtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
+   assign MEMtoMEM_forwardRt_logic = ((EXMEMrtaddrOut == MEMWBrdaddrOut)) & (EXMEMregwriteOut);
   
+   //for halt and resets
    reg_1b rstreg(.clk(clk), .rst(rst), .inData(1'b1),.writeEn(1'b1), .outData(rstReg)); 
+   reg_1b haltreg(.clk(clk), .rst(rst), .inData(EXMEMdmemdumpOut), .writeEn(~halt), .outData(halt)); 
 
     fetch fetch(
         //Outputs
@@ -182,6 +194,7 @@ module proc (/*AUTOARG*/
                  //Output
                  .InstOut(IDEXinst), .pcplus2Out(IDEXpcplus2), .Rs(IDEXrs), .Rt(IDEXrt),
                  .RegWrite(IDEXregwrite), .DMemWrite(IDEXdmemwrite), .DMemEn(IDEXdmemen), .MemToReg(IDEXmemtoreg), .DMemDump(IDEXdmemdump),
+                 .ALUSrc2(IDEXalusrc2), .PCSrc(IDpcsrc), .PCImm(IDpcimm),
                  .RdAddr(IDEXrdaddr),
                  .pcbranch(IDIFpcbranch), .branch(IDIFbranch), 
                  .err(err),
@@ -190,7 +203,7 @@ module proc (/*AUTOARG*/
                  .wbwriteData(MEMWBwritedataOut),
                  .wbRegWrite(MEMWBregwriteOut),
                  .wbRdAddr(MEMWBrdaddrOut),
-		 .forwardlogic(EXtoID_forwardRs_logic), .forwardRs(EXMEMaluresOut),
+		             .forwardlogic(EXtoID_forwardRs_logic), .forwardRs(EXMEMaluresOut),
                  .clk(clk), .rst(rst)
                  );
    
@@ -202,14 +215,15 @@ module proc (/*AUTOARG*/
 
    reg_16b idexinst(.clk(clk), .rst(rst),.inData(IDEXinst),.writeEn(~executestall),.outData(IDEXinstOut));
    reg_16b idexpcplus2(.clk(clk), .rst(rst),.inData(IDEXpcplus2),.writeEn(~executestall),.outData(IDEXpcplus2Out));
-   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrs),.writeEn(~executestall),.outData(IDEXrsOut));
-   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrt),.writeEn(~executestall),.outData(IDEXrtOut));
+   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrs),.writeEn(1'b1),.outData(IDEXrsOut));
+   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrt),.writeEn(1'b1),.outData(IDEXrtOut));
    
-   reg_1b idexregwrite(.clk(clk), .rst(rst),.inData(IDEXregwriteIn),.writeEn(~executestall),.outData(IDEXregwriteOut));
-   reg_1b idexdmemwrite(.clk(clk), .rst(rst),.inData(IDEXdmemwriteIn),.writeEn(~executestall),.outData(IDEXdmemwriteOut));
-   reg_1b idexdmemen(.clk(clk), .rst(rst),.inData(IDEXdmemenIn),.writeEn(~executestall),.outData(IDEXdmemenOut));
-   reg_1b idexmemtoreg(.clk(clk), .rst(rst),.inData(IDEXmemtoreg),.writeEn(~executestall),.outData(IDEXmemtoregOut));
-   reg_1b idexdmemdump(.clk(clk), .rst(rst),.inData(IDEXdmemdumpIn),.writeEn(~executestall),.outData(IDEXdmemdumpOut));
+   reg_1b idexregwrite(.clk(clk), .rst(rst),.inData(IDEXregwriteIn),.writeEn(~executestall), .outData(IDEXregwriteOut));
+   reg_1b idexdmemwrite(.clk(clk), .rst(rst),.inData(IDEXdmemwriteIn),.writeEn(~executestall), .outData(IDEXdmemwriteOut));
+   reg_1b idexdmemen(.clk(clk), .rst(rst),.inData(IDEXdmemenIn),.writeEn(~executestall), .outData(IDEXdmemenOut));
+   reg_1b idexmemtoreg(.clk(clk), .rst(rst),.inData(IDEXmemtoreg),.writeEn(~executestall), .outData(IDEXmemtoregOut));
+   reg_1b idexdmemdump(.clk(clk), .rst(rst),.inData(IDEXdmemdumpIn),.writeEn(~executestall), .outData(IDEXdmemdumpOut));
+   reg_1b idexalusrc2(.clk(clk), .rst(rst), .inData(IDEXalusrc2), .writeEn(~executestall), .outData(IDEXalusrc2Out));
 
    reg_3b idexrdaddr(.clk(clk), .rst(rst),.inData(IDEXrdaddr),.writeEn(~executestall),.outData(IDEXrdaddrOut));
 
@@ -248,6 +262,8 @@ module proc (/*AUTOARG*/
    reg_3b exmemrdaddr(.clk(clk), .rst(rst),.inData(EXMEMrdaddr),.writeEn(~memorystall),.outData(EXMEMrdaddrOut));
 
    assign EXMEMrtinOut2 = MEMtoMEM_forwardRt_logic ? MEMWBwritedataOut : EXMEMrtinOut;
+   assign EXMEMdmemenOut2 = ~halt & EXMEMdmemenOut;
+   assign EXMEMdmemwriteOut2 = ~halt & EXMEMdmemwriteOut;
 
    memory memory (
                   //Output
@@ -256,7 +272,7 @@ module proc (/*AUTOARG*/
                   .RdAddrOut(MEMWBrdaddr),
                   //Input
                   .AluRes(EXMEMaluresOut), .RtIn(EXMEMrtinOut2),
-                  .RegWriteIn(EXMEMregwriteOut), .DMemWriteIn(EXMEMdmemwriteOut), .DMemEnIn(EXMEMdmemenOut), .MemToRegIn(EXMEMmemtoregOut), .DMemDumpIn(EXMEMdmemdumpOut),
+                  .RegWriteIn(EXMEMregwriteOut), .DMemWriteIn(EXMEMdmemwriteOut2), .DMemEnIn(EXMEMdmemenOut2), .MemToRegIn(EXMEMmemtoregOut), .DMemDumpIn(EXMEMdmemdumpOut),
                   .RsAddrIn(EXMEMrsaddrOut), .RtAddrIn(EXMEMrtaddrOut), .RdAddrIn(EXMEMrdaddrOut),
                   .clk(clk), .rst(rst)
                   );

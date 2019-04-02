@@ -139,10 +139,10 @@ module proc_hier_pbench();
    assign WriteData = DUT.p0.MEMWBwritedataOut;
    // Data being written to the register. (16 bits)
    
-   assign MemRead =  (DUT.p0.EXMEMdmemenOut & ~DUT.p0.EXMEMdmemwriteOut);
+   assign MemRead =  (DUT.p0.EXMEMdmemenOut2 & ~DUT.p0.EXMEMdmemwriteOut2);
    // Is memory being read, one bit signal (1 means yes, 0 means no)
    
-   assign MemWrite = (DUT.p0.EXMEMdmemenOut & DUT.p0.EXMEMdmemwriteOut);
+   assign MemWrite = (DUT.p0.EXMEMdmemenOut2 & DUT.p0.EXMEMdmemwriteOut2);
    // Is memory being written to (1 bit signal)
    
    assign MemAddress = DUT.p0.EXMEMaluresOut;
@@ -171,7 +171,7 @@ module proc_hier_pbench();
    // Signal indicating a valid data cache hit
    // Above assignment is a dummy example
    
-   assign Halt = DUT.p0.MEMWBdmemdumpOut;
+   assign Halt = DUT.p0.halt;
    // Processor halted
    
    
