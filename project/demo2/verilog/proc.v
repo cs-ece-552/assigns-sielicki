@@ -46,6 +46,9 @@ module proc (/*AUTOARG*/
    wire [15:0] IDEXrs;
    wire [15:0] IDEXrt;
 
+   wire [15:0] IDEXrsIn;
+   wire [15:0] IDEXrtIn;
+
    wire [15:0] IDEXinstOut;
    wire [15:0] IDEXpcplus2Out;
    wire [15:0] IDEXrsOut;
@@ -164,6 +167,11 @@ module proc (/*AUTOARG*/
    wire MEMtoEX_forwardRt_logic;
    wire MEMtoMEM_forwardRt_logic;
 
+   wire WBtoEX_forwardRs_logic;
+   wire WBtoEX_forwardRt_logic;
+   wire IDEXrswriteen;
+   wire IDEXrtwriteen;
+
    assign EXtoID_forwardRs_logic = ((IFIDinstOut2[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
    assign EXtoEX_forwardRs_logic = ((IDEXinstOut[10:8]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
    assign EXtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (EXMEMrdaddrOut)) & (EXMEMregwriteOut) & (~EXMEMmemtoregOut);
@@ -171,6 +179,11 @@ module proc (/*AUTOARG*/
    assign MEMtoEX_forwardRt_logic = ((IDEXinstOut[7:5]) == (MEMWBrdaddrOut)) & (MEMWBregwriteOut);
    assign MEMtoMEM_forwardRt_logic = ((EXMEMrtaddrOut == MEMWBrdaddrOut)) & (EXMEMregwriteOut);
   
+   assign WBtoEX_forwardRs_logic = (executestall & MEMtoEX_forwardRs_logic);
+   assign WBtoEX_forwardRt_logic = (executestall & MEMtoEX_forwardRt_logic);
+   assign IDEXrswriteen = (~executestall) | WBtoEX_forwardRs_logic;
+   assign IDEXrtwriteen = (~executestall) | WBtoEX_forwardRt_logic;
+
    //for halt and resets
    reg_1b rstreg(.clk(clk), .rst(rst), .inData(1'b1),.writeEn(1'b1), .outData(rstReg)); 
    reg_1b haltreg(.clk(clk), .rst(rst), .inData(EXMEMdmemdumpOut), .writeEn(~halt), .outData(halt)); 
@@ -213,10 +226,13 @@ module proc (/*AUTOARG*/
    assign IDEXdmemenIn = decodestall_logic ? 1'b0 : IDEXdmemen;
    assign IDEXdmemdumpIn = decodestall_logic ? 1'b0 : IDEXdmemdump;
 
+   assign IDEXrsIn = WBtoEX_forwardRs_logic ? MEMWBwritedataOut : IDEXrs;
+   assign IDEXrtIn = WBtoEX_forwardRt_logic ? MEMWBwritedataOut : IDEXrt;
+
    reg_16b idexinst(.clk(clk), .rst(rst),.inData(IDEXinst),.writeEn(~executestall),.outData(IDEXinstOut));
    reg_16b idexpcplus2(.clk(clk), .rst(rst),.inData(IDEXpcplus2),.writeEn(~executestall),.outData(IDEXpcplus2Out));
-   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrs),.writeEn(1'b1),.outData(IDEXrsOut));
-   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrt),.writeEn(1'b1),.outData(IDEXrtOut));
+   reg_16b idexrs(.clk(clk), .rst(rst),.inData(IDEXrsIn),.writeEn(IDEXrswriteen),.outData(IDEXrsOut));
+   reg_16b idexrt(.clk(clk), .rst(rst),.inData(IDEXrtIn),.writeEn(IDEXrtwriteen),.outData(IDEXrtOut));
    
    reg_1b idexregwrite(.clk(clk), .rst(rst),.inData(IDEXregwriteIn),.writeEn(~executestall), .outData(IDEXregwriteOut));
    reg_1b idexdmemwrite(.clk(clk), .rst(rst),.inData(IDEXdmemwriteIn),.writeEn(~executestall), .outData(IDEXdmemwriteOut));
