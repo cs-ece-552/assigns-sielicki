@@ -148,7 +148,7 @@ module proc_hier_pbench();
    assign MemAddress = DUT.p0.EXMEMaluresOut;
    // Address to access memory with (for both reads and writes to memory, 16 bits)
    
-   assign MemDataIn = DUT.p0.EXMEMrtinOut;
+   assign MemDataIn = DUT.p0.EXMEMrtinOut2;
    // Data to be written to memory for memory writes (16 bits)
    
    assign MemDataOut = DUT.p0.memory.MemOut;
