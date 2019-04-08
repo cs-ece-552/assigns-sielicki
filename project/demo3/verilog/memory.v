@@ -3,7 +3,7 @@ module memory (
     writeData,
     RegWriteOut, DMemDumpOut,
     RdAddrOut,
-    err,
+    err, stall,
     //Input
     AluRes, RtIn,
     RegWriteIn, DMemWriteIn, DMemEnIn, MemToRegIn, DMemDumpIn,
@@ -17,6 +17,7 @@ module memory (
     output DMemDumpOut;
     output [2:0] RdAddrOut;
     output err;
+    output stall;
 
     input [15:0] AluRes;
     input [15:0] RtIn;
@@ -35,25 +36,43 @@ module memory (
     input rst;
     
     wire [15:0] MemOut;
+
+    wire MemRd;
     
     assign writeData = MemToRegIn ? MemOut : AluRes;
     assign RegWriteOut = RegWriteIn;
     assign DMemDumpOut = DMemDumpIn;
     assign RdAddrOut = RdAddrIn;
-    
-    
-    
-    memory2c_align datamem(/*AUTOINST*/
-                    // Outputs
-                    .data_out           (MemOut),
+    //assign stall = 1'b0;
+    assign MemRd = DMemEnIn & ~DMemWriteIn;
+
+    stallmem datamem(
+	            //Outputs
+                    .DataOut            (MemOut),
+                    .Done               (),
+                    .Stall              (stall),
+                    .CacheHit           (),
                     .err                (err),
-                    // Inputs
-                    .data_in            (RtIn),
-                    .addr               (AluRes),
-                    .enable             (DMemEnIn),
-                    .wr                 (DMemWriteIn),
+	            //Inputs
+                    .Addr               (AluRes),
+                    .DataIn             (RtIn),
+                    .Rd                 (MemRd),
+                    .Wr                 (DMemWriteIn),
                     .createdump         (DMemDumpIn),
                     .clk                (clk),
                     .rst                (rst));
+
+    //memory2c_align datamem(/*AUTOINST*/
+    //                // Outputs
+    //                .data_out           (MemOut),
+    //                .err                (err),
+    //                // Inputs
+    //                .data_in            (RtIn),
+    //                .addr               (AluRes),
+    //                .enable             (DMemEnIn),
+    //                .wr                 (DMemWriteIn),
+    //                .createdump         (DMemDumpIn),
+    //                .clk                (clk),
+    //                .rst                (rst));
     
 endmodule

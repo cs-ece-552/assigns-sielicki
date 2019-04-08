@@ -135,6 +135,7 @@ module proc (/*AUTOARG*/
    
    //stalls
    //wire fetchstall_logic;
+   wire fetchstall_logic;
    wire decodestall_logic;
    wire executestall_logic;
    wire memorystall_logic;
@@ -152,10 +153,11 @@ module proc (/*AUTOARG*/
                	              (((IFIDinstOut[10:8] == EXMEMrdaddrOut)) & (EXMEMmemtoregOut) & (EXMEMregwriteOut) & IDpcsrc & ~IDpcimm);
    assign executestall_logic = ((IDEXinstOut[10:8] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut)) |
 	                        ((IDEXinstOut[7:5] == EXMEMrdaddrOut) & (EXMEMregwriteOut) & (EXMEMmemtoregOut) & IDEXalusrc2Out);
-   assign memorystall_logic = 1'b0; //:q((EXMEMrtaddrOut == MEMWBrdaddrOut) & MEMWBregwriteOut));
+   //assign memorystall_logic = 1'b0; //:q((EXMEMrtaddrOut == MEMWBrdaddrOut) & MEMWBregwriteOut));
 
+   assign fetchpipestall = branchstall_logic | fetchstall_logic;
    assign fetchstall = branchstall_logic | fetchstall_nobranch;
-   assign fetchstall_nobranch = decodestall_logic | executestall_logic | memorystall_logic;
+   assign fetchstall_nobranch = ~branchstall_logic & (fetchstall_logic | decodestall_logic | executestall_logic | memorystall_logic);
    assign decodestall = decodestall_logic | executestall_logic | memorystall_logic;
    assign executestall = executestall_logic | memorystall_logic;
    assign memorystall = memorystall_logic;
@@ -214,15 +216,15 @@ module proc (/*AUTOARG*/
         //Outputs
         .Inst(IFIDinst),
         .pcplus2(IFIDpcplus2),
-        .err(errLogic[0]),
+        .err(errLogic[0]), .stall(fetchstall_logic),
         //Inputs
         .pcbranch(IDIFpcbranch), .branch(IDIFbranch), .stallPc(fetchstall_nobranch),
         .clk(clk), .rst(rst)
     );
 
    //IF-ID Pipeline
-   assign IFIDinstIn = branchstall_logic ? 16'b0000_1000_0000_0000 : IFIDinst;
-   assign errIn[0] = branchstall_logic ? 1'b0 : errLogic[0];
+   assign IFIDinstIn = fetchpipestall ? 16'b0000_1000_0000_0000 : IFIDinst;
+   assign errIn[0] = fetchpipestall ? 1'b0 : errLogic[0];
    reg_16b ifidinst(.clk(clk), .rst(rst),.inData(IFIDinstIn),.writeEn(~decodestall),.outData(IFIDinstOut));
    reg_16b ifidpcplus2(.clk(clk), .rst(rst),.inData(IFIDpcplus2),.writeEn(~decodestall),.outData(IFIDpcplus2Out));
    reg_1b ifiderr(.clk(clk), .rst(rst),.inData(errIn[0]),.writeEn(~decodestall),.outData(errOut[0]));
@@ -319,7 +321,7 @@ module proc (/*AUTOARG*/
                   .writeData(MEMWBwritedata),
                   .RegWriteOut(MEMWBregwrite), .DMemDumpOut(MEMWBdmemdump),
                   .RdAddrOut(MEMWBrdaddr),
-		  .err(errLogic[3]),
+                  .err(errLogic[3]), .stall(memorystall_logic),
                   //Input
                   .AluRes(EXMEMaluresOut), .RtIn(EXMEMrtinOut2),
                   .RegWriteIn(EXMEMregwriteOut), .DMemWriteIn(EXMEMdmemwriteOut2), .DMemEnIn(EXMEMdmemenOut2), .MemToRegIn(EXMEMmemtoregOut), .DMemDumpIn(EXMEMdmemdumpOut),
