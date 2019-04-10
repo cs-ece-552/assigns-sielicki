@@ -1,0 +1,73 @@
+% Created 2019-04-02 Tue 19:06
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Nicholas Sielicki}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Nicholas Sielicki},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.0.50 (Org mode 9.2.1)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+The program:
+\begin{verbatim}
+lbi r0, 0
+lbi r5, 43
+lbi r6, 43
+lbi r7, 43        
+ld r1, r0, 0
+st r5, r1, 0
+ld r1, r0, 2
+st r6, r1, 1
+ld r1, r0, 4
+st r7, r1, 1
+halt
+\end{verbatim}
+
+
+
+\begin{center}
+\begin{tabular}{rll}
+Cycle & Instruction Retired & Reason\\
+\hline
+1 & \texttt{lbi r0, 0} & \\
+2 & \texttt{lbi r5, 43} & \\
+3 & \texttt{lbi r6, 43} & \\
+4 & \texttt{lbi r7, 43} & \\
+5 & \texttt{ld r1, r0, 0} & \\
+6 & \texttt{nop} & RAW dependency on r1\\
+7 & \texttt{st r5, r1, 0} & \\
+8 & \texttt{ld r1, r0, 2} & \\
+9 & \texttt{nop} & RAW dependency on r1\\
+10 & \texttt{st r6, r1, 1} & \\
+11 & \texttt{ld r1, r0, 4} & WAR not true dependency\\
+12 & \texttt{nop} & RAW on r1\\
+13 & \texttt{st r7, r1, 1} & \\
+14 & \texttt{nop} & Flush pipeline to ensure correctness of RF/MEM written before halt\\
+15 & \texttt{nop} & \\
+16 & \texttt{nop} & \\
+17 & \texttt{nop} & \\
+18 & \texttt{nop} & \\
+19 & \texttt{halt} & \\
+\end{tabular}
+\end{center}
+\end{document}
