@@ -1,1 +1,24 @@
-// Write your answer to Problem 2 (b) and (c) here
+///////////////////////////////
+/////////    2b    ////////////
+///////////////////////////////
+
+The program starts by loading 5 into r1, r1=5
+It then branches if r1>0 which it is, to label BranchTarget1.
+From here it doubles r1, r1=r1+r1, and then loads 0 in to r2, r2=0
+It branches if r2==0, to BranchTarget2.
+Then it sets r2=11, and sets r3=-6.
+It branches if r3<0 tp BranchTarget3.
+Here it sets r3=12, r4=4, r5=5, r6=6
+It first tries to branch if r4==0. Since it doesn't, having a branch predict-not-taken scheme saves a cycle since it doesn't need to branch.
+It then tries to branch if r5<0. Again it doesn't, so the branch predict-not-taken scheme saves a cycle
+Finally it tries to branch if r6==0, which again fails so the branch predict scheme saves a cycle before halting. 
+
+If there wasn't a branch predict scheme then the processor would have to stall one cycle every time to wait until the end of the execution stage to determine whether or not the branch gets taken.
+
+
+///////////////////////////////
+/////////    2c    ////////////
+///////////////////////////////
+
+Depending on the implementation, a branch prediction could take more
+than one cycle if there are more stages between the ID and EX stages.

@@ -1,1 +1,23 @@
 // Write your answer to Problem 1 (b) here
+
+The assembly files are thoroughly commented and give a better overall
+explanation with context. Please see those files for an overview.
+
+==== Test 1 ====
+
+Simply two subsequent add operations, where the operand could either
+be improperly read from the register file or could be forwarded from
+the prior instruction.
+
+==== Test 2 ====
+
+Sets up some memory, loads a value, nops to allow memory to complete,
+and then adds with it. The source operand could either come from the
+register file or could be forwarded.
+
+==== Test 3 ====
+
+Combination of both prior tests --- does a memory load, does an ALU
+operation with the same register, then adds with the same
+register. Effectively Checks that your priority mux ports are correct.
+
