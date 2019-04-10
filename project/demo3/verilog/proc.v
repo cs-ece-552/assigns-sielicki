@@ -203,12 +203,12 @@ module proc (/*AUTOARG*/
    wire err_next;
 
    assign err_next = errLogic[3] | errOut[2];
-   assign err = 1'b0;
+   //assign err = 1'b0;
    reg_1b errreg(.clk(clk), .rst(rst), .inData(err_next), .writeEn(~err), .outData(err));
 
    //for halt and resets
    wire halt_next;
-   assign halt_next = EXMEMdmemdumpOut | err; //halt next cycle when halt is asserted or an err occurred
+   assign halt_next = EXMEMdmemdumpOut | err_next; //halt next cycle when halt is asserted or an err occurred
    reg_1b rstreg(.clk(clk), .rst(rst), .inData(1'b1),.writeEn(1'b1), .outData(rstReg)); 
    reg_1b haltreg(.clk(clk), .rst(rst), .inData(halt_next), .writeEn(~halt), .outData(halt)); 
 
