@@ -7,13 +7,25 @@ input[4:0} miss_tag;
 input[7:0] miss_index;
 input[2:0] miss_offset;
 
+input hit; //cache hit & cache valid
+input dirty; //cache dirty & ~ cache valid
+
+//addr output
 output[4:0] cache_tag;
 output[7:0] cache_index;
 output[2:0] cache_offset;
 output[15:0] memory_addr;
 
+//data output
 output [15:0] memory_in;
 output [15:0] cache_in;
+
+//signal output
+output cache_rd;
+output cache_wr;
+output comp;
+output mem_rd;
+output mem_wr;
 
 //states
 wire [3:0] curr_state;
@@ -78,13 +90,15 @@ assign mem_to_cache =
 
 //addresses
 wire [1:0] mem_bank;
-wire [1:0] cache_bank;
+//wire [1:0] cache_bank;
 wire [15:0] addr_reg;
 wire [15:0] miss_addr;
 wire [15:0] miss_reg;
 wire new_addr_en;
 wire miss_addr_en;
 wire addr_in_to_cache;
+wire miss_addr_to_mem;
+wire addr_in_to_mem;
 
 reg_16b addr_wait_reg(.clk(clk), .rst(rst), .inData(addr_in), .writeEn(new_addr_en), .outData(addr_reg));
 reg_16b miss_wait_reg(.clk(clk), .rst(rst), .inData(miss_adr), .writeEn(miss_addr_en), .outData(miss_reg));
@@ -92,12 +106,33 @@ reg_16b miss_wait_reg(.clk(clk), .rst(rst), .inData(miss_adr), .writeEn(miss_add
 
 assign miss_addr = {miss_tag, miss_index, miss_offset};
 
-assign cache_tag =
-assign cache_index =
-assign cache_offset
+assign cache_tag = addr_in_to_cache ? addr_in[15:11] : addr_reg[15:11];
+assign cache_index = addr_in_to_cache ? addr_in[10:3] : addr_reg[10:3];
+//TODO complete the conditions of the ternary
+assign cache_offset = addr_in_to_cache ? addr_in[2:0] : (
+                      states when we use cache_bank 0     ? {2'b00, addr_reg[2:0]} : (
+                      states when we use cache_bank 1     ? {2'b01, addr_reg[2:0]} : (
+                      states when we use cache_bank 2     ? {2'b10, addr_reg[2:0]} : (
+                      states when we use cache_bank 3     ? {2'b11, addr_reg[2:0]}:: (
+                      addr_reg{2:0])))));
+//TODO complete the defintions of the terneary
+assign mem_bank =  states we use mem_bank 0 ? 2'b00 : (
+                   states we use mem_bank 1 ? 2'b00 : (
+                   states we use mem_bank 2 ? 2'b00 : (
+                   states we use mem_bank 3 ? 2'b00 : (
+                   miss_addr_in_to_mem ? miss_reg[2:1] : (
+                   addr_in_to_mem ? addr_in[2:1] : (
+                   addr_reg[2:1] ))))));
+assign mem_addr = miss_addr_in_to_mem ? {miss_reg[15:3], mem_bank, miss_reg[0]} : (
+                  addr_in_to_mem ? {addr_in{15:3], mem_bank, addr_in[0]} : (
+                  {addr_reg[15:3], mem_bank, addr_reg[0]}));
 
-assign memory_addr = 
 
 //TODO these two signals should be 1 when we're at wait state, 0 otherwise
-assign addr_in = (1 when it's wait state);
+assign new_addr_en = (1 when it's wait state);
 assign addr_in_to_cache = (1 when it's wait state);
+
+//TODO when should this signal be active?
+assign miss_addr_en = 
+assign miss_addr_to_mem = 
+assign addr_in_to_mem = 1'b0; //pretty sure this is always 0
