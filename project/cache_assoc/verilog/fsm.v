@@ -1,3 +1,4 @@
+//TODO declare module
 input[15:0] data_in;
 input[15:0] memory_out;
 input[15:0] cache_out;
@@ -26,6 +27,8 @@ output cache_wr;
 output comp;
 output mem_rd;
 output mem_wr;
+output stall;
+output done;
 
 //states
 wire [3:0] curr_state;
@@ -136,3 +139,15 @@ assign addr_in_to_cache = (1 when it's wait state);
 assign miss_addr_en = 
 assign miss_addr_to_mem = 
 assign addr_in_to_mem = 1'b0; //pretty sure this is always 0
+
+//TODO the fsm logic 
+assign next_state = //based on curr_state, do no assign curr_state, it's assigned by the dff
+
+//TODO when should (at what state) this signals be 1 or 0
+assign cache_rd =
+assign cache_wr =
+assign comp =
+assign mem_rd =
+assign mem_wr =
+assign stall =
+assign done =
