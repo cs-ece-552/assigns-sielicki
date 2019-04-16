@@ -1,0 +1,45 @@
+@startuml
+hide empty description
+'default
+left to right direction
+
+[*] -> Idle
+state "Wait for Clock" as Idle {
+	top to bottom direction
+	[*] -> EdgeWait
+	EdgeWait -> EdgeWait : !clk
+	EdgeWait --> Abnorm  : clk * (rst + createdump)
+	EdgeWait --> Normal  : clk * (comp + write)
+}
+
+state "Abnormal Operation" as Abnorm {
+	top to bottom direction
+	[*] -> Reset : rst
+	[*] -> Dump  : createdump
+	state "Reset Controller" as Reset {
+		[*] -> EmptyStateReset
+	}
+	state "Write Out / Dump" as Dump {
+		[*] -> EmptyStateDump
+	}
+	state "Invalid Operands" as Invalid {
+                [*] -> EmptyInvalid
+	}
+}
+
+
+
+
+state "Normal Operation" as Normal {
+	top to bottom direction
+	state "Read Operation" as Read {
+		[*] -> EmptyReadState
+	}
+	state "Write Operation" as Write {
+		[*] -> EmptyWriteState
+	}
+}
+
+
+
+@enduml

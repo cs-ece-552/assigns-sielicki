@@ -1,0 +1,11 @@
+@startuml
+hide empty description
+
+[*]       --> EdgeWait
+EdgeWait  --> Check
+Check     --> Idle
+
+EdgeWait: "This is a comment"
+
+
+@enduml

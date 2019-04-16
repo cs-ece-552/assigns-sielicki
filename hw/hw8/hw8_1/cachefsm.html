@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>DM Cache Controller State Diagram</title>
+<!-- 2019-04-12 Fri 23:41 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Nicholas Sielicki">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title">DM Cache Controller State Diagram</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Pin Descriptions</h2>
+<div class="outline-text-2" id="text-1">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+
+<col  class="right">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left"><i>Signal</i></th>
+<th scope="col" class="text-left"><i>In/Out</i></th>
+<th scope="col" class="text-right"><i>Width</i></th>
+<th scope="col" class="text-left"><i>Description</i></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">enable</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Enable cache. Active high. If low, "write" and "comp" have no effect, and all outputs are zero.</td>
+</tr>
+
+<tr>
+<td class="text-left">index</td>
+<td class="text-left">In</td>
+<td class="text-right">8</td>
+<td class="text-left">The address bits used to index into the cache memory.</td>
+</tr>
+
+<tr>
+<td class="text-left">offset</td>
+<td class="text-left">In</td>
+<td class="text-right">3</td>
+<td class="text-left">offset[2:1] selects which word to access in the cache line. The least significant bit should be 0 for word alignment. If the least significant bit is 1, it is an error condition.</td>
+</tr>
+
+<tr>
+<td class="text-left">comp</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Compare. When "comp"=1, the cache will compare tag<sub>in</sub> to the tag of the selected line and indicate if a hit has occurred; the data portion of the cache is read or written but writes are suppressed if there is a miss. When "comp"=0, no compare is done and the Tag and Data portions of the cache will both be read or written.</td>
+</tr>
+
+<tr>
+<td class="text-left">write</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Write signal. If high at the rising edge of the clock, a write is performed to the data selected by "index" and "offset", and (if "comp"=0) to the tag selected by "index".</td>
+</tr>
+
+<tr>
+<td class="text-left">tag<sub>in</sub></td>
+<td class="text-left">In</td>
+<td class="text-right">5</td>
+<td class="text-left">When "comp"=1, this field is compared against stored tags to see if a hit occurred; when "comp"=0 and "write"=1 this field is written into the tag portion of the array.</td>
+</tr>
+
+<tr>
+<td class="text-left">data<sub>in</sub></td>
+<td class="text-left">In</td>
+<td class="text-right">16</td>
+<td class="text-left">On a write, the data that is to be written to the location specified by the "index" and "offset" inputs.</td>
+</tr>
+
+<tr>
+<td class="text-left">valid<sub>in</sub></td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">On a write when "comp"=0, the data that is to be written to valid bit at the location specified by the "index" input.</td>
+</tr>
+
+<tr>
+<td class="text-left">clk</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Clock signal; rising edge active.</td>
+</tr>
+
+<tr>
+<td class="text-left">rst</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Reset signal. When "rst"=1 on the rising edge of the clock, all lines are marked invalid. (The rest of the cache state is not initialized and may contain X's.)</td>
+</tr>
+
+<tr>
+<td class="text-left">createdump</td>
+<td class="text-left">In</td>
+<td class="text-right">1</td>
+<td class="text-left">Write contents of entire cache to memory file. Active on rising edge.</td>
+</tr>
+
+<tr>
+<td class="text-left">hit</td>
+<td class="text-left">Out</td>
+<td class="text-right">1</td>
+<td class="text-left">Goes high during a compare if the tag at the location specified by the "index" lines matches the "tag<sub>in</sub>" lines.</td>
+</tr>
+
+<tr>
+<td class="text-left">dirty</td>
+<td class="text-left">Out</td>
+<td class="text-right">1</td>
+<td class="text-left">When this bit is read, it indicates whether this cache line has been written to. It is valid on a read cycle, and also on a compare-write cycle when hit is false. On a write with "comp"=1, the cache sets the dirty bit to 1. On a write with "comp"=0, the dirty bit is reset to 0.</td>
+</tr>
+
+<tr>
+<td class="text-left">tag<sub>out</sub></td>
+<td class="text-left">Out</td>
+<td class="text-right">5</td>
+<td class="text-left">When "write"=0, the tag selected by "index" appears on this output. (This value is needed during a writeback.)</td>
+</tr>
+
+<tr>
+<td class="text-left">data<sub>out</sub></td>
+<td class="text-left">Out</td>
+<td class="text-right">16</td>
+<td class="text-left">When "write"=0, the data selected by "index" and "offset" appears on this output.</td>
+</tr>
+
+<tr>
+<td class="text-left">valid</td>
+<td class="text-left">Out</td>
+<td class="text-right">1</td>
+<td class="text-left">During a read, this output indicates the state of the valid bit in the selected cache line.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Cache Diagram</h2>
+<div class="outline-text-2" id="text-2">
+
+<figure>
+<p><img src="diagram.svg" class="img-responsive" alt="diagram.svg">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Controller</h2>
+<div class="outline-text-2" id="text-3">
+
+<figure>
+<p><img src="controller.svg" class="img-responsive" alt="controller.svg">
+</p>
+</figure>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Pin Descriptions</a></li>
+<li><a href="#sec-2">2. Cache Diagram</a></li>
+<li><a href="#sec-3">3. Controller</a></li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Nicholas Sielicki</p>
+<p class="date">Created: 2019-04-12 Fri 23:41</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.2.3)</p>
+</div>
+</footer>
+</body>
+</html>

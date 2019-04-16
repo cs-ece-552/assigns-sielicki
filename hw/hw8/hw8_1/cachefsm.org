@@ -1,0 +1,238 @@
+#+TITLE: DM Cache Controller State Diagram
+
+
+* Pin Descriptions
+
+| /Signal/     | /In/Out/   | /Width/   | /Description/                                                                                                                                                                                                                                                                                                                         |
+|--------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| enable       | In         | 1         | Enable cache. Active high. If low, "write" and "comp" have no effect, and all outputs are zero.                                                                                                                                                                                                                                       |
+| index        | In         | 8         | The address bits used to index into the cache memory.                                                                                                                                                                                                                                                                                 |
+| offset       | In         | 3         | offset[2:1] selects which word to access in the cache line. The least significant bit should be 0 for word alignment. If the least significant bit is 1, it is an error condition.                                                                                                                                                    |
+| comp         | In         | 1         | Compare. When "comp"=1, the cache will compare tag_in to the tag of the selected line and indicate if a hit has occurred; the data portion of the cache is read or written but writes are suppressed if there is a miss. When "comp"=0, no compare is done and the Tag and Data portions of the cache will both be read or written.   |
+| write        | In         | 1         | Write signal. If high at the rising edge of the clock, a write is performed to the data selected by "index" and "offset", and (if "comp"=0) to the tag selected by "index".                                                                                                                                                           |
+| tag_in       | In         | 5         | When "comp"=1, this field is compared against stored tags to see if a hit occurred; when "comp"=0 and "write"=1 this field is written into the tag portion of the array.                                                                                                                                                              |
+| data_in      | In         | 16        | On a write, the data that is to be written to the location specified by the "index" and "offset" inputs.                                                                                                                                                                                                                              |
+| valid_in     | In         | 1         | On a write when "comp"=0, the data that is to be written to valid bit at the location specified by the "index" input.                                                                                                                                                                                                                 |
+| clk          | In         | 1         | Clock signal; rising edge active.                                                                                                                                                                                                                                                                                                     |
+| rst          | In         | 1         | Reset signal. When "rst"=1 on the rising edge of the clock, all lines are marked invalid. (The rest of the cache state is not initialized and may contain X's.)                                                                                                                                                                       |
+| createdump   | In         | 1         | Write contents of entire cache to memory file. Active on rising edge.                                                                                                                                                                                                                                                                 |
+| hit          | Out        | 1         | Goes high during a compare if the tag at the location specified by the "index" lines matches the "tag_in" lines.                                                                                                                                                                                                                      |
+| dirty        | Out        | 1         | When this bit is read, it indicates whether this cache line has been written to. It is valid on a read cycle, and also on a compare-write cycle when hit is false. On a write with "comp"=1, the cache sets the dirty bit to 1. On a write with "comp"=0, the dirty bit is reset to 0.                                                |
+| tag_out      | Out        | 5         | When "write"=0, the tag selected by "index" appears on this output. (This value is needed during a writeback.)                                                                                                                                                                                                                        |
+| data_out     | Out        | 16        | When "write"=0, the data selected by "index" and "offset" appears on this output.                                                                                                                                                                                                                                                     |
+| valid        | Out        | 1         | During a read, this output indicates the state of the valid bit in the selected cache line.                                                                                                                                                                                                                                           |
+
+
+* Cache Diagram
+
+#+begin_src plantuml :file diagram.svg :exports results
+  hide empty description
+  'default
+  left to right direction
+
+  skinparam state {
+	  backgroundColor<<MetaState>> Gold
+	  backgroundColor<<MinorMetaState>> IndianRed
+	  backgroundColor<<Jump>> Gold
+	  backgroundColor<<JumpMinor>> IndianRed
+	  backgroundColor<<JumpClkRes>> Cyan
+  }
+
+
+
+  [*] -d-> Idle
+
+  state "Wait for Clock" as Idle <<MetaState>> {
+	  [*] -r-> EdgeWait
+	  EdgeWait  -r-> EdgeFound : clk
+	  EdgeFound -r->  Abnorm        : rst + createdump + offset[0]
+	  EdgeFound -d-> Normal        : comp + write * !(rst + createdump)
+	  state "Edge Found" as EdgeFound <<JumpClkRes>>
+  }
+
+
+  state "Abnormal Operation" as Abnorm <<MetaState>> {
+	  top to bottom direction
+	  [*] -d-> Reset    : rst
+	  [*] -d-> Invalid  : offset[0] + (rst * createdump)
+	  [*] -d-> Dump     : createdump
+	  state "Reset Controller" as Reset {
+		  top to bottom direction
+		  [*] --> ResetOutputs
+		  ResetOutputs --> JumpToIdleReset
+		  ResetOutputs: **err=0**\n**hit=0**\n**dirty=0**\n**tag_out=0b00000**\n**data_out=0b(16 x 0)**\n**valid=0**
+		  state "Wait For Clock" as JumpToIdleReset <<Jump>>
+	  }
+
+	  state "Write Out / Dump" as Dump {
+		  state "Create Dump Files" as cdf
+		  [*] --> cdf
+		  state "Wait For Clock" as JumpToIdleWriteOut <<Jump>>
+		  cdf --> JumpToIdleWriteOut
+	  }
+	  state "Invalid Operands" as Invalid <<MinorMetaState>> {
+		  [*] --> InvalidOperands
+		  state "Wait For Clock" as JumpToIdleInvalid <<Jump>>
+		  InvalidOperands --> JumpToIdleInvalid
+		  InvalidOperands: **err=1**\n**hit=X**\n**dirty=X**\n**tag_out=0b5,X**\n**data_out=0b(16 x X)**\n**valid=X**
+
+	  }
+  }
+
+  state "Normal Operation" as Normal <<MetaState>> {
+	  top to bottom direction
+	  [*] -u-> compare  :  comp
+	  [*] -d-> access   :  !comp
+	  state "Compare" as compare <<MetaState>> {
+	          [*] -u-> CompareValidOperands
+		  CompareValidOperands -l-> compread: !write
+		  CompareValidOperands -r-> compwrite: write
+		  CompareValidOperands -u-> compinvalid: tag_in^index^offset === 0bX
+		  state "Invalid Operands" as compinvalid <<JumpMinor>>
+
+		  state "Compare Read" as compread {
+			  'This case is used when the processor executes a load
+			  'instruction. The "tag_in", "index", and "offset"
+			  'signals need to be valid. Either a hit or a miss will
+			  'occur, as indicated by the "hit" output during the
+			  'same cycle. If a hit occurs, "data_out" will contain
+			  'the data and "valid" will indicate if the data is
+			  'valid. If a miss occurs, the "valid" output will
+			  'indicate whether the block occupying that line of the
+			  'cache is valid. The "dirty" output indicates the state
+			  'of the dirty bit in the cache line.
+			  state "Check Valid Bit with Index" as chkvalidcompread
+			  [*] -l-> chkvalidcompread
+		          chkvalidcompread -u-> compreadhit: block[index[7:0]][31] & (block[index[7:0]][29:25] == tag_in)
+			  chkvalidcompread -d-> compreadmiss: !(block[index[7:0]][31] & (block[index[7:0]][29:25] == tag_in))
+			  state "Compare Read Hit" as compreadhit: **hit=1**\n**valid=1**\n**dirty=block[index[7:0]][30]**\n**data_out=block[index[7:0]]([(0x10<<(~offset[2:1]))-1:(0x1<<(~offset[2:1])-1)])**\n**tag_out=block[index[7:0]][29:25]**
+			  state "Compare Read Miss" as compreadmiss: **hit=0**\n**valid=block[index[7:0]][31]**\n**dirty=block[index[7:0]][30]**
+			  compreadhit -l-> JumpToIdleCompRead
+			  compreadmiss -l-> JumpToIdleCompRead
+			  state "Wait For Clock" as JumpToIdleCompRead <<Jump>>
+		  }
+
+
+		  state "Compare Write" as compwrite {
+		          'This case occurs when the processor executes a store instruction. The
+			  '"data_in", "tag_in", "index", and "offset" lines need to be
+			  'valid. Either a hit or a miss will occur as indicated by the "hit"
+			  'output during the same cycle. If there is a miss, the cache state will
+			  'not be modified. If there is a hit, the word will be written at the
+			  'rising edge of the clock, and the dirty bit of the cache line will be
+			  'written to "1". (The "dirty" output is not meaningful as this is a
+			  'write cycle for that bit.) NOTE: On a hit, you also need to look at
+			  'the "valid" output! If there is a hit, but the line is not valid, you
+			  'should treat it as a miss; the other word of the line will not be
+			  'valid and you will not want to leave the cache in that state.
+			  state "Check Valid Bit with Index" as chkvalidcompwrite
+			  [*] -> chkvalidcompwrite
+			  chkvalidcompwrite -u-> compwritehit: block[index[7:0]][31] & (block[index[7:0]][29:25] == tag_in)
+			  chkvalidcompwrite -d-> compwritemiss: !(block[index[7:0]][31] & (block[index[7:0]][29:25] == tag_in))
+			  chkvalidcompwrite -r-> compwriteinvalid: data_in^0bX !== 0bX
+			  state "Compare Write Hit" as compwritehit: **hit=1**
+			  state "Compare Write Miss" as compwritemiss: **Cache State Unchanged**\n\n**hit=0**
+			  compwritemiss -r-> JumpToIdleCompWrite
+			  compwritehit -r-> writedatacompwrite: clk
+			  writedatacompwrite -r-> compwritebreak
+			  
+			  state "Write Data_in" as writedatacompwrite: **block[index[7:0]([(0x10<<(~offset[2:1]))-1:(0x1<<(~offset[2:1])-1)]) = data_in**\n**block[index[7:0]][30] = 1**\n
+			  state "Wait For Clock" as JumpToIdleCompWrite <<Jump>>
+			  state "Invalid Operands" as compwriteinvalid <<JumpMinor>>
+			  state "Edge Found" as compwritebreak <<JumpClkRes>>
+		  }						
+
+
+
+	  }
+	  state "Access" as access <<MetaState>> {
+	          [*] -d-> AccessValidOperands
+		  AccessValidOperands -r-> accwrite: write
+		  AccessValidOperands -l-> accread : !write
+		  AccessValidOperands -d-> accinvalid: index^offset === 0bX
+
+		  state "Invalid Operands" as accinvalid <<JumpMinor>>
+
+		  state "Access Read" as accread {
+		          'This case occurs when you want to read the tag and
+			  'the data out of the cache memory. You will need to do
+			  'this when a cache line is victimized, to see if the
+			  'cache line is dirty and to write it back to memory if
+			  'necessary. With "comp"=0, the cache basically acts
+			  'like a RAM. The "index" and "offset" inputs need to be
+			  'valid to select what to read. The "data_out",
+			  '"tag_out", "valid", and "dirty" outputs will be valid
+			  'during the same cycle.
+			  state "Wait For Clock" as JumpToIdleaccread <<Jump>>
+			  state "Write Out" as accreadvalid: **valid=block[index[7:0]][31]**\n**dirty=block[index[7:0]][30]**\n**tag_out=block[index[7:0]][29:25]**\n**data_out=block[index[7:0]([(0x10<<(~offset[2:1]))-1:(0x1<<(~offset[2:1])-1)])**\nhit=???
+			  [*] -l-> accreadvalid
+			  accreadvalid -l-> JumpToIdleaccread
+		  }
+
+		  state "Access Write" as accwrite {
+		          'This case occurs when you bring in data from memory and need to store
+			  'it in the cache. The "index", "offset", "tag_in", "valid_in" and
+			  '"data_in" signals need to be valid. On the rising edge of the clock,
+			  'the values will be written into the specified cache line. Also, the
+			  'dirty bit will be set to zero.
+			  [*] -d-> accwriteinvalid: valid_in^data_in^0xX !== 0xX
+			  [*] -r-> accwritevalid
+			  accwritevalid -r-> JumpToIdleaccwrite
+			  state "Wait For Clock" as JumpToIdleaccwrite <<Jump>>
+			  state "Invalid Operands" as accwriteinvalid <<JumpMinor>>
+			  state "Write Out" as accwritevalid: **block[index[7:0]][31]=valid_in**\n**block[index[7:0]][30]=0**\n**block[index[7:0]][29:25]=tag_in**\n**block[index[7:0]([(0x10<<(~offset[2:1]))-1:(0x1<<(~offset[2:1])-1)])=data_in**\nhit=???
+		  }
+	  }
+
+
+  }
+
+  note top of EdgeFound: Retain all output values in this state, possibly X's.
+#+end_src
+
+#+RESULTS:
+[[file:diagram.svg]]
+
+* Controller
+#+begin_src plantuml :file controller.svg :exports results
+  skinparam state {
+	  backgroundColor<<MetaState>> Gold
+	  backgroundColor<<MinorMetaState>> IndianRed
+	  backgroundColor<<Jump>> Gold
+	  backgroundColor<<JumpMinor>> IndianRed
+	  backgroundColor<<JumpClkRes>> Cyan
+  }
+
+  state "is mem op" as memop
+  [*] -> memop: clk
+  memop --> memop: not a mem op
+  memop -d-> compare_rd: load op
+  memop -d-> compare_wr: store op
+  
+  state "Do Compare Read" as compare_rd: comp=1\nwrite=0\ntag_in=addr[15:11]\nindex=addr[10:3]\noffset=addr[2:0]
+  state "Do Compare Write" as compare_wr: comp=1\nwrite=1\ntag_in=addr[15:11]\nindex=addr[10:3]\noffset=addr[2:0]\ndata_in=data_in\ntag_in=addr[15:11]\noffset=addr[2:0]\n\nsrcout=cache
+  compare_wr --> acc_read: clk, !hit + (!valid & hit)
+  compare_wr --> load_done     : clk, hit + valid
+
+  compare_rd -> compare_rd_done: clk
+  [*] -> compare_rd
+  compare_rd_done -d-> put_into_bank: !hit & (!valid + !dirty)
+
+  state "Good Hit" as goodhit: srcout=cache
+  compare_rd_done --> goodhit: valid & hit
+  goodhit --> load_done
+  compare_rd_done --> acc_read: (valid & dirty & !hit)
+  acc_read -> put_into_bank: clk
+  put_into_bank --> acc_write: clk
+  acc_write --> load_done
+  state "Access Read" as acc_read: comp=0\nwrite=0\nindex=addr[10:3]\noffset=addr[2:0]\n\nbank.Addr[15:11]=addr[15:11]\nbank.Addr[10:3]=cache.index_out\nbank.Addr[2:0]=cacheoffset_out\n
+  state "Evict + Replace" as put_into_bank: addr=addr\nrd=1\nwr=0
+  state "Access Write" as acc_write: comp=0\nwrite=1\ntag_in=addr[15:11]\nindex=addr[10:3]\noffset=addr[2:0]\nvalid_in=1\ndata_in=bank.DataOut[15:0]\n\n\nsrcout=bank
+  state "Done" as load_done: srcout
+
+
+
+#+end_src
+
+#+RESULTS:
+[[file:controller.svg]]
