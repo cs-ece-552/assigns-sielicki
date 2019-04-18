@@ -5,7 +5,7 @@ module fsm(
            //output
            cache_tag, cache_index, cache_offset, memory_addr, memory_in, cache_in, data_out, 
            //output signals
-           cache_rd, cache_wr, comp, cache_hit, mem_rd, mem_wr, stall, done, ws);
+           cache_rd, cache_wr, comp, cache_hit, mem_rd, mem_wr, stall, done);
 
     input[15:0] data_in;
     input[15:0] memory_out;
@@ -45,7 +45,6 @@ module fsm(
     output mem_wr;
     output stall;
     output done;
-    output ws;
 
     wire [15:0] addr_reg;
     wire wr_reg;
@@ -57,8 +56,6 @@ module fsm(
     wire [3:0] next_state;
 
     reg_4b state_reg(.clk(clk), .rst(rst), .inData(next_state),.writeEn(1'b1), .outData(curr_state));
-
-    assign ws = (curr_state == 4'b0000);
 
     //buffers and data outputs
     wire write_buff_0_en;
