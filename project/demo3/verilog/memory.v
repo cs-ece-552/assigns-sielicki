@@ -38,29 +38,50 @@ module memory (
     wire [15:0] MemOut;
 
     wire MemRd;
+    wire mem_done;
+    wire mem_stall;
+    wire mem_err;
     
     assign writeData = MemToRegIn ? MemOut : AluRes;
     assign RegWriteOut = RegWriteIn;
     assign DMemDumpOut = DMemDumpIn;
     assign RdAddrOut = RdAddrIn;
-    //assign stall = 1'b0;
+    assign stall = DMemEnIn & ~mem_done & mem_stall;
     assign MemRd = DMemEnIn & ~DMemWriteIn;
+    assign err = mem_err & DMemEnIn;
+    //assign stall = mem_stall & ~mem_done;
 
-    stallmem datamem(
-	            //Outputs
-                    .DataOut            (MemOut),
-                    .Done               (),
-                    .Stall              (stall),
-                    .CacheHit           (),
-                    .err                (err),
-	            //Inputs
-                    .Addr               (AluRes),
-                    .DataIn             (RtIn),
-                    .Rd                 (MemRd),
-                    .Wr                 (DMemWriteIn),
-                    .createdump         (DMemDumpIn),
-                    .clk                (clk),
-                    .rst                (rst));
+    mem_system datamem(
+            // Outputs
+            .DataOut    (MemOut),
+            .Done       (mem_done),
+            .Stall      (mem_stall),
+            .CacheHit   (),
+            .err        (mem_err), 
+            // Inputs
+            .Addr       (AluRes),
+            .DataIn     (RtIn),
+            .Rd         (MemRd),
+            .Wr         (DMemWriteIn),
+            .createdump (DMemDumpIn),
+            .clk        (clk),
+            .rst        (rst));
+    
+    //stallmem datamem(
+	//            //Outputs
+    //                .DataOut            (MemOut),
+    //                .Done               (mem_done),
+    //                .Stall              (mem_stall),
+    //                .CacheHit           (),
+    //                .err                (err),
+	//            //Inputs
+    //                .Addr               (AluRes),
+    //                .DataIn             (RtIn),
+    //                .Rd                 (MemRd),
+    //                .Wr                 (DMemWriteIn),
+    //                .createdump         (DMemDumpIn),
+    //                .clk                (clk),
+    //                .rst                (rst));
 
     //memory2c_align datamem(/*AUTOINST*/
     //                // Outputs

@@ -22,8 +22,11 @@ module fetch(
     wire [15:0] currPC;         
     wire [15:0] newPC;
     
+    wire i_stall;
+    wire i_done;
+
     assign newPC = branch ? pcbranch : pcplus2;
-    //assign stall = 1'b0;
+    assign stall = i_stall & ~i_done;
     
     reg_16b  pc(/*AUTOINST*/
                // Outputs
@@ -32,7 +35,7 @@ module fetch(
                .clk                     (clk),
                .rst                     (rst),
                .inData                  (newPC),
-               .writeEn                 (~stallPc));//(~DMemDump));
+               .writeEn                 (~stallPc & (branch | ~stall)));//(~DMemDump));
     
     rca_16b pc_plus_2(
                      // Outputs
@@ -44,21 +47,37 @@ module fetch(
                      .B                 (16'b0000_0000_0000_0010),
                      .C_in              (1'b0));
    
-    stallmem instructionmem(
-                           //Outputs
-                           .DataOut             (Inst), 
-                           .Done                (), 
-                           .Stall               (stall), 
-                           .CacheHit            (), 
-                           .err                 (err),
-                           //Inputs
-                           .Addr                (currPC), 
-                           .DataIn              (16'b0000_0000_0000_0000), 
-                           .Rd                  (1'b1), 
-                           .Wr                  (1'b0),
-                           .createdump          (1'b0),
-                           .clk                 (clk),
-                           .rst                 (rst)); 
+    mem_system instructionmem(
+            // Outputs
+            .DataOut    (Inst),
+            .Done       (i_done),
+            .Stall      (i_stall),
+            .CacheHit   (),
+            .err        (err), 
+            // Inputs
+            .Addr       (currPC),
+            .DataIn     (16'b0000_0000_0000_0000),
+            .Rd         (~branch & ~stallPc),
+            .Wr         (1'b0),
+            .createdump (1'b0),
+            .clk        (clk),
+            .rst        (rst));
+
+    //stallmem instructionmem(
+    //                       //Outputs
+    //                       .DataOut             (Inst), 
+    //                       .Done                (i_done), 
+    //                       .Stall               (i_stall), 
+    //                       .CacheHit            (), 
+    //                       .err                 (err),
+    //                       //Inputs
+    //                       .Addr                (currPC), 
+    //                       .DataIn              (16'b0000_0000_0000_0000), 
+    //                       .Rd                  (1'b1), 
+    //                       .Wr                  (1'b0),
+    //                       .createdump          (1'b0),
+    //                       .clk                 (clk),
+    //                       .rst                 (rst)); 
     //memory2c_align instructionmem(/*AUTOINST*/
     //                       // Outputs
     //                       .data_out            (Inst),
