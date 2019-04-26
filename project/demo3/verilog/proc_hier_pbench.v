@@ -155,7 +155,7 @@ module proc_hier_pbench();
    // Data read from memory for memory reads (16 bits)
 
    // new added 05/03
-   assign ICacheReq = 1'b0; //DUT.p0.readData;
+   assign ICacheReq = DUT.p0.fetch.instructionmem.ws & (DUT.p0.fetch.instructionmem.Rd); //DUT.p0.readData;
    // Signal indicating a valid instruction read request to cache
    // Above assignment is a dummy example
    
@@ -163,7 +163,7 @@ module proc_hier_pbench();
    // Signal indicating a valid instruction cache hit
    // Above assignment is a dummy example
 
-   assign DCacheReq = 1'b0;   //DUT.p0.readData;
+   assign DCacheReq = DUT.p0.memory.datamem.ws & (DUT.p0.memory.datamem.Rd | DUT.p0.memory.datamem.Wr);   //DUT.p0.readData;
    // Signal indicating a valid instruction data read or write request to cache
    // Above assignment is a dummy example
    //    
