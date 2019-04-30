@@ -47,7 +47,7 @@ module fetch(
                      .B                 (16'b0000_0000_0000_0010),
                      .C_in              (1'b0));
    
-    mem_system instructionmem(
+    mem_system #(.memtype(0)) instructionmem(
             // Outputs
             .DataOut    (Inst),
             .Done       (i_done),

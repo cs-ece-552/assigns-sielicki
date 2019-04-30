@@ -51,7 +51,7 @@ module memory (
     assign err = mem_err & DMemEnIn;
     //assign stall = mem_stall & ~mem_done;
 
-    mem_system datamem(
+    mem_system #(.memtype(1))datamem(
             // Outputs
             .DataOut    (MemOut),
             .Done       (mem_done),
