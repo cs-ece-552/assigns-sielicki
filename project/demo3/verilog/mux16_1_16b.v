@@ -49,7 +49,7 @@ module mux16_1_16b(In, S, Out);
    
    mux4_1_16b im3(
 	       // Outputs
-	       .Out			(imm[1]),
+	       .Out			(imm[3]),
 	       // Inputs
 	       .InA			(In[207:192]),
 	       .InB			(In[223:208]),
