@@ -4,10 +4,12 @@
 
 module mem_system(/*AUTOARG*/
    // Outputs
-   DataOut, Done, Stall, CacheHit, err, 
+   DataOut, Done, Stall, CacheHit, err,
    // Inputs
    Addr, DataIn, Rd, Wr, createdump, clk, rst
    );
+
+   
    
    input [15:0] Addr;
    input [15:0] DataIn;
@@ -16,12 +18,13 @@ module mem_system(/*AUTOARG*/
    input        createdump;
    input        clk;
    input        rst;
-   
+
    output [15:0] DataOut;
    output Done;
    output Stall;
    output CacheHit;
    output err;
+
 
    wire cache_rd;
    wire cache_wr;
@@ -51,6 +54,9 @@ module mem_system(/*AUTOARG*/
    wire cache_valid_1;
    wire [1:0] cache_err;
 
+
+   wire [3:0] fbm_busy_out;
+   wire       fbm_stall_out;
    wire [15:0] mem_addr;
    wire [15:0] mem_data_in;
    wire mem_rd;
@@ -75,10 +81,11 @@ module mem_system(/*AUTOARG*/
    assign cache_valid = cache_pick ? cache_valid_1 : cache_valid_0;
    assign cache_en_0 = cache_en & (ws | ~cache_pick);
    assign cache_en_1 = cache_en & (ws | cache_pick);
-
+   assign newrw = ws & (Rd | Wr);
+   
    reg_1b victimway(.clk(clk), .rst(rst), .inData(~vway), .writeEn(newrw), .outData(vway));
    reg_1b pickway(.clk(clk), .rst(rst), .inData(cache_pick_ws), .writeEn(ws), .outData(cache_pick_reg));
-   assign newrw = ws & (Rd | Wr);
+
    assign cache_pick_ws = (cache_hit_0 & cache_valid_0) ? 1'b0 : (
                           (cache_hit_1 & cache_valid_1) ? 1'b1 : (
                           (~cache_valid_0) ? 1'b0 : (
@@ -131,8 +138,8 @@ module mem_system(/*AUTOARG*/
 
    four_bank_mem mem(// Outputs
                      .data_out          (mem_data_out),
-                     .stall             (),
-                     .busy              (),
+                     .stall             (fbm_stall_out),
+                     .busy              (fbm_busy_out),
                      .err               (mem_err),
                      // Inputs
                      .clk               (clk),
@@ -157,6 +164,12 @@ module mem_system(/*AUTOARG*/
            .clk(clk), .rst(rst), .ws(ws));
 
 
+
+   wire _unused_ok = &{1'b0,
+		       fbm_stall_out,
+		       fbm_busy_out[3:0]
+		       };
+   
    
 endmodule // mem_system
 
