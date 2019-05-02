@@ -47,7 +47,7 @@ module PCAdder(/*AUTOARG*/
    mux2_1_16b muxImm (.InA(iSign), .InB(dSign), .S(SESel), .Out(extension));
    mux2_1_16b muxBas (.InA(pc_plus2[15:0]), .InB(Rs), .S(Jump), .Out(base));
 
-   rca_16b pc_plus_ext(
+   cla_16b pc_plus_ext(
                        // Outputs
                        .S               (pc_plusExt),
                        //.C_out           (ofl[0]),

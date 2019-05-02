@@ -92,7 +92,7 @@ module alu (OpCode, funct, Rs, Rt, Pc, Imm, res);
     assign C_in = invS | invT;
     
     //adder
-    rca_16b rca (.A(A), .B(B), .C_in(C_in), .S(res_add), .C_out(C_out));
+    cla_16b cla (.A(A), .B(B), .C_in(C_in), .S(res_add), .C_out(C_out));
     
     //xor
     assign res_xor = A ^ B;

@@ -28,7 +28,7 @@ module fetch(
     assign newPC = branch ? pcbranch : pcplus2;
     assign stall = i_stall & ~i_done;
     
-    reg_16b  pc(/*AUTOINST*/
+    reg_16b pc(/*AUTOINST*/
                // Outputs
                .outData                 (currPC),
                // Inputs
@@ -37,7 +37,7 @@ module fetch(
                .inData                  (newPC),
                .writeEn                 (~stallPc & (branch | ~stall)));//(~DMemDump));
     
-    rca_16b pc_plus_2(
+    cla_16b pc_plus_2(
                      // Outputs
                      .S                 (pcplus2),
                      //.C_out             (ofl[1]),

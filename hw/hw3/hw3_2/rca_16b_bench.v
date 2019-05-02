@@ -11,7 +11,7 @@ module rca_16b_bench;
     wire rst;
     wire err;
     clkrst my_clkrst( .clk(Clk), .rst(rst), .err(err));
-    rca_16b DUT (.A(A[15:0]), .B(B[15:0]), .C_in(C_in),.S(SUM), .C_out(CO));
+    cla_16b DUT (.A(A[15:0]), .B(B[15:0]), .C_in(C_in),.S(SUM), .C_out(CO));
   
     initial begin
         A = 17'b0_0000_0000_0000_0000;
