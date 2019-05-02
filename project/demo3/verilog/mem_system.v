@@ -9,8 +9,8 @@ module mem_system(/*AUTOARG*/
    Addr, DataIn, Rd, Wr, createdump, clk, rst
    );
 
-   
-   
+
+
    input [15:0] Addr;
    input [15:0] DataIn;
    input        Rd;
@@ -71,18 +71,40 @@ module mem_system(/*AUTOARG*/
    wire vway;
    wire ws;
    wire newrw;
-   
-   assign cache_en = cache_wr | cache_rd;
-   assign err = cache_err[0] | cache_err[1] | mem_err;
-   assign cache_tag_out = cache_pick ? cache_tag_out_1 : cache_tag_out_0;
-   assign cache_data_out = cache_pick ? cache_data_out_1 : cache_data_out_0;
-   assign cache_hit = cache_pick ? cache_hit_1 : cache_hit_0;
-   assign cache_dirty = cache_pick ? cache_dirty_1 : cache_dirty_0;
-   assign cache_valid = cache_pick ? cache_valid_1 : cache_valid_0;
-   assign cache_en_0 = cache_en & (ws | ~cache_pick);
-   assign cache_en_1 = cache_en & (ws | cache_pick);
-   assign newrw = ws & (Rd | Wr);
-   
+   wire cache0_is_active;
+   wire cache1_is_active;
+   wire active_cache_wr;
+   wire inactive_cache_wr;
+   wire active_cache_comp;
+   wire inactive_cache_comp;
+   wire cache0_comp;
+   wire cache1_comp;
+   wire cache0_wr;
+   wire cache1_wr;
+
+   assign cache_en		= cache_wr | cache_rd;
+   assign cache0_is_active	= cache_en & (ws | ~cache_pick);
+   assign cache1_is_active	= cache_en & (ws | cache_pick);
+   assign active_cache_wr	= cache_wr;
+   assign active_cache_comp	= cache_comp;
+   assign inactive_cache_wr	= 1'b0;
+   assign inactive_cache_comp	= 1'b0;
+
+   assign cache0_comp		= cache0_is_active ? active_cache_comp	: inactive_cache_comp;
+   assign cache0_wr		= cache0_is_active ? active_cache_wr	: inactive_cache_wr;
+   assign cache1_comp		= cache1_is_active ? active_cache_comp	: inactive_cache_comp;
+   assign cache1_wr		= cache1_is_active ? active_cache_wr	: inactive_cache_wr;
+
+   assign err			= cache_err[0] | cache_err[1] | mem_err;
+   assign cache_tag_out		= cache_pick ? cache_tag_out_1	: cache_tag_out_0;
+   assign cache_data_out	= cache_pick ? cache_data_out_1 : cache_data_out_0;
+   assign cache_hit		= cache_pick ? cache_hit_1	: cache_hit_0;
+   assign cache_dirty		= cache_pick ? cache_dirty_1	: cache_dirty_0;
+   assign cache_valid		= cache_pick ? cache_valid_1	: cache_valid_0;
+   assign cache_en_0		= cache_en & (ws | ~cache_pick);
+   assign cache_en_1		= cache_en & (ws | cache_pick);
+   assign newrw			= ws & (Rd | Wr);
+
    reg_1b victimway(.clk(clk), .rst(rst), .inData(~vway), .writeEn(newrw), .outData(vway));
    reg_1b pickway(.clk(clk), .rst(rst), .inData(cache_pick_ws), .writeEn(ws), .outData(cache_pick_reg));
 
@@ -105,7 +127,7 @@ module mem_system(/*AUTOARG*/
                           .valid                (cache_valid_0),
                           .err                  (cache_err[0]),
                           // Inputs
-                          .enable               (cache_en_0),
+                          .enable               (1'b1),
                           .clk                  (clk),
                           .rst                  (rst),
                           .createdump           (createdump),
@@ -113,8 +135,8 @@ module mem_system(/*AUTOARG*/
                           .index                (cache_index),
                           .offset               (cache_offset),
                           .data_in              (cache_data_in),
-                          .comp                 (cache_comp),
-                          .write                (cache_wr),
+                          .comp                 (cache0_comp),
+                          .write                (cache0_wr),
                           .valid_in             (1'b1));
    cache #(2 + memtype) c1(// Outputs
                           .tag_out              (cache_tag_out_1),
@@ -124,7 +146,7 @@ module mem_system(/*AUTOARG*/
                           .valid                (cache_valid_1),
                           .err                  (cache_err[1]),
                           // Inputs
-                          .enable               (cache_en_1),
+                          .enable               (1'b1),
                           .clk                  (clk),
                           .rst                  (rst),
                           .createdump           (createdump),
@@ -132,8 +154,8 @@ module mem_system(/*AUTOARG*/
                           .index                (cache_index),
                           .offset               (cache_offset),
                           .data_in              (cache_data_in),
-                          .comp                 (cache_comp),
-                          .write                (cache_wr),
+                          .comp                 (cache1_comp),
+                          .write                (cache1_wr),
                           .valid_in             (1'b1));
 
    four_bank_mem mem(// Outputs
@@ -149,15 +171,15 @@ module mem_system(/*AUTOARG*/
                      .data_in           (mem_data_in),
                      .wr                (mem_wr),
                      .rd                (mem_rd));
-   
+
    // your code here
    fsm fsm(
            //input
-           .data_in(DataIn), .memory_out(mem_data_out), .cache_out(cache_data_out), .addr_in(Addr), .miss_tag(cache_tag_out), 
-           .miss_index(Addr[10:3]), .miss_offset(Addr[2:0]), .hit(cache_hit), .valid(cache_valid), .dirty(cache_dirty), .rd(Rd), .wr(Wr), 
+           .data_in(DataIn), .memory_out(mem_data_out), .cache_out(cache_data_out), .addr_in(Addr), .miss_tag(cache_tag_out),
+           .miss_index(Addr[10:3]), .miss_offset(Addr[2:0]), .hit(cache_hit), .valid(cache_valid), .dirty(cache_dirty), .rd(Rd), .wr(Wr),
            //output
-           .cache_tag(cache_tag), .cache_index(cache_index), .cache_offset(cache_offset), 
-           .memory_addr(mem_addr), .memory_in(mem_data_in), .cache_in(cache_data_in), .data_out(DataOut), 
+           .cache_tag(cache_tag), .cache_index(cache_index), .cache_offset(cache_offset),
+           .memory_addr(mem_addr), .memory_in(mem_data_in), .cache_in(cache_data_in), .data_out(DataOut),
            //output signals
            .cache_rd(cache_rd), .cache_wr(cache_wr), .comp(cache_comp), .cache_hit (CacheHit),
            .mem_rd(mem_rd), .mem_wr(mem_wr), .stall(Stall), .done(Done),
@@ -169,11 +191,11 @@ module mem_system(/*AUTOARG*/
 		       fbm_stall_out,
 		       fbm_busy_out[3:0]
 		       };
-   
-   
+
+
 endmodule // mem_system
 
-   
+
 
 
 // DUMMY LINE FOR REV CONTROL :9:
