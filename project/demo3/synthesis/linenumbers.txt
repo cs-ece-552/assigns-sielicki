@@ -1,0 +1,160 @@
+Warning: found logic loop in module proc:
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:82$1328 ($and)
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334 ($and)
+    cell $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326 ($not)
+    cell $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327 ($or)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1342 ($mux)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:95$1343 ($mux)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:47$1404 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:59$1441 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:59$1443 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:71$1444 ($and)
+    cell $techmap\fetch.instructionmem.c0.$eq$../demo3/verilog/cache.v:48$1405 ($eq)
+    cell $techmap\fetch.instructionmem.c0.mem_tg.$or$../demo3/verilog/memc.syn.v:23$1295 ($or)
+    cell $techmap\fetch.instructionmem.c0.mem_tg.$ternary$../demo3/verilog/memc.syn.v:23$1298 ($mux)
+    wire $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334_Y
+    wire $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326_Y
+    wire $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327_Y
+    wire $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:52$1406_Y
+    wire $techmap\fetch.instructionmem.c0.mem_tg.$or$../demo3/verilog/memc.syn.v:23$1295_Y
+    wire \fetch.instructionmem.c0.enable
+    wire \fetch.instructionmem.c0.go
+    wire \fetch.instructionmem.c0.hit
+    wire \fetch.instructionmem.c0.match
+    wire \fetch.instructionmem.c0.mem_tg.data_out [0]
+    wire \fetch.instructionmem.c0.mem_tg.write
+    wire \fetch.instructionmem.cache_pick
+    wire \fetch.instructionmem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:82$1328 ($and)
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334 ($and)
+    cell $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326 ($not)
+    cell $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327 ($or)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1342 ($mux)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:95$1343 ($mux)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:47$1404 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:71$1444 ($and)
+    wire $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334_Y
+    wire $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326_Y
+    wire $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327_Y
+    wire \fetch.instructionmem.c0.enable
+    wire \fetch.instructionmem.c0.go
+    wire \fetch.instructionmem.c0.hit
+    wire \fetch.instructionmem.cache_pick
+    wire \fetch.instructionmem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:82$1328 ($and)
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334 ($and)
+    cell $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326 ($not)
+    cell $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327 ($or)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1342 ($mux)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:95$1343 ($mux)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:47$1404 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:75$1457 ($and)
+    cell $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:75$1460 ($and)
+    wire $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:89$1334_Y
+    wire $techmap\fetch.instructionmem.$not$../demo3/verilog/mem_system.v:82$1326_Y
+    wire $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:82$1327_Y
+    wire $techmap\fetch.instructionmem.c0.$and$../demo3/verilog/cache.v:75$1457_Y
+    wire \fetch.instructionmem.c0.enable
+    wire \fetch.instructionmem.c0.go
+    wire \fetch.instructionmem.c0.valid
+    wire \fetch.instructionmem.cache_pick
+    wire \fetch.instructionmem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:83$1330 ($and)
+    cell $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:90$1335 ($and)
+    cell $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:83$1329 ($or)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1341 ($mux)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1342 ($mux)
+    cell $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:95$1343 ($mux)
+    cell $techmap\fetch.instructionmem.c1.$and$../demo3/verilog/cache.v:47$1346 ($and)
+    cell $techmap\fetch.instructionmem.c1.$and$../demo3/verilog/cache.v:71$1386 ($and)
+    wire $techmap\fetch.instructionmem.$and$../demo3/verilog/mem_system.v:90$1335_Y
+    wire $techmap\fetch.instructionmem.$or$../demo3/verilog/mem_system.v:83$1329_Y
+    wire $techmap\fetch.instructionmem.$ternary$../demo3/verilog/mem_system.v:93$1341_Y
+    wire \fetch.instructionmem.c1.enable
+    wire \fetch.instructionmem.c1.go
+    wire \fetch.instructionmem.c1.hit
+    wire \fetch.instructionmem.cache_pick
+    wire \fetch.instructionmem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:82$1471 ($and)
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477 ($and)
+    cell $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469 ($not)
+    cell $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470 ($or)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1485 ($mux)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:95$1486 ($mux)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:47$1547 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:59$1584 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:59$1586 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1600 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1603 ($and)
+    cell $techmap\memory.datamem.c0.mem_tg.$or$../demo3/verilog/memc.syn.v:23$1295 ($or)
+    cell $techmap\memory.datamem.c0.mem_vl.$ternary$../demo3/verilog/memv.syn.v:22$921 ($mux)
+    wire $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477_Y
+    wire $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469_Y
+    wire $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470_Y
+    wire $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:52$1549_Y
+    wire $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1600_Y
+    wire $techmap\memory.datamem.c0.mem_tg.$or$../demo3/verilog/memc.syn.v:23$1295_Y
+    wire \memory.datamem.c0.enable
+    wire \memory.datamem.c0.go
+    wire \memory.datamem.c0.mem_tg.write
+    wire \memory.datamem.c0.mem_vl.data_out
+    wire \memory.datamem.c0.valid
+    wire \memory.datamem.cache_pick
+    wire \memory.datamem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:82$1471 ($and)
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477 ($and)
+    cell $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469 ($not)
+    cell $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470 ($or)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1485 ($mux)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:95$1486 ($mux)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:47$1547 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:71$1587 ($and)
+    wire $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477_Y
+    wire $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469_Y
+    wire $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470_Y
+    wire \memory.datamem.c0.enable
+    wire \memory.datamem.c0.go
+    wire \memory.datamem.c0.hit
+    wire \memory.datamem.cache_pick
+    wire \memory.datamem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:82$1471 ($and)
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477 ($and)
+    cell $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469 ($not)
+    cell $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470 ($or)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1485 ($mux)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:95$1486 ($mux)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:47$1547 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1600 ($and)
+    cell $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1603 ($and)
+    wire $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:89$1477_Y
+    wire $techmap\memory.datamem.$not$../demo3/verilog/mem_system.v:82$1469_Y
+    wire $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:82$1470_Y
+    wire $techmap\memory.datamem.c0.$and$../demo3/verilog/cache.v:75$1600_Y
+    wire \memory.datamem.c0.enable
+    wire \memory.datamem.c0.go
+    wire \memory.datamem.c0.valid
+    wire \memory.datamem.cache_pick
+    wire \memory.datamem.cache_pick_ws
+Warning: found logic loop in module proc:
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:83$1473 ($and)
+    cell $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:90$1478 ($and)
+    cell $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:83$1472 ($or)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1484 ($mux)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1485 ($mux)
+    cell $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:95$1486 ($mux)
+    cell $techmap\memory.datamem.c1.$and$../demo3/verilog/cache.v:47$1489 ($and)
+    cell $techmap\memory.datamem.c1.$and$../demo3/verilog/cache.v:71$1529 ($and)
+    wire $techmap\memory.datamem.$and$../demo3/verilog/mem_system.v:90$1478_Y
+    wire $techmap\memory.datamem.$or$../demo3/verilog/mem_system.v:83$1472_Y
+    wire $techmap\memory.datamem.$ternary$../demo3/verilog/mem_system.v:93$1484_Y
+    wire \memory.datamem.c1.enable
+    wire \memory.datamem.c1.go
+    wire \memory.datamem.c1.hit
+    wire \memory.datamem.cache_pick
+    wire \memory.datamem.cache_pick_ws

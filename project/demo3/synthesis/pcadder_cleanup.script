@@ -1,0 +1,13 @@
+read_verilog ../demo3/verilog/IllegalOp.v ../demo3/verilog/PCAdder.v ../demo3/verilog/Rti.v ../demo3/verilog/alu.v ../demo3/verilog/aluSrc2.v ../demo3/verilog/barrelShifter2.v ../demo3/verilog/bitflip.v ../demo3/verilog/cache.v ../demo3/verilog/control.v ../demo3/verilog/dMemDump.v ../demo3/verilog/dMemEn.v ../demo3/verilog/dMemWrite.v ../demo3/verilog/decode.v ../demo3/verilog/dff.v ../demo3/verilog/execute.v ../demo3/verilog/fetch.v ../demo3/verilog/final_memory.syn.v ../demo3/verilog/four_bank_mem.v ../demo3/verilog/fsm.v ../demo3/verilog/fullAdder_1b.v ../demo3/verilog/jump.v ../demo3/verilog/memToReg.v ../demo3/verilog/mem_system.v ../demo3/verilog/memc.syn.v ../demo3/verilog/memory.v ../demo3/verilog/memory2c.syn.v ../demo3/verilog/memory2c_align.syn.v ../demo3/verilog/memv.syn.v ../demo3/verilog/mux16_1_16b.v ../demo3/verilog/mux2_1.v ../demo3/verilog/mux2_1_16b.v ../demo3/verilog/mux2_1_2.v ../demo3/verilog/mux2_1_3.v ../demo3/verilog/mux4_1.v ../demo3/verilog/mux4_1_16b.v ../demo3/verilog/mux4_1_4b.v ../demo3/verilog/mux8_1_16b.v ../demo3/verilog/nand2.v ../demo3/verilog/nand3.v ../demo3/verilog/nor2.v ../demo3/verilog/nor3.v ../demo3/verilog/not1.v ../demo3/verilog/pcImm.v ../demo3/verilog/pcSrc.v ../demo3/verilog/proc.v ../demo3/verilog/rca_16b.v ../demo3/verilog/rca_4b.v ../demo3/verilog/regDst.v ../demo3/verilog/regJump.v ../demo3/verilog/regWrite.v ../demo3/verilog/reg_16b.v ../demo3/verilog/reg_1b.v ../demo3/verilog/reg_3b.v ../demo3/verilog/reg_4b.v ../demo3/verilog/rf.v ../demo3/verilog/rf_bypass.v ../demo3/verilog/seSel.v ../demo3/verilog/stallmem.syn.v ../demo3/verilog/writeback.v ../demo3/verilog/xnor5_1.v ;
+
+hierarchy -check -top PCAdder ;;;
+proc ;;;
+splitnets ;;;
+#dfflibmap -liberty /tmp/FreePDK45/osu_soc/lib/files/gscl45nm.lib ;
+#abc -liberty /tmp/FreePDK45/osu_soc/lib/files/gscl45nm.lib ;
+simplemap ;;;
+abc ;;;
+flatten ;;;
+opt_clean ;;;
+opt_merge ;;;
+write_verilog -noattr ./verilog/PCAdder.v ;
