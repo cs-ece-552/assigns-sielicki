@@ -57,7 +57,7 @@ module rf (
 		   regs[7],
 		   writeReg,
 		   writeDataReset
-		 } === 1'bX;
+		 } == 1'bX;
    
 
    assign writeDataReset = ~rst ? writeData : 16'b0;

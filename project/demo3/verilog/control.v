@@ -58,6 +58,6 @@ module control (/*AUTOARG*/
                   OpCode[3],
                   OpCode[4],
                   Funct[0],
-                  Funct[1]} === 1'bX;
+                  Funct[1]} == 1'bX;
    
 endmodule
