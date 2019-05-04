@@ -19,7 +19,6 @@ module PCAdder(/*AUTOARG*/
    input [15:0] pc_plus2;
    input [7:0] 	I;
    input [10:0] D;
-   input [15:0] Rs;
    input        SESel;
    input        Jump;
    input        get02;

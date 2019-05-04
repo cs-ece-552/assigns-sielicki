@@ -1,0 +1,22 @@
+#+title: CS/ECE552 Spring 2019 Project Report
+#+author: Team 3: Jeremy Intan, Chetankumar Mistry, Nicholas Sielicki
+
+* Design Overview
+
+We implemented a small MIPS-like processor implementing a
+
+* Optimizations and Discussions
+
+** Optimizations Implemented
+
+*** Carry-Lookahead Adder
+
+** Potential Improvements
+
+*** Cache Eviction
+
+* Design Analysi
+:
+** Hazards
+
+* Conclusions and Final Thoughts

@@ -71,7 +71,7 @@ module mem_system(/*AUTOARG*/
    wire vway;
    wire ws;
    wire newrw;
-   
+
    assign cache_en = cache_wr | cache_rd;
    assign err = cache_err[0] | cache_err[1] | mem_err;
    assign cache_tag_out = cache_pick ? cache_tag_out_1 : cache_tag_out_0;
@@ -79,8 +79,8 @@ module mem_system(/*AUTOARG*/
    assign cache_hit = cache_pick ? cache_hit_1 : cache_hit_0;
    assign cache_dirty = cache_pick ? cache_dirty_1 : cache_dirty_0;
    assign cache_valid = cache_pick ? cache_valid_1 : cache_valid_0;
-   assign cache_en_0 = ws | (cache_en & ~cache_pick_reg);
-   assign cache_en_1 = ws | (cache_en &  cache_pick_reg);
+   assign cache_en_0 = ws | (~cache_pick_reg);
+   assign cache_en_1 = ws | (cache_pick_reg);
    assign newrw = ws & (Rd | Wr);
    
    reg_1b victimway(.clk(clk), .rst(rst), .inData(~vway), .writeEn(newrw), .outData(vway));
