@@ -83,14 +83,16 @@ module mem_system(/*AUTOARG*/
    assign cache_en_1 = ws | (cache_pick_reg);
    assign newrw = ws & (Rd | Wr);
    
-   reg_1b victimway(.clk(clk), .rst(rst), .inData(~vway), .writeEn(newrw), .outData(vway));
+   //reg_1b victimway(.clk(clk), .rst(rst), .inData(~vway), .writeEn(newrw), .outData(vway));
    reg_1b pickway(.clk(clk), .rst(rst), .inData(cache_pick_ws), .writeEn(ws), .outData(cache_pick_reg));
+
+   lru_reg_256 lru (.outData(vway), .addr(Addr[10:3]), .inData(~cache_pick_ws), .writeEn(newrw), .clk(clk), .rst(rst));
 
    assign cache_pick_ws = (cache_hit_0 & cache_valid_0) ? 1'b0 : (
                           (cache_hit_1 & cache_valid_1) ? 1'b1 : (
-                          (~cache_valid_0) ? 1'b0 : (
-                          (~cache_valid_1) ? 1'b1 : (
-                          ~vway))));
+                          //(~cache_valid_0) ? 1'b0 : (
+                          //(~cache_valid_1) ? 1'b1 : (
+                          vway));
 
    assign cache_pick = ws ? cache_pick_ws : cache_pick_reg;
 
