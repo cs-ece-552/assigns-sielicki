@@ -1,0 +1,9 @@
+On lru.asm
+
+using victimway, data hit rate is 33.3
+using lru,       data hit rate is 41.7
+
+On lru_mult.asm
+
+using victimway, data hit rate is 12.9
+using lru,       data hit rate is 22.7
