@@ -1,0 +1,43 @@
+read_verilog ../verilog/IllegalOp.v ../verilog/PCAdder.v ../verilog/Rti.v ../verilog/alu.v ../verilog/aluSrc2.v ../verilog/barrelShifter2.v ../verilog/bitflip.v ../verilog/cache.v ../verilog/control.v ../verilog/dMemDump.v ../verilog/dMemEn.v ../verilog/dMemWrite.v ../verilog/decode.v ../verilog/dff.v ../verilog/execute.v ../verilog/fetch.v ../verilog/final_memory.syn.v ../verilog/four_bank_mem.v ../verilog/fsm.v ../verilog/fullAdder_1b.v ../verilog/jump.v ../verilog/memToReg.v ../verilog/mem_system.v ../verilog/memc.syn.v ../verilog/memory.v ../verilog/memory2c.syn.v ../verilog/memory2c_align.syn.v ../verilog/memv.syn.v ../verilog/mux16_1_16b.v ../verilog/mux2_1.v ../verilog/mux2_1_16b.v ../verilog/mux2_1_2.v ../verilog/mux2_1_3.v ../verilog/mux4_1.v ../verilog/mux4_1_16b.v ../verilog/mux4_1_4b.v ../verilog/mux8_1_16b.v ../verilog/nand2.v ../verilog/nand3.v ../verilog/nor2.v ../verilog/nor3.v ../verilog/not1.v ../verilog/pcImm.v ../verilog/pcSrc.v ../verilog/proc.v ../verilog/rca_16b.v ../verilog/rca_4b.v ../verilog/regDst.v ../verilog/regJump.v ../verilog/regWrite.v ../verilog/reg_16b.v ../verilog/reg_1b.v ../verilog/reg_3b.v ../verilog/reg_4b.v ../verilog/rf.v ../verilog/rf_bypass.v ../verilog/seSel.v ../verilog/stallmem.syn.v ../verilog/writeback.v ../verilog/xnor5_1.v ../verilog/fullAdder_1b_cla.v ../verilog/cla_16b.v ../verilog/cla_4b.v ;
+
+hierarchy -check -top proc;
+tee -q -a checkout.txt check -assert mem_system;
+proc;
+tee -q -a checkout.txt check -assert mem_system;
+opt;
+fsm;
+tee -q -a checkout.txt check -assert mem_system;
+opt;
+tee -q -a checkout.txt check -assert mem_system;
+splitnets ;;;
+tee -q -a checkout.txt check -assert mem_system;
+flatten ;;;
+tee -q -a checkout.txt check -assert mem_system;
+memory;
+tee -q -a checkout.txt check -assert mem_system;
+opt;
+tee -q -a checkout.txt check -assert mem_system;
+prep;
+tee -q -a checkout.txt check -assert mem_system;
+opt;
+tee -q -a checkout.txt check -assert mem_system;
+tee -q -a checkout.txt check;
+tee -q -a checkout.txt check -assert mem_system;
+abc -liberty /tmp/FreePDK45/osu_soc/lib/files/gscl45nm.lib ;;;
+tee -q -a checkout.txt check -assert mem_system;
+dfflibmap -liberty /tmp/FreePDK45/osu_soc/lib/files/gscl45nm.lib ;;;
+tee -q -a checkout.txt check -assert mem_system;
+opt_merge ;;;
+tee -q -a checkout.txt check -assert mem_system;
+
+opt;
+tee -q -a checkout.txt check -assert mem_system;
+
+opt_clean;
+tee -q -a checkout.txt check -assert mem_system;
+
+synth -top proc ;
+tee -q -a checkout.txt check -assert mem_system;
+clean ;
+tee -q -a checkout.txt check -assert mem_system;
+write_verilog synth.v ;

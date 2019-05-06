@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>CS/ECE552 Spring 2019 Extra Credit Report</title>
+<!-- 2019-05-05 Sun 21:59 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Team 3: Jeremy Intan, Chetankumar Mistry, Nicholas Sielicki">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title">CS/ECE552 Spring 2019 Extra Credit Report</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Components Attempted</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> LRU</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Instead of using the standard <code>victimway</code> strategy for cache
+eviction, we instantiated at <code>256 bit</code> register for each memory
+system module where a set bit in the register corresponds to the
+least recently used cache for that particular line. In the case
+that a cache eviction needs to take place (ie: both lines missing),
+the bit is checked to determine which cache should evict.
+</p>
+
+<p>
+Tests were written to gauge the performance, and the improvement
+was only about 10% in the best case, and <code>cache_thrash</code> was
+noticably worse. But it was implemented for both <code>IMEM</code> and <code>DMEM</code>,
+identically for both.
+</p>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Test</th>
+<th scope="col" class="text-left">Vway</th>
+<th scope="col" class="text-left">LRU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left"><code>cache_thrash.asm</code></td>
+<td class="text-left">SUCCESS CPI:2.7 CYCLES:10351 ICOUNT:3803 IHITRATE: 99.9 DHITRATE: 33.1</td>
+<td class="text-left">SUCCESS CPI:2.9 CYCLES:10951 ICOUNT:3803 IHITRATE: 99.9 DHITRATE: 24.8</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_103_ctrl.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.7 CYCLES:1980 ICOUNT:540 IHITRATE: 70.7 DHITRATE: 68.9</td>
+<td class="text-left">SUCCESS CPI:3.7 CYCLES:1974 ICOUNT:540 IHITRATE: 70.7 DHITRATE: 71.1</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_107_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1494 ICOUNT:415 IHITRATE: 69.9 DHITRATE: 65.6</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1496 ICOUNT:415 IHITRATE: 69.9 DHITRATE: 65.6</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_111_mem.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.9 CYCLES:2675 ICOUNT:681 IHITRATE: 75.5 DHITRATE: 91.7</td>
+<td class="text-left">SUCCESS CPI:3.9 CYCLES:2672 ICOUNT:681 IHITRATE: 75.5 DHITRATE: 91.7</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_112_ctrl.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1898 ICOUNT:534 IHITRATE: 70.6 DHITRATE: 61.0</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1894 ICOUNT:533 IHITRATE: 70.6 DHITRATE: 63.4</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_117_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1640 ICOUNT:457 IHITRATE: 71.6 DHITRATE: 63.8</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1630 ICOUNT:456 IHITRATE: 71.5 DHITRATE: 68.1</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_118_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1801 ICOUNT:507 IHITRATE: 71.0 DHITRATE: 70.2</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1797 ICOUNT:506 IHITRATE: 71.0 DHITRATE: 72.3</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_125_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.7 CYCLES:1839 ICOUNT:496 IHITRATE: 70.4 DHITRATE: 55.2</td>
+<td class="text-left">SUCCESS CPI:3.7 CYCLES:1827 ICOUNT:495 IHITRATE: 70.3 DHITRATE: 58.6</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_129_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1559 ICOUNT:428 IHITRATE: 70.9 DHITRATE: 70.8</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1555 ICOUNT:427 IHITRATE: 70.9 DHITRATE: 72.9</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_144_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1578 ICOUNT:433 IHITRATE: 69.8 DHITRATE: 60.0</td>
+<td class="text-left">SUCCESS CPI:3.6 CYCLES:1574 ICOUNT:432 IHITRATE: 69.7 DHITRATE: 63.3</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_final/t_148_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.5 CYCLES:1595 ICOUNT:450 IHITRATE: 71.3 DHITRATE: 70.7</td>
+<td class="text-left">SUCCESS CPI:3.5 CYCLES:1589 ICOUNT:449 IHITRATE: 71.2 DHITRATE: 73.2</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_complex/t_5_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.4 CYCLES:1827 ICOUNT:533 IHITRATE: 71.8 DHITRATE: 59.1</td>
+<td class="text-left">SUCCESS CPI:3.4 CYCLES:1821 ICOUNT:532 IHITRATE: 71.8 DHITRATE: 61.4</td>
+</tr>
+
+<tr>
+<td class="text-left"><code>rand_complex/t_6_all.asm</code></td>
+<td class="text-left">SUCCESS CPI:3.2 CYCLES:2080 ICOUNT:643 IHITRATE: 72.6 DHITRATE: 64.</td>
+<td class="text-left">SUCCESS CPI:3.2 CYCLES:2086 ICOUNT:643 IHITRATE: 72.6 DHITRATE: 63.0</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+<code>lru.addr:</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-mips"><span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">2048</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">4096</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">6144</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">8192</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">10240</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">12288</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">14336</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">16384</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">18432</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">20480</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">1</span> <span style="color: #d7875f; font-weight: bold;">0</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+</pre>
+</div>
+
+<p>
+<code>lru.asm:</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-mips">lbi r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+lbi r1<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">8</span>
+slbi r1<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+<span style="color: #d787d7; font-weight: bold;">add</span> r2<span style="color: #5fafff; font-weight: bold;">,</span> r1<span style="color: #5fafff; font-weight: bold;">,</span> r1
+<span style="color: #d787d7; font-weight: bold;">add</span> r3<span style="color: #5fafff; font-weight: bold;">,</span> r2<span style="color: #5fafff; font-weight: bold;">,</span> r1
+<span style="color: #d787d7; font-weight: bold;">add</span> r4<span style="color: #5fafff; font-weight: bold;">,</span> r3<span style="color: #5fafff; font-weight: bold;">,</span> r1
+<span style="color: #d787d7; font-weight: bold;">add</span> r5<span style="color: #5fafff; font-weight: bold;">,</span> r4<span style="color: #5fafff; font-weight: bold;">,</span> r1
+<span style="color: #d787d7; font-weight: bold;">add</span> r6<span style="color: #5fafff; font-weight: bold;">,</span> r5<span style="color: #5fafff; font-weight: bold;">,</span> r1
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r1<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r2<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r3<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r4<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r5<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r6<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+ld r7<span style="color: #5fafff; font-weight: bold;">,</span> r0<span style="color: #5fafff; font-weight: bold;">,</span> <span style="color: #d7875f; font-weight: bold;">0</span>
+halt
+</pre>
+</div>
+
+<p>
+<code>lru_result.log:</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">On lru.asm
+
+using victimway, data hit rate is 33.3
+using lru,       data hit rate is 41.7
+
+On lru_mult.asm
+
+using victimway, data hit rate is 12.9
+using lru,       data hit rate is 22.7
+</pre>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Replace RCA with CLA</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+An CLA was implemented and behaved the same as our RCA over all
+tests. In the process of synthesis, we noticed that this reduced
+our critical path greatly, but not to the extent that was necessary
+to get our design within constraints.
+</p>
+
+<p>
+We did not test any further than just testing with
+instructor-provided tests and tests for HW3<sub>1</sub>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Exception Handling</h3>
+<div class="outline-text-3" id="text-1-3">
+<dl class="org-dl">
+<dt> SIIC </dt><dd>This is treated as a particular branch instruction, still
+decided in decode, but branched to a constant address of the trap
+handler. It is handled as a <code>JAL</code>, but where the current (already
+incremented) PC is written to a special <code>EPC</code> register instead of
+<code>R7</code>.
+</dd>
+
+<dt> RTI </dt><dd>This is the same as a standard <code>ret</code> instruction, but
+where the jump target is given by the <code>EPC</code> register instead of
+<code>R7</code>.
+
+<p>
+We did not test further than the instructor-provided tests.
+</p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Synthesis</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+We attempted but could not successfully meet timing paramters. We
+have a critical path which flows from the stall signal of the data
+memory to the write enable on the IDEX pipeline register, which
+synopsys could not optimize down.  Various ungroupings,
+regroupings, flattenings, etc. did not managed to make this
+possible.
+</p>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Components Attempted</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. LRU</a></li>
+<li><a href="#sec-1-2">1.2. Replace RCA with CLA</a></li>
+<li><a href="#sec-1-3">1.3. Exception Handling</a></li>
+<li><a href="#sec-1-4">1.4. Synthesis</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Team 3: Jeremy Intan, Chetankumar Mistry, Nicholas Sielicki</p>
+<p class="date">Created: 2019-05-05 Sun 21:59</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.2.3)</p>
+</div>
+</footer>
+</body>
+</html>

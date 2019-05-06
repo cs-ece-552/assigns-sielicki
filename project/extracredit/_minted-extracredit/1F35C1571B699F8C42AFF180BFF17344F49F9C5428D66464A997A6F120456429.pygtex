@@ -1,0 +1,67 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{module} \PYG{n}{cla\PYGZus{}4b}\PYG{p}{(}\PYG{n+no}{A}\PYG{p}{,} \PYG{n+no}{B}\PYG{p}{,} \PYG{n}{C\PYGZus{}in}\PYG{p}{,} \PYG{n+no}{S}\PYG{p}{,} \PYG{n}{gen}\PYG{p}{,} \PYG{n}{prop}\PYG{p}{);}
+
+    \PYG{c+c1}{// declare constant for size of inputs, outputs (N)}
+    \PYG{k}{parameter}   \PYG{n+no}{N} \PYG{o}{=} \PYG{l+m+mh}{4}\PYG{p}{;}
+
+    \PYG{k}{input} \PYG{p}{[}\PYG{n+no}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n+no}{A}\PYG{p}{,} \PYG{n+no}{B}\PYG{p}{;}
+    \PYG{k}{input}          \PYG{n}{C\PYGZus{}in}\PYG{p}{;}
+    \PYG{k}{output} \PYG{p}{[}\PYG{n+no}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{o}{:}\PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n+no}{S}\PYG{p}{;}
+    \PYG{k}{output}         \PYG{n}{prop}\PYG{p}{;}
+    \PYG{k}{output}         \PYG{n}{gen}\PYG{p}{;}
+
+    \PYG{k+kt}{wire} 	   \PYG{n}{c1}\PYG{p}{,} \PYG{n}{c2}\PYG{p}{,} \PYG{n}{c3}\PYG{p}{;}
+    \PYG{k+kt}{wire}       \PYG{n}{p0}\PYG{p}{,} \PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{,} \PYG{n}{p3}\PYG{p}{;}
+    \PYG{k+kt}{wire}       \PYG{n}{g0}\PYG{p}{,} \PYG{n}{g1}\PYG{p}{,} \PYG{n}{g2}\PYG{p}{,} \PYG{n}{g3}\PYG{p}{;}
+
+    \PYG{k}{assign} \PYG{n}{p0} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{p1} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{p2} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{p3} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{]} \PYG{o}{\PYGZca{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{];}
+
+    \PYG{k}{assign} \PYG{n}{g0} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{g1} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{g2} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{];}
+    \PYG{k}{assign} \PYG{n}{g3} \PYG{o}{=} \PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{];}
+
+
+    \PYG{k}{assign} \PYG{n}{c1} \PYG{o}{=} \PYG{n}{g0} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p0} \PYG{o}{\PYGZam{}} \PYG{n}{C\PYGZus{}in}\PYG{p}{);}
+    \PYG{k}{assign} \PYG{n}{c2} \PYG{o}{=} \PYG{n}{g1} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{g0}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{p0} \PYG{o}{\PYGZam{}} \PYG{n}{C\PYGZus{}in}\PYG{p}{);}
+    \PYG{k}{assign} \PYG{n}{c3} \PYG{o}{=} \PYG{n}{g2} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{g1}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{g0}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{p0} \PYG{o}{\PYGZam{}} \PYG{n}{C\PYGZus{}in}\PYG{p}{);}
+    \PYG{k}{assign} \PYG{n}{gen} \PYG{o}{=} \PYG{n}{g3} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p3} \PYG{o}{\PYGZam{}} \PYG{n}{g2}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p3} \PYG{o}{\PYGZam{}} \PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{g1}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p3} \PYG{o}{\PYGZam{}} \PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{g0}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{p3} \PYG{o}{\PYGZam{}} \PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{p0} \PYG{o}{\PYGZam{}} \PYG{n}{C\PYGZus{}in}\PYG{p}{);}
+    \PYG{k}{assign} \PYG{n}{prop} \PYG{o}{=} \PYG{n}{p0} \PYG{o}{\PYGZam{}} \PYG{n}{p1} \PYG{o}{\PYGZam{}} \PYG{n}{p2} \PYG{o}{\PYGZam{}} \PYG{n}{p3}\PYG{p}{;}
+
+    \PYG{n}{fullAdder\PYGZus{}1b\PYGZus{}cla} \PYG{n}{one}\PYG{p}{(}
+		     \PYG{c+c1}{// Outputs}
+		     \PYG{p}{.}\PYG{n+no}{S}			\PYG{p}{(}\PYG{n+no}{S}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{]),}
+		     \PYG{c+c1}{// Inputs}
+		     \PYG{p}{.}\PYG{n+no}{A}			\PYG{p}{(}\PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n+no}{B}			\PYG{p}{(}\PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{0}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n}{C\PYGZus{}in}		\PYG{p}{(}\PYG{n}{C\PYGZus{}in}\PYG{p}{));}
+
+    \PYG{n}{fullAdder\PYGZus{}1b\PYGZus{}cla} \PYG{n}{two}\PYG{p}{(}
+		     \PYG{c+c1}{// Outputs}
+		     \PYG{p}{.}\PYG{n+no}{S}			\PYG{p}{(}\PYG{n+no}{S}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]),}
+		     \PYG{c+c1}{// Inputs}
+		     \PYG{p}{.}\PYG{n+no}{A}			\PYG{p}{(}\PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n+no}{B}			\PYG{p}{(}\PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n}{C\PYGZus{}in}		\PYG{p}{(}\PYG{n}{c1}\PYG{p}{));}
+
+   \PYG{n}{fullAdder\PYGZus{}1b\PYGZus{}cla} \PYG{n}{three}\PYG{p}{(}
+		     \PYG{c+c1}{// Outputs}
+		     \PYG{p}{.}\PYG{n+no}{S}			\PYG{p}{(}\PYG{n+no}{S}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{]),}
+		     \PYG{c+c1}{// Inputs}
+		     \PYG{p}{.}\PYG{n+no}{A}			\PYG{p}{(}\PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n+no}{B}			\PYG{p}{(}\PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{2}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n}{C\PYGZus{}in}		\PYG{p}{(}\PYG{n}{c2}\PYG{p}{));}
+
+   \PYG{n}{fullAdder\PYGZus{}1b\PYGZus{}cla} \PYG{n}{four}\PYG{p}{(}
+		     \PYG{c+c1}{// Outputs}
+		     \PYG{p}{.}\PYG{n+no}{S}			\PYG{p}{(}\PYG{n+no}{S}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{]),}
+		     \PYG{c+c1}{// Inputs}
+		     \PYG{p}{.}\PYG{n+no}{A}			\PYG{p}{(}\PYG{n+no}{A}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n+no}{B}			\PYG{p}{(}\PYG{n+no}{B}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{p}{]),}
+		     \PYG{p}{.}\PYG{n}{C\PYGZus{}in}		\PYG{p}{(}\PYG{n}{c3}\PYG{p}{));}
+
+\PYG{k}{endmodule}
+\end{Verbatim}
